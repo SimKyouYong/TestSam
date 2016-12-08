@@ -36,7 +36,7 @@
 #pragma mark StoryBoard Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@""])
+    if ([[segue identifier] isEqualToString:@"halfProduct"])
     {
         
     }
@@ -49,18 +49,24 @@
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_on_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_off_bg_250x94.png"] forState:UIControlStateNormal];
+    
+    [self performSegueWithIdentifier:@"coffee_push" sender:sender];
 }
 
 - (IBAction)tabButton2:(id)sender {
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_on_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_off_bg_250x94.png"] forState:UIControlStateNormal];
+    
+    [self performSegueWithIdentifier:@"halfProduct_push" sender:sender];
 }
 
 - (IBAction)tabButton3:(id)sender {
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_on_bg_250x94.png"] forState:UIControlStateNormal];
+    
+    [self performSegueWithIdentifier:@"menual_push" sender:sender];
 }
 
 #pragma mark -

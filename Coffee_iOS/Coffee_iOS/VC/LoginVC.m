@@ -62,6 +62,7 @@
 }
 
 - (IBAction)loginButton:(id)sender {
+    // 로그인 성공시 밑에 꺼 추가하면 됨!
      [self performSegueWithIdentifier:@"bridge_push" sender:sender];
     
     /*
