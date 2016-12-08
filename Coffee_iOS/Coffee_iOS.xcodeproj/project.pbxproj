@@ -18,7 +18,6 @@
 		6D56BEC81DF95583005E55BD /* bad_icon_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE5E1DF95583005E55BD /* bad_icon_60x60@2x.png */; };
 		6D56BEC91DF95583005E55BD /* balance2_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE5F1DF95583005E55BD /* balance2_button_330x80@2x.png */; };
 		6D56BECA1DF95583005E55BD /* balance_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE601DF95583005E55BD /* balance_button_330x80@2x.png */; };
-		6D56BECB1DF95583005E55BD /* bgView.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE611DF95583005E55BD /* bgView.png */; };
 		6D56BECC1DF95583005E55BD /* bitterness2_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE621DF95583005E55BD /* bitterness2_button_330x80@2x.png */; };
 		6D56BECD1DF95583005E55BD /* bitterness_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE631DF95583005E55BD /* bitterness_button_330x80@2x.png */; };
 		6D56BECE1DF95583005E55BD /* body2_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE641DF95583005E55BD /* body2_button_330x80@2x.png */; };
@@ -109,11 +108,11 @@
 		6D56BF231DF95583005E55BD /* BridgeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D56BEBB1DF95583005E55BD /* BridgeVC.m */; };
 		6D56BF241DF95583005E55BD /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D56BEBD1DF95583005E55BD /* HomeVC.m */; };
 		6D56BF251DF95583005E55BD /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D56BEBF1DF95583005E55BD /* LoginVC.m */; };
+		6DB5E99B1DF972D300EFE786 /* backgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB5E99A1DF972D300EFE786 /* backgroundImage.png */; };
 		6DE23CEB1DF5455400075F8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE23CEA1DF5455400075F8F /* main.m */; };
 		6DE23CEE1DF5455400075F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE23CED1DF5455400075F8F /* AppDelegate.m */; };
 		6DE23CF41DF5455400075F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DE23CF21DF5455400075F8F /* Main.storyboard */; };
 		6DE23CF61DF5455400075F8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DE23CF51DF5455400075F8F /* Assets.xcassets */; };
-		6DE23CF91DF5455400075F8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DE23CF71DF5455400075F8F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,7 +129,6 @@
 		6D56BE5E1DF95583005E55BD /* bad_icon_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bad_icon_60x60@2x.png"; sourceTree = "<group>"; };
 		6D56BE5F1DF95583005E55BD /* balance2_button_330x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balance2_button_330x80@2x.png"; sourceTree = "<group>"; };
 		6D56BE601DF95583005E55BD /* balance_button_330x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balance_button_330x80@2x.png"; sourceTree = "<group>"; };
-		6D56BE611DF95583005E55BD /* bgView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgView.png; sourceTree = "<group>"; };
 		6D56BE621DF95583005E55BD /* bitterness2_button_330x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitterness2_button_330x80@2x.png"; sourceTree = "<group>"; };
 		6D56BE631DF95583005E55BD /* bitterness_button_330x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitterness_button_330x80@2x.png"; sourceTree = "<group>"; };
 		6D56BE641DF95583005E55BD /* body2_button_330x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "body2_button_330x80@2x.png"; sourceTree = "<group>"; };
@@ -224,13 +222,13 @@
 		6D56BEBD1DF95583005E55BD /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		6D56BEBE1DF95583005E55BD /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		6D56BEBF1DF95583005E55BD /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		6DB5E99A1DF972D300EFE786 /* backgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage.png; sourceTree = "<group>"; };
 		6DE23CE61DF5455400075F8F /* Coffee_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffee_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE23CEA1DF5455400075F8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DE23CEC1DF5455400075F8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DE23CED1DF5455400075F8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6DE23CF31DF5455400075F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DE23CF51DF5455400075F8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6DE23CF81DF5455400075F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DE23CFA1DF5455400075F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +263,7 @@
 		6D56BE561DF95583005E55BD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6DB5E99A1DF972D300EFE786 /* backgroundImage.png */,
 				6D56BE571DF95583005E55BD /* acidity2_button_330x80@2x.png */,
 				6D56BE581DF95583005E55BD /* acidity_button_330x80@2x.png */,
 				6D56BE591DF95583005E55BD /* aftertaste2_button_330x80@2x.png */,
@@ -275,7 +274,6 @@
 				6D56BE5E1DF95583005E55BD /* bad_icon_60x60@2x.png */,
 				6D56BE5F1DF95583005E55BD /* balance2_button_330x80@2x.png */,
 				6D56BE601DF95583005E55BD /* balance_button_330x80@2x.png */,
-				6D56BE611DF95583005E55BD /* bgView.png */,
 				6D56BE621DF95583005E55BD /* bitterness2_button_330x80@2x.png */,
 				6D56BE631DF95583005E55BD /* bitterness_button_330x80@2x.png */,
 				6D56BE641DF95583005E55BD /* body2_button_330x80@2x.png */,
@@ -370,12 +368,12 @@
 		6D56BEB91DF95583005E55BD /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				6D56BEBE1DF95583005E55BD /* LoginVC.h */,
+				6D56BEBF1DF95583005E55BD /* LoginVC.m */,
 				6D56BEBA1DF95583005E55BD /* BridgeVC.h */,
 				6D56BEBB1DF95583005E55BD /* BridgeVC.m */,
 				6D56BEBC1DF95583005E55BD /* HomeVC.h */,
 				6D56BEBD1DF95583005E55BD /* HomeVC.m */,
-				6D56BEBE1DF95583005E55BD /* LoginVC.h */,
-				6D56BEBF1DF95583005E55BD /* LoginVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -407,7 +405,6 @@
 				6DE23CF21DF5455400075F8F /* Main.storyboard */,
 				6D56BE561DF95583005E55BD /* Resource */,
 				6DE23CF51DF5455400075F8F /* Assets.xcassets */,
-				6DE23CF71DF5455400075F8F /* LaunchScreen.storyboard */,
 				6DE23CFA1DF5455400075F8F /* Info.plist */,
 				6DE23CE91DF5455400075F8F /* Supporting Files */,
 			);
@@ -524,9 +521,9 @@
 				6D56BEC61DF95583005E55BD /* aroma_button_330x80@2x.png in Resources */,
 				6D56BEFE1DF95583005E55BD /* retest_off_button_330x80@2x.png in Resources */,
 				6D56BF1A1DF95583005E55BD /* tab8_off_bg_250x94@2x.png in Resources */,
+				6DB5E99B1DF972D300EFE786 /* backgroundImage.png in Resources */,
 				6D56BEC51DF95583005E55BD /* aroma2_button_330x80@2x.png in Resources */,
 				6D56BF1C1DF95583005E55BD /* text_bg_160x60@2x.png in Resources */,
-				6DE23CF91DF5455400075F8F /* LaunchScreen.storyboard in Resources */,
 				6D56BF121DF95583005E55BD /* tab4_off_bg_250x94@2x.png in Resources */,
 				6DE23CF61DF5455400075F8F /* Assets.xcassets in Resources */,
 				6D56BF101DF95583005E55BD /* tab3_off_bg_250x94@2x.png in Resources */,
@@ -563,7 +560,6 @@
 				6D56BF0D1DF95583005E55BD /* tab1_on_bg_250x94@2x.png in Resources */,
 				6D56BEE31DF95583005E55BD /* normal_bg_330x80@2x.png in Resources */,
 				6D56BF141DF95583005E55BD /* tab5_off_bg_250x94@2x.png in Resources */,
-				6D56BECB1DF95583005E55BD /* bgView.png in Resources */,
 				6D56BF031DF95583005E55BD /* save_button_330x80@2x.png in Resources */,
 				6D56BEFB1DF95583005E55BD /* prev_button_40x40@2x.png in Resources */,
 				6D56BED31DF95583005E55BD /* cleancup_button_330x80@2x.png in Resources */,
@@ -610,14 +606,6 @@
 				6DE23CF31DF5455400075F8F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6DE23CF71DF5455400075F8F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6DE23CF81DF5455400075F8F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -715,8 +703,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CV7VVB3342;
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jcone.dongbuDev.Coffee-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -727,8 +717,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CV7VVB3342;
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jcone.dongbuDev.Coffee-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
