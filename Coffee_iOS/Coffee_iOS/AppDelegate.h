@@ -4,7 +4,7 @@
 //
 //  Created by Joseph on 2016. 12. 5..
 //  Copyright © 2016년 JC1_Joseph. All rights reserved.
-//  sky
+//
 
 #import <UIKit/UIKit.h>
 
