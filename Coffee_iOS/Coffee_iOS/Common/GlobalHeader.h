@@ -15,4 +15,11 @@
 #define AUTO_LOGIN              @"auto_login"
 
 // URL
-#define LOGIN_URL               @""
+#define LOGIN_URL               @"http://work.nexall.net/web/app/login.php"
+#define HOMELIST_URL            @"http://work.nexall.net/web/app/sample_list.php"
+
+// Memory
+#define USER_NO                 [GlobalObject sharedInstance].userNO
+#define USER_ID                 [GlobalObject sharedInstance].userID
+#define USER_NICK               [GlobalObject sharedInstance].userNick
+

@@ -120,9 +120,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
-                        <outlet property="PassText" destination="L4X-HK-Vhh" id="cBP-CA-P3t"/>
                         <outlet property="autoLogin" destination="qAe-LR-HvN" id="AjC-wG-m3E"/>
                         <outlet property="empText" destination="h0h-P7-Oaa" id="WSL-Zd-0KB"/>
+                        <outlet property="passText" destination="L4X-HK-Vhh" id="FJJ-kz-cgq"/>
                         <segue destination="8FN-jB-mnN" kind="push" identifier="bridge_push" id="VFg-y4-Lxr"/>
                     </connections>
                 </viewController>

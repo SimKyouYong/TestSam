@@ -29,7 +29,9 @@
     
     self = [super init];
     if (self) {
-        
+        _userNO = @"";
+        _userID = @"";
+        _userNick = @"";
     }
     
     return self;

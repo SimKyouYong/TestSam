@@ -13,7 +13,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *empText;
-@property (weak, nonatomic) IBOutlet UITextField *PassText;
+@property (weak, nonatomic) IBOutlet UITextField *passText;
 @property (weak, nonatomic) IBOutlet UISwitch *autoLogin;
 
 - (IBAction)autoLogin:(id)sender;

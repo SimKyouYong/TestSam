@@ -8,6 +8,7 @@
 
 #import "LoginVC.h"
 #import "GlobalHeader.h"
+#import "GlobalObject.h"
 #import "BridgeVC.h"
 
 @interface LoginVC ()
@@ -17,7 +18,7 @@
 @implementation LoginVC
 
 @synthesize empText;
-@synthesize PassText;
+@synthesize passText;
 @synthesize autoLogin;
 
 - (void)viewDidLoad {
@@ -28,7 +29,7 @@
     
     if([[defaults stringForKey:AUTO_LOGIN] isEqualToString:@"YES"]){
         empText.text = [defaults stringForKey:EMP_NUMBER];
-        PassText.text = [defaults stringForKey:PASSWORD];
+        passText.text = [defaults stringForKey:PASSWORD];
         [autoLogin setOn:YES];
     }else{
         [autoLogin setOn:NO];
@@ -56,43 +57,45 @@
 - (IBAction)autoLogin:(id)sender {
     if([autoLogin isOn]){
         [defaults setObject:@"YES" forKey:AUTO_LOGIN];
+        
     }else{
-         [defaults setObject:@"NO" forKey:AUTO_LOGIN];
+        [defaults setObject:@"NO" forKey:AUTO_LOGIN];
     }
 }
 
 - (IBAction)loginButton:(id)sender {
-    // 로그인 성공시 밑에 꺼 추가하면 됨!
-     [self performSegueWithIdentifier:@"bridge_push" sender:sender];
-    
-    /*
-    NSString *urlString = [NSString stringWithFormat:@"%@", LOGIN_URL];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&pw=%@", LOGIN_URL, empText.text, passText.text];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSString * params = [NSString stringWithFormat:@"e_id=%@&e_pw=%@", empText.text, PassText.text];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-    
+    [urlRequest setHTTPMethod:@"GET"];
+
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
-        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-        if (statusCode == 200) {
-            NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-            if([resultValue isEqualToString:@"false"]){
-                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"로그인에 실패하였습니다.\n아이디와 비밀번호를 다시 입력해주세요." preferredStyle:UIAlertControllerStyleAlert];
+        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            if([autoLogin isOn]){
+                [defaults setObject:empText.text forKey:EMP_NUMBER];
+                [defaults setObject:passText.text forKey:PASSWORD];
                 
-                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                                     {}];
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
             }else{
-                
+                [defaults setObject:@"" forKey:EMP_NUMBER];
+                [defaults setObject:@"" forKey:PASSWORD];
             }
             
+            [defaults synchronize];
+            
+            USER_NO = [dic objectForKey:@"userno"];
+            USER_ID = [dic objectForKey:@"userid"];
+            USER_NICK = [dic objectForKey:@"usernick"];
+            
+            [self performSegueWithIdentifier:@"bridge_push" sender:sender];
+            
         }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"로그인에 실패하였습니다.\n아이디와 비밀번호를 다시 입력해주세요." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                  {}];
@@ -101,7 +104,6 @@
         }
     }];
     [dataTask resume];
-     */
 }
 
 @end

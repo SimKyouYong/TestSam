@@ -12,4 +12,8 @@
 
 + (GlobalObject *)sharedInstance;
 
+@property (nonatomic, assign) NSString *userNO;
+@property (nonatomic, assign) NSString *userID;
+@property (nonatomic, assign) NSString *userNick;
+
 @end
