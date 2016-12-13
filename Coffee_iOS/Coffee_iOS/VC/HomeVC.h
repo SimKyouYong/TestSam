@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tabButton2;
 @property (weak, nonatomic) IBOutlet UIButton *tabButton3;
 
+- (IBAction)homeButton:(id)sender;
 - (IBAction)tabButton1:(id)sender;
 - (IBAction)tabButton2:(id)sender;
 - (IBAction)tabButton3:(id)sender;

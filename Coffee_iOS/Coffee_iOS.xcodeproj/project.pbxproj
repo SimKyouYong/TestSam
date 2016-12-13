@@ -124,6 +124,8 @@
 		FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */; };
 		FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */; };
 		FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */; };
+		FFB5FEE01E0003E500816336 /* main_btn_home.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEDF1E0003E500816336 /* main_btn_home.png */; };
+		FFB5FEE21E00049500816336 /* main_logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEE11E00049500816336 /* main_logo2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +265,8 @@
 		FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeSecondVC.m; sourceTree = "<group>"; };
 		FF3514E01DF9A18D001008E0 /* CoffeeThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeThirdVC.h; sourceTree = "<group>"; };
 		FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeThirdVC.m; sourceTree = "<group>"; };
+		FFB5FEDF1E0003E500816336 /* main_btn_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_btn_home.png; sourceTree = "<group>"; };
+		FFB5FEE11E00049500816336 /* main_logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_logo2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,8 @@
 		6D56BE561DF95583005E55BD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FFB5FEE11E00049500816336 /* main_logo2.png */,
+				FFB5FEDF1E0003E500816336 /* main_btn_home.png */,
 				6DB5E99A1DF972D300EFE786 /* backgroundImage.png */,
 				6D56BE571DF95583005E55BD /* acidity2_button_330x80@2x.png */,
 				6D56BE581DF95583005E55BD /* acidity_button_330x80@2x.png */,
@@ -622,6 +628,7 @@
 				6D56BEC11DF95583005E55BD /* acidity2_button_330x80@2x.png in Resources */,
 				6D56BEDE1DF95583005E55BD /* menu_button_40x40@2x.png in Resources */,
 				6D56BEDC1DF95583005E55BD /* login_button_480x80@2x.png in Resources */,
+				FFB5FEE01E0003E500816336 /* main_btn_home.png in Resources */,
 				6D56BEF11DF95583005E55BD /* on_cupping_button_226x68@2x.png in Resources */,
 				6D56BEC71DF95583005E55BD /* bad_bg_330x80@2x.png in Resources */,
 				6D56BECA1DF95583005E55BD /* balance_button_330x80@2x.png in Resources */,
@@ -630,6 +637,7 @@
 				6D56BF091DF95583005E55BD /* startcupping_button_480x80@2x.png in Resources */,
 				6D56BECF1DF95583005E55BD /* body_button_330x80@2x.png in Resources */,
 				6D56BEF21DF95583005E55BD /* on_review_button_226x68@2x.png in Resources */,
+				FFB5FEE21E00049500816336 /* main_logo2.png in Resources */,
 				6D56BF131DF95583005E55BD /* tab4_on_bg_250x94@2x.png in Resources */,
 				6D56BEFD1DF95583005E55BD /* report_button_226x68@2x.png in Resources */,
 				6D56BF021DF95583005E55BD /* s_logo_132x60@2x.png in Resources */,

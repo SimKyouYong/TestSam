@@ -26,12 +26,12 @@
     
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_on_bg_250x94.png"] forState:UIControlStateNormal];
     
-    tableList = [[NSMutableArray alloc] init];
-    
     [self listInitLoad:0];
 }
 
 - (void)listInitLoad:(NSInteger)num{
+    tableList = [[NSMutableArray alloc] init];
+    
     //opt : 원료 - source, 반제품 - half, 매뉴얼 - manual
     NSString *optSelect = nil;
     if(num == 0){
@@ -55,7 +55,9 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
-            NSLog(@"%@", dic);
+            tableList = [dic objectForKey:@"datas"];
+            NSLog(@"%@", tableList);
+            [homeTableView reloadData];
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -87,14 +89,16 @@
 #pragma mark -
 #pragma mark Button Action
 
+- (IBAction)homeButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)tabButton1:(id)sender {
     [self listInitLoad:0];
     
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_on_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_off_bg_250x94.png"] forState:UIControlStateNormal];
-    
-    //[self performSegueWithIdentifier:@"coffee_push" sender:sender];
 }
 
 - (IBAction)tabButton2:(id)sender {
@@ -103,8 +107,6 @@
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_on_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_off_bg_250x94.png"] forState:UIControlStateNormal];
-    
-    //[self performSegueWithIdentifier:@"halfProduct_push" sender:sender];
 }
 
 - (IBAction)tabButton3:(id)sender {
@@ -113,8 +115,27 @@
     [tabButton1 setImage:[UIImage imageNamed:@"tab1_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton2 setImage:[UIImage imageNamed:@"tab2_off_bg_250x94.png"] forState:UIControlStateNormal];
     [tabButton3 setImage:[UIImage imageNamed:@"tab3_on_bg_250x94.png"] forState:UIControlStateNormal];
+}
+
+- (void)sampleAction:(UIButton*)sender{
+    NSInteger nIndex = sender.tag;
+    NSLog(@"%ld", nIndex);
     
-    //[self performSegueWithIdentifier:@"menual_push" sender:sender];
+    [self performSegueWithIdentifier:@"coffee_push" sender:sender];
+}
+
+- (void)cuppingAction:(UIButton*)sender{
+    NSInteger nIndex = sender.tag;
+    NSLog(@"%ld", nIndex);
+    
+    [self performSegueWithIdentifier:@"halfProduct_push" sender:sender];
+}
+
+- (void)reviewAction:(UIButton*)sender{
+    NSInteger nIndex = sender.tag;
+    NSLog(@"%ld", nIndex);
+    
+    [self performSegueWithIdentifier:@"menual_push" sender:sender];
 }
 
 #pragma mark -
@@ -122,7 +143,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableList count] + 1;
+    return [tableList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,7 +161,29 @@
     static NSString *CellIdentifier = @"homeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
+    NSDictionary *dic = [tableList objectAtIndex:indexPath.row];
     
+    UILabel *titleText = (UILabel*)[cell viewWithTag:1];
+    UILabel *comentText = (UILabel*)[cell viewWithTag:2];
+    UILabel *timeText = (UILabel*)[cell viewWithTag:3];
+    UILabel *placeText = (UILabel*)[cell viewWithTag:4];
+    
+    UIButton *sampleButton = (UIButton*)[cell viewWithTag:6];
+    UIButton *cuppingButton = (UIButton*)[cell viewWithTag:7];
+    UIButton *reviewButton = (UIButton*)[cell viewWithTag:8];
+    
+    titleText.text = [dic objectForKey:@"gubun"];
+    comentText.text = [dic objectForKey:@"title"];
+    timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
+    placeText.text = [dic objectForKey:@"place"];
+    
+    sampleButton.tag = indexPath.row;
+    cuppingButton.tag = indexPath.row;
+    reviewButton.tag = indexPath.row;
+    
+    [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
+    [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
