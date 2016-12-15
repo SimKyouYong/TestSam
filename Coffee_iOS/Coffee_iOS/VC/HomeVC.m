@@ -36,13 +36,13 @@
     NSString *optSelect = nil;
     if(num == 0){
         optSelect = @"source";
-    }else if(num == 0){
+    }else if(num == 1){
         optSelect = @"half";
-    }else if(num == 0){
+    }else if(num == 2){
         optSelect = @"manual";
     }
-
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=%@&page=%@&session_idx=%@", HOMELIST_URL, USER_ID, optSelect, @"1", @"1"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=%@&page=%@", HOMELIST_URL, USER_ID, optSelect, @"1"];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
@@ -160,7 +160,7 @@
 {
     static NSString *CellIdentifier = @"homeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     NSDictionary *dic = [tableList objectAtIndex:indexPath.row];
     
     UILabel *titleText = (UILabel*)[cell viewWithTag:1];
@@ -172,10 +172,20 @@
     UIButton *cuppingButton = (UIButton*)[cell viewWithTag:7];
     UIButton *reviewButton = (UIButton*)[cell viewWithTag:8];
     
-    titleText.text = [dic objectForKey:@"gubun"];
+    titleText.text = [dic objectForKey:@"session_idx"];
     comentText.text = [dic objectForKey:@"title"];
     timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
     placeText.text = [dic objectForKey:@"place"];
+    
+    if([[dic objectForKey:@"state"] isEqualToString:@"I"]){
+        [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+        [cuppingButton setImage:[UIImage imageNamed:@"on_cupping_button_226x68"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+        [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
+    }
     
     sampleButton.tag = indexPath.row;
     cuppingButton.tag = indexPath.row;

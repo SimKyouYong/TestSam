@@ -16,7 +16,7 @@
 
 // URL
 #define LOGIN_URL               @"http://work.nexall.net/web/app/login.php"
-#define HOMELIST_URL            @"http://work.nexall.net/web/app/sample_list.php"
+#define HOMELIST_URL            @"http://work.nexall.net/web/app/sess_list.php"
 
 // Memory
 #define USER_NO                 [GlobalObject sharedInstance].userNO
