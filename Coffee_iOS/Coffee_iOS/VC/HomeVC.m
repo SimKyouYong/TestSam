@@ -9,6 +9,10 @@
 #import "HomeVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "CoffeReViewVC.h"
+#import "HalfProductReViewVC.h"
+#import "MenualReViewVC.h"
+
 
 @interface HomeVC ()
 
@@ -41,7 +45,7 @@
     }else if(num == 2){
         optSelect = @"manual";
     }
-    
+    tab_position = (int)num;
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=%@&page=%@", HOMELIST_URL, USER_ID, optSelect, @"1"];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -58,6 +62,7 @@
             tableList = [dic objectForKey:@"datas"];
             NSLog(@"%@", tableList);
             [homeTableView reloadData];
+
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -120,6 +125,8 @@
 - (void)sampleAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
     NSLog(@"%ld", nIndex);
+    SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
+
     
     [self performSegueWithIdentifier:@"coffee_push" sender:sender];
 }
@@ -134,8 +141,22 @@
 - (void)reviewAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
     NSLog(@"%ld", nIndex);
+    SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
     
-    [self performSegueWithIdentifier:@"menual_push" sender:sender];
+    if (tab_position == 0) {
+        //원료커핑
+        CoffeReViewVC *vc = [[CoffeReViewVC alloc]initWithNibName:@"CoffeReViewVC" bundle:nil];
+        [self presentViewController:vc animated:YES completion:nil];
+    }else if(tab_position == 1){
+        //반제품
+        HalfProductReViewVC *vc = [[HalfProductReViewVC alloc]initWithNibName:@"HalfProductReViewVC" bundle:nil];
+        [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        //메뉴얼
+        MenualReViewVC *vc = [[MenualReViewVC alloc]initWithNibName:@"MenualReViewVC" bundle:nil];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 #pragma mark -

@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface MenualReViewVC : UIViewController
+{
+    NSUserDefaults *defaults;
+    
+    NSDictionary *dic_result;
+    NSDictionary *dic_result3;
+    NSArray *datas;
+    NSArray *datas2;
+    NSArray *datas3;
+}
+@property (weak, nonatomic) NSMutableArray *tableList_;
 
 @end

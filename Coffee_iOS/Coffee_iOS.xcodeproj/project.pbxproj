@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F87381E05736D000A051C /* CoffeReViewVC.m */; };
+		331F873B1E05736D000A051C /* CoffeReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F87391E05736D000A051C /* CoffeReViewVC.xib */; };
+		331F873F1E058B06000A051C /* HalfProductReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F873D1E058B06000A051C /* HalfProductReViewVC.m */; };
+		331F87401E058B06000A051C /* HalfProductReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F873E1E058B06000A051C /* HalfProductReViewVC.xib */; };
+		331F87441E058CC4000A051C /* MenualReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F87421E058CC4000A051C /* MenualReViewVC.m */; };
+		331F87451E058CC4000A051C /* MenualReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F87431E058CC4000A051C /* MenualReViewVC.xib */; };
 		6D56BEC01DF95583005E55BD /* GlobalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D56BE541DF95583005E55BD /* GlobalObject.m */; };
 		6D56BEC11DF95583005E55BD /* acidity2_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE571DF95583005E55BD /* acidity2_button_330x80@2x.png */; };
 		6D56BEC21DF95583005E55BD /* acidity_button_330x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D56BE581DF95583005E55BD /* acidity_button_330x80@2x.png */; };
@@ -119,7 +125,7 @@
 		FF3514E51DF9A18D001008E0 /* HalfProductFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D21DF9A18D001008E0 /* HalfProductFirstVC.m */; };
 		FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D41DF9A18D001008E0 /* HalfProductSecondVC.m */; };
 		FF3514E71DF9A18D001008E0 /* HalfProductThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D61DF9A18D001008E0 /* HalfProductThirdVC.m */; };
-		FF3514E81DF9A18D001008E0 /* CoffeeFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D91DF9A18D001008E0 /* CoffeeFirstVC.m */; };
+		FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D91DF9A18D001008E0 /* SampleVC.m */; };
 		FF3514E91DF9A18D001008E0 /* CoffeeFiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */; };
 		FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */; };
 		FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */; };
@@ -129,6 +135,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331F87371E05736D000A051C /* CoffeReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeReViewVC.h; sourceTree = "<group>"; };
+		331F87381E05736D000A051C /* CoffeReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeReViewVC.m; sourceTree = "<group>"; };
+		331F87391E05736D000A051C /* CoffeReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoffeReViewVC.xib; sourceTree = "<group>"; };
+		331F873C1E058B06000A051C /* HalfProductReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfProductReViewVC.h; sourceTree = "<group>"; };
+		331F873D1E058B06000A051C /* HalfProductReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductReViewVC.m; sourceTree = "<group>"; };
+		331F873E1E058B06000A051C /* HalfProductReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HalfProductReViewVC.xib; sourceTree = "<group>"; };
+		331F87411E058CC4000A051C /* MenualReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualReViewVC.h; sourceTree = "<group>"; };
+		331F87421E058CC4000A051C /* MenualReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenualReViewVC.m; sourceTree = "<group>"; };
+		331F87431E058CC4000A051C /* MenualReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenualReViewVC.xib; sourceTree = "<group>"; };
 		6D56BE521DF95583005E55BD /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		6D56BE531DF95583005E55BD /* GlobalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalObject.h; sourceTree = "<group>"; };
 		6D56BE541DF95583005E55BD /* GlobalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalObject.m; sourceTree = "<group>"; };
@@ -255,8 +270,8 @@
 		FF3514D41DF9A18D001008E0 /* HalfProductSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductSecondVC.m; sourceTree = "<group>"; };
 		FF3514D51DF9A18D001008E0 /* HalfProductThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfProductThirdVC.h; sourceTree = "<group>"; };
 		FF3514D61DF9A18D001008E0 /* HalfProductThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductThirdVC.m; sourceTree = "<group>"; };
-		FF3514D81DF9A18D001008E0 /* CoffeeFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFirstVC.h; sourceTree = "<group>"; };
-		FF3514D91DF9A18D001008E0 /* CoffeeFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFirstVC.m; sourceTree = "<group>"; };
+		FF3514D81DF9A18D001008E0 /* SampleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleVC.h; path = "원료커핑/SampleVC.h"; sourceTree = "<group>"; };
+		FF3514D91DF9A18D001008E0 /* SampleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleVC.m; path = "원료커핑/SampleVC.m"; sourceTree = "<group>"; };
 		FF3514DA1DF9A18D001008E0 /* CoffeeFiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFiveVC.h; sourceTree = "<group>"; };
 		FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFiveVC.m; sourceTree = "<group>"; };
 		FF3514DC1DF9A18D001008E0 /* CoffeeFourVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFourVC.h; sourceTree = "<group>"; };
@@ -413,6 +428,8 @@
 				6D56BEBB1DF95583005E55BD /* BridgeVC.m */,
 				6D56BEBC1DF95583005E55BD /* HomeVC.h */,
 				6D56BEBD1DF95583005E55BD /* HomeVC.m */,
+				FF3514D81DF9A18D001008E0 /* SampleVC.h */,
+				FF3514D91DF9A18D001008E0 /* SampleVC.m */,
 				FF3514D71DF9A18D001008E0 /* 원료커핑 */,
 				FF3514D01DF9A18D001008E0 /* 반제품 */,
 				FF3514C91DF9A18D001008E0 /* 메뉴얼 */,
@@ -470,6 +487,9 @@
 				FF3514CD1DF9A18D001008E0 /* MenualSecondVC.m */,
 				FF3514CE1DF9A18D001008E0 /* MenualThirdVC.h */,
 				FF3514CF1DF9A18D001008E0 /* MenualThirdVC.m */,
+				331F87411E058CC4000A051C /* MenualReViewVC.h */,
+				331F87421E058CC4000A051C /* MenualReViewVC.m */,
+				331F87431E058CC4000A051C /* MenualReViewVC.xib */,
 			);
 			path = "메뉴얼";
 			sourceTree = "<group>";
@@ -483,6 +503,9 @@
 				FF3514D41DF9A18D001008E0 /* HalfProductSecondVC.m */,
 				FF3514D51DF9A18D001008E0 /* HalfProductThirdVC.h */,
 				FF3514D61DF9A18D001008E0 /* HalfProductThirdVC.m */,
+				331F873C1E058B06000A051C /* HalfProductReViewVC.h */,
+				331F873D1E058B06000A051C /* HalfProductReViewVC.m */,
+				331F873E1E058B06000A051C /* HalfProductReViewVC.xib */,
 			);
 			path = "반제품";
 			sourceTree = "<group>";
@@ -490,8 +513,6 @@
 		FF3514D71DF9A18D001008E0 /* 원료커핑 */ = {
 			isa = PBXGroup;
 			children = (
-				FF3514D81DF9A18D001008E0 /* CoffeeFirstVC.h */,
-				FF3514D91DF9A18D001008E0 /* CoffeeFirstVC.m */,
 				FF3514DA1DF9A18D001008E0 /* CoffeeFiveVC.h */,
 				FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */,
 				FF3514DC1DF9A18D001008E0 /* CoffeeFourVC.h */,
@@ -500,6 +521,9 @@
 				FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */,
 				FF3514E01DF9A18D001008E0 /* CoffeeThirdVC.h */,
 				FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */,
+				331F87371E05736D000A051C /* CoffeReViewVC.h */,
+				331F87381E05736D000A051C /* CoffeReViewVC.m */,
+				331F87391E05736D000A051C /* CoffeReViewVC.xib */,
 			);
 			path = "원료커핑";
 			sourceTree = "<group>";
@@ -566,6 +590,7 @@
 				6D56BF151DF95583005E55BD /* tab5_on_bg_250x94@2x.png in Resources */,
 				6D56BEEF1DF95583005E55BD /* on2_cupping_button_226x68@2x.png in Resources */,
 				6D56BF211DF95583005E55BD /* uniformity_button_330x80@2x.png in Resources */,
+				331F87451E058CC4000A051C /* MenualReViewVC.xib in Resources */,
 				6D56BEEE1DF95583005E55BD /* ok_on_button_330x80@2x.png in Resources */,
 				6D56BEDF1DF95583005E55BD /* ne2_button_330x80@2x.png in Resources */,
 				6D56BED41DF95583005E55BD /* close_button_40x40@2x.png in Resources */,
@@ -598,6 +623,7 @@
 				6D56BEC41DF95583005E55BD /* aftertaste_button_330x80@2x.png in Resources */,
 				6D56BECE1DF95583005E55BD /* body2_button_330x80@2x.png in Resources */,
 				6D56BEFC1DF95583005E55BD /* prev_button_80x80@2x.png in Resources */,
+				331F873B1E05736D000A051C /* CoffeReViewVC.xib in Resources */,
 				6D56BF191DF95583005E55BD /* tab7_on_bg_250x94@2x.png in Resources */,
 				6D56BF051DF95583005E55BD /* search_button2_678x80@2x.png in Resources */,
 				6D56BF181DF95583005E55BD /* tab7_off_bg_250x94@2x.png in Resources */,
@@ -625,6 +651,7 @@
 				6D56BEE81DF95583005E55BD /* off_cup_icon_66x70@2x.png in Resources */,
 				6D56BF0C1DF95583005E55BD /* tab1_off_bg_250x94@2x.png in Resources */,
 				6D56BEDB1DF95583005E55BD /* intro_750x1334@2x.png in Resources */,
+				331F87401E058B06000A051C /* HalfProductReViewVC.xib in Resources */,
 				6D56BEC11DF95583005E55BD /* acidity2_button_330x80@2x.png in Resources */,
 				6D56BEDE1DF95583005E55BD /* menu_button_40x40@2x.png in Resources */,
 				6D56BEDC1DF95583005E55BD /* login_button_480x80@2x.png in Resources */,
@@ -679,13 +706,16 @@
 				6DE23CEE1DF5455400075F8F /* AppDelegate.m in Sources */,
 				FF3514E31DF9A18D001008E0 /* MenualSecondVC.m in Sources */,
 				6D56BF251DF95583005E55BD /* LoginVC.m in Sources */,
+				331F87441E058CC4000A051C /* MenualReViewVC.m in Sources */,
+				331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */,
 				FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */,
+				331F873F1E058B06000A051C /* HalfProductReViewVC.m in Sources */,
 				FF3514E51DF9A18D001008E0 /* HalfProductFirstVC.m in Sources */,
 				6DE23CEB1DF5455400075F8F /* main.m in Sources */,
 				FF3514E91DF9A18D001008E0 /* CoffeeFiveVC.m in Sources */,
 				FF3514E21DF9A18D001008E0 /* MenualFirstVC.m in Sources */,
 				FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */,
-				FF3514E81DF9A18D001008E0 /* CoffeeFirstVC.m in Sources */,
+				FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */,
 				FF3514E71DF9A18D001008E0 /* HalfProductThirdVC.m in Sources */,
 				6D56BF241DF95583005E55BD /* HomeVC.m in Sources */,
 				FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */,

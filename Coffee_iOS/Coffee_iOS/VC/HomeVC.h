@@ -10,6 +10,7 @@
 
 @interface HomeVC : UIViewController{
     NSMutableArray *tableList;
+    int tab_position;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;

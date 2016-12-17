@@ -15,5 +15,6 @@
 @property (nonatomic, assign) NSString *userNO;
 @property (nonatomic, assign) NSString *userID;
 @property (nonatomic, assign) NSString *userNick;
+@property (nonatomic, assign) NSString *sessionId;
 
 @end
