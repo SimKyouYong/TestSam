@@ -83,7 +83,8 @@
 //    self.txt.text = @"abc";
     [txt setText:str];
     NSString * str1 =[[datas objectAtIndex:position] valueForKey:@"sample_title"];
-    [btn_1 setTitle:[NSString stringWithFormat:@"%@:" , str1] forState:UIControlStateNormal];
+    //[btn_1 setTitle:[NSString stringWithFormat:@"%@:" , str1] forState:UIControlStateNormal];
+    btn_1.titleLabel.text = str1;
     btn_1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 
     NSString * str2 =[NSString stringWithFormat:@"%@" ,[[datas objectAtIndex:position] valueForKey:@"sample_code"]];
@@ -141,8 +142,9 @@
 
 //피커뷰 확인 눌럿을떼 , datas 어레이로 다시 값 뿌리면 끝!
 - (IBAction)slectChoiceButton:(id)sender {
-    box.hidden = NO;
-    [self init:picker_position];
+    //피커뷰 생성
+    //box.hidden = NO;
+    //[self init:picker_position];
 }
 
 #pragma mark -

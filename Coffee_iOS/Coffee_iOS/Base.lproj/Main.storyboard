@@ -1807,7 +1807,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r8H-Xr-khR">
-                                <rect key="frame" x="35" y="145" width="530" height="314"/>
+                                <rect key="frame" x="35" y="144.66666666666669" width="530" height="314.33333333333337"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1820,6 +1820,9 @@
                                 <state key="normal" title="001">
                                     <color key="titleColor" red="1" green="0.71695850048697873" blue="0.24039624865159026" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="slectChoiceButton:" destination="ep1-75-JUk" eventType="touchUpInside" id="yZt-8e-TuM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-pt-8vK">
                                 <rect key="frame" x="342" y="96" width="95" height="30"/>
@@ -1827,6 +1830,9 @@
                                 <state key="normal" title="(2/5)">
                                     <color key="titleColor" red="0.34377045157068065" green="0.34377045157068065" blue="0.34377045157068065" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="slectChoiceButton:" destination="ep1-75-JUk" eventType="touchUpInside" id="kCQ-jy-AFm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-BG-ZXj">
                                 <rect key="frame" x="525" y="28" width="40" height="40"/>
@@ -1838,12 +1844,24 @@
                                     <action selector="homeButton:" destination="ep1-75-JUk" eventType="touchUpInside" id="SRh-BD-eQ3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-De-NkN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-De-NkN">
                                 <rect key="frame" x="20" y="96" width="250" height="30"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <state key="normal" title="kkk001:">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="kkk001:">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
+                                <state key="highlighted">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="slectChoiceButton:" destination="ep1-75-JUk" eventType="touchUpInside" id="bTj-8f-r2G"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
