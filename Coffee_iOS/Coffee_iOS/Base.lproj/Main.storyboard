@@ -1544,7 +1544,7 @@
                                         </constraints>
                                         <state key="normal" image="main_btn_home.png"/>
                                         <connections>
-                                            <action selector="homeButton:" destination="zaH-2P-f3X" eventType="touchUpInside" id="pte-QI-kwJ"/>
+                                            <action selector="backButton:" destination="zaH-2P-f3X" eventType="touchUpInside" id="qbk-2T-PhT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1698,7 +1698,7 @@
                                         </constraints>
                                         <state key="normal" image="main_btn_home.png"/>
                                         <connections>
-                                            <action selector="homeButton:" destination="bDy-QT-fVL" eventType="touchUpInside" id="QtL-ZR-e3g"/>
+                                            <action selector="backButton:" destination="bDy-QT-fVL" eventType="touchUpInside" id="97c-5o-kNs"/>
                                         </connections>
                                     </button>
                                 </subviews>
