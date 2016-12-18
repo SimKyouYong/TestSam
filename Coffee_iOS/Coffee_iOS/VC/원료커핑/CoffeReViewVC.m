@@ -15,13 +15,14 @@
 @end
 
 @implementation CoffeReViewVC
-@synthesize tableList_;
+
+@synthesize coffeeReviewScrollView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
-    
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -58,6 +59,13 @@
     }];
     [dataTask resume];
 }
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [coffeeReviewScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 1075)];
+}
+
 - (void)Init{
     
 //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
@@ -143,5 +151,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

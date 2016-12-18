@@ -13,7 +13,6 @@
 #import "HalfProductReViewVC.h"
 #import "MenualReViewVC.h"
 
-
 @interface HomeVC ()
 
 @end
@@ -124,10 +123,8 @@
 
 - (void)sampleAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
-    NSLog(@"%ld", nIndex);
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
 
-    
     [self performSegueWithIdentifier:@"coffee_push" sender:sender];
 }
 
@@ -144,15 +141,14 @@
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
     
     if (tab_position == 0) {
-        //원료커핑
-        CoffeReViewVC *vc = [[CoffeReViewVC alloc]initWithNibName:@"CoffeReViewVC" bundle:nil];
-        [self presentViewController:vc animated:YES completion:nil];
+        // 원료커핑
+        [self performSegueWithIdentifier:@"coffeeReview_push" sender:sender];
     }else if(tab_position == 1){
-        //반제품
+        // 반제품
         HalfProductReViewVC *vc = [[HalfProductReViewVC alloc]initWithNibName:@"HalfProductReViewVC" bundle:nil];
         [self presentViewController:vc animated:YES completion:nil];
     }else{
-        //메뉴얼
+        // 메뉴얼
         MenualReViewVC *vc = [[MenualReViewVC alloc]initWithNibName:@"MenualReViewVC" bundle:nil];
         [self presentViewController:vc animated:YES completion:nil];
     }

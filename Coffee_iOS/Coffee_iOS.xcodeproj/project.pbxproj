@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F87381E05736D000A051C /* CoffeReViewVC.m */; };
-		331F873B1E05736D000A051C /* CoffeReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F87391E05736D000A051C /* CoffeReViewVC.xib */; };
 		331F873F1E058B06000A051C /* HalfProductReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F873D1E058B06000A051C /* HalfProductReViewVC.m */; };
-		331F87401E058B06000A051C /* HalfProductReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F873E1E058B06000A051C /* HalfProductReViewVC.xib */; };
 		331F87441E058CC4000A051C /* MenualReViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 331F87421E058CC4000A051C /* MenualReViewVC.m */; };
 		331F87451E058CC4000A051C /* MenualReViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F87431E058CC4000A051C /* MenualReViewVC.xib */; };
 		6D56BEC01DF95583005E55BD /* GlobalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D56BE541DF95583005E55BD /* GlobalObject.m */; };
@@ -137,10 +135,8 @@
 /* Begin PBXFileReference section */
 		331F87371E05736D000A051C /* CoffeReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeReViewVC.h; sourceTree = "<group>"; };
 		331F87381E05736D000A051C /* CoffeReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeReViewVC.m; sourceTree = "<group>"; };
-		331F87391E05736D000A051C /* CoffeReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoffeReViewVC.xib; sourceTree = "<group>"; };
 		331F873C1E058B06000A051C /* HalfProductReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfProductReViewVC.h; sourceTree = "<group>"; };
 		331F873D1E058B06000A051C /* HalfProductReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductReViewVC.m; sourceTree = "<group>"; };
-		331F873E1E058B06000A051C /* HalfProductReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HalfProductReViewVC.xib; sourceTree = "<group>"; };
 		331F87411E058CC4000A051C /* MenualReViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualReViewVC.h; sourceTree = "<group>"; };
 		331F87421E058CC4000A051C /* MenualReViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenualReViewVC.m; sourceTree = "<group>"; };
 		331F87431E058CC4000A051C /* MenualReViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenualReViewVC.xib; sourceTree = "<group>"; };
@@ -505,7 +501,6 @@
 				FF3514D61DF9A18D001008E0 /* HalfProductThirdVC.m */,
 				331F873C1E058B06000A051C /* HalfProductReViewVC.h */,
 				331F873D1E058B06000A051C /* HalfProductReViewVC.m */,
-				331F873E1E058B06000A051C /* HalfProductReViewVC.xib */,
 			);
 			path = "반제품";
 			sourceTree = "<group>";
@@ -523,7 +518,6 @@
 				FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */,
 				331F87371E05736D000A051C /* CoffeReViewVC.h */,
 				331F87381E05736D000A051C /* CoffeReViewVC.m */,
-				331F87391E05736D000A051C /* CoffeReViewVC.xib */,
 			);
 			path = "원료커핑";
 			sourceTree = "<group>";
@@ -623,7 +617,6 @@
 				6D56BEC41DF95583005E55BD /* aftertaste_button_330x80@2x.png in Resources */,
 				6D56BECE1DF95583005E55BD /* body2_button_330x80@2x.png in Resources */,
 				6D56BEFC1DF95583005E55BD /* prev_button_80x80@2x.png in Resources */,
-				331F873B1E05736D000A051C /* CoffeReViewVC.xib in Resources */,
 				6D56BF191DF95583005E55BD /* tab7_on_bg_250x94@2x.png in Resources */,
 				6D56BF051DF95583005E55BD /* search_button2_678x80@2x.png in Resources */,
 				6D56BF181DF95583005E55BD /* tab7_off_bg_250x94@2x.png in Resources */,
@@ -651,7 +644,6 @@
 				6D56BEE81DF95583005E55BD /* off_cup_icon_66x70@2x.png in Resources */,
 				6D56BF0C1DF95583005E55BD /* tab1_off_bg_250x94@2x.png in Resources */,
 				6D56BEDB1DF95583005E55BD /* intro_750x1334@2x.png in Resources */,
-				331F87401E058B06000A051C /* HalfProductReViewVC.xib in Resources */,
 				6D56BEC11DF95583005E55BD /* acidity2_button_330x80@2x.png in Resources */,
 				6D56BEDE1DF95583005E55BD /* menu_button_40x40@2x.png in Resources */,
 				6D56BEDC1DF95583005E55BD /* login_button_480x80@2x.png in Resources */,
