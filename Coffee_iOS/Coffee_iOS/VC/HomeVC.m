@@ -145,12 +145,10 @@
         [self performSegueWithIdentifier:@"coffeeReview_push" sender:sender];
     }else if(tab_position == 1){
         // 반제품
-        HalfProductReViewVC *vc = [[HalfProductReViewVC alloc]initWithNibName:@"HalfProductReViewVC" bundle:nil];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self performSegueWithIdentifier:@"halfReview_push" sender:sender];
     }else{
         // 메뉴얼
-        MenualReViewVC *vc = [[MenualReViewVC alloc]initWithNibName:@"MenualReViewVC" bundle:nil];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self performSegueWithIdentifier:@"menualReview_push" sender:sender];
     }
     
 }
