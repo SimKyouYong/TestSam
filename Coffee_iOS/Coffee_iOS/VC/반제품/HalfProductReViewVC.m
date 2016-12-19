@@ -15,6 +15,8 @@
 @end
 
 @implementation HalfProductReViewVC
+
+@synthesize halfScrollView;
 @synthesize tableList_;
 
 - (void)viewDidLoad {
@@ -59,9 +61,14 @@
         }
     }];
     [dataTask resume];
-    
-    
 }
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [halfScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 740)];
+}
+
 - (void)Init{
     
     //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);

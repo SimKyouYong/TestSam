@@ -14,15 +14,29 @@
 @end
 
 @implementation MenualReViewVC
-@synthesize tableList_;
+
+@synthesize menualScrollView;
+
+@synthesize totalAVRText;
+@synthesize totalSTDText;
+@synthesize totalSCOREText;
+
+@synthesize acidityLeftText;
+@synthesize acidityRightText;
+@synthesize sweetnessLeftText;
+@synthesize sweetnessRightText;
+@synthesize bitternessLeftText;
+@synthesize bitternessRightText;
+@synthesize bodyLeftText;
+@synthesize bodyRightText;
+@synthesize aftertasteLeftText;
+@synthesize aftertasteRightText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
-    
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=manual&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -34,20 +48,15 @@
     
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
-        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
-            
-            [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
-            //
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"SAMPLE_DATA :: %@" , datas);
             NSLog(@"/*---------------------------------------*/");
             
             [self Init];
-            
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -58,13 +67,16 @@
         }
     }];
     [dataTask resume];
-    
-    
 }
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 590)];
+}
+
+// 리스트 값 뿌려주기
 - (void)Init{
-    
-    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, [[datas objectAtIndex:0] valueForKey:@"sample_idx"]];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -75,12 +87,9 @@
     
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
-        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
         dic_result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if([[dic_result objectForKey:@"result"] isEqualToString:@"success"]){
-            
-            [defaults synchronize];
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"SAMPLE_DATA :: %@" , dic_result);
             NSLog(@"/*---------------------------------------*/");
@@ -96,11 +105,9 @@
         }
     }];
     [dataTask resume];
-    
 }
+
 - (void)Init2{
-    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL3, USER_ID, [[datas objectAtIndex:0] valueForKey:@"sample_idx"]];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -111,24 +118,21 @@
     
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
-        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-        dic_result3 = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        dic_result2 = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
-        if([[dic_result3 objectForKey:@"result"] isEqualToString:@"success"]){
-            
-            [defaults synchronize];
-            datas3 = [dic_result3 objectForKey:@"datas"];
+        if([[dic_result2 objectForKey:@"result"] isEqualToString:@"success"]){
+            datas3 = [dic_result2 objectForKey:@"datas"];
             
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , dic_result3);
+            NSLog(@"SAMPLE_DATA :: %@" , dic_result2);
             NSLog(@"/*---------------------------------------*/");
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"SAMPLE_DATA :: %@" , datas3);
             NSLog(@"/*---------------------------------------*/");
-            [self Init3];
             
+            [self resultText];
         }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result2 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                  {}];
@@ -138,9 +142,25 @@
     }];
     [dataTask resume];
 }
-- (void)Init3{
+
+// 서버에서 받은 값 뿌려주기
+- (void)resultText{
+    totalAVRText.text = @"TOTAL ACR : ";
+    totalSTDText.text = @"TOTAL STD : ";
+    totalSCOREText.text = @"TOTAL SCORE : ";
     
+    acidityLeftText.text = [dic_result objectForKey:@"acidity_point"];
+    acidityRightText.text = [dic_result objectForKey:@"acidity_po"];
+    sweetnessLeftText.text = [dic_result objectForKey:@"sweetness_point"];
+    sweetnessRightText.text = [dic_result objectForKey:@"sweet"];
+    bitternessLeftText.text = [dic_result objectForKey:@"bitterness_point"];
+    bitternessRightText.text = [dic_result objectForKey:@"bitterness_po"];
+    bodyLeftText.text = [dic_result objectForKey:@"body_point"];
+    bodyRightText.text = [dic_result objectForKey:@"body_medium"];
+    aftertasteLeftText.text = [dic_result objectForKey:@"aftertaste_point"];
+    aftertasteRightText.text = [dic_result objectForKey:@"aftertaste_po"];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

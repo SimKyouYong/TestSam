@@ -18,6 +18,8 @@
     NSArray *datas2;
     NSArray *datas3;
 }
+
+@property (weak, nonatomic) IBOutlet UIScrollView *halfScrollView;
 @property (weak, nonatomic) NSMutableArray *tableList_;
 
 - (IBAction)backButton:(id)sender;
