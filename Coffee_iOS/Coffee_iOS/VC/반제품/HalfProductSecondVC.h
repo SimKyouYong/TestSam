@@ -10,8 +10,10 @@
 
 @interface HalfProductSecondVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *halfSecondScrollView;
+@property (weak, nonatomic) IBOutlet UITextView *halfSecondTextView;
+
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
-- (IBAction)nextButton:(id)sender;
 
 @end

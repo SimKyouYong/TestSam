@@ -1,20 +1,20 @@
 //
-//  MenualFirstVC.m
+//  CoffeeFirstVC.m
 //  Coffee_iOS
 //
-//  Created by Joseph_iMac on 2016. 12. 8..
+//  Created by Joseph_iMac on 2016. 12. 22..
 //  Copyright © 2016년 JC1_Joseph. All rights reserved.
 //
 
-#import "MenualFirstVC.h"
+#import "CoffeeFirstVC.h"
 
-@interface MenualFirstVC ()
+@interface CoffeeFirstVC ()
 
 @end
 
-@implementation MenualFirstVC
+@implementation CoffeeFirstVC
 
-@synthesize menualFirstScrollView;
+@synthesize coffeeFirstScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,14 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -
-#pragma mark StoryBoard Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"menual2"])
-    {
-        
-    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 
 #pragma mark -
@@ -43,14 +38,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)secondaryButton:(id)sender {
+}
+
+- (IBAction)tertiaryButton:(id)sender {
+}
+
 - (IBAction)saveButton:(id)sender {
 }
 
 - (IBAction)nextButton:(id)sender {
-    [self performSegueWithIdentifier:@"menual2" sender:sender];
-}
-
-- (IBAction)latteButton:(id)sender {
 }
 
 @end

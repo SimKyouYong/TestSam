@@ -44,7 +44,7 @@
     }else if(num == 2){
         optSelect = @"manual";
     }
-    tab_position = (int)num;
+    tab_position = num;
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=%@&page=%@", HOMELIST_URL, USER_ID, optSelect, @"1"];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -125,19 +125,27 @@
     NSInteger nIndex = sender.tag;
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
 
-    [self performSegueWithIdentifier:@"coffee_push" sender:sender];
+    [self performSegueWithIdentifier:@"sample_push" sender:sender];
 }
 
 - (void)cuppingAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
     NSLog(@"%ld", nIndex);
     
-    [self performSegueWithIdentifier:@"halfProduct_push" sender:sender];
+    if (tab_position == 0) {
+        // 원료커핑
+        [self performSegueWithIdentifier:@"coffee_push" sender:sender];
+    }else if(tab_position == 1){
+        // 반제품
+        [self performSegueWithIdentifier:@"half_push" sender:sender];
+    }else{
+        // 메뉴얼
+        [self performSegueWithIdentifier:@"menual_push" sender:sender];
+    }
 }
 
 - (void)reviewAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
-    NSLog(@"%ld", nIndex);
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
     
     if (tab_position == 0) {
@@ -150,7 +158,6 @@
         // 메뉴얼
         [self performSegueWithIdentifier:@"menualReview_push" sender:sender];
     }
-    
 }
 
 #pragma mark -

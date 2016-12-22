@@ -10,8 +10,11 @@
 
 @interface MenualFirstVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *menualFirstScrollView;
+
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
+- (IBAction)latteButton:(id)sender;
 
 @end
