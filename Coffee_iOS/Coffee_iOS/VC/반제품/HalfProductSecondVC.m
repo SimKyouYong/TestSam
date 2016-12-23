@@ -8,6 +8,7 @@
 
 #import "HalfProductSecondVC.h"
 #import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface HalfProductSecondVC ()
 

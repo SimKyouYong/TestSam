@@ -10,8 +10,12 @@
 
 @interface CoffeeSecondVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *coffeeSecondScrollView;
+
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
+- (IBAction)pimaryButton:(id)sender;
+- (IBAction)tertiaryButton:(id)sender;
 
 @end

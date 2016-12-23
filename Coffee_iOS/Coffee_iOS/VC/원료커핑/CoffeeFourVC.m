@@ -7,12 +7,16 @@
 //
 
 #import "CoffeeFourVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface CoffeeFourVC ()
 
 @end
 
 @implementation CoffeeFourVC
+
+@synthesize coffeeFourScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,14 +28,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [coffeeFourScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 850)];
+}
+
 #pragma mark -
 #pragma mark StoryBoard Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"coffee5"])
-    {
-        
-    }
+    
 }
 
 #pragma mark -
@@ -42,10 +49,6 @@
 
 - (IBAction)prevButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)nextButton:(id)sender {
-    [self performSegueWithIdentifier:@"coffee5" sender:sender];
 }
 
 @end

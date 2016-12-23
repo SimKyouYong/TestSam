@@ -7,12 +7,16 @@
 //
 
 #import "MenualThirdVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface MenualThirdVC ()
 
 @end
 
 @implementation MenualThirdVC
+
+@synthesize menualThirdScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,11 +28,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [menualThirdScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 440)];
+}
+
 #pragma mark -
 #pragma mark Button Action
 
-- (IBAction)prevButton:(id)sender {
+- (IBAction)americanoButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)saveButton:(id)sender {
 }
 
 @end

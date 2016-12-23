@@ -10,8 +10,10 @@
 
 @interface MenualSecondVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *menualSecondScrollView;
+
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
-- (IBAction)nextButton:(id)sender;
+- (IBAction)latteButton:(id)sender;
 
 @end

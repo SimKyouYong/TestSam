@@ -7,12 +7,16 @@
 //
 
 #import "MenualSecondVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface MenualSecondVC ()
 
 @end
 
 @implementation MenualSecondVC
+
+@synthesize menualSecondScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +26,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [menualSecondScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 590)];
 }
 
 #pragma mark -
@@ -44,7 +54,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)nextButton:(id)sender {
+- (IBAction)latteButton:(id)sender {
     [self performSegueWithIdentifier:@"menual3" sender:sender];
 }
 

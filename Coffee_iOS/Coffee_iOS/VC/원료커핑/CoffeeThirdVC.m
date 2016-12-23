@@ -7,12 +7,16 @@
 //
 
 #import "CoffeeThirdVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface CoffeeThirdVC ()
 
 @end
 
 @implementation CoffeeThirdVC
+
+@synthesize coffeeThirdScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +26,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [coffeeThirdScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 400)];
 }
 
 #pragma mark -
@@ -47,6 +57,12 @@
 
 - (IBAction)nextButton:(id)sender {
     [self performSegueWithIdentifier:@"coffee4" sender:sender];
+}
+
+- (IBAction)pimaryButton:(id)sender {
+}
+
+- (IBAction)secondaryButton:(id)sender {
 }
 
 

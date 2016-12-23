@@ -10,6 +10,9 @@
 
 @interface MenualThirdVC : UIViewController
 
-- (IBAction)prevButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *menualThirdScrollView;
+
+- (IBAction)americanoButton:(id)sender;
+- (IBAction)saveButton:(id)sender;
 
 @end

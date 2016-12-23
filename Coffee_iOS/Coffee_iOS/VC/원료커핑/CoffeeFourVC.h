@@ -10,8 +10,10 @@
 
 @interface CoffeeFourVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *coffeeFourScrollView;
+
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
-- (IBAction)nextButton:(id)sender;
+
 
 @end

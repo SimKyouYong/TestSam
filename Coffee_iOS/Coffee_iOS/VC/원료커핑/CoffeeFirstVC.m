@@ -7,6 +7,8 @@
 //
 
 #import "CoffeeFirstVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface CoffeeFirstVC ()
 
@@ -26,9 +28,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [coffeeFirstScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 400)];
+}
+
+#pragma mark -
+#pragma mark StoryBoard Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"coffee2"])
+    {
+        
+    }
+    if ([[segue identifier] isEqualToString:@"coffeeTabPush"])
+    {
+        
+    }
 }
 
 #pragma mark -
@@ -39,15 +56,18 @@
 }
 
 - (IBAction)secondaryButton:(id)sender {
+    [self performSegueWithIdentifier:@"coffee2" sender:sender];
 }
 
 - (IBAction)tertiaryButton:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeTabPush" sender:sender];
 }
 
 - (IBAction)saveButton:(id)sender {
 }
 
 - (IBAction)nextButton:(id)sender {
+    [self performSegueWithIdentifier:@"coffee2" sender:sender];
 }
 
 @end

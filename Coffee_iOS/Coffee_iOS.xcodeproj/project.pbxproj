@@ -122,7 +122,6 @@
 		FF3514E51DF9A18D001008E0 /* HalfProductFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D21DF9A18D001008E0 /* HalfProductFirstVC.m */; };
 		FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D41DF9A18D001008E0 /* HalfProductSecondVC.m */; };
 		FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514D91DF9A18D001008E0 /* SampleVC.m */; };
-		FF3514E91DF9A18D001008E0 /* CoffeeFiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */; };
 		FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */; };
 		FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */; };
 		FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */; };
@@ -264,8 +263,6 @@
 		FF3514D41DF9A18D001008E0 /* HalfProductSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductSecondVC.m; sourceTree = "<group>"; };
 		FF3514D81DF9A18D001008E0 /* SampleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleVC.h; path = "원료커핑/SampleVC.h"; sourceTree = "<group>"; };
 		FF3514D91DF9A18D001008E0 /* SampleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleVC.m; path = "원료커핑/SampleVC.m"; sourceTree = "<group>"; };
-		FF3514DA1DF9A18D001008E0 /* CoffeeFiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFiveVC.h; sourceTree = "<group>"; };
-		FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFiveVC.m; sourceTree = "<group>"; };
 		FF3514DC1DF9A18D001008E0 /* CoffeeFourVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFourVC.h; sourceTree = "<group>"; };
 		FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFourVC.m; sourceTree = "<group>"; };
 		FF3514DE1DF9A18D001008E0 /* CoffeeSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeSecondVC.h; sourceTree = "<group>"; };
@@ -498,14 +495,12 @@
 			children = (
 				FFF627BB1E0C0B93008AE969 /* CoffeeFirstVC.h */,
 				FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */,
-				FF3514DA1DF9A18D001008E0 /* CoffeeFiveVC.h */,
-				FF3514DB1DF9A18D001008E0 /* CoffeeFiveVC.m */,
-				FF3514DC1DF9A18D001008E0 /* CoffeeFourVC.h */,
-				FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */,
 				FF3514DE1DF9A18D001008E0 /* CoffeeSecondVC.h */,
 				FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */,
 				FF3514E01DF9A18D001008E0 /* CoffeeThirdVC.h */,
 				FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */,
+				FF3514DC1DF9A18D001008E0 /* CoffeeFourVC.h */,
+				FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */,
 				331F87371E05736D000A051C /* CoffeReViewVC.h */,
 				331F87381E05736D000A051C /* CoffeReViewVC.m */,
 			);
@@ -700,7 +695,6 @@
 				331F873F1E058B06000A051C /* HalfProductReViewVC.m in Sources */,
 				FF3514E51DF9A18D001008E0 /* HalfProductFirstVC.m in Sources */,
 				6DE23CEB1DF5455400075F8F /* main.m in Sources */,
-				FF3514E91DF9A18D001008E0 /* CoffeeFiveVC.m in Sources */,
 				FF3514E21DF9A18D001008E0 /* MenualFirstVC.m in Sources */,
 				FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */,
 				FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */,
