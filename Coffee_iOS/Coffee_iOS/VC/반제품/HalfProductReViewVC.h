@@ -11,12 +11,36 @@
 @interface HalfProductReViewVC : UIViewController
 {
     NSUserDefaults *defaults;
-
+    
     NSDictionary *dic_result;
     NSDictionary *dic_result3;
     NSArray *datas;
     NSArray *datas2;
     NSArray *datas3;
+    //추가
+    NSUInteger mPosition;
+    NSUInteger mSample_idx;
+    
+    NSString *mResult_cnt;
+    NSString *mFloral;
+    NSString *mFruity;
+    NSString *mAlcoholic;
+    NSString *mHerb;
+    NSString *mSpice;
+    NSString *mSweet;
+    NSString *mNut;
+    NSString *mChocolate;
+    NSString *mGrain;
+    NSString *mRoast;
+    NSString *mSavory;
+    
+    NSString *mFermented;
+    NSString *mChemical;
+    NSString *mGreen;
+    NSString *mMusty;
+    NSString *mRoastdefect;
+    BOOL mARVflag;
+
 }
 
 //점수판..(홀수 : my , 짝수 : 상대방 )
@@ -36,6 +60,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn14;
 @property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn15;
 @property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn16;
+@property (weak, nonatomic) IBOutlet UILabel *Title;
+
+//맨위에 3개 상단 점수
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4ArvScore;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4StdScore;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4TotalScore;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *halfScrollView;
 @property (weak, nonatomic) NSMutableArray *tableList_;
