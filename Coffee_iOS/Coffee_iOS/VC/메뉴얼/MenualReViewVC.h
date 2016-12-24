@@ -37,6 +37,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteLeftText;
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteRightText;
 
+//버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
+- (IBAction)reviewDetailButton1:(id)sender;
+- (IBAction)reviewDetailButton2:(id)sender;
+- (IBAction)reviewDetailButton3:(id)sender;
+- (IBAction)reviewDetailButton4:(id)sender;
+
+- (IBAction)xButton:(id)sender;
+- (IBAction)oButton:(id)sender;
 - (IBAction)backButton:(id)sender;
+
+- (IBAction)americanoButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *americanoButton;
+- (IBAction)latteButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *latteButton;
 
 @end
