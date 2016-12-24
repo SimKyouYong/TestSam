@@ -32,6 +32,9 @@
 @synthesize aftertasteLeftText;
 @synthesize aftertasteRightText;
 
+@synthesize americanoButton;
+@synthesize latteButton;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -72,7 +75,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 590)];
+    [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 640)];
 }
 
 // 리스트 값 뿌려주기
@@ -167,10 +170,52 @@
 }
 
 #pragma mark -
+#pragma mark StoryBoard Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"menualReviewDetail"])
+    {
+        
+    }
+}
+
+#pragma mark -
 #pragma mark Button Action
+
+- (IBAction)reviewDetailButton1:(id)sender {
+    [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton2:(id)sender {
+    [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton3:(id)sender {
+    [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton4:(id)sender {
+    [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
+}
+
+- (IBAction)xButton:(id)sender {
+}
+
+- (IBAction)oButton:(id)sender {
+}
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)americanoButton:(id)sender {
+    [americanoButton setImage:[UIImage imageNamed:@"tab7_on_bg_250x94.png"] forState:UIControlStateNormal];
+    [latteButton setImage:[UIImage imageNamed:@"tab8_off_bg_250x94.png"] forState:UIControlStateNormal];
+}
+
+- (IBAction)latteButton:(id)sender {
+    [americanoButton setImage:[UIImage imageNamed:@"tab7_off_bg_250x94.png"] forState:UIControlStateNormal];
+    [latteButton setImage:[UIImage imageNamed:@"tab8_on_bg_250x94.png"] forState:UIControlStateNormal];
 }
 
 @end
