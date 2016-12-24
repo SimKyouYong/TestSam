@@ -130,6 +130,11 @@
 		FF95E11F1E0ECFBD00ADD829 /* CoffeeReviewDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E11E1E0ECFBD00ADD829 /* CoffeeReviewDetailVC.m */; };
 		FF95E1221E0ECFD500ADD829 /* HalfProductReviewDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E1211E0ECFD500ADD829 /* HalfProductReviewDetailVC.m */; };
 		FF95E1251E0ECFE500ADD829 /* MenualReviewDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E1241E0ECFE500ADD829 /* MenualReviewDetailVC.m */; };
+		FF95E12B1E0EF48200ADD829 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E12A1E0EF48200ADD829 /* DetailCell.m */; };
+		FF95E12F1E0EFF3200ADD829 /* menual_bad.png in Resources */ = {isa = PBXBuildFile; fileRef = FF95E12C1E0EFF3200ADD829 /* menual_bad.png */; };
+		FF95E1301E0EFF3200ADD829 /* menual_good.png in Resources */ = {isa = PBXBuildFile; fileRef = FF95E12D1E0EFF3200ADD829 /* menual_good.png */; };
+		FF95E1311E0EFF3200ADD829 /* menual_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF95E12E1E0EFF3200ADD829 /* menual_normal.png */; };
+		FF95E1341E0F017400ADD829 /* MenualReviewLatteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E1331E0F017400ADD829 /* MenualReviewLatteVC.m */; };
 		FFB5FEE01E0003E500816336 /* main_btn_home.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEDF1E0003E500816336 /* main_btn_home.png */; };
 		FFB5FEE21E00049500816336 /* main_logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEE11E00049500816336 /* main_logo2.png */; };
 		FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */; };
@@ -282,6 +287,13 @@
 		FF95E1211E0ECFD500ADD829 /* HalfProductReviewDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfProductReviewDetailVC.m; sourceTree = "<group>"; };
 		FF95E1231E0ECFE500ADD829 /* MenualReviewDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualReviewDetailVC.h; sourceTree = "<group>"; };
 		FF95E1241E0ECFE500ADD829 /* MenualReviewDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenualReviewDetailVC.m; sourceTree = "<group>"; };
+		FF95E1291E0EF48200ADD829 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		FF95E12A1E0EF48200ADD829 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		FF95E12C1E0EFF3200ADD829 /* menual_bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menual_bad.png; sourceTree = "<group>"; };
+		FF95E12D1E0EFF3200ADD829 /* menual_good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menual_good.png; sourceTree = "<group>"; };
+		FF95E12E1E0EFF3200ADD829 /* menual_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menual_normal.png; sourceTree = "<group>"; };
+		FF95E1321E0F017400ADD829 /* MenualReviewLatteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualReviewLatteVC.h; sourceTree = "<group>"; };
+		FF95E1331E0F017400ADD829 /* MenualReviewLatteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenualReviewLatteVC.m; sourceTree = "<group>"; };
 		FFB5FEDF1E0003E500816336 /* main_btn_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_btn_home.png; sourceTree = "<group>"; };
 		FFB5FEE11E00049500816336 /* main_logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_logo2.png; sourceTree = "<group>"; };
 		FFF627BB1E0C0B93008AE969 /* CoffeeFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFirstVC.h; sourceTree = "<group>"; };
@@ -305,6 +317,8 @@
 				6D56BE521DF95583005E55BD /* GlobalHeader.h */,
 				6D56BE531DF95583005E55BD /* GlobalObject.h */,
 				6D56BE541DF95583005E55BD /* GlobalObject.m */,
+				FF95E1291E0EF48200ADD829 /* DetailCell.h */,
+				FF95E12A1E0EF48200ADD829 /* DetailCell.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -312,6 +326,9 @@
 		6D56BE561DF95583005E55BD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF95E12C1E0EFF3200ADD829 /* menual_bad.png */,
+				FF95E12D1E0EFF3200ADD829 /* menual_good.png */,
+				FF95E12E1E0EFF3200ADD829 /* menual_normal.png */,
 				FF95E1191E0EC6C500ADD829 /* top_down1.png */,
 				FF95E11A1E0EC6C500ADD829 /* top_down2.png */,
 				FFB5FEE11E00049500816336 /* main_logo2.png */,
@@ -488,6 +505,8 @@
 				FF3514CF1DF9A18D001008E0 /* MenualThirdVC.m */,
 				331F87411E058CC4000A051C /* MenualReViewVC.h */,
 				331F87421E058CC4000A051C /* MenualReViewVC.m */,
+				FF95E1321E0F017400ADD829 /* MenualReviewLatteVC.h */,
+				FF95E1331E0F017400ADD829 /* MenualReviewLatteVC.m */,
 				FF95E1231E0ECFE500ADD829 /* MenualReviewDetailVC.h */,
 				FF95E1241E0ECFE500ADD829 /* MenualReviewDetailVC.m */,
 			);
@@ -600,6 +619,7 @@
 				6D56BEEE1DF95583005E55BD /* ok_on_button_330x80@2x.png in Resources */,
 				6D56BEDF1DF95583005E55BD /* ne2_button_330x80@2x.png in Resources */,
 				6D56BED41DF95583005E55BD /* close_button_40x40@2x.png in Resources */,
+				FF95E1311E0EFF3200ADD829 /* menual_normal.png in Resources */,
 				6D56BEF61DF95583005E55BD /* overall_button_330x80@2x.png in Resources */,
 				6D56BEDD1DF95583005E55BD /* login_input_field_bg_480x80@2x.png in Resources */,
 				6D56BF061DF95583005E55BD /* search_button3_330x80@2x.png in Resources */,
@@ -611,6 +631,7 @@
 				6D56BEF71DF95583005E55BD /* pass_off_button_330x80@2x.png in Resources */,
 				6D56BEF81DF95583005E55BD /* pass_on_button_330x80@2x.png in Resources */,
 				6D56BEE51DF95583005E55BD /* notok2_off_button_330x80@2x.png in Resources */,
+				FF95E12F1E0EFF3200ADD829 /* menual_bad.png in Resources */,
 				6D56BF0F1DF95583005E55BD /* tab2_on_bg_250x94@2x.png in Resources */,
 				6D56BEC81DF95583005E55BD /* bad_icon_60x60@2x.png in Resources */,
 				6D56BEC21DF95583005E55BD /* acidity_button_330x80@2x.png in Resources */,
@@ -627,6 +648,7 @@
 				6D56BEF91DF95583005E55BD /* po2_button_330x80@2x.png in Resources */,
 				6D56BF1E1DF95583005E55BD /* text_bg_button_330x80@2x.png in Resources */,
 				6D56BEC41DF95583005E55BD /* aftertaste_button_330x80@2x.png in Resources */,
+				FF95E1301E0EFF3200ADD829 /* menual_good.png in Resources */,
 				6D56BECE1DF95583005E55BD /* body2_button_330x80@2x.png in Resources */,
 				6D56BEFC1DF95583005E55BD /* prev_button_80x80@2x.png in Resources */,
 				6D56BF191DF95583005E55BD /* tab7_on_bg_250x94@2x.png in Resources */,
@@ -713,6 +735,7 @@
 				FF3514E31DF9A18D001008E0 /* MenualSecondVC.m in Sources */,
 				6D56BF251DF95583005E55BD /* LoginVC.m in Sources */,
 				331F87441E058CC4000A051C /* MenualReViewVC.m in Sources */,
+				FF95E12B1E0EF48200ADD829 /* DetailCell.m in Sources */,
 				331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */,
 				FF95E1221E0ECFD500ADD829 /* HalfProductReviewDetailVC.m in Sources */,
 				FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */,
@@ -730,6 +753,7 @@
 				FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */,
 				6D56BF231DF95583005E55BD /* BridgeVC.m in Sources */,
 				FF95E11F1E0ECFBD00ADD829 /* CoffeeReviewDetailVC.m in Sources */,
+				FF95E1341E0F017400ADD829 /* MenualReviewLatteVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

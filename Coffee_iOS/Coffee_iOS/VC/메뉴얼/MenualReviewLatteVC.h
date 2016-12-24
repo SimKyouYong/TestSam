@@ -1,0 +1,32 @@
+//
+//  MenualReviewLatteVC.h
+//  Coffee_iOS
+//
+//  Created by Joseph_iMac on 2016. 12. 25..
+//  Copyright © 2016년 JC1_Joseph. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MenualReviewLatteVC : UIViewController{
+    
+}
+
+@property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;
+
+- (IBAction)americanoButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *reviewText1;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText2;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText3;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText4;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText5;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText6;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText7;
+@property (weak, nonatomic) IBOutlet UILabel *reviewText8;
+
+- (IBAction)detailLeftButton:(id)sender;
+- (IBAction)detailRightButton:(id)sender;
+- (IBAction)backButton:(id)sender;
+
+@end

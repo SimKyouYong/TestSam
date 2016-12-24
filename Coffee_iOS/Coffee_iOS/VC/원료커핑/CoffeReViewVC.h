@@ -45,6 +45,8 @@
     BOOL mARVflag;
     
     NSInteger sampleIndexValue;
+    NSInteger detailCount;
+    NSInteger buttonCheck;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeReviewScrollView;

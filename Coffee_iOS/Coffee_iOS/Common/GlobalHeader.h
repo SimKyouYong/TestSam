@@ -29,5 +29,4 @@
 #define USER_ID                 [GlobalObject sharedInstance].userID
 #define USER_NICK               [GlobalObject sharedInstance].userNick
 #define SESSIONID               [GlobalObject sharedInstance].sessionId
-#define MSAMPLE_IDX             [GlobalObject sharedInstance].msample_idx
 

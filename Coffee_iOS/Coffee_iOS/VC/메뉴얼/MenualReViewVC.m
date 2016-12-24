@@ -32,9 +32,6 @@
 @synthesize aftertasteLeftText;
 @synthesize aftertasteRightText;
 
-@synthesize americanoButton;
-@synthesize latteButton;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     mPosition = 0;
@@ -227,7 +224,7 @@
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"bitterness_point"] floatValue] &&
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"body_point"] floatValue] &&
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"good_icon_60x60"] forState:UIControlStateNormal];
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_good"] forState:UIControlStateNormal];
 
         //[_MyImg setImage:[UIImage imageNamed:@"good_icon_60x60"]];
     }else if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"acidity_point"] floatValue] ||
@@ -236,11 +233,11 @@
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"body_point"] floatValue] ||
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
 //        [_MyImg setImage:[UIImage imageNamed:@"x_button_40x40"]];
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"x_button_40x40"] forState:UIControlStateNormal];
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_bad"] forState:UIControlStateNormal];
         
     }else {
 //        [_MyImg setImage:[UIImage imageNamed:@"normal_icon_60x60"]];
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"normal_icon_60x60"] forState:UIControlStateNormal];
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_normal"] forState:UIControlStateNormal];
 
     }
     
@@ -298,15 +295,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)americanoButton:(id)sender {
-    [americanoButton setImage:[UIImage imageNamed:@"tab7_on_bg_250x94.png"] forState:UIControlStateNormal];
-    [latteButton setImage:[UIImage imageNamed:@"tab8_off_bg_250x94.png"] forState:UIControlStateNormal];
+- (IBAction)latteButton:(id)sender {
+    [self performSegueWithIdentifier:@"menualReviewLatte_push" sender:sender];
 }
 
-- (IBAction)latteButton:(id)sender {
-    [americanoButton setImage:[UIImage imageNamed:@"tab7_off_bg_250x94.png"] forState:UIControlStateNormal];
-    [latteButton setImage:[UIImage imageNamed:@"tab8_on_bg_250x94.png"] forState:UIControlStateNormal];
-}
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
@@ -318,6 +310,7 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 #pragma mark -
 #pragma ActionSheet Delegate
 

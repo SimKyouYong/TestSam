@@ -9,6 +9,7 @@
 #import "CoffeeReviewDetailVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "DetailCell.h"
 
 @interface CoffeeReviewDetailVC ()
 
@@ -17,6 +18,8 @@
 @implementation CoffeeReviewDetailVC
 
 @synthesize sampleIndex;
+@synthesize countNum;
+@synthesize buttonNum;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,15 +67,55 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark -
+#pragma mark UITableViewDatasource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return countNum;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
+    
+    if (cell == nil){
+        cell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DetailCell"];
+    }
+    
+    if(buttonNum == 1){
+        if(indexPath.row == 0){
+            cell.contentText.text = [NSString stringWithFormat:@"Floral : %@ Fruity : %@ Alcoholic : %@ Herb/Vegetative : %@ Spice : %@ sweet : %@ Nut : %@ Chocolate : %@ Green/Cereal : %@ Roast : %@ savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]];
+        }else if(indexPath.row == 1){
+            
+        }else if(indexPath.row == 2){
+            
+        }else if(indexPath.row == 3){
+            
+        }
+    }else if(buttonNum == 2){
+        
+    }else if(buttonNum == 3){
+        
+    }else if(buttonNum == 4){
+        
+    }
+    
+    return cell;
+}
+
+#pragma mark -
+#pragma mark Button Action
 
 - (IBAction)closeButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

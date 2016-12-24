@@ -180,10 +180,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *CellIdentifier = @"homeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+   
     NSDictionary *dic = [tableList objectAtIndex:indexPath.row];
     
     UILabel *titleText = (UILabel*)[cell viewWithTag:1];
@@ -200,7 +199,9 @@
     timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
     placeText.text = [dic objectForKey:@"place"];
     
-    
+    sampleButton.tag = indexPath.row;
+    cuppingButton.tag = indexPath.row;
+    reviewButton.tag = indexPath.row;
     
     if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
         [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
@@ -229,16 +230,8 @@
             [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
         }else {
             [sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
-            
         }
     }
-    
-   
-    
-    
-    sampleButton.tag = indexPath.row;
-    cuppingButton.tag = indexPath.row;
-    reviewButton.tag = indexPath.row;
     
     //[cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
     //[reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];

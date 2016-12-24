@@ -46,7 +46,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *MyImg;
 @property (weak, nonatomic) IBOutlet UIButton *YouImg;
 
-
 //버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
 - (IBAction)reviewDetailButton1:(id)sender;
 - (IBAction)reviewDetailButton2:(id)sender;
@@ -57,9 +56,6 @@
 - (IBAction)oButton:(id)sender;
 - (IBAction)backButton:(id)sender;
 
-- (IBAction)americanoButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *americanoButton;
 - (IBAction)latteButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *latteButton;
 
 @end

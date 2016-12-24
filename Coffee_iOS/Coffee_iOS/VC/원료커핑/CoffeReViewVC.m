@@ -518,6 +518,8 @@
     {
         CoffeeReviewDetailVC *vc = [segue destinationViewController];
         vc.sampleIndex = sampleIndexValue;
+        vc.countNum = detailCount;
+        vc.buttonNum = buttonCheck;
     }
 }
 
@@ -531,6 +533,8 @@
 //my 평가보기
 - (IBAction)reviewDetailButton1:(id)sender {
     sampleIndexValue = mSample_idx;
+    detailCount = 4;
+    buttonCheck = 1;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
@@ -541,6 +545,8 @@
 
 - (IBAction)reviewDetailButton3:(id)sender {
     sampleIndexValue = mSample_idx;
+    detailCount = 4;
+    buttonCheck = 2;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
@@ -551,6 +557,8 @@
 
 - (IBAction)reviewDetailButton5:(id)sender {
     sampleIndexValue = mSample_idx;
+    detailCount = 1;
+    buttonCheck = 3;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
@@ -561,6 +569,8 @@
 
 - (IBAction)reviewDetailButton7:(id)sender {
     sampleIndexValue = mSample_idx;
+    detailCount = 1;
+    buttonCheck = 4;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
@@ -572,9 +582,11 @@
 - (IBAction)mOkBtn:(id)sender{
     
 }
+
 - (IBAction)mNOTOKBtn:(id)sender{
     
 }
+
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
@@ -586,6 +598,7 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 #pragma mark -
 #pragma ActionSheet Delegate
 
@@ -599,7 +612,5 @@
     [self firstInit ];
     
 }
-
-
 
 @end

@@ -32,7 +32,6 @@
         _userNO = @"";
         _userID = @"";
         _userNick = @"";
-        
     }
     
     return self;
