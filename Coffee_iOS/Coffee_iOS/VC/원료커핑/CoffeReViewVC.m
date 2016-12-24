@@ -9,6 +9,7 @@
 #import "CoffeReViewVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "CoffeeReviewDetailVC.h"
 
 @interface CoffeReViewVC ()
 
@@ -515,7 +516,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"coffeeReviewDetail"])
     {
-        
+        CoffeeReviewDetailVC *vc = [segue destinationViewController];
+        vc.sampleIndex = sampleIndexValue;
     }
 }
 
@@ -528,35 +530,42 @@
 
 //my 평가보기
 - (IBAction)reviewDetailButton1:(id)sender {
-    MSAMPLE_IDX = mSample_idx;
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton2:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton3:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton4:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton5:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton6:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton7:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton8:(id)sender {
+    sampleIndexValue = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 

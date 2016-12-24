@@ -16,13 +16,15 @@
 
 @implementation CoffeeReviewDetailVC
 
+@synthesize sampleIndex;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
-
+    NSLog(@"%ld", sampleIndex);
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, USER_ID, (unsigned long)MSAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

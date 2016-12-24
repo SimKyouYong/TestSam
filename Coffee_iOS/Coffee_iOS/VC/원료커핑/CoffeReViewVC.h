@@ -43,6 +43,8 @@
     NSString *mRoastdefect;
 
     BOOL mARVflag;
+    
+    NSInteger sampleIndexValue;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeReviewScrollView;

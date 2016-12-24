@@ -16,6 +16,9 @@
     NSDictionary *dic_result3;
     
 }
+
+@property (nonatomic) NSInteger sampleIndex;
+
 - (IBAction)closeButton:(id)sender;
 
 @end
