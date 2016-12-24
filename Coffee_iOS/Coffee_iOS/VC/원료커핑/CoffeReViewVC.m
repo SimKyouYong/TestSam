@@ -346,7 +346,13 @@
             [overall_point floatValue];
             
             float totalscore = cup1score * 2 + cup2score * 2 + cup3score * 2 + etcscore;
-            _mDetail4TotalScore.text = [NSString stringWithFormat:@"%f" , totalscore];
+            
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %f", totalscore];
+            NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
+            NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
+            [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
+            
+            [_mDetail4TotalScore setAttributedText:scoreSearch];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:result_message preferredStyle:UIAlertControllerStyleAlert];
             
@@ -454,6 +460,8 @@
     [balance_point floatValue] + [overall_point floatValue] + [uniformity_point floatValue] + [cleancup_point floatValue] + [sweetness_point floatValue];
     
     if ([datas3 count] > 0) {
+        NSLog(@"json : %@", datas3);
+        NSLog(@"json2 : %@", dic_result3);
         for (int i = 0; i < [datas3 count]; i++) {
             
 //            JSONObject detailObject = detailArr.getJSONObject(i);
@@ -465,10 +473,12 @@
         }
     }
     
+    NSString *avrValue = nil;
     if (mARVflag){
         //android
 //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
 //        mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
+        avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
         _mDetail4ArvScore.text = [NSString stringWithFormat:@"%f" , totalavrscore];
         
     }else {
@@ -477,8 +487,16 @@
 //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
 //        mDetail4Btn0.setText("진행중");
         _mDetail4ArvScore.text = @"";
-
+        avrValue = @"";
     }
+    
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", avrValue];
+    NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
+    NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
+    [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
+    
+    [_mDetail4ArvScore setAttributedText:avrSearch];
+
     
 }
 
@@ -488,10 +506,52 @@
 }
 
 #pragma mark -
+#pragma mark StoryBoard Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"coffeeReviewDetail"])
+    {
+        
+    }
+}
+
+#pragma mark -
 #pragma mark Button Action
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)reviewDetailButton1:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton2:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton3:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton4:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton5:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton6:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton7:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton8:(id)sender {
+    [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)mOkBtn:(id)sender{

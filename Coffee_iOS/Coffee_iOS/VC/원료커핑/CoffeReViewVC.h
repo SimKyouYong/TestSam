@@ -125,15 +125,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mDetail4Btn6_4;
 @property (weak, nonatomic) IBOutlet UIImageView *mDetail4Btn6_5;
 
-
+//버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
+- (IBAction)reviewDetailButton1:(id)sender;
+- (IBAction)reviewDetailButton2:(id)sender;
+- (IBAction)reviewDetailButton3:(id)sender;
+- (IBAction)reviewDetailButton4:(id)sender;
+- (IBAction)reviewDetailButton5:(id)sender;
+- (IBAction)reviewDetailButton6:(id)sender;
+- (IBAction)reviewDetailButton7:(id)sender;
+- (IBAction)reviewDetailButton8:(id)sender;
 
 - (IBAction)mOkBtn:(id)sender;
 - (IBAction)mNOTOKBtn:(id)sender;
-
-
-
-
-
 
 - (IBAction)backButton:(id)sender;
 

@@ -155,10 +155,42 @@
 }
 
 #pragma mark -
+#pragma mark StoryBoard Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"halfReviewDetail"])
+    {
+        
+    }
+}
+
+#pragma mark -
 #pragma mark Button Action
+
+- (IBAction)reviewDetailButton1:(id)sender {
+    [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton2:(id)sender {
+    [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton3:(id)sender {
+    [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
+}
+
+- (IBAction)reviewDetailButton4:(id)sender {
+    [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
+}
+
+- (IBAction)passButton:(id)sender {
+}
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)retestButton:(id)sender {
 }
 
 @end

@@ -19,9 +19,35 @@
     NSArray *datas3;
 }
 
+//점수판..(홀수 : my , 짝수 : 상대방 )
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn1;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn2;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn3;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn4;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn5;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn6;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn7;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn8;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn9;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn10;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn11;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn12;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn13;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn14;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn15;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4Btn16;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *halfScrollView;
 @property (weak, nonatomic) NSMutableArray *tableList_;
 
+//버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
+- (IBAction)reviewDetailButton1:(id)sender;
+- (IBAction)reviewDetailButton2:(id)sender;
+- (IBAction)reviewDetailButton3:(id)sender;
+- (IBAction)reviewDetailButton4:(id)sender;
+
+- (IBAction)passButton:(id)sender;
+- (IBAction)retestButton:(id)sender;
 - (IBAction)backButton:(id)sender;
 
 @end
