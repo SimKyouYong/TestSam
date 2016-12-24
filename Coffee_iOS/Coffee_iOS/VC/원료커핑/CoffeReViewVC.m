@@ -388,10 +388,10 @@
             datas3 = [dic_result3 objectForKey:@"datas"];
 
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , dic_result3);
+            NSLog(@"dic_result3 :: %@" , dic_result3);
             NSLog(@"/*---------------------------------------*/");
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , datas3);
+            NSLog(@"datas3 :: %@" , datas3);
             NSLog(@"/*---------------------------------------*/");
             [self Set3];
             
@@ -408,39 +408,40 @@
 }
 //상대방 셋팅
 - (void)Set3{
-    NSString *amora_point =              [dic_result objectForKey:@"amora_point"];
-    NSString *flavor_point =      [dic_result objectForKey:@"flavor_point"];
-    NSString *aftertaste_point =                [dic_result objectForKey:@"aftertaste_point"];
-    NSString *acidity_point =                [dic_result objectForKey:@"acidity_point"];
-    NSString *body_point =                [dic_result objectForKey:@"body_point"];
-    NSString *balance_point =                [dic_result objectForKey:@"balance_point"];
-    NSString *overall_point =                [dic_result objectForKey:@"overall_point"];
-    NSString *uniformity_point =                [dic_result objectForKey:@"uniformity_point"];
-    NSString *cleancup_point =                [dic_result objectForKey:@"cleancup_point"];
-    NSString *sweetness_point =                [dic_result objectForKey:@"sweetness_point"];
-    NSString *ne_point =                [dic_result objectForKey:@"ne_point"];
-    NSString *pe_point =               [dic_result objectForKey:@"pe_point"];
-    NSString *total_cnt =               [dic_result objectForKey:@"total_cnt"];
     
-    mResult_cnt = [dic_result objectForKey:@"result_cnt"];
+    NSString *amora_point =              [dic_result3 objectForKey:@"amora_point"];
+    NSString *flavor_point =      [dic_result3 objectForKey:@"flavor_point"];
+    NSString *aftertaste_point =                [dic_result3 objectForKey:@"aftertaste_point"];
+    NSString *acidity_point =                [dic_result3 objectForKey:@"acidity_point"];
+    NSString *body_point =                [dic_result3 objectForKey:@"body_point"];
+    NSString *balance_point =                [dic_result3 objectForKey:@"balance_point"];
+    NSString *overall_point =                [dic_result3 objectForKey:@"overall_point"];
+    NSString *uniformity_point =                [dic_result3 objectForKey:@"uniformity_point"];
+    NSString *cleancup_point =                [dic_result3 objectForKey:@"cleancup_point"];
+    NSString *sweetness_point =                [dic_result3 objectForKey:@"sweetness_point"];
+    NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
+    NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
+    NSString *total_cnt =               [dic_result3 objectForKey:@"total_cnt"];
     
-    mFloral = [dic_result objectForKey:@"floral"];
-    mFruity = [dic_result objectForKey:@"fruity"];
-    mAlcoholic = [dic_result objectForKey:@"alcoholic"];
-    mHerb = [dic_result objectForKey:@"herb"];
-    mSpice = [dic_result objectForKey:@"spice"];
-    mSweet = [dic_result objectForKey:@"sweet"];
-    mNut = [dic_result objectForKey:@"nut"];
-    mChocolate = [dic_result objectForKey:@"chocolate"];
-    mGrain = [dic_result objectForKey:@"grain"];
-    mRoast = [dic_result objectForKey:@"roast"];
-    mSavory = [dic_result objectForKey:@"savory"];
+    mResult_cnt = [dic_result3 objectForKey:@"result_cnt"];
     
-    mFermented = [dic_result objectForKey:@"fermented"];
-    mChemical = [dic_result objectForKey:@"chemical"];
-    mGreen = [dic_result objectForKey:@"green"];
-    mMusty = [dic_result objectForKey:@"musty"];
-    mRoastdefect = [dic_result objectForKey:@"roastdefect"];
+    mFloral = [dic_result3 objectForKey:@"floral"];
+    mFruity = [dic_result3 objectForKey:@"fruity"];
+    mAlcoholic = [dic_result3 objectForKey:@"alcoholic"];
+    mHerb = [dic_result3 objectForKey:@"herb"];
+    mSpice = [dic_result3 objectForKey:@"spice"];
+    mSweet = [dic_result3 objectForKey:@"sweet"];
+    mNut = [dic_result3 objectForKey:@"nut"];
+    mChocolate = [dic_result3 objectForKey:@"chocolate"];
+    mGrain = [dic_result3 objectForKey:@"grain"];
+    mRoast = [dic_result3 objectForKey:@"roast"];
+    mSavory = [dic_result3 objectForKey:@"savory"];
+    
+    mFermented = [dic_result3 objectForKey:@"fermented"];
+    mChemical = [dic_result3 objectForKey:@"chemical"];
+    mGreen = [dic_result3 objectForKey:@"green"];
+    mMusty = [dic_result3 objectForKey:@"musty"];
+    mRoastdefect = [dic_result3 objectForKey:@"roastdefect"];
     
     if ([total_cnt isEqualToString:mResult_cnt]) {
         mARVflag = NO;
