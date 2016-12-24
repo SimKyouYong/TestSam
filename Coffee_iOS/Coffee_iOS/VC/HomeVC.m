@@ -199,23 +199,72 @@
     timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
     placeText.text = [dic objectForKey:@"place"];
     
-    if([[dic objectForKey:@"state"] isEqualToString:@"I"]){
-        [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
-    }
-    if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
-        [cuppingButton setImage:[UIImage imageNamed:@"on_cupping_button_226x68"] forState:UIControlStateNormal];
-    }
-    if([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+//    if (data.getmState().equals("E")){
+//        holder.mListBtn1.setEnabled(true);
+//        holder.mListBtn1.setBackgroundResource(R.drawable.list_btn1_on);
+//        holder.mListBtn2.setEnabled(false);
+//        holder.mListBtn3.setEnabled(true);
+//    }else {
+//        holder.mListBtn3.setEnabled(false);
+//        if (data.getmIsblind().equals("Y")) {
+//            holder.mListBtn1.setEnabled(false);
+//            holder.mListBtn1.setBackgroundResource(R.drawable.list_btn1_off);
+//        }else {
+//            holder.mListBtn1.setEnabled(true);
+//            holder.mListBtn1.setBackgroundResource(R.drawable.list_btn1_on);
+//        }
+//    }
+    
+    
+    if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+        [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
+        [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
+        
         [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
+
+        
+        [reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
+        [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
+    }else {
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
+            [sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
+        }else {
+            [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
+            [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
+    
+//    if (data.getmState().equals("W")){
+//        holder.mListBtn2.setImageResource(R.drawable.list_btn2_on);
+//    }else if (data.getmState().equals("I")){
+//        holder.mListBtn2.setImageResource(R.drawable.list_btn2_ing);
+//    }else {
+//        holder.mListBtn2.setImageResource(R.drawable.list_btn2_off);
+//        holder.mListBtn3.setImageResource(R.drawable.list_btn3_on);
+//    }
+    
+   
+    if ([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+        [cuppingButton setImage:[UIImage imageNamed:@"on_cupping_button_226x68"] forState:UIControlStateNormal];
+        [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([[dic objectForKey:@"state"] isEqualToString:@"I"]){
+        [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
+    }else {
+        [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
+
+        [reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
+        [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+    }
+    
     
     sampleButton.tag = indexPath.row;
     cuppingButton.tag = indexPath.row;
     reviewButton.tag = indexPath.row;
     
-    [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
     [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
-    [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
