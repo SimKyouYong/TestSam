@@ -3608,7 +3608,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="MyImg" destination="Jf6-Ga-N2x" id="Pbu-VN-liQ"/>
                         <outlet property="Title" destination="7lV-6y-vPu" id="TPM-fM-Rlu"/>
+                        <outlet property="YouImg" destination="eH3-80-Xbk" id="n5W-wd-9eS"/>
                         <outlet property="acidityLeftText" destination="GFR-oc-2LN" id="3UL-oX-WkL"/>
                         <outlet property="acidityRightText" destination="6Ak-2J-jNk" id="kCE-h1-uvY"/>
                         <outlet property="aftertasteLeftText" destination="It9-5h-F4F" id="YEe-y0-EQ2"/>

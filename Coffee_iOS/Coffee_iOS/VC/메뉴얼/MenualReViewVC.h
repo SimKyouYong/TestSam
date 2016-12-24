@@ -13,12 +13,18 @@
     NSUserDefaults *defaults;
     
     NSDictionary *dic_result;
-    NSDictionary *dic_result2;
-    
+    NSDictionary *dic_result3;
     NSArray *datas;
     NSArray *datas2;
     NSArray *datas3;
+
+    
+    //추가
+    NSUInteger mPosition;
+    NSUInteger mSample_idx;
 }
+//추가
+@property (weak, nonatomic) IBOutlet UILabel *Title;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualScrollView;
 
@@ -36,6 +42,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *bodyRightText;
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteLeftText;
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteRightText;
+
+@property (weak, nonatomic) IBOutlet UIButton *MyImg;
+@property (weak, nonatomic) IBOutlet UIButton *YouImg;
+
 
 //버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
 - (IBAction)reviewDetailButton1:(id)sender;

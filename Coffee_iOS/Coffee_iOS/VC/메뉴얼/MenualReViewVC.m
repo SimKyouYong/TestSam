@@ -37,9 +37,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    mPosition = 0;
+
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
+    
+    _Title.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [_Title addGestureRecognizer:tapGesture];
+    
+    [self firstInit];
+    
+}
+-(void) firstInit{
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=manual&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -58,8 +70,16 @@
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"SAMPLE_DATA :: %@" , datas);
             NSLog(@"/*---------------------------------------*/");
+            datas = [dic objectForKey:@"datas"];
             
-            [self Init];
+            //Title 값 셋팅
+            _Title.text = [NSString stringWithFormat:@"메뉴얼:%@(%@/%@)",
+                           [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                           [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                           [dic objectForKey:@"totalnum"]
+                           ];
+            mSample_idx = [[[datas objectAtIndex:mPosition] valueForKey:@"sample_idx"] intValue];
+            [self Init:mSample_idx];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -71,16 +91,17 @@
     }];
     [dataTask resume];
 }
-
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
     [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 640)];
 }
 
-// 리스트 값 뿌려주기
-- (void)Init{
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, [[datas objectAtIndex:0] valueForKey:@"sample_idx"]];
+- (void)Init:(NSInteger)position{
+    
+    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -90,12 +111,16 @@
     
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
+        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
         dic_result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if([[dic_result objectForKey:@"result"] isEqualToString:@"success"]){
+            
+            [defaults synchronize];
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , dic_result);
+            NSLog(@"sample_idx h :: %@" , dic_result);
             NSLog(@"/*---------------------------------------*/");
+            [self Set2];
             [self Init2];
             
         }else{
@@ -108,10 +133,40 @@
         }
     }];
     [dataTask resume];
+    
 }
-
+- (void)Set2{
+  
+    //IOS
+    if ([dic_result objectForKey:@"result"] != nil) {
+        if ([[dic_result objectForKey:@"result"] isEqualToString:@"success"]) {
+            
+            [self resultText];
+            
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }else{
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"다시 시도해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+    
+}
 - (void)Init2{
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL3, USER_ID, [[datas objectAtIndex:0] valueForKey:@"sample_idx"]];
+    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -121,21 +176,24 @@
     
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
-        dic_result2 = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+        dic_result3 = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
-        if([[dic_result2 objectForKey:@"result"] isEqualToString:@"success"]){
-            datas3 = [dic_result2 objectForKey:@"datas"];
+        if([[dic_result3 objectForKey:@"result"] isEqualToString:@"success"]){
+            
+            [defaults synchronize];
+            datas3 = [dic_result3 objectForKey:@"datas"];
             
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , dic_result2);
+            NSLog(@"dic_result3 :: %@" , dic_result3);
             NSLog(@"/*---------------------------------------*/");
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"SAMPLE_DATA :: %@" , datas3);
+            NSLog(@"datas3 :: %@" , datas3);
             NSLog(@"/*---------------------------------------*/");
+            //[self Set3];
             
-            [self resultText];
         }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result2 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                  {}];
@@ -145,6 +203,7 @@
     }];
     [dataTask resume];
 }
+
 
 // 서버에서 받은 값 뿌려주기
 - (void)resultText{
@@ -162,6 +221,37 @@
     bodyRightText.text = [dic_result objectForKey:@"body_medium"];
     aftertasteLeftText.text = [dic_result objectForKey:@"aftertaste_point"];
     aftertasteRightText.text = [dic_result objectForKey:@"aftertaste_po"];
+    
+    if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"acidity_point"] floatValue] &&
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"sweetness_point"] floatValue] &&
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"bitterness_point"] floatValue] &&
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"body_point"] floatValue] &&
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"good_icon_60x60"] forState:UIControlStateNormal];
+
+        //[_MyImg setImage:[UIImage imageNamed:@"good_icon_60x60"]];
+    }else if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"acidity_point"] floatValue] ||
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"sweetness_point"] floatValue] ||
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"bitterness_point"] floatValue] ||
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"body_point"] floatValue] ||
+        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
+//        [_MyImg setImage:[UIImage imageNamed:@"x_button_40x40"]];
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"x_button_40x40"] forState:UIControlStateNormal];
+        
+    }else {
+//        [_MyImg setImage:[UIImage imageNamed:@"normal_icon_60x60"]];
+        [_MyImg setBackgroundImage:[UIImage imageNamed:@"normal_icon_60x60"] forState:UIControlStateNormal];
+
+    }
+    
+    
+    float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
+    + [[dic_result objectForKey:@"body_point"] floatValue] + [[dic_result objectForKey:@"aftertaste_point"] floatValue];
+    
+    totalSCOREText.text = [NSString stringWithFormat:@"%f" , etcscore];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -216,6 +306,30 @@
 - (IBAction)latteButton:(id)sender {
     [americanoButton setImage:[UIImage imageNamed:@"tab7_off_bg_250x94.png"] forState:UIControlStateNormal];
     [latteButton setImage:[UIImage imageNamed:@"tab8_on_bg_250x94.png"] forState:UIControlStateNormal];
+}
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_title"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+#pragma mark -
+#pragma ActionSheet Delegate
+
+// 문서종류 리스트
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([datas count] == buttonIndex){
+        return;
+    }
+    mPosition = buttonIndex;
+    [self firstInit ];
+    
 }
 
 @end

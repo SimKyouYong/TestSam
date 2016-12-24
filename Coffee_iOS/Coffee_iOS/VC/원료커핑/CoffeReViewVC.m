@@ -179,19 +179,6 @@
     NSUInteger m3Btn3_4 = 1;
     NSUInteger m3Btn3_5 = 1;
     
-    //Android
-//    if (isok.equals("Y")) {
-//        mOkBtn.setBackgroundResource(R.drawable.detail1_back2);
-//        mOkBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
-//        mNOTOKBtn.setBackgroundResource(R.drawable.detail5_back1);
-//        mNOTOKBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//    } else {
-//        mNOTOKBtn.setBackgroundResource(R.drawable.detail1_back2);
-//        mNOTOKBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
-//        mOkBtn.setBackgroundResource(R.drawable.detail5_back1);
-//        mOkBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//    }
-    
     //IOS
     if ([isok isEqualToString:@"Y"]) {
         [_mOkBtn setImage:[UIImage imageNamed:@"ok_on_button_330x80"] forState:UIControlStateNormal];
