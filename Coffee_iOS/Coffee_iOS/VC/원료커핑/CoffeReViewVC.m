@@ -427,7 +427,7 @@
     NSString *sweetness_point =                [dic_result3 objectForKey:@"sweetness_point"];
     NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
     NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
-    NSString *total_cnt =               [dic_result3 objectForKey:@"total_cnt"];
+    NSString *total_cnt =               [dic_result3 objectForKey:@"result_cnt"];
     
     mResult_cnt = [dic_result3 objectForKey:@"result_cnt"];
     
@@ -476,17 +476,15 @@
     NSString *avrValue = nil;
     if (mARVflag){
         //android
+        //상대방 맨위 빨강색
 //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
 //        mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
         avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
-        _mDetail4ArvScore.text = [NSString stringWithFormat:@"%f" , totalavrscore];
-        
     }else {
         //android
 //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
 //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
 //        mDetail4Btn0.setText("진행중");
-        _mDetail4ArvScore.text = @"";
         avrValue = @"";
     }
     
@@ -495,7 +493,13 @@
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
     
+    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", @""];
+    NSMutableAttributedString *stdSearch = [[NSMutableAttributedString alloc] initWithString:stdString];
+    NSRange s1Range = [stdString rangeOfString:@"TOTAL STD : "];
+    [stdSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:s1Range];
+    
     [_mDetail4ArvScore setAttributedText:avrSearch];
+    [_mDetail4StdScore setAttributedText:stdSearch];
 
     
 }
@@ -522,7 +526,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//my 평가보기
 - (IBAction)reviewDetailButton1:(id)sender {
+    MSAMPLE_IDX = mSample_idx;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 

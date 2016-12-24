@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface CoffeeReviewDetailVC : UIViewController
-
+{
+    NSUserDefaults *defaults;
+    
+    NSDictionary *dic_result;
+    NSDictionary *dic_result3;
+    
+}
 - (IBAction)closeButton:(id)sender;
 
 @end
