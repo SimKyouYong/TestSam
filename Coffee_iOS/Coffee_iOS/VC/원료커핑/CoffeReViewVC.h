@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CoffeReViewVC : UIViewController
+@interface CoffeReViewVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     

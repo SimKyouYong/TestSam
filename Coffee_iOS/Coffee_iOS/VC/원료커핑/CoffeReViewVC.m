@@ -28,6 +28,19 @@
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
+    Title.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [Title addGestureRecognizer:tapGesture];
+    
+    [self firstInit ];
+
+    
+    
+}
+-(void) firstInit{
+    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -51,10 +64,10 @@
             NSLog(@"[dic objectForKey:num] :: %@" , [NSString stringWithFormat:@"%@", [[datas objectAtIndex:mPosition] valueForKey:@"num"]]);
             NSLog(@"/*---------------------------------------*/");
             
-//            mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-//            mListTv1.setText("원료커핑:");
-//            mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-//            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
+            //            mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
+            //            mListTv1.setText("원료커핑:");
+            //            mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
+            //            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
             
             //Title 값 셋팅
             Title.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
@@ -575,7 +588,30 @@
 - (IBAction)mNOTOKBtn:(id)sender{
     
 }
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_title"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+#pragma mark -
+#pragma ActionSheet Delegate
 
+// 문서종류 리스트
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([datas count] == buttonIndex){
+        return;
+    }
+    mPosition = buttonIndex;
+    [self firstInit ];
+    
+}
 
 
 
