@@ -180,6 +180,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"homeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -204,13 +205,12 @@
     if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
         [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
         [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
-        
         [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
 
-        
         [reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
         [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
     } else if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+
         [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
         if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
             [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
@@ -222,7 +222,6 @@
     } else {
         [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
         [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
-
         [reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
 
         if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
