@@ -39,17 +39,17 @@
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         //NSLog(@"Response:%@ %@\n", response, error);
         //NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
             
             [defaults synchronize];
             //
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
-            NSLog(@"dic :: %@" , dic);
+            NSLog(@"dic66 :: %@" , dic);
             NSLog(@"/*---------------------------------------*/");
             
-            
+            [_coffeeDetailTableView reloadData];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -95,7 +95,8 @@
     
     if(buttonNum == 1){
         if(indexPath.row == 0){
-            cell.contentText.text = [NSString stringWithFormat:@"Floral : %@ Fruity : %@ Alcoholic : %@ Herb/Vegetative : %@ Spice : %@ sweet : %@ Nut : %@ Chocolate : %@ Green/Cereal : %@ Roast : %@ savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]];
+            cell.contentTitle.text = @"POSITIVE";
+            cell.contentText.text = [NSString stringWithFormat:@" Floral : %@\n Fruity : %@\n Alcoholic : %@\n Herb/Vegetative : %@\n Spice : %@\n sweet : %@\n Nut : %@\n Chocolate : %@\n Green/Cereal : %@\n Roast : %@\n savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]];
         }else if(indexPath.row == 1){
             
         }else if(indexPath.row == 2){

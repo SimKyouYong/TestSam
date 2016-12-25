@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailCell : UITableViewCell{
+    UILabel *contentTitle;
     UILabel *contentText;
 }
 
+@property (nonatomic) UILabel *contentTitle;
 @property (nonatomic) UILabel *contentText;
 
 @end

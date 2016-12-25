@@ -12,18 +12,29 @@
 @implementation DetailCell
 
 @synthesize contentText;
+@synthesize contentTitle;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        contentText = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, WIDTH_FRAME - 20, 100)];
+        contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, WIDTH_FRAME - 20, 50)];
+        [contentTitle setBackgroundColor:[UIColor clearColor]];
+        contentTitle.textColor = [UIColor redColor];
+        contentTitle.textAlignment = NSTextAlignmentCenter;
+        contentTitle.numberOfLines = 0;
+        contentTitle.font = [UIFont fontWithName:@"Helvetica" size:20.0];
+        //contentTitle.text = @"title";
+        [self addSubview:contentTitle];
+
+        
+        contentText = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, WIDTH_FRAME - 20, 170)];
         [contentText setBackgroundColor:[UIColor clearColor]];
         contentText.textColor = [UIColor blackColor];
         contentText.textAlignment = NSTextAlignmentLeft;
         contentText.numberOfLines = 0;
-        contentText.font = [UIFont fontWithName:@"Helvetica" size:10.0];
+        contentText.font = [UIFont fontWithName:@"Helvetica" size:12.0];
         [self addSubview:contentText];
     }
     return self;
