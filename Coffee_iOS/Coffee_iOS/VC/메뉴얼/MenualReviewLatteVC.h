@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MenualReviewLatteVC : UIViewController{
-    
+    // 상세뷰로 넘길 값
+    NSInteger sampleIndexValue;
+    NSInteger detailCount;
+    NSInteger buttonCheck;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;

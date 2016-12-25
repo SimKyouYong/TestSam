@@ -9,6 +9,7 @@
 #import "HalfProductReViewVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "HalfProductReviewDetailVC.h"
 
 @interface HalfProductReViewVC ()
 
@@ -314,7 +315,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"halfReviewDetail"])
     {
-        
+        HalfProductReviewDetailVC *vc = [segue destinationViewController];
+        vc.sampleIndex = sampleIndexValue;
+        vc.countNum = detailCount;
+        vc.buttonNum = buttonCheck;
     }
 }
 

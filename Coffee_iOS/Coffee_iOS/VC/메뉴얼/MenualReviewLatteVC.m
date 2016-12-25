@@ -8,6 +8,7 @@
 
 #import "MenualReviewLatteVC.h"
 #import "GlobalHeader.h"
+#import "MenualReviewDetailVC.h"
 
 @interface MenualReviewLatteVC ()
 
@@ -39,7 +40,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"latte_push"])
     {
-        
+        MenualReviewDetailVC *vc = [segue destinationViewController];
+        vc.sampleIndex = sampleIndexValue;
+        vc.countNum = detailCount;
+        vc.buttonNum = buttonCheck;
     }
 }
 

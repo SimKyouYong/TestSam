@@ -19,7 +19,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, WIDTH_FRAME - 20, 50)];
+        contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, WIDTH_FRAME - 20, 30)];
         [contentTitle setBackgroundColor:[UIColor clearColor]];
         contentTitle.textColor = [UIColor redColor];
         contentTitle.textAlignment = NSTextAlignmentCenter;
@@ -28,8 +28,7 @@
         //contentTitle.text = @"title";
         [self addSubview:contentTitle];
 
-        
-        contentText = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, WIDTH_FRAME - 20, 170)];
+        contentText = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, WIDTH_FRAME - 20, 50)];
         [contentText setBackgroundColor:[UIColor clearColor]];
         contentText.textColor = [UIColor blackColor];
         contentText.textAlignment = NSTextAlignmentLeft;

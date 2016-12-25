@@ -9,6 +9,8 @@
 #import "MenualReViewVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "MenualReviewDetailVC.h"
+
 @interface MenualReViewVC ()
 
 @end
@@ -31,6 +33,8 @@
 @synthesize bodyRightText;
 @synthesize aftertasteLeftText;
 @synthesize aftertasteRightText;
+@synthesize myImg;
+@synthesize youImg;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -224,20 +228,17 @@
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"bitterness_point"] floatValue] &&
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"body_point"] floatValue] &&
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_good"] forState:UIControlStateNormal];
+        [myImg setImage:[UIImage imageNamed:@"menual_good"]];
 
-        //[_MyImg setImage:[UIImage imageNamed:@"good_icon_60x60"]];
     }else if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"acidity_point"] floatValue] ||
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"sweetness_point"] floatValue] ||
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"bitterness_point"] floatValue] ||
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"body_point"] floatValue] ||
         [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
-//        [_MyImg setImage:[UIImage imageNamed:@"x_button_40x40"]];
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_bad"] forState:UIControlStateNormal];
+        [myImg setImage:[UIImage imageNamed:@"menual_bad"]];
         
     }else {
-//        [_MyImg setImage:[UIImage imageNamed:@"normal_icon_60x60"]];
-        [_MyImg setBackgroundImage:[UIImage imageNamed:@"menual_normal"] forState:UIControlStateNormal];
+        [myImg setImage:[UIImage imageNamed:@"menual_normal"]];
 
     }
     
@@ -262,7 +263,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"menualReviewDetail"])
     {
-        
+        MenualReviewDetailVC *vc = [segue destinationViewController];
+        vc.sampleIndex = sampleIndexValue;
+        vc.countNum = detailCount;
+        vc.buttonNum = buttonCheck;
     }
 }
 
@@ -285,10 +289,10 @@
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
 }
 
-- (IBAction)xButton:(id)sender {
+- (IBAction)leftXOButton:(id)sender {
 }
 
-- (IBAction)oButton:(id)sender {
+- (IBAction)rightXOButton:(id)sender {
 }
 
 - (IBAction)backButton:(id)sender {

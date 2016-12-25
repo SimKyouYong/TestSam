@@ -8,7 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HalfProductReviewDetailVC : UIViewController
+@interface HalfProductReviewDetailVC : UIViewController{
+    NSUserDefaults *defaults;
+    
+    NSDictionary *dic_result;
+    NSDictionary *dic_result3;
+    
+    NSArray *listArr;
+    NSDictionary *dic;
+    
+    NSMutableArray *title_Arr;
+    NSMutableArray *content_Arr;
+    NSString        *memo;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *halfDetailTableView;
+
+@property (nonatomic) NSInteger sampleIndex;
+// 셀 카운트
+@property (nonatomic) NSInteger countNum;
+// 버튼 번호 체크(하드코딩)
+@property (nonatomic) NSInteger buttonNum;
 
 - (IBAction)closeButton:(id)sender;
 

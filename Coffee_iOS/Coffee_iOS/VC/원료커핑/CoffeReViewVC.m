@@ -35,11 +35,9 @@
     [Title addGestureRecognizer:tapGesture];
     
     [self firstInit ];
-
-    
-    
 }
--(void) firstInit{
+
+- (void) firstInit{
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -530,7 +528,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//my 평가보기
+// my 평가보기
 - (IBAction)reviewDetailButton1:(id)sender {
     sampleIndexValue = mSample_idx;
     detailCount = 4;

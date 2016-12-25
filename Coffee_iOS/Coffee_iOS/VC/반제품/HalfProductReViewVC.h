@@ -41,6 +41,10 @@
     NSString *mRoastdefect;
     BOOL mARVflag;
 
+    // 상세뷰로 넘길 값
+    NSInteger sampleIndexValue;
+    NSInteger detailCount;
+    NSInteger buttonCheck;
 }
 
 //점수판..(홀수 : my , 짝수 : 상대방 )

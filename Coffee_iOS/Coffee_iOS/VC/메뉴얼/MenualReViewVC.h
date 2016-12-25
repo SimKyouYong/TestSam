@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenualReViewVC : UIViewController
+@interface MenualReViewVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     
@@ -22,7 +22,13 @@
     //추가
     NSUInteger mPosition;
     NSUInteger mSample_idx;
+    
+    // 상세뷰로 넘길 값
+    NSInteger sampleIndexValue;
+    NSInteger detailCount;
+    NSInteger buttonCheck;
 }
+
 //추가
 @property (weak, nonatomic) IBOutlet UILabel *Title;
 
@@ -43,8 +49,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteLeftText;
 @property (weak, nonatomic) IBOutlet UILabel *aftertasteRightText;
 
-@property (weak, nonatomic) IBOutlet UIButton *MyImg;
-@property (weak, nonatomic) IBOutlet UIButton *YouImg;
+@property (weak, nonatomic) IBOutlet UIImageView *myImg;
+@property (weak, nonatomic) IBOutlet UIImageView *youImg;
 
 //버튼 - 평가보기, 총평(홀수 : my , 짝수 : 상대방 )
 - (IBAction)reviewDetailButton1:(id)sender;
@@ -52,8 +58,10 @@
 - (IBAction)reviewDetailButton3:(id)sender;
 - (IBAction)reviewDetailButton4:(id)sender;
 
-- (IBAction)xButton:(id)sender;
-- (IBAction)oButton:(id)sender;
+// X, O 버튼
+- (IBAction)leftXOButton:(id)sender;
+- (IBAction)rightXOButton:(id)sender;
+
 - (IBAction)backButton:(id)sender;
 
 - (IBAction)latteButton:(id)sender;

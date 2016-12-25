@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     title_Arr = [[NSMutableArray alloc] init];
@@ -97,9 +97,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *myString = [content_Arr objectAtIndex:indexPath.row];
-    NSArray *myWords = [myString componentsSeparatedByString:@"\n"];
-    NSLog(@"size :: %lu" , (unsigned long)[myWords count]);
-    return 20*[myWords count];
+    CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+    return labelSize.height + 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -119,12 +118,19 @@
     if(buttonNum == 1){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
     }else if(buttonNum == 2){
         
     }else if(buttonNum == 3){
         
     }else if(buttonNum == 4){
         
+    }
+    
+    if(indexPath.row % 2 == 0){
+        cell.backgroundColor = [UIColor grayColor];
     }
     
     return cell;

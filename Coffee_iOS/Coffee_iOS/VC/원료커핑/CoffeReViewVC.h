@@ -44,6 +44,7 @@
 
     BOOL mARVflag;
     
+    // 상세뷰로 넘길 값
     NSInteger sampleIndexValue;
     NSInteger detailCount;
     NSInteger buttonCheck;

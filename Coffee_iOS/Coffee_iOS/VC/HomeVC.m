@@ -12,6 +12,7 @@
 #import "CoffeReViewVC.h"
 #import "HalfProductReViewVC.h"
 #import "MenualReViewVC.h"
+#import "HomeCell.h"
 
 @interface HomeVC ()
 
@@ -125,22 +126,48 @@
     NSInteger nIndex = sender.tag;
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
 
-    [self performSegueWithIdentifier:@"sample_push" sender:sender];
+    NSDictionary *dic = [tableList objectAtIndex:nIndex];
+    if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+        [self performSegueWithIdentifier:@"sample_push" sender:sender];
+    }else if ([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
+            [self performSegueWithIdentifier:@"sample_push" sender:sender];
+        }
+    }else{
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
+            [self performSegueWithIdentifier:@"sample_push" sender:sender];
+        }
+    }
 }
 
 - (void)cuppingAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
-    NSLog(@"%ld", nIndex);
     
-    if (tab_position == 0) {
-        // 원료커핑
-        [self performSegueWithIdentifier:@"coffee_push" sender:sender];
-    }else if(tab_position == 1){
-        // 반제품
-        [self performSegueWithIdentifier:@"half_push" sender:sender];
+    NSDictionary *dic = [tableList objectAtIndex:nIndex];
+    if ([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+        if (tab_position == 0) {
+            // 원료커핑
+            [self performSegueWithIdentifier:@"coffee_push" sender:sender];
+        }else if(tab_position == 1){
+            // 반제품
+            [self performSegueWithIdentifier:@"half_push" sender:sender];
+        }else{
+            // 메뉴얼
+            [self performSegueWithIdentifier:@"menual_push" sender:sender];
+        }
+    }else if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+        
     }else{
-        // 메뉴얼
-        [self performSegueWithIdentifier:@"menual_push" sender:sender];
+        if (tab_position == 0) {
+            // 원료커핑
+            [self performSegueWithIdentifier:@"coffee_push" sender:sender];
+        }else if(tab_position == 1){
+            // 반제품
+            [self performSegueWithIdentifier:@"half_push" sender:sender];
+        }else{
+            // 메뉴얼
+            [self performSegueWithIdentifier:@"menual_push" sender:sender];
+        }
     }
 }
 
@@ -148,15 +175,18 @@
     NSInteger nIndex = sender.tag;
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
     
-    if (tab_position == 0) {
-        // 원료커핑
-        [self performSegueWithIdentifier:@"coffeeReview_push" sender:sender];
-    }else if(tab_position == 1){
-        // 반제품
-        [self performSegueWithIdentifier:@"halfReview_push" sender:sender];
-    }else{
-        // 메뉴얼
-        [self performSegueWithIdentifier:@"menualReview_push" sender:sender];
+    NSDictionary *dic = [tableList objectAtIndex:nIndex];
+    if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
+        if (tab_position == 0) {
+            // 원료커핑
+            [self performSegueWithIdentifier:@"coffeeReview_push" sender:sender];
+        }else if(tab_position == 1){
+            // 반제품
+            [self performSegueWithIdentifier:@"halfReview_push" sender:sender];
+        }else{
+            // 메뉴얼
+            [self performSegueWithIdentifier:@"menualReview_push" sender:sender];
+        }
     }
 }
 
@@ -180,61 +210,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"homeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-   
+    HomeCell *cell = (HomeCell *)[tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
+    
+    if (cell == nil){
+        cell = [[HomeCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"HomeCell"];
+    }
+    
     NSDictionary *dic = [tableList objectAtIndex:indexPath.row];
     
-    UILabel *titleText = (UILabel*)[cell viewWithTag:1];
-    UILabel *comentText = (UILabel*)[cell viewWithTag:2];
-    UILabel *timeText = (UILabel*)[cell viewWithTag:3];
-    UILabel *placeText = (UILabel*)[cell viewWithTag:4];
+    cell.titleText.text = [dic objectForKey:@"session_idx"];
+    cell.comentText.text = [dic objectForKey:@"title"];
+    cell.timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
+    cell.placeText.text = [dic objectForKey:@"place"];
     
-    UIButton *sampleButton = (UIButton*)[cell viewWithTag:6];
-    UIButton *cuppingButton = (UIButton*)[cell viewWithTag:7];
-    UIButton *reviewButton = (UIButton*)[cell viewWithTag:8];
-    
-    titleText.text = [dic objectForKey:@"session_idx"];
-    comentText.text = [dic objectForKey:@"title"];
-    timeText.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"startdate"], [dic objectForKey:@"starttime"]];
-    placeText.text = [dic objectForKey:@"place"];
-    
-    sampleButton.tag = indexPath.row;
-    cuppingButton.tag = indexPath.row;
-    reviewButton.tag = indexPath.row;
+    cell.sampleButton.tag = indexPath.row;
+    cell.cuppingButton.tag = indexPath.row;
+    cell.reviewButton.tag = indexPath.row;
     
     if ([[dic objectForKey:@"state"] isEqualToString:@"E"]){
-        [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
-        [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
-        [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
-
-        [reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
-        [reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
+        [cell.cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68"] forState:UIControlStateNormal];
+        [cell.reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
+        
     } else if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
-
-        [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
         if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
-            [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
-            [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
-
+            [cell.sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
         }else {
-            [sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
+            [cell.sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
         }
+        
+        [cell.cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
+        
     } else {
-        [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
-        [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
-        [reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
+        [cell.cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
+        [cell.reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
 
         if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
-            [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
-            [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
         }else {
-            [sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
+            [cell.sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
         }
     }
     
-    //[cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
-    //[reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
