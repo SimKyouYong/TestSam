@@ -213,7 +213,7 @@
     } else if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
 
         [cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
-        if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
             [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
             [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -225,7 +225,7 @@
         [cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
         [reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
 
-        if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
             [sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
             [sampleButton addTarget:self action:@selector(sampleAction:) forControlEvents:UIControlEventTouchUpInside];
         }else {
