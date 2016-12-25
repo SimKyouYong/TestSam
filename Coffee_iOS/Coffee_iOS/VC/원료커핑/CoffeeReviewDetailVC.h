@@ -17,6 +17,10 @@
     
     NSArray *listArr;
     NSDictionary *dic;
+    
+    NSMutableArray *title_Arr;
+    NSMutableArray *content_Arr;
+    NSString        *memo;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *coffeeDetailTableView;
