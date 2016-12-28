@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JNExpandableTableView.h"
+#import "CommonTableView.h"
 
-@interface CoffeeFirstVC : UIViewController
+@interface CoffeeFirstVC : UIViewController{
+    CommonTableView *commonTableView;
+}
 
-@property (weak, nonatomic) IBOutlet UIScrollView *coffeeFirstScrollView;
+@property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)secondaryButton:(id)sender;
 - (IBAction)tertiaryButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
+
+
 
 @end

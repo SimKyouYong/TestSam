@@ -139,6 +139,9 @@
 		FFB5FEE01E0003E500816336 /* main_btn_home.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEDF1E0003E500816336 /* main_btn_home.png */; };
 		FFB5FEE21E00049500816336 /* main_logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEE11E00049500816336 /* main_logo2.png */; };
 		FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */; };
+		FFFD87481E14373000029769 /* JNExpandableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87471E14373000029769 /* JNExpandableTableView.m */; };
+		FFFD874B1E144D7300029769 /* CommonTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD874A1E144D7300029769 /* CommonTableView.m */; };
+		FFFD874E1E144E3F00029769 /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -301,6 +304,12 @@
 		FFB5FEE11E00049500816336 /* main_logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_logo2.png; sourceTree = "<group>"; };
 		FFF627BB1E0C0B93008AE969 /* CoffeeFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFirstVC.h; sourceTree = "<group>"; };
 		FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFirstVC.m; sourceTree = "<group>"; };
+		FFFD87461E14373000029769 /* JNExpandableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNExpandableTableView.h; sourceTree = "<group>"; };
+		FFFD87471E14373000029769 /* JNExpandableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNExpandableTableView.m; sourceTree = "<group>"; };
+		FFFD87491E144D7300029769 /* CommonTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView.h; sourceTree = "<group>"; };
+		FFFD874A1E144D7300029769 /* CommonTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView.m; sourceTree = "<group>"; };
+		FFFD874C1E144E3F00029769 /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +331,10 @@
 				6D56BE541DF95583005E55BD /* GlobalObject.m */,
 				FF95E1291E0EF48200ADD829 /* DetailCell.h */,
 				FF95E12A1E0EF48200ADD829 /* DetailCell.m */,
+				FFFD87491E144D7300029769 /* CommonTableView.h */,
+				FFFD874A1E144D7300029769 /* CommonTableView.m */,
+				FFFD874C1E144E3F00029769 /* CommonTableViewCell.h */,
+				FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -555,8 +568,18 @@
 		FFB38AD01E0AB97200F48A79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				FFFD87451E14373000029769 /* ExpandableTableView */,
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		FFFD87451E14373000029769 /* ExpandableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FFFD87461E14373000029769 /* JNExpandableTableView.h */,
+				FFFD87471E14373000029769 /* JNExpandableTableView.m */,
+			);
+			path = ExpandableTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -736,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D56BEC01DF95583005E55BD /* GlobalObject.m in Sources */,
+				FFFD874B1E144D7300029769 /* CommonTableView.m in Sources */,
 				6DE23CEE1DF5455400075F8F /* AppDelegate.m in Sources */,
 				FF3514E31DF9A18D001008E0 /* MenualSecondVC.m in Sources */,
 				6D56BF251DF95583005E55BD /* LoginVC.m in Sources */,
@@ -756,7 +780,9 @@
 				FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */,
 				FF3514E41DF9A18D001008E0 /* MenualThirdVC.m in Sources */,
 				FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */,
+				FFFD87481E14373000029769 /* JNExpandableTableView.m in Sources */,
 				6D56BF231DF95583005E55BD /* BridgeVC.m in Sources */,
+				FFFD874E1E144E3F00029769 /* CommonTableViewCell.m in Sources */,
 				FFB588D81E100F9400F00CD1 /* HomeCell.m in Sources */,
 				FF95E11F1E0ECFBD00ADD829 /* CoffeeReviewDetailVC.m in Sources */,
 				FF95E1341E0F017400ADD829 /* MenualReviewLatteVC.m in Sources */,
