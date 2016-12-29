@@ -21,9 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, HEIGHT_FRAME)];
+    [self.view addSubview:popupView];
+    
     commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200)];
+    commonTableView.delegate = self;
     commonTableView.backgroundColor = [UIColor whiteColor];
-    //[self.view addSubview:commonTableView];
+    [self.view addSubview:commonTableView];
+    
+    [self.view bringSubviewToFront:popupView];
+    [self.view bringSubviewToFront:commonTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +79,8 @@
     [self performSegueWithIdentifier:@"coffee2" sender:sender];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark -
+#pragma mark UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -145,18 +153,37 @@
     
     return nil;
 }
-#pragma mark JNExpandableTableView DataSource
+
+#pragma mark -
+#pragma mark JNExpandableTableView Degate
+
 - (BOOL)tableView:(JNExpandableTableView *)tableView canExpand:(NSIndexPath *)indexPath
 {
     return YES;
 }
+
 - (void)tableView:(JNExpandableTableView *)tableView willExpand:(NSIndexPath *)indexPath
 {
     NSLog(@"Will Expand: %@",indexPath);
 }
+
 - (void)tableView:(JNExpandableTableView *)tableView willCollapse:(NSIndexPath *)indexPath
 {
     NSLog(@"Will Collapse: %@",indexPath);
+}
+
+#pragma mark -
+#pragma mark CommonTableView Delegate
+
+- (void)cancelButton{
+    popupView.hidden = YES;
+    commonTableView.hidden = YES;
+}
+
+- (void)submitButton:(NSString *)value{
+    NSLog(@"%@", value);
+    popupView.hidden = YES;
+    commonTableView.hidden = YES;
 }
 
 @end

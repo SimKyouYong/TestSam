@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
 #import "CommonTableView.h"
+#import "PopupView.h"
 
-@interface CoffeeFirstVC : UIViewController{
+@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate>{
     CommonTableView *commonTableView;
+    PopupView *popupView;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;

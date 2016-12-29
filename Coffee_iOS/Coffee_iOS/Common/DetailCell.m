@@ -25,7 +25,6 @@
         contentTitle.textAlignment = NSTextAlignmentCenter;
         contentTitle.numberOfLines = 0;
         contentTitle.font = [UIFont fontWithName:@"Helvetica" size:20.0];
-        //contentTitle.text = @"title";
         [self addSubview:contentTitle];
 
         contentText = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, WIDTH_FRAME - 20, 50)];

@@ -116,6 +116,7 @@
 		6DE23CEE1DF5455400075F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE23CED1DF5455400075F8F /* AppDelegate.m */; };
 		6DE23CF41DF5455400075F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DE23CF21DF5455400075F8F /* Main.storyboard */; };
 		6DE23CF61DF5455400075F8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DE23CF51DF5455400075F8F /* Assets.xcassets */; };
+		FF0846841E15181000C478B3 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0846831E15181000C478B3 /* PopupView.m */; };
 		FF3514E21DF9A18D001008E0 /* MenualFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514CB1DF9A18D001008E0 /* MenualFirstVC.m */; };
 		FF3514E31DF9A18D001008E0 /* MenualSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514CD1DF9A18D001008E0 /* MenualSecondVC.m */; };
 		FF3514E41DF9A18D001008E0 /* MenualThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514CF1DF9A18D001008E0 /* MenualThirdVC.m */; };
@@ -265,6 +266,8 @@
 		6DE23CF31DF5455400075F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DE23CF51DF5455400075F8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DE23CFA1DF5455400075F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF0846821E15181000C478B3 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		FF0846831E15181000C478B3 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		FF3514CA1DF9A18D001008E0 /* MenualFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualFirstVC.h; sourceTree = "<group>"; };
 		FF3514CB1DF9A18D001008E0 /* MenualFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenualFirstVC.m; sourceTree = "<group>"; };
 		FF3514CC1DF9A18D001008E0 /* MenualSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualSecondVC.h; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				6D56BE521DF95583005E55BD /* GlobalHeader.h */,
 				6D56BE531DF95583005E55BD /* GlobalObject.h */,
 				6D56BE541DF95583005E55BD /* GlobalObject.m */,
+				FF0846821E15181000C478B3 /* PopupView.h */,
+				FF0846831E15181000C478B3 /* PopupView.m */,
 				FF95E1291E0EF48200ADD829 /* DetailCell.h */,
 				FF95E12A1E0EF48200ADD829 /* DetailCell.m */,
 				FFFD87491E144D7300029769 /* CommonTableView.h */,
@@ -777,6 +782,7 @@
 				FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */,
 				6D56BF241DF95583005E55BD /* HomeVC.m in Sources */,
 				FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */,
+				FF0846841E15181000C478B3 /* PopupView.m in Sources */,
 				FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */,
 				FF3514E41DF9A18D001008E0 /* MenualThirdVC.m in Sources */,
 				FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */,
