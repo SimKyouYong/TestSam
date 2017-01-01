@@ -32,6 +32,10 @@
     {
         
     }
+    if ([[segue identifier] isEqualToString:@"review_push"])
+    {
+        
+    }
 }
 
 #pragma mark -
@@ -42,5 +46,7 @@
 }
 
 - (IBAction)reviewSamplesButton:(id)sender {
+    [self performSegueWithIdentifier:@"review_push" sender:sender];
 }
+
 @end

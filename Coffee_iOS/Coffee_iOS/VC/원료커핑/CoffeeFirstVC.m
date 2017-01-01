@@ -23,14 +23,15 @@
     
     popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, HEIGHT_FRAME)];
     [self.view addSubview:popupView];
+    popupView.hidden = YES;
     
     commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200)];
     commonTableView.delegate = self;
     commonTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commonTableView];
+    //[self.view addSubview:commonTableView];
     
-    [self.view bringSubviewToFront:popupView];
-    [self.view bringSubviewToFront:commonTableView];
+    //[self.view bringSubviewToFront:popupView];
+    //s[self.view bringSubviewToFront:commonTableView];
 }
 
 - (void)didReceiveMemoryWarning {

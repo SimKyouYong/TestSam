@@ -139,6 +139,8 @@
 		FFB588D81E100F9400F00CD1 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB588D71E100F9400F00CD1 /* HomeCell.m */; };
 		FFB5FEE01E0003E500816336 /* main_btn_home.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEDF1E0003E500816336 /* main_btn_home.png */; };
 		FFB5FEE21E00049500816336 /* main_logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB5FEE11E00049500816336 /* main_logo2.png */; };
+		FFBE03A71E1946F80005BA80 /* ReviewSamplesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE03A61E1946F80005BA80 /* ReviewSamplesVC.m */; };
+		FFBE03AA1E1948180005BA80 /* ReviewSamplesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE03A91E1948180005BA80 /* ReviewSamplesCell.m */; };
 		FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */; };
 		FFFD87481E14373000029769 /* JNExpandableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87471E14373000029769 /* JNExpandableTableView.m */; };
 		FFFD874B1E144D7300029769 /* CommonTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD874A1E144D7300029769 /* CommonTableView.m */; };
@@ -305,6 +307,10 @@
 		FFB588D71E100F9400F00CD1 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		FFB5FEDF1E0003E500816336 /* main_btn_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_btn_home.png; sourceTree = "<group>"; };
 		FFB5FEE11E00049500816336 /* main_logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_logo2.png; sourceTree = "<group>"; };
+		FFBE03A51E1946F80005BA80 /* ReviewSamplesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSamplesVC.h; sourceTree = "<group>"; };
+		FFBE03A61E1946F80005BA80 /* ReviewSamplesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSamplesVC.m; sourceTree = "<group>"; };
+		FFBE03A81E1948180005BA80 /* ReviewSamplesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSamplesCell.h; sourceTree = "<group>"; };
+		FFBE03A91E1948180005BA80 /* ReviewSamplesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSamplesCell.m; sourceTree = "<group>"; };
 		FFF627BB1E0C0B93008AE969 /* CoffeeFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeFirstVC.h; sourceTree = "<group>"; };
 		FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFirstVC.m; sourceTree = "<group>"; };
 		FFFD87461E14373000029769 /* JNExpandableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNExpandableTableView.h; sourceTree = "<group>"; };
@@ -463,6 +469,10 @@
 				6D56BEBF1DF95583005E55BD /* LoginVC.m */,
 				6D56BEBA1DF95583005E55BD /* BridgeVC.h */,
 				6D56BEBB1DF95583005E55BD /* BridgeVC.m */,
+				FFBE03A51E1946F80005BA80 /* ReviewSamplesVC.h */,
+				FFBE03A61E1946F80005BA80 /* ReviewSamplesVC.m */,
+				FFBE03A81E1948180005BA80 /* ReviewSamplesCell.h */,
+				FFBE03A91E1948180005BA80 /* ReviewSamplesCell.m */,
 				6D56BEBC1DF95583005E55BD /* HomeVC.h */,
 				6D56BEBD1DF95583005E55BD /* HomeVC.m */,
 				FFB588D61E100F9400F00CD1 /* HomeCell.h */,
@@ -773,12 +783,14 @@
 				331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */,
 				FF95E1221E0ECFD500ADD829 /* HalfProductReviewDetailVC.m in Sources */,
 				FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */,
+				FFBE03AA1E1948180005BA80 /* ReviewSamplesCell.m in Sources */,
 				331F873F1E058B06000A051C /* HalfProductReViewVC.m in Sources */,
 				FF95E1251E0ECFE500ADD829 /* MenualReviewDetailVC.m in Sources */,
 				FF3514E51DF9A18D001008E0 /* HalfProductFirstVC.m in Sources */,
 				6DE23CEB1DF5455400075F8F /* main.m in Sources */,
 				FF3514E21DF9A18D001008E0 /* MenualFirstVC.m in Sources */,
 				FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */,
+				FFBE03A71E1946F80005BA80 /* ReviewSamplesVC.m in Sources */,
 				FF3514E81DF9A18D001008E0 /* SampleVC.m in Sources */,
 				6D56BF241DF95583005E55BD /* HomeVC.m in Sources */,
 				FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */,

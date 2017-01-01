@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JNExpandableTableView.h"
 
 @interface CoffeeSecondVC : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIScrollView *coffeeSecondScrollView;
+@property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
