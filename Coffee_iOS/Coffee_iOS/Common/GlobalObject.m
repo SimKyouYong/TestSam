@@ -32,6 +32,7 @@
         _userNO = @"";
         _userID = @"";
         _userNick = @"";
+        _mPosition = 0;
     }
     
     return self;

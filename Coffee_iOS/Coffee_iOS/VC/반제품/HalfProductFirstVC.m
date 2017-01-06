@@ -7,6 +7,8 @@
 //
 
 #import "HalfProductFirstVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface HalfProductFirstVC ()
 
@@ -26,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"SESSIONID   :: %@" , SESSIONID);
+    NSLog(@"USER_ID     :: %@" , USER_ID);
     
 }
 

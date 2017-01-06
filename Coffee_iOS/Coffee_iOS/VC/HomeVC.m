@@ -142,6 +142,23 @@
 
 - (void)cuppingAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
+    SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
+    //MPOSITION = (int)nIndex;
+    
+    //커핑은 무조건 화면 진입 여부를 위해 request 요청함. 
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", CUPPING_COMMON, USER_ID, SESSIONID];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    }];
+    [dataTask resume];
+
+    
     
     NSDictionary *dic = [tableList objectAtIndex:nIndex];
     if ([[dic objectForKey:@"state"] isEqualToString:@"W"]){

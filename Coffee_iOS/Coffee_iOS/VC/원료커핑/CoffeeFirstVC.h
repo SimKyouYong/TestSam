@@ -14,6 +14,14 @@
 @interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate>{
     CommonTableView *commonTableView;
     PopupView *popupView;
+
+    
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+
+    int mPosition;
+    NSString *mSample_idx;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;
