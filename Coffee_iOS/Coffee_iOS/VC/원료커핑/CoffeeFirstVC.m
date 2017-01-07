@@ -101,7 +101,7 @@
     commonData.setEx3_step(mSourceListItems.get(mPosition).getmEx3_step());
     */
     
-    mSample_idx = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
+    SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
 
 }
 
@@ -111,7 +111,7 @@
 
 //    E/Thread: url  ---->>  http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=167
 
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, mSample_idx];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -242,6 +242,7 @@
 }
 
 - (IBAction)saveButton:(id)sender {
+    NSLog(@"save!!");
 }
 
 - (IBAction)nextButton:(id)sender {

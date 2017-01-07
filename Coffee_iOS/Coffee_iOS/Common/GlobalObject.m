@@ -32,7 +32,7 @@
         _userNO = @"";
         _userID = @"";
         _userNick = @"";
-        _mPosition = 0;
+        _sample_idx = @"";
     }
     
     return self;

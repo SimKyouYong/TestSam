@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface CoffeeFourVC : UIViewController
+{
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+    
+    int mPosition;
+    NSString *mSample_idx;
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeFourScrollView;
-
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 

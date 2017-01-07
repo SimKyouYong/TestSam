@@ -10,7 +10,14 @@
 #import "JNExpandableTableView.h"
 
 @interface CoffeeSecondVC : UIViewController
-
+{
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+    
+    int mPosition;
+    NSString *mSample_idx;
+}
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 
 - (IBAction)saveButton:(id)sender;
