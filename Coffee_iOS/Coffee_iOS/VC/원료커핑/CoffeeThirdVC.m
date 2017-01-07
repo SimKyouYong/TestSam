@@ -17,6 +17,22 @@
 @implementation CoffeeThirdVC
 
 @synthesize coffeeThirdScrollView;
+@synthesize noteTextView;
+@synthesize cup1;
+@synthesize cup2;
+@synthesize cup3;
+@synthesize cup4;
+@synthesize cup5;
+@synthesize cup6;
+@synthesize cup7;
+@synthesize cup8;
+@synthesize cup9;
+@synthesize cup10;
+@synthesize cup11;
+@synthesize cup12;
+@synthesize cup13;
+@synthesize cup14;
+@synthesize cup15;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,6 +127,111 @@
     [dataTask resume];
 }
 - (void)init2:(NSDictionary *)dic{
+    if([[dic objectForKey:@"cup1"] isEqualToString:@"1"]){
+        cup1.selected = 1;
+        [cup1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup1.selected = 0;
+        [cup1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup2"] isEqualToString:@"1"]){
+        cup2.selected = 1;
+        [cup2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup2.selected = 0;
+        [cup2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup3"] isEqualToString:@"1"]){
+        cup3.selected = 1;
+        [cup3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup3.selected = 0;
+        [cup3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup4"] isEqualToString:@"1"]){
+        cup4.selected = 1;
+        [cup4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup4.selected = 0;
+        [cup4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup5"] isEqualToString:@"1"]){
+        cup5.selected = 1;
+        [cup5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup5.selected = 0;
+        [cup5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup6"] isEqualToString:@"1"]){
+        cup6.selected = 1;
+        [cup6 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup6.selected = 0;
+        [cup6 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup7"] isEqualToString:@"1"]){
+        cup7.selected = 1;
+        [cup7 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup7.selected = 0;
+        [cup7 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup8"] isEqualToString:@"1"]){
+        cup8.selected = 1;
+        [cup8 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup8.selected = 0;
+        [cup8 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup9"] isEqualToString:@"1"]){
+        cup9.selected = 1;
+        [cup9 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup9.selected = 0;
+        [cup9 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup10"] isEqualToString:@"1"]){
+        cup10.selected = 1;
+        [cup10 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup10.selected = 0;
+        [cup10 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup11"] isEqualToString:@"1"]){
+        cup11.selected = 1;
+        [cup11 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup11.selected = 0;
+        [cup11 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup12"] isEqualToString:@"1"]){
+        cup12.selected = 1;
+        [cup12 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup12.selected = 0;
+        [cup12 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup13"] isEqualToString:@"1"]){
+        cup13.selected = 1;
+        [cup13 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup13.selected = 0;
+        [cup13 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup14"] isEqualToString:@"1"]){
+        cup14.selected = 1;
+        [cup14 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup14.selected = 0;
+        [cup14 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup15"] isEqualToString:@"1"]){
+        cup15.selected = 1;
+        [cup15 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        cup15.selected = 0;
+        [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
     //안드로이드
 //    String result = resultObject.getString(CommonData.RESULT);
 //    String result_message = resultObject.getString(CommonData.RESULT_M);
@@ -308,6 +429,45 @@
 - (IBAction)secondaryButton:(id)sender {
 }
 
+- (IBAction)cup1:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
+}
 
+- (IBAction)cup2:(id)sender {
+}
+- (IBAction)cup3:(id)sender {
+}
+- (IBAction)cup4:(id)sender {
+}
+- (IBAction)cup5:(id)sender {
+}
+- (IBAction)cup6:(id)sender {
+}
+- (IBAction)cup7:(id)sender {
+}
+- (IBAction)cup8:(id)sender {
+}
+- (IBAction)cup9:(id)sender {
+}
+- (IBAction)cup10:(id)sender {
+}
+- (IBAction)cup11:(id)sender {
+}
+- (IBAction)cup12:(id)sender {
+}
+- (IBAction)cup13:(id)sender {
+}
+- (IBAction)cup14:(id)sender {
+}
+- (IBAction)cup15:(id)sender {
+}
 
 @end

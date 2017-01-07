@@ -1359,12 +1359,30 @@
                                                     <constraint firstAttribute="height" constant="60" id="gwX-aY-OyQ"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMu-aF-QgW">
+                                                <rect key="frame" x="200" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="TL4-Py-ONM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-Xc-aDA">
                                                 <rect key="frame" x="390" y="0.0" width="180" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="x1R-O0-ef7"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chc-bZ-xyu">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Rz6-eB-c0Y"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1372,13 +1390,20 @@
                                             <constraint firstItem="ync-fX-T3y" firstAttribute="width" secondItem="n9d-nX-kek" secondAttribute="width" id="6qv-3P-dWx"/>
                                             <constraint firstItem="ASN-Xc-aDA" firstAttribute="width" secondItem="n9d-nX-kek" secondAttribute="width" id="8Yg-Px-tuD"/>
                                             <constraint firstItem="ync-fX-T3y" firstAttribute="leading" secondItem="n9d-nX-kek" secondAttribute="trailing" constant="10" id="CSj-QT-C3C"/>
+                                            <constraint firstItem="chc-bZ-xyu" firstAttribute="top" secondItem="dXz-Oy-Uve" secondAttribute="top" id="FEe-rR-JHC"/>
                                             <constraint firstItem="ASN-Xc-aDA" firstAttribute="top" secondItem="dXz-Oy-Uve" secondAttribute="top" id="FWa-No-x0D"/>
+                                            <constraint firstItem="CMu-aF-QgW" firstAttribute="top" secondItem="dXz-Oy-Uve" secondAttribute="top" id="Iaz-Cn-pm5"/>
                                             <constraint firstItem="ync-fX-T3y" firstAttribute="top" secondItem="dXz-Oy-Uve" secondAttribute="top" id="Org-Jt-oY7"/>
                                             <constraint firstItem="ync-fX-T3y" firstAttribute="width" secondItem="n9d-nX-kek" secondAttribute="width" id="V7a-lI-0Ki"/>
                                             <constraint firstItem="n9d-nX-kek" firstAttribute="leading" secondItem="dXz-Oy-Uve" secondAttribute="leading" constant="10" id="WFY-iQ-tAp"/>
                                             <constraint firstItem="ASN-Xc-aDA" firstAttribute="leading" secondItem="ync-fX-T3y" secondAttribute="trailing" constant="10" id="Y9d-7t-vfg"/>
+                                            <constraint firstItem="CMu-aF-QgW" firstAttribute="width" secondItem="n9d-nX-kek" secondAttribute="width" id="bp4-xe-j9N"/>
+                                            <constraint firstItem="chc-bZ-xyu" firstAttribute="leading" secondItem="CMu-aF-QgW" secondAttribute="trailing" constant="10" id="eJx-8N-Yyr"/>
+                                            <constraint firstItem="CMu-aF-QgW" firstAttribute="leading" secondItem="n9d-nX-kek" secondAttribute="trailing" constant="10" id="evY-QG-B0i"/>
+                                            <constraint firstItem="chc-bZ-xyu" firstAttribute="width" secondItem="n9d-nX-kek" secondAttribute="width" id="rRZ-fy-cs1"/>
                                             <constraint firstAttribute="trailing" secondItem="ASN-Xc-aDA" secondAttribute="trailing" constant="10" id="rxD-rq-4DZ"/>
                                             <constraint firstItem="n9d-nX-kek" firstAttribute="top" secondItem="dXz-Oy-Uve" secondAttribute="top" id="tus-ez-Ol6"/>
+                                            <constraint firstAttribute="trailing" secondItem="chc-bZ-xyu" secondAttribute="trailing" constant="10" id="xGU-w0-dUF"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-cC-URD">
@@ -2333,6 +2358,8 @@
                         <outlet property="mDetail4TotalScore" destination="5GZ-Gm-foz" id="8Fu-L8-SkY"/>
                         <outlet property="mNOTOKBtn" destination="vQG-Og-Ns5" id="DeL-2J-Kr8"/>
                         <outlet property="mOkBtn" destination="ZyP-e4-eRg" id="kEf-Xt-jmg"/>
+                        <outlet property="topAvrLabel" destination="chc-bZ-xyu" id="xP7-cz-z0q"/>
+                        <outlet property="topMyLabel" destination="CMu-aF-QgW" id="tDk-En-gDy"/>
                         <segue destination="F8H-Ib-XQH" kind="push" identifier="coffeeReviewDetail" id="A35-tz-j6v"/>
                     </connections>
                 </viewController>
@@ -2471,20 +2498,45 @@
                                                     <constraint firstAttribute="height" constant="60" id="Fks-7f-rOb"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvE-c2-Zbk">
+                                                <rect key="frame" x="200" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="XPa-rL-aSm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lB-eq-BNL">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="94F-0t-vyQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="1Zm-a4-BnS"/>
                                             <constraint firstItem="ioh-Dr-w2k" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="5Us-Gh-Qt8"/>
+                                            <constraint firstItem="5lB-eq-BNL" firstAttribute="width" secondItem="feC-V6-Fq6" secondAttribute="width" id="5cM-4Y-yV0"/>
+                                            <constraint firstItem="5lB-eq-BNL" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="6gs-zA-YG1"/>
                                             <constraint firstItem="wLT-p0-Lea" firstAttribute="width" secondItem="feC-V6-Fq6" secondAttribute="width" id="CAb-RD-Eww"/>
                                             <constraint firstItem="wLT-p0-Lea" firstAttribute="leading" secondItem="ioh-Dr-w2k" secondAttribute="trailing" constant="10" id="FCg-2d-w8M"/>
+                                            <constraint firstAttribute="trailing" secondItem="5lB-eq-BNL" secondAttribute="trailing" constant="10" id="IWW-tB-QWL"/>
+                                            <constraint firstItem="5lB-eq-BNL" firstAttribute="leading" secondItem="CvE-c2-Zbk" secondAttribute="trailing" constant="10" id="Itu-Q6-GGa"/>
                                             <constraint firstItem="ioh-Dr-w2k" firstAttribute="width" secondItem="feC-V6-Fq6" secondAttribute="width" id="Md8-zP-xSE"/>
                                             <constraint firstItem="wLT-p0-Lea" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="SIm-Lz-BjB"/>
                                             <constraint firstItem="feC-V6-Fq6" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="VNo-Gf-kT4"/>
                                             <constraint firstAttribute="trailing" secondItem="wLT-p0-Lea" secondAttribute="trailing" constant="10" id="YRl-dv-RSM"/>
                                             <constraint firstItem="feC-V6-Fq6" firstAttribute="leading" secondItem="buw-Go-OwY" secondAttribute="leading" constant="10" id="fD3-zm-tCC"/>
+                                            <constraint firstItem="CvE-c2-Zbk" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="fba-hf-Hs6"/>
+                                            <constraint firstItem="CvE-c2-Zbk" firstAttribute="width" secondItem="feC-V6-Fq6" secondAttribute="width" id="hi6-zF-Cid"/>
+                                            <constraint firstItem="CvE-c2-Zbk" firstAttribute="leading" secondItem="feC-V6-Fq6" secondAttribute="trailing" constant="10" id="lUj-nw-Y8b"/>
+                                            <constraint firstItem="5lB-eq-BNL" firstAttribute="top" secondItem="buw-Go-OwY" secondAttribute="top" id="plx-mQ-WWj"/>
                                             <constraint firstItem="ioh-Dr-w2k" firstAttribute="leading" secondItem="feC-V6-Fq6" secondAttribute="trailing" constant="10" id="qc1-B0-T9x"/>
-                                            <constraint firstItem="ioh-Dr-w2k" firstAttribute="width" secondItem="feC-V6-Fq6" secondAttribute="width" id="zp5-TD-nIR"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-E8-kII">
@@ -3038,6 +3090,8 @@
                         <outlet property="mDetail4Btn7" destination="Ckd-Lo-xP0" id="HPu-Wa-47j"/>
                         <outlet property="mDetail4Btn8" destination="EgI-0R-ow7" id="5hr-3O-sQn"/>
                         <outlet property="mDetail4Btn9" destination="VZ3-kI-imm" id="Iim-Ax-pSe"/>
+                        <outlet property="topAvrLabel" destination="5lB-eq-BNL" id="FTV-v9-bbc"/>
+                        <outlet property="topMyLabel" destination="CvE-c2-Zbk" id="nzF-QD-xmT"/>
                         <segue destination="juU-P8-hDV" kind="push" identifier="halfReviewDetail" id="TwB-dV-L6y"/>
                     </connections>
                 </viewController>
@@ -3214,18 +3268,43 @@
                                                     <constraint firstAttribute="height" constant="60" id="t6Q-JR-0jO"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLr-lP-Uc1">
+                                                <rect key="frame" x="200" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Cys-Au-rLP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-do-m4V">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Yxw-CE-ZGa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="EWt-do-m4V" firstAttribute="width" secondItem="cht-0W-H42" secondAttribute="width" id="4FX-2L-ZMu"/>
                                             <constraint firstAttribute="height" constant="60" id="71c-NG-uRa"/>
                                             <constraint firstItem="Rze-Ru-eCS" firstAttribute="top" secondItem="fst-QD-SfG" secondAttribute="top" id="GW0-Rp-XiC"/>
                                             <constraint firstItem="cht-0W-H42" firstAttribute="leading" secondItem="fst-QD-SfG" secondAttribute="leading" constant="10" id="HrN-j1-iD9"/>
                                             <constraint firstItem="1ek-mt-OCh" firstAttribute="leading" secondItem="cht-0W-H42" secondAttribute="trailing" constant="10" id="J5F-7A-YpF"/>
-                                            <constraint firstItem="1ek-mt-OCh" firstAttribute="width" secondItem="cht-0W-H42" secondAttribute="width" id="KXm-QV-lEB"/>
+                                            <constraint firstAttribute="trailing" secondItem="EWt-do-m4V" secondAttribute="trailing" constant="10" id="KJI-6R-1pS"/>
+                                            <constraint firstItem="EWt-do-m4V" firstAttribute="top" secondItem="fst-QD-SfG" secondAttribute="top" id="Nd8-QK-K37"/>
+                                            <constraint firstItem="EWt-do-m4V" firstAttribute="leading" secondItem="mLr-lP-Uc1" secondAttribute="trailing" constant="10" id="PVf-AH-tKC"/>
                                             <constraint firstItem="1ek-mt-OCh" firstAttribute="width" secondItem="cht-0W-H42" secondAttribute="width" id="TGQ-8W-jHj"/>
+                                            <constraint firstItem="mLr-lP-Uc1" firstAttribute="leading" secondItem="cht-0W-H42" secondAttribute="trailing" constant="10" id="WtS-8w-KcS"/>
                                             <constraint firstItem="Rze-Ru-eCS" firstAttribute="leading" secondItem="1ek-mt-OCh" secondAttribute="trailing" constant="10" id="X8r-h5-TTd"/>
                                             <constraint firstItem="cht-0W-H42" firstAttribute="top" secondItem="fst-QD-SfG" secondAttribute="top" id="a34-16-DtW"/>
+                                            <constraint firstItem="mLr-lP-Uc1" firstAttribute="width" secondItem="cht-0W-H42" secondAttribute="width" id="f2i-3W-OwD"/>
+                                            <constraint firstItem="mLr-lP-Uc1" firstAttribute="top" secondItem="fst-QD-SfG" secondAttribute="top" id="i6z-aA-BDv"/>
                                             <constraint firstItem="Rze-Ru-eCS" firstAttribute="width" secondItem="cht-0W-H42" secondAttribute="width" id="kaU-c6-TXV"/>
+                                            <constraint firstItem="Rze-Ru-eCS" firstAttribute="leading" secondItem="mLr-lP-Uc1" secondAttribute="trailing" constant="10" id="v6E-cf-68D"/>
                                             <constraint firstItem="1ek-mt-OCh" firstAttribute="top" secondItem="fst-QD-SfG" secondAttribute="top" id="wke-FN-kfr"/>
                                             <constraint firstAttribute="trailing" secondItem="Rze-Ru-eCS" secondAttribute="trailing" constant="10" id="zMq-TM-VoH"/>
                                         </constraints>
@@ -3671,6 +3750,8 @@
                         <outlet property="myImg" destination="Dbu-Wn-LO9" id="1wG-Vc-R2S"/>
                         <outlet property="sweetnessLeftText" destination="qq3-2b-Wqp" id="zqB-Ha-2eO"/>
                         <outlet property="sweetnessRightText" destination="JQs-dA-1zs" id="aej-Dw-R3y"/>
+                        <outlet property="topAvrLabel" destination="EWt-do-m4V" id="UVA-pP-9bj"/>
+                        <outlet property="topMyLabel" destination="mLr-lP-Uc1" id="AeJ-LJ-eyi"/>
                         <outlet property="totalAVRText" destination="OdT-3e-Mzc" id="3ap-vF-iiD"/>
                         <outlet property="totalSCOREText" destination="OHS-0b-AZj" id="lqi-do-Lar"/>
                         <outlet property="totalSTDText" destination="xbz-Bs-WXY" id="oFe-5f-O2R"/>
@@ -3852,17 +3933,42 @@
                                                     <constraint firstAttribute="height" constant="60" id="JCN-Ex-SGX"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNa-a3-XG7">
+                                                <rect key="frame" x="200" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="UbV-wP-qPG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgx-rR-lfd">
+                                                <rect key="frame" x="390" y="0.0" width="180" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="WVp-Xc-yN5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="gEm-An-S4i" firstAttribute="width" secondItem="uVF-xb-Zm7" secondAttribute="width" id="0RQ-pi-Wa2"/>
+                                            <constraint firstItem="SNa-a3-XG7" firstAttribute="top" secondItem="Hiw-gV-y2R" secondAttribute="top" id="5pa-h3-Jhg"/>
+                                            <constraint firstItem="SNa-a3-XG7" firstAttribute="leading" secondItem="uVF-xb-Zm7" secondAttribute="trailing" constant="10" id="9gg-uZ-KDx"/>
+                                            <constraint firstAttribute="trailing" secondItem="fgx-rR-lfd" secondAttribute="trailing" constant="10" id="EMN-AD-JzR"/>
                                             <constraint firstItem="gEm-An-S4i" firstAttribute="top" secondItem="Hiw-gV-y2R" secondAttribute="top" id="HsQ-SY-NsP"/>
+                                            <constraint firstItem="fgx-rR-lfd" firstAttribute="leading" secondItem="SNa-a3-XG7" secondAttribute="trailing" constant="10" id="KaW-ix-bI1"/>
                                             <constraint firstItem="uVF-xb-Zm7" firstAttribute="top" secondItem="Hiw-gV-y2R" secondAttribute="top" id="LDF-qt-lTs"/>
                                             <constraint firstItem="uVF-xb-Zm7" firstAttribute="leading" secondItem="Hiw-gV-y2R" secondAttribute="leading" constant="10" id="M7v-Yv-DXG"/>
                                             <constraint firstAttribute="height" constant="60" id="QL2-QG-bsp"/>
+                                            <constraint firstItem="fgx-rR-lfd" firstAttribute="top" secondItem="Hiw-gV-y2R" secondAttribute="top" id="V7h-ti-ex5"/>
+                                            <constraint firstItem="SNa-a3-XG7" firstAttribute="width" secondItem="uVF-xb-Zm7" secondAttribute="width" id="Y03-8u-QqY"/>
                                             <constraint firstItem="Uuy-6Z-1he" firstAttribute="leading" secondItem="gEm-An-S4i" secondAttribute="trailing" constant="10" id="YYP-QF-OgG"/>
                                             <constraint firstItem="Uuy-6Z-1he" firstAttribute="top" secondItem="Hiw-gV-y2R" secondAttribute="top" id="Zen-Qh-116"/>
                                             <constraint firstItem="gEm-An-S4i" firstAttribute="leading" secondItem="uVF-xb-Zm7" secondAttribute="trailing" constant="10" id="ekO-jp-odL"/>
+                                            <constraint firstItem="fgx-rR-lfd" firstAttribute="width" secondItem="uVF-xb-Zm7" secondAttribute="width" id="lid-eB-LOZ"/>
                                             <constraint firstItem="Uuy-6Z-1he" firstAttribute="width" secondItem="uVF-xb-Zm7" secondAttribute="width" id="m3M-5Z-0Pt"/>
                                             <constraint firstItem="gEm-An-S4i" firstAttribute="width" secondItem="uVF-xb-Zm7" secondAttribute="width" id="oV2-1p-SU4"/>
                                             <constraint firstAttribute="trailing" secondItem="Uuy-6Z-1he" secondAttribute="trailing" constant="10" id="wLk-Lc-hAr"/>
@@ -4172,6 +4278,8 @@
                         <outlet property="reviewText6" destination="H2T-mh-VBh" id="cm8-wP-mig"/>
                         <outlet property="reviewText7" destination="c8C-pu-loc" id="W1i-CE-xx5"/>
                         <outlet property="reviewText8" destination="xza-Wr-pUb" id="n0Y-Mh-2bH"/>
+                        <outlet property="topAvrLabel" destination="fgx-rR-lfd" id="X0D-IJ-5oT"/>
+                        <outlet property="topMyLabel" destination="SNa-a3-XG7" id="drW-ui-2aD"/>
                         <segue destination="reP-OM-htg" kind="push" identifier="latte_push" id="ckf-0M-DH3"/>
                     </connections>
                 </viewController>
@@ -4843,22 +4951,37 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-cb-JxV">
                                                                 <rect key="frame" x="10" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup1:" destination="M85-ic-CVw" eventType="touchUpInside" id="cfJ-JB-L1E"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oM-z2-dGc">
                                                                 <rect key="frame" x="63" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup2:" destination="M85-ic-CVw" eventType="touchUpInside" id="GFy-6o-khx"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4T4-3g-7ah">
                                                                 <rect key="frame" x="116" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup3:" destination="M85-ic-CVw" eventType="touchUpInside" id="Uq0-cS-gst"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC0-HT-lDw">
                                                                 <rect key="frame" x="169" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup4:" destination="M85-ic-CVw" eventType="touchUpInside" id="og7-M1-aOI"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkF-1R-z8W">
                                                                 <rect key="frame" x="222" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup5:" destination="M85-ic-CVw" eventType="touchUpInside" id="ex1-JV-eqy"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4896,22 +5019,37 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wf-2Y-29v">
                                                                 <rect key="frame" x="10" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup6:" destination="M85-ic-CVw" eventType="touchUpInside" id="cnz-qh-e5H"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-ll-cla">
                                                                 <rect key="frame" x="63" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup7:" destination="M85-ic-CVw" eventType="touchUpInside" id="0AY-Te-f7y"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tea-qT-yPb">
                                                                 <rect key="frame" x="116" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup8:" destination="M85-ic-CVw" eventType="touchUpInside" id="7Vt-Cn-2eX"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0g-T6-Shz">
                                                                 <rect key="frame" x="169" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup9:" destination="M85-ic-CVw" eventType="touchUpInside" id="SsZ-xz-SyY"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYQ-vk-NlN">
                                                                 <rect key="frame" x="222" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup10:" destination="M85-ic-CVw" eventType="touchUpInside" id="gnG-hn-u4L"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4949,22 +5087,37 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfM-bN-NFd">
                                                                 <rect key="frame" x="10" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup11:" destination="M85-ic-CVw" eventType="touchUpInside" id="DXd-eI-vnx"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr2-wb-w2w">
                                                                 <rect key="frame" x="63" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup12:" destination="M85-ic-CVw" eventType="touchUpInside" id="3hx-Zx-Sp2"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vd-v3-rHM">
                                                                 <rect key="frame" x="116" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup13:" destination="M85-ic-CVw" eventType="touchUpInside" id="uOD-uB-IYv"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at1-Mo-JQo">
                                                                 <rect key="frame" x="169" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup14:" destination="M85-ic-CVw" eventType="touchUpInside" id="3g6-km-pix"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlX-v5-zDx">
                                                                 <rect key="frame" x="222" y="3" width="43" height="35"/>
                                                                 <state key="normal" image="off_cup_icon_66x70.png"/>
+                                                                <connections>
+                                                                    <action selector="cup15:" destination="M85-ic-CVw" eventType="touchUpInside" id="9dy-sL-SWH"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5027,7 +5180,7 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="fBF-q2-eWv" id="UUa-5X-whj"/>
+                                                    <outlet property="delegate" destination="M85-ic-CVw" id="BaC-ur-lKQ"/>
                                                 </connections>
                                             </textView>
                                         </subviews>
@@ -5138,6 +5291,22 @@
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="coffeeThirdScrollView" destination="FBY-fN-h17" id="ZlM-gu-OQ8"/>
+                        <outlet property="cup1" destination="U5U-cb-JxV" id="aAT-Fq-V12"/>
+                        <outlet property="cup10" destination="KYQ-vk-NlN" id="oBn-cN-WuA"/>
+                        <outlet property="cup11" destination="HfM-bN-NFd" id="BtG-vr-obq"/>
+                        <outlet property="cup12" destination="Mr2-wb-w2w" id="96p-bC-mj8"/>
+                        <outlet property="cup13" destination="0vd-v3-rHM" id="KWq-7e-EmN"/>
+                        <outlet property="cup14" destination="at1-Mo-JQo" id="CTN-4c-xuo"/>
+                        <outlet property="cup15" destination="LlX-v5-zDx" id="Xnq-La-Qx3"/>
+                        <outlet property="cup2" destination="4oM-z2-dGc" id="5Zm-LY-0qi"/>
+                        <outlet property="cup3" destination="4T4-3g-7ah" id="tNL-4R-X1N"/>
+                        <outlet property="cup4" destination="zC0-HT-lDw" id="Tra-ld-Zze"/>
+                        <outlet property="cup5" destination="OkF-1R-z8W" id="Kgi-9u-03S"/>
+                        <outlet property="cup6" destination="7wf-2Y-29v" id="KGN-GR-dG2"/>
+                        <outlet property="cup7" destination="9rB-ll-cla" id="s1p-XX-I6M"/>
+                        <outlet property="cup8" destination="Tea-qT-yPb" id="imp-mf-bhY"/>
+                        <outlet property="cup9" destination="H0g-T6-Shz" id="RE3-zd-twI"/>
+                        <outlet property="noteTextView" destination="Wv9-PU-esf" id="Pl2-Nm-tIK"/>
                         <segue destination="0Sw-zY-rMC" kind="push" identifier="coffee4" id="pit-CW-s9j"/>
                     </connections>
                 </viewController>
@@ -6133,7 +6302,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="rBa-AE-CVe"/>
+                                                        <action selector="aftertasteButton:" destination="gPP-ME-WEX" eventType="touchUpInside" id="dEh-ww-gOY"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Zq-22-gR2">
@@ -6149,7 +6318,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="z6j-ZH-Ak5"/>
+                                                        <action selector="bodyButton:" destination="gPP-ME-WEX" eventType="touchUpInside" id="ukP-6t-IGJ"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="lGG-CB-wMz">
@@ -6165,7 +6334,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="0Mk-MQ-Y3r"/>
+                                                        <action selector="balanceButton:" destination="gPP-ME-WEX" eventType="touchUpInside" id="5Gp-o5-qzP"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overall_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="yJa-06-LNZ">
@@ -6185,7 +6354,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="hr4-Eh-0jF"/>
+                                                        <action selector="overallButton:" destination="gPP-ME-WEX" eventType="touchUpInside" id="uMo-nh-Ew1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -6247,6 +6416,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="gPP-ME-WEX" id="Ou1-aH-uG3"/>
+                                            </connections>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6634,7 +6806,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="aftertasteButton" destination="1qe-57-vyh" id="2ZD-UX-BmG"/>
+                        <outlet property="balanceButton" destination="uVF-pD-op4" id="hl2-uf-esC"/>
+                        <outlet property="bodyButton" destination="pnG-Ti-Bxg" id="dPA-6c-xf0"/>
                         <outlet property="coffeeSecondTableView" destination="Us7-wI-gRR" id="U6o-RI-SnU"/>
+                        <outlet property="noteTextView" destination="hfr-bY-q4S" id="OZH-tG-2cK"/>
+                        <outlet property="overallButton" destination="SPW-40-vXu" id="fNh-g3-4T7"/>
                         <segue destination="M85-ic-CVw" kind="push" identifier="coffee3" id="TJR-ST-dQU"/>
                     </connections>
                 </viewController>
@@ -6754,7 +6931,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="cKL-PC-5xS"/>
+                                                        <action selector="aromaButton:" destination="EJ1-Or-aby" eventType="touchUpInside" id="6yR-6S-ofH"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flavor_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="52a-tF-DfQ">
@@ -6770,7 +6947,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="uzj-Ob-h1J"/>
+                                                        <action selector="flavorButton:" destination="EJ1-Or-aby" eventType="touchUpInside" id="ryf-Fc-OET"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acidity_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="rAU-9o-qLo">
@@ -6786,7 +6963,7 @@
                                                         <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="4S5-h2-3w0"/>
+                                                        <action selector="acidityButton:" destination="EJ1-Or-aby" eventType="touchUpInside" id="rgk-DL-pYx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -6842,6 +7019,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="EJ1-Or-aby" id="5Zk-eQ-PrD"/>
+                                            </connections>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7600,7 +7780,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="acidityButton" destination="gh8-6n-3c1" id="nat-N2-AqR"/>
+                        <outlet property="aromaButton" destination="5dg-9R-GPR" id="hUJ-YP-dz1"/>
                         <outlet property="coffeeFirstTableView" destination="km8-MH-h1p" id="f3m-F8-9Da"/>
+                        <outlet property="flavorButton" destination="D0z-FR-74M" id="Oq1-hT-eEe"/>
+                        <outlet property="noteTextView" destination="x2L-Bf-K7c" id="mIh-XM-4Uk"/>
                         <segue destination="gPP-ME-WEX" kind="push" identifier="coffee2" id="ghv-b0-Bxx"/>
                         <segue destination="M85-ic-CVw" kind="push" identifier="coffeeTabPush" id="gbq-uD-ZbC"/>
                     </connections>
@@ -7935,8 +8119,8 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ckf-0M-DH3"/>
         <segue reference="NQw-kp-gI4"/>
-        <segue reference="vl0-I9-pZc"/>
-        <segue reference="gbq-uD-ZbC"/>
+        <segue reference="TJR-ST-dQU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,10 @@
 @implementation CoffeeFirstVC
 
 @synthesize coffeeFirstTableView;
+@synthesize aromaButton;
+@synthesize flavorButton;
+@synthesize acidityButton;
+@synthesize noteTextView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -139,6 +143,15 @@
     [dataTask resume];
 }
 - (void)init2:(NSDictionary *)dic{
+    [aromaButton setTitle:[dic objectForKey:@"aroma_point"] forState:UIControlStateNormal];
+    [flavorButton setTitle:[dic objectForKey:@"flavor_point"] forState:UIControlStateNormal];
+    [acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
+    
+    noteTextView.text = [dic objectForKey:@"note1"];
+    
+    tableDic = dic;
+    [coffeeFirstTableView reloadData];
+    
     //안드로이드
 //    String result = resultObject.getString(CommonData.RESULT);
 //    String result_message = resultObject.getString(CommonData.RESULT_M);
@@ -249,6 +262,15 @@
     [self performSegueWithIdentifier:@"coffee2" sender:sender];
 }
 
+- (IBAction)aromaButton:(id)sender {
+}
+
+- (IBAction)flavorButton:(id)sender {
+}
+
+- (IBAction)acidityButton:(id)sender {
+}
+
 #pragma mark -
 #pragma mark UITableView Delegate
 
@@ -291,17 +313,59 @@
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
+            UILabel *mTotalFloral = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalFruity = (UILabel*)[cell viewWithTag:3];
+            UILabel *mTotalAlcoholic = (UILabel*)[cell viewWithTag:5];
+            UILabel *mTotalHerb = (UILabel*)[cell viewWithTag:7];
+            UILabel *mTotalSpice = (UILabel*)[cell viewWithTag:9];
+            UILabel *mTotalSweet = (UILabel*)[cell viewWithTag:11];
+            UILabel *mTotalNut = (UILabel*)[cell viewWithTag:13];
+            UILabel *mTotalChocolate = (UILabel*)[cell viewWithTag:15];
+            UILabel *mTotalGrain = (UILabel*)[cell viewWithTag:17];
+            UILabel *mTotalRoast = (UILabel*)[cell viewWithTag:19];
+            UILabel *mTotalSavory = (UILabel*)[cell viewWithTag:21];
+            
+            mTotalFloral.text = [tableDic objectForKey:@"floral"];
+            mTotalFruity.text = [tableDic objectForKey:@"fruity"];
+            mTotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
+            mTotalHerb.text = [tableDic objectForKey:@"herb"];
+            mTotalSpice.text = [tableDic objectForKey:@"spice"];
+            mTotalSweet.text = [tableDic objectForKey:@"sweet"];
+            mTotalNut.text = [tableDic objectForKey:@"nut"];
+            mTotalChocolate.text = [tableDic objectForKey:@"chocolate"];
+            mTotalGrain.text = [tableDic objectForKey:@"grain"];
+            mTotalRoast.text = [tableDic objectForKey:@"roast"];
+            mTotalSavory.text = [tableDic objectForKey:@"savory"];
+            
             return cell;
         }else if(indexPath.row == 2){
             static NSString *CellIdentifier = @"secondCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
+            UILabel *mTotalFermented = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalChemical = (UILabel*)[cell viewWithTag:3];
+            UILabel *mTotalGreen = (UILabel*)[cell viewWithTag:5];
+            UILabel *mTotalMusty = (UILabel*)[cell viewWithTag:7];
+            UILabel *mTotalRoastdefect = (UILabel*)[cell viewWithTag:9];
+            
+            mTotalFermented.text = [tableDic objectForKey:@"fermented"];
+            mTotalChemical.text = [tableDic objectForKey:@"chemical"];
+            mTotalGreen.text = [tableDic objectForKey:@"green"];
+            mTotalMusty.text = [tableDic objectForKey:@"musty"];
+            mTotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            
             return cell;
         }else if(indexPath.row == 3){
             static NSString *CellIdentifier = @"thirdCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+      
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
             
             return cell;
         }

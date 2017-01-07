@@ -17,6 +17,8 @@
     
     int mPosition;
     NSString *mSample_idx;
+    
+    NSDictionary *tableDic;
 }
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 
@@ -25,5 +27,16 @@
 - (IBAction)nextButton:(id)sender;
 - (IBAction)pimaryButton:(id)sender;
 - (IBAction)tertiaryButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *aftertasteButton;
+- (IBAction)aftertasteButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *bodyButton;
+- (IBAction)bodyButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *balanceButton;
+- (IBAction)balanceButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *overallButton;
+- (IBAction)overallButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 
 @end

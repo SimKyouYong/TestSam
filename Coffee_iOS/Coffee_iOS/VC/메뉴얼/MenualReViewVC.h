@@ -66,4 +66,7 @@
 
 - (IBAction)latteButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *topMyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topAvrLabel;
+
 @end

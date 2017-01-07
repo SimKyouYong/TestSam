@@ -19,6 +19,8 @@
 
 @synthesize halfScrollView;
 @synthesize tableList_;
+@synthesize topMyLabel;
+@synthesize topAvrLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

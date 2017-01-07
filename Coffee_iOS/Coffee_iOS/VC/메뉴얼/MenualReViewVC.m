@@ -35,6 +35,8 @@
 @synthesize aftertasteRightText;
 @synthesize myImg;
 @synthesize youImg;
+@synthesize topMyLabel;
+@synthesize topAvrLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

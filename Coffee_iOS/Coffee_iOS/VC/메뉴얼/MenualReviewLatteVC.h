@@ -32,4 +32,7 @@
 - (IBAction)detailRightButton:(id)sender;
 - (IBAction)backButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *topMyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topAvrLabel;
+
 @end

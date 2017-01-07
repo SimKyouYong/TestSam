@@ -19,6 +19,8 @@
 
 @synthesize coffeeReviewScrollView;
 @synthesize Title;
+@synthesize topMyLabel;
+@synthesize topAvrLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

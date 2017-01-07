@@ -17,6 +17,11 @@
 @implementation CoffeeSecondVC
 
 @synthesize coffeeSecondTableView;
+@synthesize aftertasteButton;
+@synthesize bodyButton;
+@synthesize balanceButton;
+@synthesize overallButton;
+@synthesize noteTextView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,6 +131,16 @@
     [dataTask resume];
 }
 - (void)init2:(NSDictionary *)dic{
+    [aftertasteButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+    [bodyButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+    [balanceButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
+    [overallButton setTitle:[dic objectForKey:@"overall_point"] forState:UIControlStateNormal];
+    
+    noteTextView.text = [dic objectForKey:@"note1"];
+    
+    tableDic = dic;
+    [coffeeSecondTableView reloadData];
+    
     //안드로이드
 //    String result = resultObject.getString(CommonData.RESULT);
 //    String result_message = resultObject.getString(CommonData.RESULT_M);
@@ -228,17 +243,37 @@
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
+            UILabel *aftertaste_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *aftertaste_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            aftertaste_Po.text = [tableDic objectForKey:@"aftertaste_po"];
+            aftertaste_Ne.text = [tableDic objectForKey:@"aftertaste_ne"];
+            
             return cell;
         }else if(indexPath.row == 2){
             static NSString *CellIdentifier = @"secondCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
+            UILabel *mTotalBody_Li = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalBody_Me = (UILabel*)[cell viewWithTag:3];
+            UILabel *mTotalBody_He = (UILabel*)[cell viewWithTag:5];
+            
+            mTotalBody_Li.text = [tableDic objectForKey:@"body_light"];
+            mTotalBody_Me.text = [tableDic objectForKey:@"body_medium"];
+            mTotalBody_He.text = [tableDic objectForKey:@"body_heavy"];
+            
             return cell;
         }else if(indexPath.row == 3){
             static NSString *CellIdentifier = @"thirdCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            UILabel *mTotalBalance_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalBalance_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalBalance_Po.text = [tableDic objectForKey:@"balance_po"];
+            mTotalBalance_Ne.text = [tableDic objectForKey:@"balance_ne"];
             
             return cell;
         }
@@ -299,6 +334,18 @@
 
 - (IBAction)tertiaryButton:(id)sender {
     [self performSegueWithIdentifier:@"coffee3" sender:sender];
+}
+
+- (IBAction)aftertasteButton:(id)sender {
+}
+
+- (IBAction)bodyButton:(id)sender {
+}
+
+- (IBAction)balanceButton:(id)sender {
+}
+
+- (IBAction)overallButton:(id)sender {
 }
 
 @end

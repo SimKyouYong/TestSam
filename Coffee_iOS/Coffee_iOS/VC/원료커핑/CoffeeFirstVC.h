@@ -15,13 +15,14 @@
     CommonTableView *commonTableView;
     PopupView *popupView;
 
-    
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;
 
     int mPosition;
     NSString *mSample_idx;
+    
+    NSDictionary *tableDic;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;
@@ -32,6 +33,13 @@
 - (IBAction)saveButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *aromaButton;
+- (IBAction)aromaButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *flavorButton;
+- (IBAction)flavorButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *acidityButton;
+- (IBAction)acidityButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 
 @end

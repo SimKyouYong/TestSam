@@ -17,6 +17,8 @@
 @implementation MenualReviewLatteVC
 
 @synthesize menualReviewLatteScrollView;
+@synthesize topMyLabel;
+@synthesize topAvrLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
