@@ -31,7 +31,7 @@
     content_Arr = [[NSMutableArray alloc] init];
     
     
-    
+//    http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=170
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, ID, (unsigned long)sampleIndex];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -51,6 +51,7 @@
             //
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"dic66 :: %@" , dic);
+            NSLog(@"dic66 :: %ld" , (long)buttonNum);
             NSLog(@"/*---------------------------------------*/");
             
             //원료커피 리뷰 -> 1번째 평가보기
@@ -78,6 +79,12 @@
                 [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
                 [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note2"]]];
                 
+            }else if(buttonNum == 5){
+                [title_Arr addObject:@"MEMO"];
+                [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note3"]]];
+            }else if(buttonNum == 7){
+                [title_Arr addObject:@"MEMO"];
+                [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note_total"]]];
             }
             
             [_coffeeDetailTableView reloadData];
@@ -140,9 +147,27 @@
     }else if(buttonNum == 2){
         
     }else if(buttonNum == 3){
-        
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
     }else if(buttonNum == 4){
         
+    }else if(buttonNum == 5){
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
+    }else if(buttonNum == 6){
+        
+    }else if(buttonNum == 7){
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
     }
     
     if(indexPath.row % 2 == 0){

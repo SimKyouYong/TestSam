@@ -517,6 +517,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"coffeeReviewDetail"])
     {
+        NSLog(@"buttonCheck :: %ld" ,(long)buttonCheck);
         CoffeeReviewDetailVC *vc = [segue destinationViewController];
         vc.sampleIndex = sampleIndexValue;
         vc.countNum = detailCount;
