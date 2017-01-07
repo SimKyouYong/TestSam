@@ -80,8 +80,11 @@
                 [content_Arr addObject:[dic objectForKey:@"note5"]];
             }else if(buttonNum == 3){
                 [title_Arr addObject:@"MEMO"];
-                [content_Arr addObject:[dic objectForKey:@"note4"]];
+                [content_Arr addObject:[dic objectForKey:@"note5"]];
             }else if(buttonNum == 5){
+                [title_Arr addObject:@"MEMO"];
+                [content_Arr addObject:[dic objectForKey:@"note6"]];
+            }else if(buttonNum == 7){
                 [title_Arr addObject:@"MEMO"];
                 [content_Arr addObject:[dic objectForKey:@"note6"]];
             }
