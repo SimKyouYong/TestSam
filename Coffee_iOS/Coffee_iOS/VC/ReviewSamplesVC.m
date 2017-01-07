@@ -179,7 +179,7 @@
 - (void)reportAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
     NSDictionary *dic = [tableList objectAtIndex:nIndex];
-    nextIdx = [dic objectForKey:@"session_idx"];
+    nextIdx = [dic objectForKey:@"sample_idx"];
     
     [self performSegueWithIdentifier:@"sample_webview" sender:sender];
 }
