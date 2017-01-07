@@ -11,7 +11,7 @@
 #import "CommonTableView.h"
 #import "PopupView.h"
 
-@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate>{
+@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate, UIActionSheetDelegate>{
     CommonTableView *commonTableView;
     PopupView *popupView;
 
@@ -23,6 +23,9 @@
     NSString *mSample_idx;
     
     NSDictionary *tableDic;
+    
+    NSInteger actionSheetNum;
+    NSMutableArray *actionArr;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;
