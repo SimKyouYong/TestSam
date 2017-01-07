@@ -13,6 +13,13 @@
     NSInteger sampleIndexValue;
     NSInteger detailCount;
     NSInteger buttonCheck;
+    
+    
+    NSDictionary *dic_result;
+    NSDictionary *dic_result3;
+    NSArray *datas;
+    NSArray *datas2;
+    NSArray *datas3;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;

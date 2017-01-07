@@ -21,6 +21,7 @@
 @synthesize tableList_;
 @synthesize topMyLabel;
 @synthesize topAvrLabel;
+@synthesize Title;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,11 +31,14 @@
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
-    _Title.userInteractionEnabled = YES;
+    
+    Title.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(selectButton)];
-    [_Title addGestureRecognizer:tapGesture];
+    [Title addGestureRecognizer:tapGesture];
+
+    
     
     [self firstInit ];
     
@@ -76,7 +80,7 @@
             //            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
             
             //Title 값 셋팅
-            _Title.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
+            Title.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
                           [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
                           [[datas objectAtIndex:mPosition] valueForKey:@"num"],
                           [dic objectForKey:@"totalnum"]
@@ -142,27 +146,47 @@
     //IOS
     if ([dic_result objectForKey:@"result"] != nil) {
         if ([[dic_result objectForKey:@"result"] isEqualToString:@"success"]) {
-            _mDetail4Btn1.text = ([dic_result objectForKey:@"acidity_point"]);
-            _mDetail4Btn3.text = ([dic_result objectForKey:@"sweetness_point"]);
-            _mDetail4Btn5.text = ([dic_result objectForKey:@"bitterness_point"]);
-            _mDetail4Btn7.text = ([dic_result objectForKey:@"body_point"]);
-            _mDetail4Btn9.text = ([dic_result objectForKey:@"balance_point"]);
-            _mDetail4Btn11.text = ([dic_result objectForKey:@"aftertaste_point"]);
-            _mDetail4Btn13.text = ([dic_result objectForKey:@"po_point"]);
-            _mDetail4Btn15.text = ([dic_result objectForKey:@"ne_point"]);
+            
+            
+            /*
+            if (Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(acidity_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(sweetness_point) &&
+                Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(bitterness_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(body_point) &&
+                Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(aftertaste_point)){
+                mMyImg.setBackgroundResource(R.drawable.menual_good);
+            }else if ((Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(acidity_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(sweetness_point) ||
+                       Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(bitterness_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(body_point) ||
+                       Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(aftertaste_point))){
+                mMyImg.setBackgroundResource(R.drawable.menual_bad);
+            }else {
+                mMyImg.setBackgroundResource(R.drawable.menual_normal);
+            }
+             */
+           
             
             float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] +
             [[dic_result objectForKey:@"sweetness_point"] floatValue] +
             [[dic_result objectForKey:@"bitterness_point"] floatValue] +
             [[dic_result objectForKey:@"body_point"] floatValue] +
             [[dic_result objectForKey:@"balance_point"] floatValue] +
-            [[dic_result objectForKey:@"aftertaste_point"] floatValue] +
-            [[dic_result objectForKey:@"po_point"] floatValue] +
-            [[dic_result objectForKey:@"ne_point"] floatValue];
+            [[dic_result objectForKey:@"aftertaste_point"] floatValue]+
+            [[dic_result objectForKey:@"po_point"] floatValue]+
+            [[dic_result objectForKey:@"ne_point"] floatValue] ;
+
             
             
             
-            _mDetail4TotalScore.text = [NSString stringWithFormat:@"%f" ,etcscore ];
+            _mDetail4Btn1.text = ([dic_result objectForKey:@"acidity_point"]);
+            _mDetail4Btn3.text = ([dic_result objectForKey:@"sweetness_point"]);
+            _mDetail4Btn5.text = ([dic_result objectForKey:@"bitterness_point"]);
+            _mDetail4Btn7.text = ([dic_result objectForKey:@"body_point"]);
+            _mDetail4Btn9.text = ([dic_result objectForKey:@"aftertaste_point"]);
+            _mDetail4Btn11.text = ([dic_result objectForKey:@"balance_point"]);
+            _mDetail4Btn13.text = ([dic_result objectForKey:@"po_point"]);
+            _mDetail4Btn15.text = ([dic_result objectForKey:@"ne_point"]);
+            
+            
+            
+            _mDetail4TotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE:%f" ,etcscore ];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -224,72 +248,63 @@
 }
 //상대방 셋팅
 - (void)Set3{
+    // 기존 화면들어왔을때 평균값 뿌려주기
+    _mDetail4Btn2.text = ([dic_result3 objectForKey:@"acidity_point"]);
+    _mDetail4Btn4.text = ([dic_result3 objectForKey:@"sweetness_point"]);
+    _mDetail4Btn6.text = ([dic_result3 objectForKey:@"bitterness_point"]);
+    _mDetail4Btn8.text = ([dic_result3 objectForKey:@"body_point"]);
+    _mDetail4Btn10.text = ([dic_result3 objectForKey:@"balance_point"]);
+    _mDetail4Btn12.text = ([dic_result3 objectForKey:@"aftertaste_point"]);
+    _mDetail4Btn14.text = ([dic_result3 objectForKey:@"po_point"]);
+    _mDetail4Btn16.text = ([dic_result3 objectForKey:@"ne_point"]);
     
-//    NSString *amora_point =              [dic_result3 objectForKey:@"amora_point"];
-//    NSString *flavor_point =      [dic_result3 objectForKey:@"flavor_point"];
-//    NSString *aftertaste_point =                [dic_result3 objectForKey:@"aftertaste_point"];
-//    NSString *acidity_point =                [dic_result3 objectForKey:@"acidity_point"];
-//    NSString *body_point =                [dic_result3 objectForKey:@"body_point"];
-//    NSString *balance_point =                [dic_result3 objectForKey:@"balance_point"];
-//    NSString *overall_point =                [dic_result3 objectForKey:@"overall_point"];
-//    NSString *uniformity_point =                [dic_result3 objectForKey:@"uniformity_point"];
-//    NSString *cleancup_point =                [dic_result3 objectForKey:@"cleancup_point"];
-//    NSString *sweetness_point =                [dic_result3 objectForKey:@"sweetness_point"];
-//    NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
-//    NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
-//    NSString *total_cnt =               [dic_result3 objectForKey:@"result_cnt"];
-//    
-    mResult_cnt = [dic_result3 objectForKey:@"result_cnt"];
-    
-    mFloral = [dic_result3 objectForKey:@"floral"];
-    mFruity = [dic_result3 objectForKey:@"fruity"];
-    mAlcoholic = [dic_result3 objectForKey:@"alcoholic"];
-    mHerb = [dic_result3 objectForKey:@"herb"];
-    mSpice = [dic_result3 objectForKey:@"spice"];
-    mSweet = [dic_result3 objectForKey:@"sweet"];
-    mNut = [dic_result3 objectForKey:@"nut"];
-    mChocolate = [dic_result3 objectForKey:@"chocolate"];
-    mGrain = [dic_result3 objectForKey:@"grain"];
-    mRoast = [dic_result3 objectForKey:@"roast"];
-    mSavory = [dic_result3 objectForKey:@"savory"];
-    
-    mFermented = [dic_result3 objectForKey:@"fermented"];
-    mChemical = [dic_result3 objectForKey:@"chemical"];
-    mGreen = [dic_result3 objectForKey:@"green"];
-    mMusty = [dic_result3 objectForKey:@"musty"];
-    mRoastdefect = [dic_result3 objectForKey:@"roastdefect"];
-    
-    if ([[dic_result3 objectForKey:@"total_cnt"] isEqualToString:mResult_cnt]){
-        mARVflag = NO;
-    }else {
+        if ([[dic_result3 objectForKey:@"total_cnt"] isEqualToString:[dic_result3 objectForKey:@"result_cnt"]]){
         mARVflag = YES;
-    }
-    
-    float totalavrscore = [[dic_result3 objectForKey:@"ne_point"] floatValue] +
-    [[dic_result3 objectForKey:@"pe_point"] floatValue] +
-    [[dic_result3 objectForKey:@"bitterness_point"] floatValue] +
-    [[dic_result3 objectForKey:@"aftertaste_point"] floatValue] +
-    [[dic_result3 objectForKey:@"acidity_point"] floatValue] +
-    [[dic_result3 objectForKey:@"body_point"] floatValue] +
-    [[dic_result3 objectForKey:@"balance_point"] floatValue] +
-    [[dic_result3 objectForKey:@"sweetness_point"] floatValue] ;
-    
-    NSString *avrValue = nil;
-    if (mARVflag){
-        //android
-        //상대방 맨위 빨강색
-        //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
-        //        mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
-        avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
     }else {
-        //android
-        //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
-        //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-        //        mDetail4Btn0.setText("진행중");
-        avrValue = @"";
+        mARVflag = NO;
     }
     
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", avrValue];
+    
+    
+    if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
+        //mOkBtn.setText("PASS");
+        
+    } else {
+        //mOkBtn.setText("RETEST");
+        
+    }
+    
+    
+//    float totalavrscore = Float.parseFloat(ne_point) + Float.parseFloat(pe_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(aftertaste_point) + Float.parseFloat(acidity_point) +
+//    Float.parseFloat(body_point) + Float.parseFloat(balance_point) + Float.parseFloat(sweetness_point);
+    
+    
+    
+    
+    
+    if (mARVflag){
+        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
+        //mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
+        topAvrLabel.text = [NSString stringWithFormat:@"AVR(%@명)" ,[dic_result3 objectForKey:@"result_cnt"] ];
+    }else {
+        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
+        //mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
+        //mDetail4Btn0.setText("진행중");
+        topAvrLabel.text = @"진행중";
+        
+        
+    }
+    float totalavrscore = [[dic_result3 objectForKey:@"po_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"ne_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"bitterness_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"aftertaste_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"acidity_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"body_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
+    
+    
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %f", totalavrscore];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
@@ -328,6 +343,8 @@
 #pragma mark Button Action
 
 - (IBAction)reviewDetailButton1:(id)sender {
+    sampleIndexValue = mSample_idx;
+    buttonCheck = 1;
     [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
 }
 
@@ -336,6 +353,8 @@
 }
 
 - (IBAction)reviewDetailButton3:(id)sender {
+    sampleIndexValue = mSample_idx;
+    buttonCheck = 3;
     [self performSegueWithIdentifier:@"halfReviewDetail" sender:sender];
 }
 
@@ -353,4 +372,29 @@
 - (IBAction)retestButton:(id)sender {
 }
 
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+#pragma mark -
+#pragma ActionSheet Delegate
+
+// 문서종류 리스트
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([datas count] == buttonIndex){
+        return;
+    }
+    mPosition = buttonIndex;
+    [self firstInit ];
+    
+}
 @end

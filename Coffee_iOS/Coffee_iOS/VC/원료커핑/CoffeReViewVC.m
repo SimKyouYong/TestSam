@@ -34,6 +34,14 @@
                                             action:@selector(selectButton)];
     [Title addGestureRecognizer:tapGesture];
     
+    
+    
+    _topAvrLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture_top =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton_top)];
+    [_topAvrLabel addGestureRecognizer:tapGesture_top];
+
     [self firstInit ];
 }
 

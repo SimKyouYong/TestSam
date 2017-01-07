@@ -193,7 +193,7 @@
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"datas3 :: %@" , datas3);
             NSLog(@"/*---------------------------------------*/");
-            //[self Set3];
+            [self Set3];
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -206,7 +206,80 @@
     }];
     [dataTask resume];
 }
+//상대방 셋팅
+- (void)Set3{
+    // 기존 화면들어왔을때 평균값 뿌려주기
+    acidityRightText.text = ([dic_result3 objectForKey:@"acidity_point"]);
+    sweetnessRightText.text = ([dic_result3 objectForKey:@"sweetness_point"]);
+    bitternessRightText.text = ([dic_result3 objectForKey:@"bitterness_point"]);
+    bodyRightText.text = ([dic_result3 objectForKey:@"body_point"]);
+    aftertasteRightText.text = ([dic_result3 objectForKey:@"aftertaste_point"]);
+    
+    
+    BOOL mARVflag;
 
+    if ([[dic_result3 objectForKey:@"total_cnt"] isEqualToString:[dic_result3 objectForKey:@"result_cnt"]]){
+        mARVflag = YES;
+    }else {
+        mARVflag = NO;
+    }
+    
+    
+    
+    if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
+        //mOkBtn.setText("PASS");
+        
+    } else {
+        //mOkBtn.setText("RETEST");
+        
+    }
+    
+    
+    //    float totalavrscore = Float.parseFloat(ne_point) + Float.parseFloat(pe_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(aftertaste_point) + Float.parseFloat(acidity_point) +
+    //    Float.parseFloat(body_point) + Float.parseFloat(balance_point) + Float.parseFloat(sweetness_point);
+    
+    
+    
+    
+    
+    if (mARVflag){
+        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
+        //mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
+        topAvrLabel.text = [NSString stringWithFormat:@"AVR(%@명)" ,[dic_result3 objectForKey:@"result_cnt"] ];
+    }else {
+        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
+        //mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
+        //mDetail4Btn0.setText("진행중");
+        topAvrLabel.text = @"진행중";
+        
+        
+    }
+    
+    float totalavrscore = [[dic_result3 objectForKey:@"po_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"ne_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"bitterness_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"aftertaste_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"acidity_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"body_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
+    [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
+
+    
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %f", totalavrscore];
+    NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
+    NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
+    [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
+    
+    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", @""];
+    NSMutableAttributedString *stdSearch = [[NSMutableAttributedString alloc] initWithString:stdString];
+    NSRange s1Range = [stdString rangeOfString:@"TOTAL STD : "];
+    [stdSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:s1Range];
+    
+    [totalAVRText setAttributedText:avrSearch];
+    [totalSTDText setAttributedText:stdSearch];
+    
+    
+}
 
 // 서버에서 받은 값 뿌려주기
 - (void)resultText{
@@ -248,9 +321,7 @@
     float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
     + [[dic_result objectForKey:@"body_point"] floatValue] + [[dic_result objectForKey:@"aftertaste_point"] floatValue];
     
-    totalSCOREText.text = [NSString stringWithFormat:@"%f" , etcscore];
-
-    
+    totalSCOREText.text = [NSString stringWithFormat:@"MY TOTAL SCORE:%f" ,etcscore ];
     
 }
 
@@ -276,6 +347,8 @@
 #pragma mark Button Action
 
 - (IBAction)reviewDetailButton1:(id)sender {
+    sampleIndexValue = mSample_idx;
+    buttonCheck = 1;
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
 }
 
@@ -284,6 +357,8 @@
 }
 
 - (IBAction)reviewDetailButton3:(id)sender {
+    sampleIndexValue = mSample_idx;
+    buttonCheck = 3;
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
 }
 
@@ -315,6 +390,20 @@
     }
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+}
+- (void)selectButton_top{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플점수 비교하실분을 선택해주세요.";
+    menu.delegate = self;
+    
+    //안드로이드 리뷰 - > AvrList 함수 보고 따라할것!
+    
+//    for(int i = 0; i < [datas count]; i++){
+//        NSDictionary *codeDic = [datas objectAtIndex:i];
+//        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_title"]];
+//    }
+//    [menu addButtonWithTitle:@"취소"];
+//    [menu showInView:self.view];
 }
 
 #pragma mark -

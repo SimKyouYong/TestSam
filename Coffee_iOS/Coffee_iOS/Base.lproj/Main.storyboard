@@ -2376,11 +2376,11 @@
                         <viewControllerLayoutGuide type="bottom" id="f1l-ze-I30"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2nT-Bq-RSr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-Fb-XMG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-5I-aqz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -2426,10 +2426,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqs-BT-dbL">
-                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="900"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM0-mK-jhD">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-FO-lxi">
@@ -3070,9 +3070,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="CS8-Io-aFV"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
+                        <outlet property="Title" destination="OBN-o0-4jo" id="5kj-zs-Jpg"/>
                         <outlet property="halfScrollView" destination="jqs-BT-dbL" id="4A7-oG-uNM"/>
+                        <outlet property="mDetail4ArvScore" destination="ce2-xF-BwG" id="0oB-6c-8hD"/>
                         <outlet property="mDetail4Btn1" destination="u2a-VA-8TS" id="haT-w9-5dA"/>
                         <outlet property="mDetail4Btn10" destination="ipK-Mr-fUv" id="TCC-z7-vro"/>
                         <outlet property="mDetail4Btn11" destination="M30-a7-1rc" id="X3S-Ah-Duq"/>
@@ -3089,6 +3091,8 @@
                         <outlet property="mDetail4Btn7" destination="Ckd-Lo-xP0" id="HPu-Wa-47j"/>
                         <outlet property="mDetail4Btn8" destination="EgI-0R-ow7" id="5hr-3O-sQn"/>
                         <outlet property="mDetail4Btn9" destination="VZ3-kI-imm" id="Iim-Ax-pSe"/>
+                        <outlet property="mDetail4StdScore" destination="hAC-KQ-sJD" id="h0u-78-BKj"/>
+                        <outlet property="mDetail4TotalScore" destination="ZEQ-Bk-rla" id="yvv-4q-6ds"/>
                         <outlet property="topAvrLabel" destination="5lB-eq-BNL" id="FTV-v9-bbc"/>
                         <outlet property="topMyLabel" destination="CvE-c2-Zbk" id="nzF-QD-xmT"/>
                         <segue destination="juU-P8-hDV" kind="push" identifier="halfReviewDetail" id="TwB-dV-L6y"/>

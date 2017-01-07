@@ -56,13 +56,31 @@
             if (buttonNum == 1) {
                 [title_Arr addObject:@"POSITIVE"];
                 [title_Arr addObject:@"NEGATIVE"];
+                [title_Arr addObject:@"AFTERTASTE"];
                 [title_Arr addObject:@"ACIDITY"];
+                [title_Arr addObject:@"BODY"];
+                [title_Arr addObject:@"BALANCE"];
                 [title_Arr addObject:@"MEMO"];
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Floral : %@\n Fruity : %@\n Alcoholic : %@\n Herb/Vegetative : %@\n Spice : %@\n sweet : %@\n Nut : %@\n Chocolate : %@\n Green/Cereal : %@\n Roast : %@\n savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]]];
-                [content_Arr addObject:[NSString stringWithFormat:@" Fermentd : %@\n Chemical : %@\n Green/Grassy : %@\n Musty : %@\n Roast Defect : %@", [dic objectForKey:@"fermentd"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"], [dic objectForKey:@"musty"], [dic objectForKey:@"roastdefect"]]];
-                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"po"], [dic objectForKey:@"ne"]]];
-                [content_Arr addObject:@"메모"];
+                [content_Arr addObject:[NSString stringWithFormat:@" Floral : %@\n Fruity : %@\n Alcoholic : %@\n Herb/Vegetative : %@\n Spice : %@\n sweet : %@\n Nut : %@\n Chocolate : %@\n Green/Cereal : %@\n Roast : %@\n Savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]]];
+                
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Fermentd : %@\n Chemical : %@\n Green/Grassy : %@\n Musty : %@\n Roast Defect : %@", [dic objectForKey:@"fermented"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"], [dic objectForKey:@"musty"], [dic objectForKey:@"roastdefect"]]];
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Light : %@\n Medium : %@\n Heavy : %@", [dic objectForKey:@"body_light"], [dic objectForKey:@"body_medium"], [dic objectForKey:@"body_heavy"]]];
+                
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"balance_po"], [dic objectForKey:@"balance_ne"]]];
+                [content_Arr addObject:[dic objectForKey:@"note5"]];
+            }else if(buttonNum == 3){
+                [title_Arr addObject:@"MEMO"];
+                [content_Arr addObject:[dic objectForKey:@"note4"]];
             }
             
             [manualDetailTableView reloadData];
@@ -125,7 +143,12 @@
     }else if(buttonNum == 2){
         
     }else if(buttonNum == 3){
-        
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
+
     }else if(buttonNum == 4){
         
     }
