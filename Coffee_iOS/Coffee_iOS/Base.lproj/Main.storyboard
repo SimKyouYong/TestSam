@@ -481,6 +481,9 @@
                         <outlet property="tab2Button" destination="CqZ-eP-pbn" id="DUw-nl-tVV"/>
                         <outlet property="tab3Button" destination="XZn-Zw-UHf" id="j5Q-7s-wBk"/>
                         <segue destination="DMv-tp-OIG" kind="push" identifier="sample_webview" id="HfB-xp-ae2"/>
+                        <segue destination="DcM-9x-jR5" kind="push" identifier="coffeeReview_push" id="5fA-xh-9C8"/>
+                        <segue destination="zaH-2P-f3X" kind="push" id="iCp-1x-5vL"/>
+                        <segue destination="bDy-QT-fVL" kind="push" identifier="menualReview_push" id="hBd-4Z-YF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChJ-TV-H47" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8204,8 +8207,11 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TJR-ST-dQU"/>
-        <segue reference="NQw-kp-gI4"/>
+        <segue reference="iCp-1x-5vL"/>
+        <segue reference="5fA-xh-9C8"/>
+        <segue reference="hBd-4Z-YF5"/>
         <segue reference="ckf-0M-DH3"/>
+        <segue reference="NQw-kp-gI4"/>
+        <segue reference="TJR-ST-dQU"/>
     </inferredMetricsTieBreakers>
 </document>

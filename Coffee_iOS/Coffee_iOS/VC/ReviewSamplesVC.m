@@ -164,6 +164,9 @@
 }
 
 - (void)reviewAction:(UIButton*)sender{
+    NSInteger nIndex = sender.tag;
+    SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
+
     if (tab_position == 0) {
         // 원료커핑
         [self performSegueWithIdentifier:@"coffeeReview_push" sender:sender];
@@ -178,6 +181,8 @@
 
 - (void)reportAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
+    SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
+
     NSDictionary *dic = [tableList objectAtIndex:nIndex];
     nextIdx = [dic objectForKey:@"sample_idx"];
     
