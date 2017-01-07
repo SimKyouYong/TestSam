@@ -17,6 +17,21 @@
 @implementation CoffeeFourVC
 
 @synthesize coffeeFourScrollView;
+@synthesize cup1;
+@synthesize cup2;
+@synthesize cup3;
+@synthesize cup4;
+@synthesize cup5;
+@synthesize cup6;
+@synthesize cup7;
+@synthesize cup8;
+@synthesize cup9;
+@synthesize cup10;
+@synthesize cup11;
+@synthesize cup12;
+@synthesize cup13;
+@synthesize cup14;
+@synthesize cup15;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,9 +124,90 @@
     [dataTask resume];
 }
 - (void)init2:(NSDictionary *)dic{
-    //안드로이드
+    [_aromaButton setTitle:[dic objectForKey:@"aroma_point"] forState:UIControlStateNormal];
+    [_flavorButton setTitle:[dic objectForKey:@"flavor_point"] forState:UIControlStateNormal];
+    [_acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
     
+    [_aftertasteButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+    [_bodyButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+    [_balanceButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
+    [_overallButton setTitle:[dic objectForKey:@"overall_point"] forState:UIControlStateNormal];
     
+    if([[dic objectForKey:@"cup1"] isEqualToString:@"1"]){
+        [cup1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup2"] isEqualToString:@"1"]){
+        [cup2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup3"] isEqualToString:@"1"]){
+        [cup3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup4"] isEqualToString:@"1"]){
+        [cup4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup5"] isEqualToString:@"1"]){
+        [cup5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup6"] isEqualToString:@"1"]){
+        [cup6 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup6 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup7"] isEqualToString:@"1"]){
+        [cup7 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup7 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup8"] isEqualToString:@"1"]){
+        [cup8 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup8 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup9"] isEqualToString:@"1"]){
+        [cup9 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup9 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup10"] isEqualToString:@"1"]){
+        [cup10 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup10 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup11"] isEqualToString:@"1"]){
+        [cup11 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup11 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup12"] isEqualToString:@"1"]){
+        [cup12 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup12 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup13"] isEqualToString:@"1"]){
+        [cup13 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup13 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup14"] isEqualToString:@"1"]){
+        [cup14 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup14 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }
+    if([[dic objectForKey:@"cup15"] isEqualToString:@"1"]){
+        [cup15 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+    }    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -195,6 +291,12 @@
 
 - (IBAction)prevButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)okButton:(id)sender {
+}
+
+- (IBAction)notOkButton:(id)sender {
 }
 
 @end

@@ -442,32 +442,171 @@
 }
 
 - (IBAction)cup2:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup3:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup4:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup5:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup6:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup6 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup6 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup7:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup7 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup7 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup8:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup8 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup8 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup9:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup9 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup9 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup10:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup10 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup10 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup11:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup11 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup11 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup12:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup12 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup12 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup13:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup13 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup13 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup14:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup14 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup14 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
+
 - (IBAction)cup15:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    button.selected = !button.selected;
+    
+    if(button.selected == 1){
+        [cup15 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
+    }else{
+        [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
+        
+    }
 }
 
 @end

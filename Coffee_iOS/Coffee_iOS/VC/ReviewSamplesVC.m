@@ -36,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableList count];
+    return 1;//[tableList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +56,7 @@
     if (cell == nil){
         cell = [[ReviewSamplesCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ReviewSamplesCell"];
     }
-    
+    /*
     NSDictionary *dic = [tableList objectAtIndex:indexPath.row];
     
     cell.titleText.text = [dic objectForKey:@"session_idx"];
@@ -84,7 +84,7 @@
     
     [cell.cuppingButton addTarget:self action:@selector(cuppingAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.reviewButton addTarget:self action:@selector(reviewAction:) forControlEvents:UIControlEventTouchUpInside];
-    
+    */
     return cell;
 }
 

@@ -4373,9 +4373,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="LMB-3c-J0d"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flavor_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="dBI-c5-DBd">
                                                 <rect key="frame" x="10" y="60" width="275" height="40"/>
@@ -4389,9 +4386,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="1V3-Ym-iN2"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acidity_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cyy-6b-Ts1">
                                                 <rect key="frame" x="10" y="110" width="275" height="40"/>
@@ -4405,9 +4399,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="GFV-sa-HOd"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4448,9 +4439,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="acZ-sP-9R1"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="JVJ-Rb-VYj">
                                                 <rect key="frame" x="10" y="60" width="275" height="40"/>
@@ -4464,9 +4452,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="2bx-44-Fpo"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="QuE-PI-bNu">
                                                 <rect key="frame" x="10" y="110" width="275" height="40"/>
@@ -4480,9 +4465,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="HIl-CB-zgb"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overall_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="pSn-VV-Taf">
                                                 <rect key="frame" x="10" y="160" width="275" height="40"/>
@@ -4496,9 +4478,6 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="bodyButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="chv-kS-Vi2"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4725,6 +4704,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="3dK-u6-WDn"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="ok_off_button_330x80.png"/>
+                                                <connections>
+                                                    <action selector="okButton:" destination="0Sw-zY-rMC" eventType="touchUpInside" id="Pzd-oH-Nqg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-sG-4Mo">
                                                 <rect key="frame" x="295" y="10" width="275" height="40"/>
@@ -4732,6 +4714,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="DU2-uc-sDG"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="notok_off_button_330x80.png"/>
+                                                <connections>
+                                                    <action selector="notOkButton:" destination="0Sw-zY-rMC" eventType="touchUpInside" id="wfA-qE-3xO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4848,7 +4833,29 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="acidityButton" destination="OKE-Nc-W4F" id="aww-Om-03e"/>
+                        <outlet property="aftertasteButton" destination="jvy-2v-GX5" id="Bp6-3B-V4b"/>
+                        <outlet property="aromaButton" destination="g0n-8s-Zsl" id="6Ka-1j-zAv"/>
+                        <outlet property="balanceButton" destination="Ov0-bt-41x" id="5Xj-qP-taL"/>
+                        <outlet property="bodyButton" destination="Tc0-m2-kRq" id="Mbm-SR-z03"/>
                         <outlet property="coffeeFourScrollView" destination="jra-vZ-QzK" id="gvQ-cq-xBD"/>
+                        <outlet property="cup1" destination="j8W-Vp-8DL" id="0wf-Wd-jPC"/>
+                        <outlet property="cup10" destination="oBy-zb-G73" id="UUu-OW-8yG"/>
+                        <outlet property="cup11" destination="BbA-vY-gzi" id="05E-rS-2Ho"/>
+                        <outlet property="cup12" destination="8C4-af-TTf" id="ZdV-Ec-oRf"/>
+                        <outlet property="cup13" destination="E8u-Df-qY0" id="r58-rJ-JgS"/>
+                        <outlet property="cup14" destination="yDa-fp-zLl" id="rWA-i9-6FV"/>
+                        <outlet property="cup15" destination="H2x-GM-7u2" id="tgp-69-x4e"/>
+                        <outlet property="cup2" destination="ygH-cm-Qgx" id="wOV-UK-6kz"/>
+                        <outlet property="cup3" destination="sLg-p7-eoH" id="Zwf-RR-P94"/>
+                        <outlet property="cup4" destination="ZWv-IR-IVR" id="ahT-nt-Gwg"/>
+                        <outlet property="cup5" destination="kad-sF-Bf8" id="XTc-ki-Rla"/>
+                        <outlet property="cup6" destination="w66-1t-GIS" id="2yx-Vz-l9c"/>
+                        <outlet property="cup7" destination="6xN-ur-KhB" id="6UM-ys-Nxe"/>
+                        <outlet property="cup8" destination="A8a-QQ-YK0" id="zXf-u0-uvk"/>
+                        <outlet property="cup9" destination="vYu-EK-Pw7" id="nRn-bW-HdY"/>
+                        <outlet property="flavorButton" destination="nTh-sn-8gM" id="tBc-ik-ed0"/>
+                        <outlet property="overallButton" destination="XJV-Cd-y6b" id="loY-2c-OvM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD5-6Y-g4t" userLabel="First Responder" sceneMemberID="firstResponder"/>

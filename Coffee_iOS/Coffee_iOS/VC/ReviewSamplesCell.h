@@ -14,10 +14,12 @@
     UILabel *timeText;
     UILabel *placeText;
     
+    UILabel *leftLabel;
     UIButton *cuppingButton;
     UIButton *reviewButton;
 }
 
+@property (nonatomic) UILabel *leftLabel;
 @property (nonatomic) UILabel *titleText;
 @property (nonatomic) UILabel *comentText;
 @property (nonatomic) UILabel *timeText;

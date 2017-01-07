@@ -16,6 +16,7 @@
 @synthesize timeText;
 @synthesize placeText;
 
+@synthesize leftLabel;
 @synthesize cuppingButton;
 @synthesize reviewButton;
 
@@ -59,6 +60,14 @@
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(20, 60, WIDTH_FRAME - 40, 0.5)];
         lineView.backgroundColor = [UIColor blackColor];
         [self addSubview:lineView];
+        
+        leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, (WIDTH_FRAME - 20)/3, 34)];
+        [leftLabel setBackgroundColor:[UIColor clearColor]];
+        leftLabel.textColor = [UIColor grayColor];
+        leftLabel.textAlignment = NSTextAlignmentCenter;
+        leftLabel.text = @"TESTER : 1";
+        leftLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+        [self addSubview:leftLabel];
         
         cuppingButton = [[UIButton alloc] initWithFrame:CGRectMake((WIDTH_FRAME - 20)/3 + 10, 75, (WIDTH_FRAME - 20)/3, 34)];
         [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68.png"] forState:UIControlStateNormal];
