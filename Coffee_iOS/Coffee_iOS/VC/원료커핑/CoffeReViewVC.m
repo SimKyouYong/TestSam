@@ -19,8 +19,6 @@
 
 @synthesize coffeeReviewScrollView;
 @synthesize Title;
-@synthesize topMyLabel;
-@synthesize topAvrLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -332,10 +330,10 @@
             
             float cup2total = cup2score * 2;
             _mDetail4Btn17.text =[NSString stringWithFormat:@"%f" , cup2total] ;
-
+            
             float cup3total = cup3score * 2;
             _mDetail4Btn19.text =[NSString stringWithFormat:@"%f" , cup3total] ;
-
+            
             
             
             float etcscore = [aroma_point floatValue] +
@@ -374,8 +372,8 @@
     
 }
 - (void)Init2{
-//    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-
+    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
+    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -393,7 +391,7 @@
             
             [defaults synchronize];
             datas3 = [dic_result3 objectForKey:@"datas"];
-
+            
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"dic_result3 :: %@" , dic_result3);
             NSLog(@"/*---------------------------------------*/");
@@ -416,7 +414,7 @@
 //상대방 셋팅
 - (void)Set3{
     
-    NSString *amora_point =              [dic_result3 objectForKey:@"amora_point"];
+    NSString *aroma_point =              [dic_result3 objectForKey:@"aroma_point"];
     NSString *flavor_point =      [dic_result3 objectForKey:@"flavor_point"];
     NSString *aftertaste_point =                [dic_result3 objectForKey:@"aftertaste_point"];
     NSString *acidity_point =                [dic_result3 objectForKey:@"acidity_point"];
@@ -456,37 +454,40 @@
         mARVflag = YES;
     }
     
-    float totalavrscore = [amora_point floatValue] +  [flavor_point floatValue] + [aftertaste_point floatValue] +
+    float totalavrscore = [aroma_point floatValue] +  [flavor_point floatValue] + [aftertaste_point floatValue] +
     [acidity_point floatValue] + [body_point floatValue] +
     [balance_point floatValue] + [overall_point floatValue] + [uniformity_point floatValue] + [cleancup_point floatValue] + [sweetness_point floatValue];
     
     if ([datas3 count] > 0) {
         NSLog(@"json : %@", datas3);
         NSLog(@"json2 : %@", dic_result3);
-        for (int i = 0; i < [datas3 count]; i++) {
-            
-//            JSONObject detailObject = detailArr.getJSONObject(i);
-//            SourceLastListItem item = new SourceLastListItem(detailObject.getString(CommonData.RESULT_MEMBERID),
-//                                                             detailObject.getString(CommonData.RESULT_MEMBERNAME),
-//                                                             detailObject.getString(CommonData.RESULT_STATE));
-//            mSourceLastListItems.add(item);
-            
-        }
+        
     }
+    
+    _mDetail4Btn2.text =[NSString stringWithFormat:@"%@" , aroma_point] ;
+    _mDetail4Btn4.text =[NSString stringWithFormat:@"%@" , flavor_point] ;
+    _mDetail4Btn6.text =[NSString stringWithFormat:@"%@" , aftertaste_point] ;
+    _mDetail4Btn8.text =[NSString stringWithFormat:@"%@" , acidity_point] ;
+    _mDetail4Btn10.text =[NSString stringWithFormat:@"%@" , body_point] ;
+    _mDetail4Btn12.text =[NSString stringWithFormat:@"%@" , balance_point] ;
+    _mDetail4Btn14.text =[NSString stringWithFormat:@"%@" , overall_point] ;
+    _mDetail4Btn16.text =[NSString stringWithFormat:@"%@" , uniformity_point] ;
+    _mDetail4Btn18.text =[NSString stringWithFormat:@"%@" , cleancup_point] ;
+    _mDetail4Btn20.text =[NSString stringWithFormat:@"%@" , sweetness_point] ;
+    
     
     NSString *avrValue = nil;
     if (mARVflag){
         //android
         //상대방 맨위 빨강색
-//        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
-//        mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
+//        mDetail4Btn0.text =[NSString stringWithFormat:@"AVR(%@)명" , [dic_result3 objectForKey:@"result_cnt"]] ;
         avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
     }else {
         //android
-//        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
-//        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-//        mDetail4Btn0.setText("진행중");
-        avrValue = @"";
+        //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
+        //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
+//        mDetail4Btn0.text =@"진행중" ;
+        
     }
     
     NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", avrValue];
@@ -501,7 +502,7 @@
     
     [_mDetail4ArvScore setAttributedText:avrSearch];
     [_mDetail4StdScore setAttributedText:stdSearch];
-
+    
     
 }
 
@@ -520,6 +521,14 @@
         vc.sampleIndex = sampleIndexValue;
         vc.countNum = detailCount;
         vc.buttonNum = buttonCheck;
+        if (buttonCheck == 1 || buttonCheck == 3 || buttonCheck == 5 || buttonCheck == 7) {
+            //my
+            vc.ID = USER_ID;
+        }else{
+            //U
+            vc.ID = USER_ID;//선택된 아이디값 넘겨줘야함!
+        }
+        
     }
 }
 
@@ -537,40 +546,46 @@
     buttonCheck = 1;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
-
+// U
 - (IBAction)reviewDetailButton2:(id)sender {
     sampleIndexValue = mSample_idx;
+    buttonCheck = 2;
+    
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton3:(id)sender {
     sampleIndexValue = mSample_idx;
     detailCount = 4;
-    buttonCheck = 2;
+    buttonCheck = 3;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton4:(id)sender {
     sampleIndexValue = mSample_idx;
+    buttonCheck = 4;
+    
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton5:(id)sender {
     sampleIndexValue = mSample_idx;
     detailCount = 1;
-    buttonCheck = 3;
+    buttonCheck = 5;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton6:(id)sender {
     sampleIndexValue = mSample_idx;
+    buttonCheck = 6;
+    
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 
 - (IBAction)reviewDetailButton7:(id)sender {
     sampleIndexValue = mSample_idx;
     detailCount = 1;
-    buttonCheck = 4;
+    buttonCheck = 7;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 

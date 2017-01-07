@@ -20,6 +20,7 @@
 @synthesize sampleIndex;
 @synthesize countNum;
 @synthesize buttonNum;
+@synthesize ID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,8 +30,9 @@
     title_Arr = [[NSMutableArray alloc] init];
     content_Arr = [[NSMutableArray alloc] init];
     
-    NSLog(@"%ld", sampleIndex);
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, USER_ID, (unsigned long)sampleIndex];
+    
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, ID, (unsigned long)sampleIndex];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -59,9 +61,23 @@
                 [title_Arr addObject:@"MEMO"];
                 
                 [content_Arr addObject:[NSString stringWithFormat:@" Floral : %@\n Fruity : %@\n Alcoholic : %@\n Herb/Vegetative : %@\n Spice : %@\n sweet : %@\n Nut : %@\n Chocolate : %@\n Green/Cereal : %@\n Roast : %@\n savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]]];
-                [content_Arr addObject:[NSString stringWithFormat:@" Fermentd : %@\n Chemical : %@\n Green/Grassy : %@\n Musty : %@\n Roast Defect : %@", [dic objectForKey:@"fermentd"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"], [dic objectForKey:@"musty"], [dic objectForKey:@"roastdefect"]]];
-                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"po"], [dic objectForKey:@"ne"]]];
-                [content_Arr addObject:@"메모"];
+                [content_Arr addObject:[NSString stringWithFormat:@" Fermentd : %@\n Chemical : %@\n Green/Grassy : %@\n Musty : %@\n Roast Defect : %@", [dic objectForKey:@"fermented"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"], [dic objectForKey:@"musty"], [dic objectForKey:@"roastdefect"]]];
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note1"]]];
+            }else if(buttonNum == 3){
+                [title_Arr addObject:@"AFTERTASTE"];
+                [title_Arr addObject:@"BODY"];
+                [title_Arr addObject:@"BALANCE"];
+                [title_Arr addObject:@"MEMO"];
+                
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Light : %@\n Medium : %@\n Heavy : %@", [dic objectForKey:@"fermented"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"]]];
+                
+                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note2"]]];
+                
             }
             
             [_coffeeDetailTableView reloadData];
@@ -108,7 +124,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    
     DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
     
     if (cell == nil){
