@@ -449,10 +449,11 @@
     mRoastdefect = [dic_result3 objectForKey:@"roastdefect"];
     
     if ([total_cnt isEqualToString:mResult_cnt]) {
-        mARVflag = NO;
-    }else{
         mARVflag = YES;
+    }else{
+        mARVflag = NO;
     }
+    
     
     float totalavrscore = [aroma_point floatValue] +  [flavor_point floatValue] + [aftertaste_point floatValue] +
     [acidity_point floatValue] + [body_point floatValue] +
@@ -480,13 +481,14 @@
     if (mARVflag){
         //android
         //상대방 맨위 빨강색
-//        mDetail4Btn0.text =[NSString stringWithFormat:@"AVR(%@)명" , [dic_result3 objectForKey:@"result_cnt"]] ;
+        _topAvrLabel.text =[NSString stringWithFormat:@"AVR(%@)명" , [dic_result3 objectForKey:@"result_cnt"]] ;
         avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
     }else {
         //android
-        //        mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
+        //        _topAvrLabel.setBackgroundResource(R.drawable.detail5_back3);
+        
         //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-//        mDetail4Btn0.text =@"진행중" ;
+        _topAvrLabel.text =@"진행중" ;
         
     }
     
@@ -609,7 +611,7 @@
     menu.delegate = self;
     for(int i = 0; i < [datas count]; i++){
         NSDictionary *codeDic = [datas objectAtIndex:i];
-        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_title"]];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
     }
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
