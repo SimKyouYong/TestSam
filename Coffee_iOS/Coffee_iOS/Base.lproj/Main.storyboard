@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -480,11 +480,85 @@
                         <outlet property="tab1Button" destination="Ukz-zy-54S" id="J9u-Dr-1r7"/>
                         <outlet property="tab2Button" destination="CqZ-eP-pbn" id="DUw-nl-tVV"/>
                         <outlet property="tab3Button" destination="XZn-Zw-UHf" id="j5Q-7s-wBk"/>
+                        <segue destination="DMv-tp-OIG" kind="push" identifier="sample_webview" id="HfB-xp-ae2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChJ-TV-H47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-564" y="2429"/>
+        </scene>
+        <!--Review WebviewVC-->
+        <scene sceneID="AQh-tD-udp">
+            <objects>
+                <viewController id="DMv-tp-OIG" customClass="ReviewWebviewVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fIK-cd-MvP"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Ke-Br-skw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C2Y-vY-4gN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-XT-BU0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1V-H8-JgG">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="c3l-Bf-Lme"/>
+                                            <constraint firstAttribute="height" constant="40" id="j61-Su-mfQ"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="DMv-tp-OIG" eventType="touchUpInside" id="3t6-Pa-4HT"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="evk-kq-Mua">
+                                        <rect key="frame" x="233" y="16" width="134" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="134" id="gDt-Ve-SqR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="o1V-H8-JgG" firstAttribute="top" secondItem="kl6-XT-BU0" secondAttribute="top" constant="10" id="3pB-Gc-HWx"/>
+                                    <constraint firstItem="evk-kq-Mua" firstAttribute="top" secondItem="kl6-XT-BU0" secondAttribute="top" constant="16" id="G5C-yE-qGH"/>
+                                    <constraint firstAttribute="height" constant="60" id="JRz-e2-Ldt"/>
+                                    <constraint firstAttribute="bottom" secondItem="evk-kq-Mua" secondAttribute="bottom" constant="16" id="fLM-gF-ezd"/>
+                                    <constraint firstItem="evk-kq-Mua" firstAttribute="centerX" secondItem="kl6-XT-BU0" secondAttribute="centerX" id="rwq-Wg-2hc"/>
+                                    <constraint firstItem="o1V-H8-JgG" firstAttribute="leading" secondItem="kl6-XT-BU0" secondAttribute="leading" constant="10" id="zzt-iY-i3Z"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJE-2f-e6X">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DMv-tp-OIG" id="PEh-qA-0po"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kl6-XT-BU0" secondAttribute="trailing" id="5jE-hH-SuS"/>
+                            <constraint firstItem="kl6-XT-BU0" firstAttribute="top" secondItem="C2Y-vY-4gN" secondAttribute="top" id="M1U-W7-Y7o"/>
+                            <constraint firstItem="kl6-XT-BU0" firstAttribute="leading" secondItem="C2Y-vY-4gN" secondAttribute="leading" id="dcj-LR-NYw"/>
+                            <constraint firstItem="eJE-2f-e6X" firstAttribute="leading" secondItem="C2Y-vY-4gN" secondAttribute="leading" id="gbU-N3-afO"/>
+                            <constraint firstAttribute="trailing" secondItem="eJE-2f-e6X" secondAttribute="trailing" id="i18-g1-xYu"/>
+                            <constraint firstItem="6Ke-Br-skw" firstAttribute="top" secondItem="eJE-2f-e6X" secondAttribute="bottom" id="lmv-0v-4sC"/>
+                            <constraint firstItem="eJE-2f-e6X" firstAttribute="top" secondItem="kl6-XT-BU0" secondAttribute="bottom" id="qnA-8P-jyY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="A1G-u0-gCI"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="sampleWebview" destination="eJE-2f-e6X" id="vgB-dc-cgM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wd2-Ay-8XW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="2429"/>
         </scene>
         <!--Half Product SecondVC-->
         <scene sceneID="o5G-tj-l0s">
