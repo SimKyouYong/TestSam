@@ -15,8 +15,8 @@
     UILabel *placeText;
     
     UILabel *leftLabel;
-    UIButton *cuppingButton;
     UIButton *reviewButton;
+    UIButton *reportButton;
 }
 
 @property (nonatomic) UILabel *leftLabel;
@@ -25,7 +25,7 @@
 @property (nonatomic) UILabel *timeText;
 @property (nonatomic) UILabel *placeText;
 
-@property (nonatomic) UIButton *cuppingButton;
 @property (nonatomic) UIButton *reviewButton;
+@property (nonatomic) UIButton *reportButton;
 
 @end

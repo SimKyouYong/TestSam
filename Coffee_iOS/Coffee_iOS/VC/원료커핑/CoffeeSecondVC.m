@@ -25,7 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    actionArr = [[NSMutableArray alloc] init];
+    
     mPosition = 0;
     [self Step1];       //통신 1 구간
 
@@ -337,15 +339,125 @@
 }
 
 - (IBAction)aftertasteButton:(id)sender {
+    actionSheetNum = 1;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex3_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex3_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex3_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
 }
 
 - (IBAction)bodyButton:(id)sender {
+    actionSheetNum = 2;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex5_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex5_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex5_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
 }
 
 - (IBAction)balanceButton:(id)sender {
+    actionSheetNum = 3;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex6_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex6_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex6_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
 }
 
 - (IBAction)overallButton:(id)sender {
+    actionSheetNum = 4;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex10_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex10_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex10_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+#pragma mark -
+#pragma ActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([actionArr count] == buttonIndex){
+        return;
+    }
+    
+    if(actionSheetNum == 1){
+        [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+    }else if(actionSheetNum == 2){
+        [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+    }else if(actionSheetNum == 3){
+        [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+    }else if(actionSheetNum == 4){
+        [overallButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+    }
+    
+    actionArr = [[NSMutableArray alloc] init];
 }
 
 @end

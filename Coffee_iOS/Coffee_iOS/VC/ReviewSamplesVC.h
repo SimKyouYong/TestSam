@@ -10,6 +10,9 @@
 
 @interface ReviewSamplesVC : UIViewController{
     NSMutableArray *tableList;
+    NSInteger tab_position;
+    
+    NSString *nextIdx;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *reviewSamplesTableView;

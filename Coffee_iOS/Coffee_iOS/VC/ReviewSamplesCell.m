@@ -17,8 +17,8 @@
 @synthesize placeText;
 
 @synthesize leftLabel;
-@synthesize cuppingButton;
 @synthesize reviewButton;
+@synthesize reportButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -69,13 +69,13 @@
         leftLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
         [self addSubview:leftLabel];
         
-        cuppingButton = [[UIButton alloc] initWithFrame:CGRectMake((WIDTH_FRAME - 20)/3 + 10, 75, (WIDTH_FRAME - 20)/3, 34)];
-        [cuppingButton setImage:[UIImage imageNamed:@"off_cupping_button_226x68.png"] forState:UIControlStateNormal];
-        [self addSubview:cuppingButton];
-        
-        reviewButton = [[UIButton alloc] initWithFrame:CGRectMake(((WIDTH_FRAME - 20)/3)*2 + 10, 75, (WIDTH_FRAME - 20)/3, 34)];
-        [reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68.png"] forState:UIControlStateNormal];
+        reviewButton = [[UIButton alloc] initWithFrame:CGRectMake((WIDTH_FRAME - 20)/3 + 10, 75, (WIDTH_FRAME - 20)/3, 34)];
+        [reviewButton setImage:[UIImage imageNamed:@"review_button_226x68.png"] forState:UIControlStateNormal];
         [self addSubview:reviewButton];
+        
+        reportButton = [[UIButton alloc] initWithFrame:CGRectMake(((WIDTH_FRAME - 20)/3)*2 + 10, 75, (WIDTH_FRAME - 20)/3, 34)];
+        [reportButton setImage:[UIImage imageNamed:@"report_button_226x68.png"] forState:UIControlStateNormal];
+        [self addSubview:reportButton];
     }
     return self;
 }

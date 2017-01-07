@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
 
-@interface CoffeeSecondVC : UIViewController
+@interface CoffeeSecondVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     NSArray *datas;
@@ -19,6 +19,9 @@
     NSString *mSample_idx;
     
     NSDictionary *tableDic;
+    
+    NSInteger actionSheetNum;
+    NSMutableArray *actionArr;
 }
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 
