@@ -14,12 +14,17 @@
     NSInteger detailCount;
     NSInteger buttonCheck;
     
+    NSUserDefaults *defaults;
     
     NSDictionary *dic_result;
     NSDictionary *dic_result3;
     NSArray *datas;
     NSArray *datas2;
     NSArray *datas3;
+    //추가
+    NSUInteger mPosition;
+    NSUInteger mSample_idx;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;
@@ -34,6 +39,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewText6;
 @property (weak, nonatomic) IBOutlet UILabel *reviewText7;
 @property (weak, nonatomic) IBOutlet UILabel *reviewText8;
+@property (weak, nonatomic) IBOutlet UILabel *Title;
+//맨위에 3개 상단 점수
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4ArvScore;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4StdScore;
+@property (weak, nonatomic) IBOutlet UILabel *mDetail4TotalScore;
 
 - (IBAction)detailLeftButton:(id)sender;
 - (IBAction)detailRightButton:(id)sender;

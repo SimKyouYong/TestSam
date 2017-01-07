@@ -81,7 +81,11 @@
             }else if(buttonNum == 3){
                 [title_Arr addObject:@"MEMO"];
                 [content_Arr addObject:[dic objectForKey:@"note4"]];
+            }else if(buttonNum == 5){
+                [title_Arr addObject:@"MEMO"];
+                [content_Arr addObject:[dic objectForKey:@"note6"]];
             }
+
             
             [manualDetailTableView reloadData];
         }else{
@@ -151,6 +155,13 @@
 
     }else if(buttonNum == 4){
         
+    }else if(buttonNum == 5){
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
+
     }
     
     if(indexPath.row % 2 == 0){

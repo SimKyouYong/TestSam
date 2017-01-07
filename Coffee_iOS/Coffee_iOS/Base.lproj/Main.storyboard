@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -4345,6 +4345,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="Title" destination="i7R-u4-9EN" id="OAO-ND-lgi"/>
+                        <outlet property="mDetail4ArvScore" destination="4l9-JT-L55" id="Ol2-ae-uCm"/>
+                        <outlet property="mDetail4TotalScore" destination="UtP-V7-SVF" id="ds8-DW-86G"/>
                         <outlet property="menualReviewLatteScrollView" destination="B2a-8J-UlS" id="53X-Fj-LI0"/>
                         <outlet property="reviewText1" destination="j05-o7-hjp" id="AHB-7a-7R8"/>
                         <outlet property="reviewText2" destination="Hpc-qc-EXt" id="VHb-HC-Wgu"/>
@@ -8202,8 +8205,8 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vl0-I9-pZc"/>
-        <segue reference="NQw-kp-gI4"/>
+        <segue reference="ckf-0M-DH3"/>
         <segue reference="TJR-ST-dQU"/>
+        <segue reference="NQw-kp-gI4"/>
     </inferredMetricsTieBreakers>
 </document>
