@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -2450,11 +2450,11 @@
                         <viewControllerLayoutGuide type="bottom" id="f1l-ze-I30"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2nT-Bq-RSr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-Fb-XMG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-5I-aqz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -2500,10 +2500,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqs-BT-dbL">
-                                <rect key="frame" x="0.0" y="100" width="600" height="900"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM0-mK-jhD">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-FO-lxi">
@@ -3144,7 +3144,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CS8-Io-aFV"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="Title" destination="OBN-o0-4jo" id="5kj-zs-Jpg"/>
                         <outlet property="halfScrollView" destination="jqs-BT-dbL" id="4A7-oG-uNM"/>
@@ -3174,7 +3174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aB-FX-RnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.913043478261" y="-1025.5434782608697"/>
+            <point key="canvasLocation" x="2574" y="-1026"/>
         </scene>
         <!--Menual Re ViewVC-->
         <scene sceneID="qFb-R1-55J">
@@ -3734,14 +3734,14 @@
                                                     <constraint firstAttribute="height" constant="40" id="mxf-pE-Htm"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imr-IX-iVx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imr-IX-iVx">
                                                 <rect key="frame" x="10" y="50" width="275" height="40"/>
                                                 <state key="normal" image="bogi2_button_330x80.png"/>
                                                 <connections>
                                                     <action selector="reviewDetailButton3:" destination="bDy-QT-fVL" eventType="touchUpInside" id="ENU-gQ-Ya5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF3-LE-EF1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF3-LE-EF1">
                                                 <rect key="frame" x="295" y="50" width="275" height="40"/>
                                                 <state key="normal" image="bogi2_button_330x80.png"/>
                                                 <connections>
@@ -3756,8 +3756,10 @@
                                             <constraint firstItem="imr-IX-iVx" firstAttribute="leading" secondItem="exd-zp-TbU" secondAttribute="leading" constant="10" id="Eea-UZ-HVD"/>
                                             <constraint firstItem="VKv-J6-yHi" firstAttribute="top" secondItem="exd-zp-TbU" secondAttribute="top" id="Gke-h8-3cu"/>
                                             <constraint firstAttribute="trailing" secondItem="mF3-LE-EF1" secondAttribute="trailing" constant="10" id="HaI-hm-7Bg"/>
+                                            <constraint firstItem="mF3-LE-EF1" firstAttribute="top" secondItem="yBR-Mc-Occ" secondAttribute="bottom" constant="10" id="ZYz-zk-QEj"/>
                                             <constraint firstAttribute="trailing" secondItem="yBR-Mc-Occ" secondAttribute="trailing" constant="10" id="cGZ-bg-G8o"/>
                                             <constraint firstItem="yBR-Mc-Occ" firstAttribute="top" secondItem="exd-zp-TbU" secondAttribute="top" id="ebF-ss-AEX"/>
+                                            <constraint firstItem="imr-IX-iVx" firstAttribute="top" secondItem="VKv-J6-yHi" secondAttribute="bottom" constant="10" id="gou-PO-ved"/>
                                             <constraint firstItem="VKv-J6-yHi" firstAttribute="leading" secondItem="exd-zp-TbU" secondAttribute="leading" constant="10" id="kg6-f8-dhV"/>
                                             <constraint firstAttribute="height" constant="100" id="ljT-i5-rl2"/>
                                             <constraint firstItem="yBR-Mc-Occ" firstAttribute="width" secondItem="VKv-J6-yHi" secondAttribute="width" id="oNl-WH-Vj4"/>
@@ -4272,16 +4274,14 @@
                                                 <rect key="frame" x="10" y="0.0" width="275" height="40"/>
                                                 <state key="normal" image="bogi2_button_330x80.png"/>
                                                 <connections>
-                                                    <action selector="detailLeftButton:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="qdQ-Xp-cFS"/>
-                                                    <action selector="reviewDetailButton3:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="eyI-Mz-M7c"/>
+                                                    <action selector="detailLeftButton:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="syN-Sr-32H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-va-aim">
                                                 <rect key="frame" x="295" y="0.0" width="275" height="40"/>
                                                 <state key="normal" image="bogi2_button_330x80.png"/>
                                                 <connections>
-                                                    <action selector="detailRightButton:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="09H-U6-pU5"/>
-                                                    <action selector="reviewDetailButton4:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="xYw-uE-8Yh"/>
+                                                    <action selector="detailRightButton:" destination="DJK-Qm-A6W" eventType="touchUpInside" id="JVE-w5-yi9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -8205,8 +8205,8 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckf-0M-DH3"/>
         <segue reference="TJR-ST-dQU"/>
         <segue reference="NQw-kp-gI4"/>
+        <segue reference="ckf-0M-DH3"/>
     </inferredMetricsTieBreakers>
 </document>
