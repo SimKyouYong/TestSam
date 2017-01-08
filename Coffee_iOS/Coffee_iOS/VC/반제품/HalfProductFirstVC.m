@@ -30,9 +30,140 @@
     [super viewDidLoad];
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
+    mPosition = 0;
+    
+    
+    [self Step1];       //통신 1 구간
+}
+- (void)Step1{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            datas = [dic objectForKey:@"datas"];
+            NSLog(@"1. DATAS :: %@" , datas);
+            [self init:mPosition];
+            [self Step2];       //통신 2 구간
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+- (void)init:(NSInteger)position{
+//    mListTv2.setText("(" + mHalfListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
+//    mListTv1.setText("반제품:");
+//    mListTv3.setText(" " + mHalfListItems.get(mPosition).getmSample_code());
+    SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
     
 }
-
+- (void)Step2{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    //    E/Thread: url  ---->>  http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=167
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            NSLog(@"2. DATA :: %@" , dic);
+            
+            [self init2:dic];
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+- (void)init2:(NSDictionary *)dic{
+    //안드로이드
+    /*
+    mPositive1.setText(mTotalFloral.replace("|" , ", "));
+    mPositive2.setText(mTotalFruity.replace("|" , ", "));
+    mPositive3.setText(mTotalAlcoholic.replace("|" , ", "));
+    mPositive4.setText(mTotalHerb.replace("|" , ", "));
+    mPositive5.setText(mTotalSpice.replace("|" , ", "));
+    mPositive6.setText(mTotalSweet.replace("|" , ", "));
+    mPositive7.setText(mTotalNut.replace("|" , ", "));
+    mPositive8.setText(mTotalChocolate.replace("|" , ", "));
+    mPositive9.setText(mTotalGrain.replace("|" , ", "));
+    mPositive10.setText(mTotalRoast.replace("|" , ", "));
+    mPositive11.setText(mTotalSavory.replace("|" , ", "));
+    
+    mNegative1.setText(mTotalFermented.replace("|" , ", "));
+    mNegative2.setText(mTotalChemical.replace("|" , ", "));
+    mNegative3.setText(mTotalGreen.replace("|" , ", "));
+    mNegative4.setText(mTotalMusty.replace("|" , ", "));
+    mNegative5.setText(mTotalRoastdefect.replace("|" , ", "));
+    
+    mAcidity1.setText(mTotalAcidity_Po.replace("|" , ", "));
+    mAcidity2.setText(mTotalAcidity_Ne.replace("|" , ", "));
+    
+    mAftertaste2.setText(mTotalAftertaste_Po.replace("|" , ", "));
+    mAftertaste2.setText(mTotalAftertaste_Ne.replace("|" , ", "));
+    mBody1.setText(mTotalBody_Li.replace("|" , ", "));
+    mBody2.setText(mTotalBody_Me.replace("|" , ", "));
+    mBody3.setText(mTotalBody_He.replace("|" , ", "));
+    mBalance1.setText(mTotalBalance_Po.replace("|" , ", "));
+    mBalance2.setText(mTotalBalance_Ne.replace("|" , ", "));
+    mMouthfeel1.setText(mTotalMouthfeel_Po.replace("|" , ", "));
+    mMouthfeel2.setText(mTotalMouthfeel_Ne.replace("|" , ", "));
+    
+    
+    
+    
+    if (result != null) {
+        if (result.trim().equals(commonData.SUCCESS)) {
+            mDetailBtn1.setText(acidity_point);
+            mDetailBtn2.setText(sweetness_point);
+            mDetailBtn3.setText(bitterness_point);
+            mDetailBtn4.setText(body_point);
+            mDetailBtn5.setText(balance_point);
+            mDetailBtn6.setText(aftertaste_point);
+            mDetailBtn7.setText(po_point);
+            mDetailBtn8.setText(ne_point);
+            mDetailEdt.setText(note1);
+        } else {
+            Toast.makeText(HalfDetail1Activity.this, result_message, Toast.LENGTH_SHORT).show();
+        }
+    } else {
+        Toast.makeText(HalfDetail1Activity.this, "다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+    }
+    */
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

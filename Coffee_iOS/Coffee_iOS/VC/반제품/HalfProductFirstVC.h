@@ -14,6 +14,15 @@
     NSArray *numberArr;
     NSInteger actionSheetSettingValue;
     
+    
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+    
+    int mPosition;
+    NSString *mSample_idx;
+    
+    
     NSDictionary *tableDic;
     
     NSInteger actionSheetNum;
