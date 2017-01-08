@@ -158,8 +158,6 @@
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     }];
     [dataTask resume];
-
-    
     
     NSDictionary *dic = [tableList objectAtIndex:nIndex];
     if ([[dic objectForKey:@"state"] isEqualToString:@"W"]){
@@ -187,6 +185,8 @@
             [self performSegueWithIdentifier:@"menual_push" sender:sender];
         }
     }
+    
+    //[self performSegueWithIdentifier:@"half_push" sender:sender];
 }
 
 - (void)reviewAction:(UIButton*)sender{

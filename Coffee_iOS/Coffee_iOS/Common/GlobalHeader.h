@@ -24,6 +24,7 @@
 #define CUPPING_COMMON          @"http://work.nexall.net/web/app/sess_start.php"
 #define REVIEW_SAMPLE_URL       @"http://work.nexall.net/web/app/review_list.php"
 #define SAMPLE_WEB_URL          @"http://work.nexall.net/creport.php"
+#define CUPPING_SAVE            @"http://work.nexall.net/web/app/coffee_result.php"
 
 // Memory
 #define USER_NO                 [GlobalObject sharedInstance].userNO

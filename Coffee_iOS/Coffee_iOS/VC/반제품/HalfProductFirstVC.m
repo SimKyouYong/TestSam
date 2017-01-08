@@ -16,7 +16,7 @@
 
 @implementation HalfProductFirstVC
 
-@synthesize halfFirstScrollView;
+@synthesize halfFirstTableView;
 @synthesize acidityButton;
 @synthesize sweetnessButton;
 @synthesize bitternessButton;
@@ -156,6 +156,142 @@
         default:
             break;
     }
+}
+
+#pragma mark -
+#pragma mark UITableView Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath isEqual:halfFirstTableView.expandedContentIndexPath])
+    {
+        if(indexPath.row == 1
+           ){
+            return 560;
+        }else if(indexPath.row == 2){
+            return 260;
+        }else if(indexPath.row == 3){
+            return 110;
+        }
+        return 0.0f;
+    }else{
+        return 40.0f;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return JNExpandableTableViewNumberOfRowsInSection((JNExpandableTableView *)tableView,section,3);
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSIndexPath * adjustedIndexPath = [halfFirstTableView adjustedIndexPathFromTable:indexPath];
+    
+    if ([halfFirstTableView.expandedContentIndexPath isEqual:indexPath])
+    {
+        if(indexPath.row == 1){
+            static NSString *CellIdentifier = @"firstCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            /*
+            UILabel *mTotalFloral = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalFruity = (UILabel*)[cell viewWithTag:3];
+            UILabel *mTotalAlcoholic = (UILabel*)[cell viewWithTag:5];
+            UILabel *mTotalHerb = (UILabel*)[cell viewWithTag:7];
+            UILabel *mTotalSpice = (UILabel*)[cell viewWithTag:9];
+            UILabel *mTotalSweet = (UILabel*)[cell viewWithTag:11];
+            UILabel *mTotalNut = (UILabel*)[cell viewWithTag:13];
+            UILabel *mTotalChocolate = (UILabel*)[cell viewWithTag:15];
+            UILabel *mTotalGrain = (UILabel*)[cell viewWithTag:17];
+            UILabel *mTotalRoast = (UILabel*)[cell viewWithTag:19];
+            UILabel *mTotalSavory = (UILabel*)[cell viewWithTag:21];
+            
+            mTotalFloral.text = [tableDic objectForKey:@"floral"];
+            mTotalFruity.text = [tableDic objectForKey:@"fruity"];
+            mTotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
+            mTotalHerb.text = [tableDic objectForKey:@"herb"];
+            mTotalSpice.text = [tableDic objectForKey:@"spice"];
+            mTotalSweet.text = [tableDic objectForKey:@"sweet"];
+            mTotalNut.text = [tableDic objectForKey:@"nut"];
+            mTotalChocolate.text = [tableDic objectForKey:@"chocolate"];
+            mTotalGrain.text = [tableDic objectForKey:@"grain"];
+            mTotalRoast.text = [tableDic objectForKey:@"roast"];
+            mTotalSavory.text = [tableDic objectForKey:@"savory"];
+             */
+            
+            return cell;
+        }else if(indexPath.row == 2){
+            static NSString *CellIdentifier = @"secondCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            UILabel *mTotalFermented = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalChemical = (UILabel*)[cell viewWithTag:3];
+            UILabel *mTotalGreen = (UILabel*)[cell viewWithTag:5];
+            UILabel *mTotalMusty = (UILabel*)[cell viewWithTag:7];
+            UILabel *mTotalRoastdefect = (UILabel*)[cell viewWithTag:9];
+            
+            mTotalFermented.text = [tableDic objectForKey:@"fermented"];
+            mTotalChemical.text = [tableDic objectForKey:@"chemical"];
+            mTotalGreen.text = [tableDic objectForKey:@"green"];
+            mTotalMusty.text = [tableDic objectForKey:@"musty"];
+            mTotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            
+            return cell;
+        }else if(indexPath.row == 3){
+            static NSString *CellIdentifier = @"thirdCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            
+            return cell;
+        }
+        
+    }else{
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if((long)adjustedIndexPath.row == 0){
+            cell.textLabel.text = @"POSITIVE";
+        }else if((long)adjustedIndexPath.row == 1){
+            cell.textLabel.text = @"NEGATIVE";
+        }else if((long)adjustedIndexPath.row == 2){
+            cell.textLabel.text = @"ACIDITY";
+        }
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        
+        return cell;
+    }
+    
+    return nil;
+}
+
+#pragma mark -
+#pragma mark JNExpandableTableView Degate
+
+- (BOOL)tableView:(JNExpandableTableView *)tableView canExpand:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(JNExpandableTableView *)tableView willExpand:(NSIndexPath *)indexPath
+{
+    NSLog(@"Will Expand: %@",indexPath);
+}
+
+- (void)tableView:(JNExpandableTableView *)tableView willCollapse:(NSIndexPath *)indexPath
+{
+    NSLog(@"Will Collapse: %@",indexPath);
 }
 
 @end

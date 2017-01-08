@@ -7,14 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JNExpandableTableView.h"
 
 @interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate>{
     // ActionSheet count
     NSArray *numberArr;
     NSInteger actionSheetSettingValue;
+    
+    NSDictionary *tableDic;
+    
+    NSInteger actionSheetNum;
+    NSMutableArray *actionArr;
 }
 
-@property (weak, nonatomic) IBOutlet UIScrollView *halfFirstScrollView;
+@property (weak, nonatomic) IBOutlet JNExpandableTableView *halfFirstTableView;
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;

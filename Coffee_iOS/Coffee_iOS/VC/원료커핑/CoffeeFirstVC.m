@@ -257,7 +257,32 @@
 }
 
 - (IBAction)saveButton:(id)sender {
-    NSLog(@"save!!");
+    NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSString * params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=%@&aroma_point=%@&flavor_point=%@&acidity_point=%@&note1=%@&floral=%@&fruity=%@&alcoholic=%@&herb=%@&spice=%@&sweet=%@&nut=%@&chocolate=%@&grain=%@&roast=%@&savory=%@&fermented=%@&chemical=%@&green=%@&musty=%@&roastdefect=%@&acidity_po=%@&acidity_ne=%@&@"];          //값 추출해서 매칭 시켜야함.
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //NSLog(@"Response:%@ %@\n", response, error);
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+            NSLog(@"resultValue : %@"  , resultValue);
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
 }
 
 - (IBAction)nextButton:(id)sender {
@@ -487,7 +512,6 @@
     popupView.hidden = YES;
     commonTableView.hidden = YES;
 }
-
 
 #pragma mark -
 #pragma ActionSheet Delegate
