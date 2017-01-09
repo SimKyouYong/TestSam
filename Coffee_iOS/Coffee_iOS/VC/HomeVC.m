@@ -185,8 +185,6 @@
             [self performSegueWithIdentifier:@"menual_push" sender:sender];
         }
     }
-    
-    [self performSegueWithIdentifier:@"menual_push" sender:sender];
 }
 
 - (void)reviewAction:(UIButton*)sender{
