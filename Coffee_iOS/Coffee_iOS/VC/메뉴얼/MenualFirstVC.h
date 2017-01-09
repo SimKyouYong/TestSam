@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JNExpandableTableView.h"
 
 @interface MenualFirstVC : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIScrollView *menualFirstScrollView;
+@property (weak, nonatomic) IBOutlet JNExpandableTableView *menualFirstTableView;
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;

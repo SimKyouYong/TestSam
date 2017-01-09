@@ -301,12 +301,19 @@
 {
     if ([indexPath isEqual:halfFirstTableView.expandedContentIndexPath])
     {
-        if(indexPath.row == 1
-           ){
-            return 560;
+        if(indexPath.row == 1){
+            return 510;
         }else if(indexPath.row == 2){
             return 260;
         }else if(indexPath.row == 3){
+            return 110;
+        }else if(indexPath.row == 4){
+            return 110;
+        }else if(indexPath.row == 5){
+            return 160;
+        }else if(indexPath.row == 6){
+            return 110;
+        }else if(indexPath.row == 7){
             return 110;
         }
         return 0.0f;
@@ -317,7 +324,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return JNExpandableTableViewNumberOfRowsInSection((JNExpandableTableView *)tableView,section,3);
+    return JNExpandableTableViewNumberOfRowsInSection((JNExpandableTableView *)tableView,section,7);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -361,7 +368,7 @@
             static NSString *CellIdentifier = @"secondCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            
+            /*
             UILabel *mTotalFermented = (UILabel*)[cell viewWithTag:1];
             UILabel *mTotalChemical = (UILabel*)[cell viewWithTag:3];
             UILabel *mTotalGreen = (UILabel*)[cell viewWithTag:5];
@@ -373,19 +380,67 @@
             mTotalGreen.text = [tableDic objectForKey:@"green"];
             mTotalMusty.text = [tableDic objectForKey:@"musty"];
             mTotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
-            
+            */
             return cell;
         }else if(indexPath.row == 3){
             static NSString *CellIdentifier = @"thirdCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            
+            /*
             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
             
             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            */
+            return cell;
+        }else if(indexPath.row == 4){
+            static NSString *CellIdentifier = @"fourCell";
             
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            /*
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            */
+            return cell;
+        }else if(indexPath.row == 5){
+            static NSString *CellIdentifier = @"fiveCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            /*
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            */
+            return cell;
+        }else if(indexPath.row == 6){
+            static NSString *CellIdentifier = @"sixCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            /*
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            */
+            return cell;
+        }else if(indexPath.row == 7){
+            static NSString *CellIdentifier = @"sevenCell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            /*
+            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            */
             return cell;
         }
         
@@ -398,6 +453,14 @@
             cell.textLabel.text = @"NEGATIVE";
         }else if((long)adjustedIndexPath.row == 2){
             cell.textLabel.text = @"ACIDITY";
+        }else if((long)adjustedIndexPath.row == 3){
+            cell.textLabel.text = @"AFTERTASTE";
+        }else if((long)adjustedIndexPath.row == 4){
+            cell.textLabel.text = @"BODY";
+        }else if((long)adjustedIndexPath.row == 5){
+            cell.textLabel.text = @"BALANCE";
+        }else if((long)adjustedIndexPath.row == 6){
+            cell.textLabel.text = @"MOUTHFEEL";
         }
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
