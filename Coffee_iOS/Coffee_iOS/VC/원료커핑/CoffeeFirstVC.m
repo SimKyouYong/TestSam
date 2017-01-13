@@ -45,8 +45,8 @@
     //s[self.view bringSubviewToFront:commonTableView];
      */
     [self Step1];       //통신 1 구간
-    
 }
+
 - (void)Step1{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
@@ -80,6 +80,7 @@
     }];
     [dataTask resume];
 }
+
 - (void)init:(NSInteger)position{
 //    contentText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
 //    
@@ -108,14 +109,11 @@
     */
     
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
-
 }
 
 - (void)Step2{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
-
-//    E/Thread: url  ---->>  http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=167
 
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
@@ -144,6 +142,7 @@
     }];
     [dataTask resume];
 }
+
 - (void)init2:(NSDictionary *)dic{
     [aromaButton setTitle:[dic objectForKey:@"aroma_point"] forState:UIControlStateNormal];
     [flavorButton setTitle:[dic objectForKey:@"flavor_point"] forState:UIControlStateNormal];
@@ -152,71 +151,34 @@
     noteTextView.text = [dic objectForKey:@"note1"];
     
     tableDic = dic;
+    [self init3:dic];
     [coffeeFirstTableView reloadData];
-    
-    //안드로이드
-//    String result = resultObject.getString(CommonData.RESULT);
-//    String result_message = resultObject.getString(CommonData.RESULT_M);
-//    String aroma_point = resultObject.getString(CommonData.AROMA_POINT);
-//    String flavor_point = resultObject.getString(CommonData.FLAVOR_POINT);
-//    String acidity_point = resultObject.getString(CommonData.ACIDITY_POINT);
-//    String aftertaste_point = resultObject.getString(CommonData.AFTERTASTE_POINT);
-//    String note1 = resultObject.getString(CommonData.NOTE1);
-//    mTotalFloral = resultObject.getString(CommonData.FLORAL);
-//    mTotalFruity = resultObject.getString(CommonData.FRUITY);
-//    mTotalAlcoholic = resultObject.getString(CommonData.ALCOHOLIC);
-//    mTotalHerb = resultObject.getString(CommonData.HERB);
-//    mTotalSpice = resultObject.getString(CommonData.SPICE);
-//    mTotalSweet = resultObject.getString(CommonData.SWEET);
-//    mTotalNut = resultObject.getString(CommonData.NUT);
-//    mTotalChocolate = resultObject.getString(CommonData.CHOCOLATE);
-//    mTotalGrain = resultObject.getString(CommonData.GRAIN);
-//    mTotalRoast = resultObject.getString(CommonData.ROAST);
-//    mTotalSavory = resultObject.getString(CommonData.SAVORY);
-//    
-//    mTotalFermented = resultObject.getString(CommonData.FERMENTED);
-//    mTotalChemical = resultObject.getString(CommonData.CHEMICAL);
-//    mTotalGreen = resultObject.getString(CommonData.GREEN);
-//    mTotalMusty = resultObject.getString(CommonData.MUSTY);
-//    mTotalRoastdefect = resultObject.getString(CommonData.ROASTDEFECT);
-//    
-//    mTotalAcidity_Po = resultObject.getString(CommonData.ACIDITY_PO);
-//    mTotalAcidity_Ne = resultObject.getString(CommonData.ACIDITY_NE);
-//    
-//    mPositive1.setText(mTotalFloral.replace("|" , ", "));
-//    mPositive2.setText(mTotalFruity.replace("|" , ", "));
-//    mPositive3.setText(mTotalAlcoholic.replace("|" , ", "));
-//    mPositive4.setText(mTotalHerb.replace("|" , ", "));
-//    mPositive5.setText(mTotalSpice.replace("|" , ", "));
-//    mPositive6.setText(mTotalSweet.replace("|" , ", "));
-//    mPositive7.setText(mTotalNut.replace("|" , ", "));
-//    mPositive8.setText(mTotalChocolate.replace("|" , ", "));
-//    mPositive9.setText(mTotalGrain.replace("|" , ", "));
-//    mPositive10.setText(mTotalRoast.replace("|" , ", "));
-//    mPositive11.setText(mTotalSavory.replace("|" , ", "));
-//    
-//    mNegative1.setText(mTotalFermented.replace("|" , ", "));
-//    mNegative2.setText(mTotalChemical.replace("|" , ", "));
-//    mNegative3.setText(mTotalGreen.replace("|" , ", "));
-//    mNegative4.setText(mTotalMusty.replace("|" , ", "));
-//    mNegative5.setText(mTotalRoastdefect.replace("|" , ", "));
-//    
-//    mAcidity1.setText(mTotalAcidity_Po.replace("|" , ", "));
-//    mAcidity2.setText(mTotalAcidity_Ne.replace("|" , ", "));
-//    
-//    if (result != null) {
-//        if (result.trim().equals(commonData.SUCCESS)) {
-//            mDetailBtn1.setText(aroma_point);
-//            mDetailBtn2.setText(flavor_point);
-//            mDetailBtn3.setText(acidity_point);
-//            mDetailEdt.setText(note1);
-//        } else {
-//            Toast.makeText(SourceDetail1Activity.this, result_message, Toast.LENGTH_SHORT).show();
-//        }
-//    } else {
-//        Toast.makeText(SourceDetail1Activity.this, "다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-//    }
 }
+
+// 테이블 셀 클릭하지않고 바로 저장눌렀을때를 대비함
+- (void)init3:(NSDictionary*)dic{
+    mTotalFloral = [dic objectForKey:@"floral"];
+    mTotalFruity = [dic objectForKey:@"fruity"];
+    mTotalAlcoholic = [dic objectForKey:@"alcoholic"];
+    mTotalHerb = [dic objectForKey:@"herb"];
+    mTotalSpice = [dic objectForKey:@"spice"];
+    mTotalSweet = [dic objectForKey:@"sweet"];
+    mTotalNut = [dic objectForKey:@"nut"];
+    mTotalChocolate = [dic objectForKey:@"chocolate"];
+    mTotalGrain = [dic objectForKey:@"grain"];
+    mTotalRoast = [dic objectForKey:@"roast"];
+    mTotalSavory = [dic objectForKey:@"savory"];
+    
+    mTotalFermented = [dic objectForKey:@"fermented"];
+    mTotalChemical = [dic objectForKey:@"chemical"];
+    mTotalGreen = [dic objectForKey:@"green"];
+    mTotalMusty = [dic objectForKey:@"musty"];
+    mTotalRoastdefect = [dic objectForKey:@"roastdefect"];
+    
+    mTotalAcidity_Po = [dic objectForKey:@"acidity_po"];
+    mTotalAcidity_Ne = [dic objectForKey:@"acidity_ne"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -224,7 +186,6 @@
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    
 }
 
 #pragma mark -
@@ -262,7 +223,8 @@
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSString * params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=%@&aroma_point=%@&flavor_point=%@&acidity_point=%@&note1=%@&floral=%@&fruity=%@&alcoholic=%@&herb=%@&spice=%@&sweet=%@&nut=%@&chocolate=%@&grain=%@&roast=%@&savory=%@&fermented=%@&chemical=%@&green=%@&musty=%@&roastdefect=%@&acidity_po=%@&acidity_ne=%@&@"];          //값 추출해서 매칭 시켜야함.
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=1&aroma_point=%@&flavor_point=%@&acidity_point=%@&note1=%@&floral=%@&fruity=%@&alcoholic=%@&herb=%@&spice=%@&sweet=%@&nut=%@&chocolate=%@&grain=%@&roast=%@&savory=%@&fermented=%@&chemical=%@&green=%@&musty=%@&roastdefect=%@&acidity_po=%@&acidity_ne=%@", USER_ID, SAMPLE_IDX, aromaButton.titleLabel.text, flavorButton.titleLabel.text, acidityButton.titleLabel.text, noteTextView.text, mTotalFloral, mTotalFruity, mTotalAlcoholic, mTotalHerb, mTotalSpice, mTotalSweet, mTotalNut, mTotalChocolate, mTotalGrain, mTotalRoast, mTotalSavory, mTotalFermented, mTotalChemical, mTotalGreen, mTotalMusty, mTotalRoastdefect, mTotalAcidity_Po, mTotalAcidity_Ne];
+    NSLog(@"원료커핑1 : %@", params);
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -270,8 +232,24 @@
         //NSLog(@"Response:%@ %@\n", response, error);
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
         if (statusCode == 200) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
             NSLog(@"resultValue : %@"  , resultValue);
+            if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
@@ -406,29 +384,29 @@
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
-            UILabel *mTotalFloral = (UILabel*)[cell viewWithTag:1];
-            UILabel *mTotalFruity = (UILabel*)[cell viewWithTag:3];
-            UILabel *mTotalAlcoholic = (UILabel*)[cell viewWithTag:5];
-            UILabel *mTotalHerb = (UILabel*)[cell viewWithTag:7];
-            UILabel *mTotalSpice = (UILabel*)[cell viewWithTag:9];
-            UILabel *mTotalSweet = (UILabel*)[cell viewWithTag:11];
-            UILabel *mTotalNut = (UILabel*)[cell viewWithTag:13];
-            UILabel *mTotalChocolate = (UILabel*)[cell viewWithTag:15];
-            UILabel *mTotalGrain = (UILabel*)[cell viewWithTag:17];
-            UILabel *mTotalRoast = (UILabel*)[cell viewWithTag:19];
-            UILabel *mTotalSavory = (UILabel*)[cell viewWithTag:21];
+            TotalFloral = (UILabel*)[cell viewWithTag:1];
+            TotalFruity = (UILabel*)[cell viewWithTag:3];
+            TotalAlcoholic = (UILabel*)[cell viewWithTag:5];
+            TotalHerb = (UILabel*)[cell viewWithTag:7];
+            TotalSpice = (UILabel*)[cell viewWithTag:9];
+            TotalSweet = (UILabel*)[cell viewWithTag:11];
+            TotalNut = (UILabel*)[cell viewWithTag:13];
+            TotalChocolate = (UILabel*)[cell viewWithTag:15];
+            TotalGrain = (UILabel*)[cell viewWithTag:17];
+            TotalRoast = (UILabel*)[cell viewWithTag:19];
+            TotalSavory = (UILabel*)[cell viewWithTag:21];
             
-            mTotalFloral.text = [tableDic objectForKey:@"floral"];
-            mTotalFruity.text = [tableDic objectForKey:@"fruity"];
-            mTotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
-            mTotalHerb.text = [tableDic objectForKey:@"herb"];
-            mTotalSpice.text = [tableDic objectForKey:@"spice"];
-            mTotalSweet.text = [tableDic objectForKey:@"sweet"];
-            mTotalNut.text = [tableDic objectForKey:@"nut"];
-            mTotalChocolate.text = [tableDic objectForKey:@"chocolate"];
-            mTotalGrain.text = [tableDic objectForKey:@"grain"];
-            mTotalRoast.text = [tableDic objectForKey:@"roast"];
-            mTotalSavory.text = [tableDic objectForKey:@"savory"];
+            TotalFloral.text = [tableDic objectForKey:@"floral"];
+            TotalFruity.text = [tableDic objectForKey:@"fruity"];
+            TotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
+            TotalHerb.text = [tableDic objectForKey:@"herb"];
+            TotalSpice.text = [tableDic objectForKey:@"spice"];
+            TotalSweet.text = [tableDic objectForKey:@"sweet"];
+            TotalNut.text = [tableDic objectForKey:@"nut"];
+            TotalChocolate.text = [tableDic objectForKey:@"chocolate"];
+            TotalGrain.text = [tableDic objectForKey:@"grain"];
+            TotalRoast.text = [tableDic objectForKey:@"roast"];
+            TotalSavory.text = [tableDic objectForKey:@"savory"];
             
             return cell;
         }else if(indexPath.row == 2){
@@ -436,17 +414,17 @@
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
-            UILabel *mTotalFermented = (UILabel*)[cell viewWithTag:1];
-            UILabel *mTotalChemical = (UILabel*)[cell viewWithTag:3];
-            UILabel *mTotalGreen = (UILabel*)[cell viewWithTag:5];
-            UILabel *mTotalMusty = (UILabel*)[cell viewWithTag:7];
-            UILabel *mTotalRoastdefect = (UILabel*)[cell viewWithTag:9];
+            TotalFermented = (UILabel*)[cell viewWithTag:1];
+            TotalChemical = (UILabel*)[cell viewWithTag:3];
+            TotalGreen = (UILabel*)[cell viewWithTag:5];
+            TotalMusty = (UILabel*)[cell viewWithTag:7];
+            TotalRoastdefect = (UILabel*)[cell viewWithTag:9];
             
-            mTotalFermented.text = [tableDic objectForKey:@"fermented"];
-            mTotalChemical.text = [tableDic objectForKey:@"chemical"];
-            mTotalGreen.text = [tableDic objectForKey:@"green"];
-            mTotalMusty.text = [tableDic objectForKey:@"musty"];
-            mTotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            TotalFermented.text = [tableDic objectForKey:@"fermented"];
+            TotalChemical.text = [tableDic objectForKey:@"chemical"];
+            TotalGreen.text = [tableDic objectForKey:@"green"];
+            TotalMusty.text = [tableDic objectForKey:@"musty"];
+            TotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
             
             return cell;
         }else if(indexPath.row == 3){
@@ -454,11 +432,11 @@
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
       
-            UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-            UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            TotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            TotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
             
-            mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-            mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            TotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            TotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
             
             return cell;
         }
@@ -491,12 +469,12 @@
 
 - (void)tableView:(JNExpandableTableView *)tableView willExpand:(NSIndexPath *)indexPath
 {
-    NSLog(@"Will Expand: %@",indexPath);
+    //NSLog(@"Will Expand: %@",indexPath);
 }
 
 - (void)tableView:(JNExpandableTableView *)tableView willCollapse:(NSIndexPath *)indexPath
 {
-    NSLog(@"Will Collapse: %@",indexPath);
+    //NSLog(@"Will Collapse: %@",indexPath);
 }
 
 #pragma mark -
@@ -508,7 +486,6 @@
 }
 
 - (void)submitButton:(NSString *)value{
-    NSLog(@"%@", value);
     popupView.hidden = YES;
     commonTableView.hidden = YES;
 }

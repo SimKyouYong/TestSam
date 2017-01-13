@@ -26,6 +26,49 @@
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    
+    // 실제 사용할 데이터
+    NSString *mTotalFloral;
+    NSString *mTotalFruity;
+    NSString *mTotalAlcoholic;
+    NSString *mTotalHerb;
+    NSString *mTotalSpice;
+    NSString *mTotalSweet;
+    NSString *mTotalNut;
+    NSString *mTotalChocolate;
+    NSString *mTotalGrain;
+    NSString *mTotalRoast;
+    NSString *mTotalSavory;
+    
+    NSString *mTotalFermented;
+    NSString *mTotalChemical;
+    NSString *mTotalGreen;
+    NSString *mTotalMusty;
+    NSString *mTotalRoastdefect;
+    
+    NSString *mTotalAcidity_Po;
+    NSString *mTotalAcidity_Ne;
+    // TableCell Text Value
+    UILabel *TotalFloral;
+    UILabel *TotalFruity;
+    UILabel *TotalAlcoholic;
+    UILabel *TotalHerb;
+    UILabel *TotalSpice;
+    UILabel *TotalSweet;
+    UILabel *TotalNut;
+    UILabel *TotalChocolate;
+    UILabel *TotalGrain;
+    UILabel *TotalRoast;
+    UILabel *TotalSavory;
+    
+    UILabel *TotalFermented;
+    UILabel *TotalChemical;
+    UILabel *TotalGreen;
+    UILabel *TotalMusty;
+    UILabel *TotalRoastdefect;
+    
+    UILabel *TotalAcidity_Po;
+    UILabel *TotalAcidity_Ne;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;

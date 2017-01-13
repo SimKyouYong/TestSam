@@ -232,159 +232,6 @@
         cup15.selected = 0;
         [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
     }
-    //안드로이드
-//    String result = resultObject.getString(CommonData.RESULT);
-//    String result_message = resultObject.getString(CommonData.RESULT_M);
-//    String cup1 = resultObject.getString(CommonData.CUP1);
-//    String cup2 = resultObject.getString(CommonData.CUP2);
-//    String cup3 = resultObject.getString(CommonData.CUP3);
-//    String cup4 = resultObject.getString(CommonData.CUP4);
-//    String cup5 = resultObject.getString(CommonData.CUP5);
-//    String cup6 = resultObject.getString(CommonData.CUP6);
-//    String cup7 = resultObject.getString(CommonData.CUP7);
-//    String cup8 = resultObject.getString(CommonData.CUP8);
-//    String cup9 = resultObject.getString(CommonData.CUP9);
-//    String cup10 = resultObject.getString(CommonData.CUP10);
-//    String cup11 = resultObject.getString(CommonData.CUP11);
-//    String cup12 = resultObject.getString(CommonData.CUP12);
-//    String cup13 = resultObject.getString(CommonData.CUP13);
-//    String cup14 = resultObject.getString(CommonData.CUP14);
-//    String cup15 = resultObject.getString(CommonData.CUP15);
-//    String note3 = resultObject.getString(CommonData.NOTE3);
-//    
-//    
-//    if (result != null) {
-//        if (result.trim().equals(commonData.SUCCESS)) {
-//            
-//            mDetail3Edt.setText(note3);
-//            
-//            
-//            if (cup1.equals("1")) {
-//                mDetail3Btn1_1.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn1_1 = "1";;
-//            } else {
-//                mDetail3Btn1_1.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn1_1 = "0";;
-//            }
-//            
-//            if (cup2.equals("1")) {
-//                mDetail3Btn1_2.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn1_2 = "1";;
-//            } else {
-//                mDetail3Btn1_2.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn1_2 = "0";;
-//            }
-//            
-//            if (cup3.equals("1")) {
-//                mDetail3Btn1_3.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn1_3 = "1";;
-//            } else {
-//                mDetail3Btn1_3.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn1_3 = "0";;
-//            }
-//            
-//            if (cup4.equals("1")) {
-//                mDetail3Btn1_4.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn1_4 = "1";;
-//            } else {
-//                mDetail3Btn1_4.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn1_4 = "0";;
-//            }
-//            
-//            if (cup5.equals("1")) {
-//                mDetail3Btn1_5.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn1_5 = "1";;
-//            } else {
-//                mDetail3Btn1_5.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn1_5 = "0";;
-//            }
-//            
-//            if (cup6.equals("1")) {
-//                mDetail3Btn2_1.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn2_1 = "1";;
-//            } else {
-//                mDetail3Btn2_1.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn2_1 = "0";;
-//            }
-//            
-//            if (cup7.equals("1")) {
-//                mDetail3Btn2_2.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn2_2 = "1";;
-//            } else {
-//                mDetail3Btn2_2.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn2_2 = "0";;
-//            }
-//            
-//            
-//            if (cup8.equals("1")) {
-//                mDetail3Btn2_3.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn2_3 = "1";;
-//            } else {
-//                mDetail3Btn2_3.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn2_3 = "0";;
-//            }
-//            
-//            if (cup9.equals("1")) {
-//                mDetail3Btn2_4.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn2_4 = "1";;
-//            } else {
-//                mDetail3Btn2_4.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn2_4 = "0";;
-//            }
-//            
-//            if (cup10.equals("1")) {
-//                mDetail3Btn2_5.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn2_5 = "1";;
-//            } else {
-//                mDetail3Btn2_5.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn2_5 = "0";;
-//            }
-//            
-//            if (cup11.equals("1")) {
-//                mDetail3Btn3_1.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn3_1 = "1";;
-//            } else {
-//                mDetail3Btn3_1.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn3_1 = "0";;
-//            }
-//            
-//            if (cup12.equals("1")) {
-//                mDetail3Btn3_2.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn3_2 = "1";;
-//            } else {
-//                mDetail3Btn3_2.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn3_2 = "0";;
-//            }
-//            
-//            if (cup13.equals("1")) {
-//                mDetail3Btn3_3.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn3_3 = "1";;
-//            } else {
-//                mDetail3Btn3_3.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn3_3 = "0";;
-//            }
-//            
-//            if (cup14.equals("1")) {
-//                mDetail3Btn3_4.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn3_4 = "1";;
-//            } else {
-//                mDetail3Btn3_4.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn3_4 = "0";;
-//            }
-//            
-//            if (cup15.equals("1")) {
-//                mDetail3Btn3_5.setImageResource(R.drawable.detail3_iconon);
-//                m3Btn3_5 = "1";;
-//            } else {
-//                mDetail3Btn3_5.setImageResource(R.drawable.detail3_iconoff);
-//                m3Btn3_5 = "0";;
-//            }
-//            
-//            
-//        } else {
-//            Toast.makeText(SourceDetail3Activity.this, result_message, Toast.LENGTH_SHORT).show();
-//        }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -412,7 +259,44 @@
 #pragma mark Button Action
 
 - (IBAction)saveButton:(id)sender {
+    NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=3&note3=%@&cup1=%d&cup2=%d&cup3=%d&cup4=%d&cup5=%d&cup6=%d&cup7=%d&cup8=%d&cup9=%d&cup10=%d&cup11=%d&cup12=%d&cup13=%d&cup14=%d&cup15=%d", USER_ID, SAMPLE_IDX, noteTextView.text, cup1.selected, cup2.selected, cup3.selected, cup4.selected, cup5.selected, cup6.selected, cup7.selected, cup8.selected, cup9.selected, cup10.selected, cup11.selected, cup12.selected, cup13.selected, cup14.selected, cup15.selected];
+    NSLog(@"원료커핑3 : %@", params);
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //NSLog(@"Response:%@ %@\n", response, error);
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+            NSLog(@"resultValue : %@"  , resultValue);
+            if([[dic objectForKey:@"result"] isEqualToString:@"fail"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                
+            }
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
 }
 
 - (IBAction)prevButton:(id)sender {

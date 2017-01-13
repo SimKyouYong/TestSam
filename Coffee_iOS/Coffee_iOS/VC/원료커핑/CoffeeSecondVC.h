@@ -22,6 +22,27 @@
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    
+    // 실제 사용할 데이터
+    NSString *mTotalAftertaste_Po;
+    NSString *mTotalAftertaste_Ne;
+    
+    NSString *mTotalBody_Li;
+    NSString *mTotalBody_Me;
+    NSString *mTotalBody_He;
+    
+    NSString *mTotalBalance_Po;
+    NSString *mTotalBalance_Ne;
+    // TableCell Text Value
+    UILabel *TotalAftertaste_Po;
+    UILabel *TotalAftertaste_Ne;
+    
+    UILabel *TotalBody_Li;
+    UILabel *TotalBody_Me;
+    UILabel *TotalBody_He;
+    
+    UILabel *TotalBalance_Po;
+    UILabel *TotalBalance_Ne;
 }
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 
