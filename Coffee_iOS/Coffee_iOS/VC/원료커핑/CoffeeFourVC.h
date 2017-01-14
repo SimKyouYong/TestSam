@@ -16,9 +16,14 @@
     
     int mPosition;
     NSString *mSample_idx;
+    
+    BOOL mOkNotokflag;
+
 }
+@property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeFourScrollView;
+@property (weak, nonatomic) IBOutlet UITextView *coffeeFourTextView;
 
 @property (weak, nonatomic) IBOutlet UIButton *aromaButton;
 @property (weak, nonatomic) IBOutlet UIButton *flavorButton;

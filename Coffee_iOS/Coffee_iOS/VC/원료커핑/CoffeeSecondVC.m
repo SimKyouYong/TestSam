@@ -22,6 +22,7 @@
 @synthesize balanceButton;
 @synthesize overallButton;
 @synthesize noteTextView;
+@synthesize toptitle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +32,12 @@
     popupView.hidden = YES;
     
     actionArr = [[NSMutableArray alloc] init];
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+
     
     mPosition = 0;
     [self Step1];       //통신 1 구간
@@ -57,7 +64,12 @@
             NSLog(@"1. DATAS :: %@" , datas);
             [self init:mPosition];
             [self Step2];       //통신 2 구간
-            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
+                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -456,21 +468,31 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([actionArr count] == buttonIndex){
-        return;
+    if (actionSheet.tag == 1) {
+        if([datas count] == buttonIndex){
+            return;
+        }
+        mPosition = buttonIndex;
+        [self firstInit ];
+    }else{
+        if([actionArr count] == buttonIndex){
+            return;
+        }
+        
+        if(actionSheetNum == 1){
+            [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 2){
+            [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 3){
+            [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 4){
+            [overallButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }
+        
+        actionArr = [[NSMutableArray alloc] init];
+    
     }
     
-    if(actionSheetNum == 1){
-        [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 2){
-        [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 3){
-        [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 4){
-        [overallButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }
-    
-    actionArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark -
@@ -559,6 +581,22 @@
         TotalBalance_Ne.text = value;
         mTotalBalance_Ne = value;
     }
+}
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    menu.tag = 1;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+- (void) firstInit{
+    NSLog(@"mPosition  : %d" ,  mPosition);
+    [self Step1];       //통신 1 구간
 }
 
 @end

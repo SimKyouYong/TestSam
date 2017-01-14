@@ -6015,6 +6015,7 @@
                         <outlet property="balanceButton" destination="Ov0-bt-41x" id="5Xj-qP-taL"/>
                         <outlet property="bodyButton" destination="Tc0-m2-kRq" id="Mbm-SR-z03"/>
                         <outlet property="coffeeFourScrollView" destination="jra-vZ-QzK" id="gvQ-cq-xBD"/>
+                        <outlet property="coffeeFourTextView" destination="Zyq-Rp-tZN" id="2R2-et-fOK"/>
                         <outlet property="cup1" destination="j8W-Vp-8DL" id="0wf-Wd-jPC"/>
                         <outlet property="cup10" destination="oBy-zb-G73" id="UUu-OW-8yG"/>
                         <outlet property="cup11" destination="BbA-vY-gzi" id="05E-rS-2Ho"/>
@@ -6032,6 +6033,7 @@
                         <outlet property="cup9" destination="vYu-EK-Pw7" id="nRn-bW-HdY"/>
                         <outlet property="flavorButton" destination="nTh-sn-8gM" id="tBc-ik-ed0"/>
                         <outlet property="overallButton" destination="XJV-Cd-y6b" id="loY-2c-OvM"/>
+                        <outlet property="toptitle" destination="qCy-sn-GTF" id="rbw-uJ-yT7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD5-6Y-g4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6490,6 +6492,7 @@
                         <outlet property="cup8" destination="Tea-qT-yPb" id="imp-mf-bhY"/>
                         <outlet property="cup9" destination="H0g-T6-Shz" id="RE3-zd-twI"/>
                         <outlet property="noteTextView" destination="Wv9-PU-esf" id="Pl2-Nm-tIK"/>
+                        <outlet property="toptitle" destination="d8G-17-vxT" id="hwy-fa-6R1"/>
                         <segue destination="0Sw-zY-rMC" kind="push" identifier="coffee4" id="pit-CW-s9j"/>
                     </connections>
                 </viewController>
@@ -9069,6 +9072,7 @@
                         <outlet property="coffeeSecondTableView" destination="Us7-wI-gRR" id="U6o-RI-SnU"/>
                         <outlet property="noteTextView" destination="hfr-bY-q4S" id="OZH-tG-2cK"/>
                         <outlet property="overallButton" destination="SPW-40-vXu" id="fNh-g3-4T7"/>
+                        <outlet property="toptitle" destination="sXr-Wy-1yC" id="85b-zl-fj5"/>
                         <segue destination="M85-ic-CVw" kind="push" identifier="coffee3" id="TJR-ST-dQU"/>
                     </connections>
                 </viewController>
@@ -10042,6 +10046,7 @@
                         <outlet property="coffeeFirstTableView" destination="km8-MH-h1p" id="f3m-F8-9Da"/>
                         <outlet property="flavorButton" destination="D0z-FR-74M" id="Oq1-hT-eEe"/>
                         <outlet property="noteTextView" destination="x2L-Bf-K7c" id="mIh-XM-4Uk"/>
+                        <outlet property="toptitle" destination="o0q-Sv-9I3" id="mYZ-ap-64K"/>
                         <segue destination="gPP-ME-WEX" kind="push" identifier="coffee2" id="ghv-b0-Bxx"/>
                         <segue destination="M85-ic-CVw" kind="push" identifier="coffeeTabPush" id="gbq-uD-ZbC"/>
                     </connections>
@@ -10377,11 +10382,11 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Djf-dA-wbo"/>
+        <segue reference="TJR-ST-dQU"/>
+        <segue reference="HVL-7g-acH"/>
         <segue reference="hBd-4Z-YF5"/>
         <segue reference="iCp-1x-5vL"/>
         <segue reference="vl0-I9-pZc"/>
-        <segue reference="Djf-dA-wbo"/>
-        <segue reference="gbq-uD-ZbC"/>
-        <segue reference="HVL-7g-acH"/>
     </inferredMetricsTieBreakers>
 </document>

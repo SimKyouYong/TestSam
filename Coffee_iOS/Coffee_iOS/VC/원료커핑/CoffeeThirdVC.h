@@ -23,6 +23,7 @@
 - (IBAction)nextButton:(id)sender;
 - (IBAction)pimaryButton:(id)sender;
 - (IBAction)secondaryButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 

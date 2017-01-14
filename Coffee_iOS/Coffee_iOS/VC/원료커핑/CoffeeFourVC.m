@@ -32,11 +32,19 @@
 @synthesize cup13;
 @synthesize cup14;
 @synthesize cup15;
-
+@synthesize toptitle;
+@synthesize coffeeFourTextView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     mPosition = 0;
+    mOkNotokflag = NO;
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+
     [self Step1];       //통신 1 구간
 
 }
@@ -61,7 +69,12 @@
             NSLog(@"1. DATAS :: %@" , datas);
             [self init:mPosition];
             [self Step2];       //통신 2 구간
-            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
+                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -231,40 +244,47 @@
 #pragma mark Button Action
 
 - (IBAction)saveButton:(id)sender {
-    //Post 방식 으로 해야함.
-    //안드로이드
-//    map.put("url", CommonData.SERVER + "coffee_result.php");
+    
+    NSLog(@"text : %@", coffeeFourTextView.text);
+    NSString *ok;
+    if (!mOkNotokflag){
+        ok = @"Y";
+    }else {
+        ok = @"N";
+    }
+    
+    if (!mOkNotokflag){
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"PASS/RETEST 선택해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else if ([@"" isEqualToString:[NSString stringWithFormat:@"%@", coffeeFourTextView.text]]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"총평을 작성해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        //저장
+        [self save:ok];
+    }
+}
+-(void) save:(NSString *)isok{
+  
+//    map.put("url", CommonData.SERVER + "coffee_result_final.php");
 //    map.put("id", commonData.getUserID());
-//    map.put("", mSample_idx);
-//    map.put("", "1");
-//    map.put("", mDetailBtn1.getText().toString());
-//    map.put("", mDetailBtn2.getText().toString());
-//    map.put("", mDetailBtn3.getText().toString());
-//    map.put("", mDetailEdt.getText().toString());
-//    map.put("", mTotalFloral);
-//    map.put("", mTotalFruity);
-//    map.put("", mTotalAlcoholic);
-//    map.put("", mTotalHerb);
-//    map.put("", mTotalSpice);
-//    map.put("", mTotalSweet);
-//    map.put("", mTotalNut);
-//    map.put("", mTotalChocolate);
-//    map.put("", mTotalGrain);
-//    map.put("", mTotalRoast);
-//    map.put("", mTotalSavory);
-//    map.put("", mTotalFermented);
-//    map.put("", mTotalChemical);
-//    map.put("", mTotalGreen);
-//    map.put("", mTotalMusty);
-//    map.put("", mTotalRoastdefect);
-//    map.put("", mTotalAcidity_Po);
-//    map.put("", mTotalAcidity_Ne);
-    NSString *urlString = [NSString stringWithFormat:@"%@%@", REVIEW_URL2, LOGIN_URL];
+//    map.put("sample_idx", mSample_idx);
+//    map.put("note_total", mDetail4Edt.getText().toString());
+//    map.put("isok", ok);
+    NSString *urlString = [NSString stringWithFormat:@"%@", HALF_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSString * params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=%@&aroma_point=%@&flavor_point=%@&acidity_point=%@&note1=%@&floral=%@&fruity=%@&alcoholic=%@&herb=%@&spice=%@&sweet=%@&nut=%@&chocolate=%@&grain=%@&roast=%@&savory=%@&fermented=%@&chemical=%@&green=%@&musty=%@&roastdefect=%@&acidity_po=%@&acidity_ne=%@&@"];          //값 추출해서 매칭 시켜야함.
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&note_total=%@&isok=%@", USER_ID, SAMPLE_IDX, [NSString stringWithFormat:@"%@", coffeeFourTextView.text] , isok];
+    NSLog(@"원료커핑4 : %@", params);
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -272,11 +292,27 @@
         //NSLog(@"Response:%@ %@\n", response, error);
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
         if (statusCode == 200) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
             NSLog(@"resultValue : %@"  , resultValue);
+            if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
             
         }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"다시 시도해 주세요." preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                  {}];
@@ -285,8 +321,6 @@
         }
     }];
     [dataTask resume];
-
-    
 }
 
 - (IBAction)prevButton:(id)sender {
@@ -297,6 +331,37 @@
 }
 
 - (IBAction)notOkButton:(id)sender {
+}
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    menu.tag = 1;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+#pragma mark -
+#pragma ActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1) {
+        if([datas count] == buttonIndex){
+            return;
+        }
+        mPosition = buttonIndex;
+        [self firstInit ];
+    }else{
+        
+    }
+}
+- (void) firstInit{
+    NSLog(@"mPosition  : %d" ,  mPosition);
+    [self Step1];       //통신 1 구간
 }
 
 @end

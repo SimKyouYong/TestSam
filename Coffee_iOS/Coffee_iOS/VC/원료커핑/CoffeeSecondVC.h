@@ -49,6 +49,7 @@
     UILabel *TotalBalance_Ne;
 }
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
+@property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;

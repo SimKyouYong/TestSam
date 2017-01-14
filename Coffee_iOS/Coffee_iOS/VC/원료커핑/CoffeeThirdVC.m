@@ -33,9 +33,17 @@
 @synthesize cup13;
 @synthesize cup14;
 @synthesize cup15;
+@synthesize toptitle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+
     
     mPosition = 0;
     [self Step1];       //통신 1 구간
@@ -62,7 +70,12 @@
             NSLog(@"1. DATAS :: %@" , datas);
             [self init:mPosition];
             [self Step2];       //통신 2 구간
-            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
+                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -478,6 +491,38 @@
         [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
         
     }
+}
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    menu.tag = 1;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+#pragma mark -
+#pragma ActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1) {
+        if([datas count] == buttonIndex){
+            return;
+        }
+        mPosition = buttonIndex;
+        [self firstInit ];
+    }else{
+        
+    }
+}
+- (void) firstInit{
+    NSLog(@"mPosition  : %d" ,  mPosition);
+    [self Step1];       //통신 1 구간
 }
 
 @end

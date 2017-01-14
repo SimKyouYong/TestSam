@@ -21,6 +21,7 @@
 @synthesize flavorButton;
 @synthesize acidityButton;
 @synthesize noteTextView;
+@synthesize toptitle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +31,15 @@
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
     mPosition = 0;
+    
+    
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+
+    
     
     popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, HEIGHT_FRAME)];
     [self.view addSubview:popupView];
@@ -59,6 +69,13 @@
             NSLog(@"1. DATAS :: %@" , datas);
             [self init:mPosition];
             [self Step2];       //통신 2 구간
+            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
+                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -653,34 +670,43 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(actionSheetNum == 4){
-        if(buttonIndex == 9){
-        }else{
-            [self TotalFruity2:buttonIndex];
+    if (actionSheet.tag == 1) {
+        if([datas count] == buttonIndex){
+            return;
         }
-        return;
-    }
-    if(actionSheetNum == 5){
-        if(buttonIndex == 5){
-        }else{
-            [self TotalChemical2:buttonIndex];
+        mPosition = buttonIndex;
+        [self firstInit ];
+    }else{
+        if(actionSheetNum == 4){
+            if(buttonIndex == 9){
+            }else{
+                [self TotalFruity2:buttonIndex];
+            }
+            return;
         }
-        return;
+        if(actionSheetNum == 5){
+            if(buttonIndex == 5){
+            }else{
+                [self TotalChemical2:buttonIndex];
+            }
+            return;
+        }
+        
+        if([actionArr count] == buttonIndex){
+            return;
+        }
+        
+        if(actionSheetNum == 1){
+            [aromaButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 2){
+            [flavorButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 3){
+            [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }
+        
+        actionArr = [[NSMutableArray alloc] init];
+
     }
-    
-    if([actionArr count] == buttonIndex){
-        return;
-    }
-    
-    if(actionSheetNum == 1){
-        [aromaButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 2){
-        [flavorButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 3){
-        [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }
-    
-    actionArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark -
@@ -872,6 +898,22 @@
     commonTableView.delegate = self;
     commonTableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:commonTableView];
+}
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    menu.tag = 1;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+- (void) firstInit{
+    NSLog(@"mPosition  : %d" ,  mPosition);
+    [self Step1];       //통신 1 구간
 }
 
 @end

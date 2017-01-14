@@ -79,6 +79,8 @@
 - (IBAction)saveButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *toptitle;
+
 @property (weak, nonatomic) IBOutlet UIButton *aromaButton;
 - (IBAction)aromaButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *flavorButton;
