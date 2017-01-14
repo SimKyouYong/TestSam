@@ -154,7 +154,7 @@
             [acidityButton setTitle:[dic objectForKey:@"po_point"] forState:UIControlStateNormal];
             [acidityButton setTitle:[dic objectForKey:@"ne_point"] forState:UIControlStateNormal];
             
-            noteTextView.text = [dic objectForKey:@"note1"];
+            noteTextView.text = [dic objectForKey:@"note_total"];
             mTotalScore = [NSString stringWithFormat:@"%.1f" , totalscore];
 
             myTotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE : %@" , mTotalScore];
@@ -169,12 +169,7 @@
 //                mOkflag = false;
 
             }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
-//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
-//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//                mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
-//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
-                mOkNotokflag = YES;
-//                mOkflag = true;
+//
             }else{
 //                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
 //                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
@@ -244,6 +239,7 @@
         //
     }
      */
+    NSLog(@"text : %@", noteTextView.text);
     NSString *ok;
     if (!mOkNotokflag){
         ok = @"Y";
@@ -257,11 +253,13 @@
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {}];
         [alert addAction:ok];
-    }else if ([@"" isEqualToString:noteTextView.text]) {
+        [self presentViewController:alert animated:YES completion:nil];
+    }else if ([@"" isEqualToString:[NSString stringWithFormat:@"%@", noteTextView.text]]) {
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"총평을 작성해 주세요." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {}];
         [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     }else{
         //저장
         [self save:ok];
@@ -279,7 +277,7 @@
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&note_total=%@&isok=%@", USER_ID, SAMPLE_IDX, noteTextView.text , isok];
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&note_total=%@&isok=%@", USER_ID, SAMPLE_IDX, [NSString stringWithFormat:@"%@", noteTextView.text] , isok];
     NSLog(@"반제품2 : %@", params);
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
@@ -343,6 +341,7 @@
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
     menu.delegate = self;
+    menu.tag = 1;
     for(int i = 0; i < [datas count]; i++){
         NSDictionary *codeDic = [datas objectAtIndex:i];
         [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
@@ -359,36 +358,40 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([actionArr count] == buttonIndex){
-        return;
-    }
     
-//    if(actionSheetNum == 1){
-//        [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 2){
-//        [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 3){
-//        [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 4){
-//        [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 5){
-//        [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 6){
-//        [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 7){
-//        [poButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }else if(actionSheetNum == 8){
-//        [neButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-//    }
-//    else{
+    if (actionSheet.tag == 1) {
         if([datas count] == buttonIndex){
             return;
         }
         mPosition = buttonIndex;
         [self firstInit ];
-//    }
-    
-    actionArr = [[NSMutableArray alloc] init];
+    }else{
+        if([actionArr count] == buttonIndex){
+            return;
+        }
+        
+        if(actionSheetNum == 1){
+            [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 2){
+            [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 3){
+            [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 4){
+            [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 5){
+            [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 6){
+            [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 7){
+            [poButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 8){
+            [neButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else{
+            
+        }
+        
+        actionArr = [[NSMutableArray alloc] init];
+    }
 }
 
 @end

@@ -450,35 +450,41 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([actionArr count] == buttonIndex){
-        return;
-    }
-    
-    if(actionSheetNum == 1){
-        [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 2){
-        [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 3){
-        [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 4){
-        [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 5){
-        [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 6){
-        [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 7){
-        [poButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 8){
-        [neButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else{
+   
+    if (actionSheet.tag == 1) {
         if([datas count] == buttonIndex){
             return;
         }
         mPosition = buttonIndex;
         [self firstInit ];
+    }else{
+        if([actionArr count] == buttonIndex){
+            return;
+        }
+        
+        if(actionSheetNum == 1){
+            [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 2){
+            [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 3){
+            [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 4){
+            [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 5){
+            [balanceButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 6){
+            [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 7){
+            [poButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 8){
+            [neButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else{
+            
+        }
+        
+        actionArr = [[NSMutableArray alloc] init];
     }
     
-    actionArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark -
@@ -681,6 +687,7 @@
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
+    menu.tag = 1;
     menu.delegate = self;
     for(int i = 0; i < [datas count]; i++){
         NSDictionary *codeDic = [datas objectAtIndex:i];
