@@ -82,32 +82,6 @@
 }
 
 - (void)init:(NSInteger)position{
-//    contentText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-//    
-//    leftText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-//    NSString *codeStr =[NSString stringWithFormat:@"%@" ,[[datas objectAtIndex:position] valueForKey:@"sample_code"]];
-//    centerText.text = codeStr;
-//    rightText.text = [NSString stringWithFormat:@"(%ld/%@)", position+1 ,total];
-    
-    //안드로이드
-    /*
-    mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-                              mListTv1.setText(mSourceListItems.get(mPosition).getmSample_title() + ":");
-    mListTv1.setText("원료커핑:");
-    mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-    mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
-    
-    commonData.setEx1_start(mSourceListItems.get(mPosition).getmEx1_start());
-    commonData.setEx2_start(mSourceListItems.get(mPosition).getmEx2_start());
-    commonData.setEx3_start(mSourceListItems.get(mPosition).getmEx3_start());
-    commonData.setEx1_end(mSourceListItems.get(mPosition).getmEx1_end());
-    commonData.setEx2_end(mSourceListItems.get(mPosition).getmEx2_end());
-    commonData.setEx3_end(mSourceListItems.get(mPosition).getmEx3_end());
-    commonData.setEx1_step(mSourceListItems.get(mPosition).getmEx1_step());
-    commonData.setEx2_step(mSourceListItems.get(mPosition).getmEx2_step());
-    commonData.setEx3_step(mSourceListItems.get(mPosition).getmEx3_step());
-    */
-    
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
 }
 

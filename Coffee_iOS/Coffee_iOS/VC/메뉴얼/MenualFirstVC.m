@@ -7,6 +7,8 @@
 //
 
 #import "MenualFirstVC.h"
+#import "GlobalHeader.h"
+#import "GlobalObject.h"
 
 @interface MenualFirstVC ()
 
@@ -15,6 +17,12 @@
 @implementation MenualFirstVC
 
 @synthesize menualFirstTableView;
+@synthesize acidityButton;
+@synthesize sweetnessButton;
+@synthesize bitternessButton;
+@synthesize bodyButton;
+@synthesize aftertasteButton;
+@synthesize noteTextView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +56,44 @@
 }
 
 - (IBAction)saveButton:(id)sender {
+    NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&opt=5&note5=%@&acidity_point=%@&sweetness_point=%@&bitterness_point=%@&body_point=%@&aftertaste_point=%@&floral=%@&fruity=%@&herb=%@&spice=%@&sweet=%@&nut=%@&chocolate=%@&grain=%@&roast=%@&savory=%@&fermented=%@&chemical=%@&green=%@&musty=%@&roastdefect=%@&acidity_po=%@&acidity_ne=%@&aftertaste_po=%@&aftertaste_ne=%@&body_light=%@&body_medium=%@&body_heavy=%@&balance_po=%@&balance_ne=%@&mouthfeel_po=%@&mouthfeel_ne=%@", USER_ID, SAMPLE_IDX, noteTextView.text, acidityButton.titleLabel.text, sweetnessButton.titleLabel.text, bitternessButton.titleLabel.text, bodyButton.titleLabel.text, aftertasteButton.titleLabel.text, mTotalFloral, mTotalFruity, mTotalHerb, mTotalSpice, mTotalSweet, mTotalNut, mTotalChocolate, mTotalGrain, mTotalRoast, mTotalSavory, mTotalFermented, mTotalChemical, mTotalGreen, mTotalMusty, mTotalRoastdefect, mTotalAcidity_Po, mTotalAcidity_Ne, mTotalAftertaste_Po, mTotalAftertaste_Ne, mTotalBody_Li, mTotalBody_Me, mTotalBody_He, mTotalBalance_Po, mTotalBalance_Ne, mTotalMouthfeel_Po, mTotalMouthfeel_Ne];
+    NSLog(@"메뉴얼 아메리카노 : %@", params);
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //NSLog(@"Response:%@ %@\n", response, error);
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+            NSLog(@"resultValue : %@"  , resultValue);
+            if([[dic objectForKey:@"result"] isEqualToString:@"fail"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                
+            }
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
 }
 
 - (IBAction)nextButton:(id)sender {
@@ -56,6 +102,21 @@
 
 - (IBAction)latteButton:(id)sender {
     [self performSegueWithIdentifier:@"menualTabPush" sender:sender];
+}
+
+- (IBAction)acidityButton:(id)sender {
+}
+
+- (IBAction)sweetnessButton:(id)sender {
+}
+
+- (IBAction)bitternessButton:(id)sender {
+}
+
+- (IBAction)bodyButton:(id)sender {
+}
+
+- (IBAction)aftertasteButton:(id)sender {
 }
 
 #pragma mark -
@@ -106,110 +167,109 @@
             static NSString *CellIdentifier = @"firstCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalFloral = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalFruity = (UILabel*)[cell viewWithTag:3];
-             UILabel *mTotalAlcoholic = (UILabel*)[cell viewWithTag:5];
-             UILabel *mTotalHerb = (UILabel*)[cell viewWithTag:7];
-             UILabel *mTotalSpice = (UILabel*)[cell viewWithTag:9];
-             UILabel *mTotalSweet = (UILabel*)[cell viewWithTag:11];
-             UILabel *mTotalNut = (UILabel*)[cell viewWithTag:13];
-             UILabel *mTotalChocolate = (UILabel*)[cell viewWithTag:15];
-             UILabel *mTotalGrain = (UILabel*)[cell viewWithTag:17];
-             UILabel *mTotalRoast = (UILabel*)[cell viewWithTag:19];
-             UILabel *mTotalSavory = (UILabel*)[cell viewWithTag:21];
-             
-             mTotalFloral.text = [tableDic objectForKey:@"floral"];
-             mTotalFruity.text = [tableDic objectForKey:@"fruity"];
-             mTotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
-             mTotalHerb.text = [tableDic objectForKey:@"herb"];
-             mTotalSpice.text = [tableDic objectForKey:@"spice"];
-             mTotalSweet.text = [tableDic objectForKey:@"sweet"];
-             mTotalNut.text = [tableDic objectForKey:@"nut"];
-             mTotalChocolate.text = [tableDic objectForKey:@"chocolate"];
-             mTotalGrain.text = [tableDic objectForKey:@"grain"];
-             mTotalRoast.text = [tableDic objectForKey:@"roast"];
-             mTotalSavory.text = [tableDic objectForKey:@"savory"];
-             */
+            
+            TotalFloral = (UILabel*)[cell viewWithTag:1];
+            TotalFruity = (UILabel*)[cell viewWithTag:3];
+            TotalHerb = (UILabel*)[cell viewWithTag:5];
+            TotalSpice = (UILabel*)[cell viewWithTag:7];
+            TotalSweet = (UILabel*)[cell viewWithTag:9];
+            TotalNut = (UILabel*)[cell viewWithTag:11];
+            TotalChocolate = (UILabel*)[cell viewWithTag:13];
+            TotalGrain = (UILabel*)[cell viewWithTag:15];
+            TotalRoast = (UILabel*)[cell viewWithTag:17];
+            TotalSavory = (UILabel*)[cell viewWithTag:29];
+            
+            TotalFloral.text = [tableDic objectForKey:@"floral"];
+            TotalFruity.text = [tableDic objectForKey:@"fruity"];
+            TotalHerb.text = [tableDic objectForKey:@"herb"];
+            TotalSpice.text = [tableDic objectForKey:@"spice"];
+            TotalSweet.text = [tableDic objectForKey:@"sweet"];
+            TotalNut.text = [tableDic objectForKey:@"nut"];
+            TotalChocolate.text = [tableDic objectForKey:@"chocolate"];
+            TotalGrain.text = [tableDic objectForKey:@"grain"];
+            TotalRoast.text = [tableDic objectForKey:@"roast"];
+            TotalSavory.text = [tableDic objectForKey:@"savory"];
             
             return cell;
         }else if(indexPath.row == 2){
             static NSString *CellIdentifier = @"secondCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalFermented = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalChemical = (UILabel*)[cell viewWithTag:3];
-             UILabel *mTotalGreen = (UILabel*)[cell viewWithTag:5];
-             UILabel *mTotalMusty = (UILabel*)[cell viewWithTag:7];
-             UILabel *mTotalRoastdefect = (UILabel*)[cell viewWithTag:9];
-             
-             mTotalFermented.text = [tableDic objectForKey:@"fermented"];
-             mTotalChemical.text = [tableDic objectForKey:@"chemical"];
-             mTotalGreen.text = [tableDic objectForKey:@"green"];
-             mTotalMusty.text = [tableDic objectForKey:@"musty"];
-             mTotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
-             */
+            
+            TotalFermented = (UILabel*)[cell viewWithTag:1];
+            TotalChemical = (UILabel*)[cell viewWithTag:3];
+            TotalGreen = (UILabel*)[cell viewWithTag:5];
+            TotalMusty = (UILabel*)[cell viewWithTag:7];
+            TotalRoastdefect = (UILabel*)[cell viewWithTag:9];
+            
+            TotalFermented.text = [tableDic objectForKey:@"fermented"];
+            TotalChemical.text = [tableDic objectForKey:@"chemical"];
+            TotalGreen.text = [tableDic objectForKey:@"green"];
+            TotalMusty.text = [tableDic objectForKey:@"musty"];
+            TotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            
             return cell;
         }else if(indexPath.row == 3){
             static NSString *CellIdentifier = @"thirdCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
-             
-             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
-             */
+            
+            TotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
+            TotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            TotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
+            TotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            
             return cell;
         }else if(indexPath.row == 4){
             static NSString *CellIdentifier = @"fourCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
-             
-             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
-             */
+            
+            TotalAftertaste_Po = (UILabel*)[cell viewWithTag:1];
+            TotalAftertaste_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            TotalAftertaste_Po.text = [tableDic objectForKey:@"aftertaste_po"];
+            TotalAftertaste_Ne.text = [tableDic objectForKey:@"aftertaste_ne"];
+            
             return cell;
         }else if(indexPath.row == 5){
             static NSString *CellIdentifier = @"fiveCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
-             
-             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
-             */
+            
+            TotalBody_Li = (UILabel*)[cell viewWithTag:1];
+            TotalBody_Me = (UILabel*)[cell viewWithTag:3];
+            TotalBody_He = (UILabel*)[cell viewWithTag:5];
+            
+            TotalBody_Li.text = [tableDic objectForKey:@"body_light"];
+            TotalBody_Me.text = [tableDic objectForKey:@"body_medium"];
+            TotalBody_He.text = [tableDic objectForKey:@"body_heavy"];
+            
             return cell;
         }else if(indexPath.row == 6){
             static NSString *CellIdentifier = @"sixCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
-             
-             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
-             */
+            
+            TotalBalance_Po = (UILabel*)[cell viewWithTag:1];
+            TotalBalance_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            TotalBalance_Po.text = [tableDic objectForKey:@"balance_po"];
+            TotalBalance_Ne.text = [tableDic objectForKey:@"balance_ne"];
+            
             return cell;
         }else if(indexPath.row == 7){
             static NSString *CellIdentifier = @"sevenCell";
             
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            /*
-             UILabel *mTotalAcidity_Po = (UILabel*)[cell viewWithTag:1];
-             UILabel *mTotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
-             
-             mTotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-             mTotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
-             */
+            
+            TotalMouthfeel_Po = (UILabel*)[cell viewWithTag:1];
+            TotalMouthfeel_Ne = (UILabel*)[cell viewWithTag:3];
+            
+            TotalMouthfeel_Po.text = [tableDic objectForKey:@"mouthfeel_po"];
+            TotalMouthfeel_Ne.text = [tableDic objectForKey:@"mouthfeel_ne"];
+            
             return cell;
         }
         

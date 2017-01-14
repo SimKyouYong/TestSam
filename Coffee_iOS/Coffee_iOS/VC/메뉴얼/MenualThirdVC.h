@@ -8,11 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenualThirdVC : UIViewController
+@interface MenualThirdVC : UIViewController{
+    NSDictionary *tableDic;
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualThirdScrollView;
 
 - (IBAction)americanoButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *coffeenessButton;
+- (IBAction)coffeenessButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *balanceButton;
+- (IBAction)balanceButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *sweetnessButton;
+- (IBAction)sweetnessButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *bodyButton;
+- (IBAction)bodyButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 
 @end

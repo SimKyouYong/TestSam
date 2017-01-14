@@ -1262,7 +1262,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
-                                                <outlet property="delegate" destination="EJ1-Or-aby" id="rof-X2-XWu"/>
+                                                <outlet property="delegate" destination="nd5-B6-qkv" id="HD5-VR-OdY"/>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -2354,6 +2354,7 @@
                         <outlet property="bodyButton" destination="snf-fM-KU6" id="rBn-Is-3hk"/>
                         <outlet property="halfFirstTableView" destination="2La-ih-dAa" id="Hdj-KF-dFe"/>
                         <outlet property="neButton" destination="aSR-aM-fM5" id="9IG-ig-EEF"/>
+                        <outlet property="noteTextView" destination="7E8-8l-jgS" id="N26-dJ-iJP"/>
                         <outlet property="poButton" destination="oqv-p7-cDZ" id="bQv-Yd-egW"/>
                         <outlet property="sweetnessButton" destination="hI2-Nf-Oec" id="MhY-rj-7q5"/>
                         <segue destination="fBF-q2-eWv" kind="push" identifier="product2" id="GQe-uI-iMA"/>
@@ -6463,11 +6464,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wA4-Sh-hBv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h0K-Cl-6h2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="HO4-3X-8Uv">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOT-OT-SKK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -6514,7 +6515,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-rz-qVT">
-                                <rect key="frame" x="0.0" y="1950" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qq3-mU-Htw">
                                         <rect key="frame" x="550" y="5" width="40" height="40"/>
@@ -6551,7 +6552,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bk4-30-jxH" customClass="JNExpandableTableView">
-                                <rect key="frame" x="0.0" y="100" width="600" height="1850"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="hRH-qA-P68">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="317"/>
@@ -6595,7 +6596,7 @@
                                                 <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="n5I-cX-Ilz"/>
+                                                <action selector="acidityButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="Hp4-Kz-uX1"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="LIy-Dd-4eY">
@@ -6611,7 +6612,7 @@
                                                 <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="eRb-wF-CMN"/>
+                                                <action selector="sweetnessButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="NGa-sH-NHU"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitterness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="XBv-N8-ckw">
@@ -6627,7 +6628,7 @@
                                                 <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="S9T-XV-WFw"/>
+                                                <action selector="bitternessButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="ebI-eM-zV1"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hlx-2W-eIV">
@@ -6643,7 +6644,7 @@
                                                 <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="bodyButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="UOn-gx-C80"/>
+                                                <action selector="bodyButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="MIC-Jm-AQU"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aftertaste_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="yXa-XN-aD8">
@@ -6659,7 +6660,7 @@
                                                 <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="balanceButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="hQK-b1-Fan"/>
+                                                <action selector="aftertasteButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="M0g-7d-7uG"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -6719,7 +6720,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
-                                                <outlet property="delegate" destination="EJ1-Or-aby" id="WE7-QK-8Lb"/>
+                                                <outlet property="delegate" destination="sFx-ar-gYd" id="8ko-Q4-efF"/>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -7802,16 +7803,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="e1i-5K-1Bp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="2000"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="acidityButton" destination="Irn-Gs-tYH" id="OyC-8J-tYp"/>
+                        <outlet property="aftertasteButton" destination="KjA-jV-Bv5" id="r2f-J1-tJz"/>
+                        <outlet property="bitternessButton" destination="eva-WW-opN" id="KYK-U9-hSr"/>
+                        <outlet property="bodyButton" destination="Jot-MU-fMY" id="u9F-U1-3k7"/>
                         <outlet property="menualFirstTableView" destination="bk4-30-jxH" id="cF1-kf-QJr"/>
+                        <outlet property="noteTextView" destination="VsI-AA-voE" id="0c3-lZ-Re8"/>
+                        <outlet property="sweetnessButton" destination="ray-XH-u3U" id="U6d-M0-WFe"/>
                         <segue destination="s8S-de-Dg1" kind="push" identifier="menual2" id="DNT-3W-8Wv"/>
                         <segue destination="whb-5g-Yuo" kind="push" identifier="menualTabPush" id="HVL-7g-acH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4e-eb-VJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1522" y="3056"/>
+            <point key="canvasLocation" x="1572" y="2706"/>
         </scene>
         <!--Menual ThirdVC-->
         <scene sceneID="W4k-o5-gEB">
@@ -7892,7 +7899,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkf-qT-fHC">
                                         <rect key="frame" x="10" y="60" width="580" height="210"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acidity_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-6k-zsB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffeeness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-6k-zsB">
                                                 <rect key="frame" x="10" y="10" width="275" height="40"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpx-KI-zIH">
@@ -7905,10 +7912,10 @@
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="acidityButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="bff-2K-PcG"/>
+                                                    <action selector="coffeenessButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="9h5-Lm-VLm"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="ezC-o9-jcX">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="ezC-o9-jcX">
                                                 <rect key="frame" x="10" y="60" width="275" height="40"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZC9-Co-WDl">
@@ -7921,10 +7928,10 @@
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="sweetnessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="CBg-la-0DW"/>
+                                                    <action selector="balanceButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="ZML-sD-ZPj"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitterness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="VOv-xD-y0N">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="VOv-xD-y0N">
                                                 <rect key="frame" x="10" y="110" width="275" height="40"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-Sr-crt">
@@ -7937,7 +7944,7 @@
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="bitternessButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="O72-vF-IjO"/>
+                                                    <action selector="sweetnessButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="a2Y-4H-rAI"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-sp-fWE">
@@ -7953,7 +7960,7 @@
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="bodyButton:" destination="nd5-B6-qkv" eventType="touchUpInside" id="nar-bA-O5Z"/>
+                                                    <action selector="bodyButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="27j-kI-dwS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -7995,7 +8002,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
-                                            <outlet property="delegate" destination="fBF-q2-eWv" id="b5P-9O-6mq"/>
+                                            <outlet property="delegate" destination="whb-5g-Yuo" id="l5b-2P-j9y"/>
                                         </connections>
                                     </textView>
                                 </subviews>
@@ -8067,7 +8074,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="balanceButton" destination="ZC9-Co-WDl" id="qlM-IA-ULV"/>
+                        <outlet property="bodyButton" destination="Raz-Hx-Wh4" id="NIi-bA-I8v"/>
+                        <outlet property="coffeenessButton" destination="Qpx-KI-zIH" id="mzu-hr-PAA"/>
                         <outlet property="menualThirdScrollView" destination="Gke-sC-6fb" id="wrQ-jd-VuX"/>
+                        <outlet property="noteTextView" destination="B6U-Dx-6au" id="UMu-XK-UM1"/>
+                        <outlet property="sweetnessButton" destination="F7t-Sr-crt" id="2W3-bC-9X8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVJ-1E-7d6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -10271,6 +10283,7 @@
         <image name="bogi_button_330x80.png" width="165" height="40"/>
         <image name="cleancup_button_330x80.png" width="165" height="40"/>
         <image name="coffeeness2_button_330x80.png" width="165" height="40"/>
+        <image name="coffeeness_button_330x80.png" width="165" height="40"/>
         <image name="flavor2_button_330x80.png" width="165" height="40"/>
         <image name="flavor_button_330x80.png" width="165" height="40"/>
         <image name="login_button_480x80.png" width="240" height="40"/>

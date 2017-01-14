@@ -108,7 +108,7 @@
     [balanceButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
     [overallButton setTitle:[dic objectForKey:@"overall_point"] forState:UIControlStateNormal];
     
-    noteTextView.text = [dic objectForKey:@"note1"];
+    noteTextView.text = [dic objectForKey:@"note2"];
     
     tableDic = dic;
     [self init3:dic];

@@ -36,10 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     mPosition = 0;
     [self Step1];       //통신 1 구간
 }
+
 - (void)Step1{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
@@ -73,31 +74,14 @@
     }];
     [dataTask resume];
 }
+
 - (void)init:(NSInteger)position{
-    //    contentText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-    //
-    //    leftText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-    //    NSString *codeStr =[NSString stringWithFormat:@"%@" ,[[datas objectAtIndex:position] valueForKey:@"sample_code"]];
-    //    centerText.text = codeStr;
-    //    rightText.text = [NSString stringWithFormat:@"(%ld/%@)", position+1 ,total];
-    
-    //안드로이드
-    /*
-     mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-     //                                mListTv1.setText(mSourceListItems.get(mPosition).getmSample_title() +":");
-     mListTv1.setText("원료커핑:");
-     mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-     */
-    
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
-    
 }
 
 - (void)Step2{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
-    
-    //    E/Thread: url  ---->>  http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=167
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
@@ -126,7 +110,10 @@
     }];
     [dataTask resume];
 }
+
 - (void)init2:(NSDictionary *)dic{
+    noteTextView.text = [dic objectForKey:@"note3"];
+    
     if([[dic objectForKey:@"cup1"] isEqualToString:@"1"]){
         cup1.selected = 1;
         [cup1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"] forState:UIControlStateNormal];
