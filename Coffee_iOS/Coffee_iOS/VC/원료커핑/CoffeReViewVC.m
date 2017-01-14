@@ -334,13 +334,13 @@
             float cup3score = (m3Btn2_1) + (m3Btn3_2) + (m3Btn3_3) + (m3Btn3_4) + (m3Btn3_5);
             
             float cup1total = cup1score * 2;
-            _mDetail4Btn15.text =[NSString stringWithFormat:@"%f" , cup1total] ;
+            _mDetail4Btn15.text =[NSString stringWithFormat:@"%.1f" , cup1total] ;
             
             float cup2total = cup2score * 2;
-            _mDetail4Btn17.text =[NSString stringWithFormat:@"%f" , cup2total] ;
+            _mDetail4Btn17.text =[NSString stringWithFormat:@"%.1f" , cup2total] ;
             
             float cup3total = cup3score * 2;
-            _mDetail4Btn19.text =[NSString stringWithFormat:@"%f" , cup3total] ;
+            _mDetail4Btn19.text =[NSString stringWithFormat:@"%.1f" , cup3total] ;
             
             
             
@@ -354,7 +354,7 @@
             
             float totalscore = cup1score * 2 + cup2score * 2 + cup3score * 2 + etcscore;
             
-            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %f", totalscore];
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.1f", totalscore];
             NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
             NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
             [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
