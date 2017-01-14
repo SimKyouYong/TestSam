@@ -10,11 +10,6 @@
 #import "JNExpandableTableView.h"
 
 @interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate>{
-    // ActionSheet count
-    NSArray *numberArr;
-    NSInteger actionSheetSettingValue;
-    
-    
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;

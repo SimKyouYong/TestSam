@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
 
-@interface MenualFirstVC : UIViewController{
+@interface MenualFirstVC : UIViewController<UIActionSheetDelegate>{
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+    
+    NSInteger actionSheetNum;
+    NSMutableArray *actionArr;
+    
     NSDictionary *tableDic;
     
     // 실제 사용할 데이터

@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenualThirdVC : UIViewController{
+@interface MenualThirdVC : UIViewController<UIActionSheetDelegate>{
+    NSUserDefaults *defaults;
+    NSArray *datas;
+    NSArray *datas2;
+    
+    NSInteger actionSheetNum;
+    NSMutableArray *actionArr;
+    
     NSDictionary *tableDic;
 }
 
