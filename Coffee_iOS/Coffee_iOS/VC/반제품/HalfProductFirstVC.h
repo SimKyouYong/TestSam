@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
+#import "CommonTableView2.h"
+#import "PopupView.h"
 
-@interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate>{
+@interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate, CommonTableViewDelegate2>{
+    CommonTableView2 *commonTableView;
+    PopupView *popupView;
+    
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;
     
-    int mPosition;
+    NSInteger mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;

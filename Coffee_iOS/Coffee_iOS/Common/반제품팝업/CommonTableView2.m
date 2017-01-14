@@ -146,23 +146,22 @@
     if([name isEqualToString:@"Floral"]){
         [listArr addObject:@"Floral"];
         [listArr addObject:@"rose"];
-        [listArr addObject:@"lavender"];
         [listArr addObject:@"chamomile"];
         [listArr addObject:@"jasmine"];
         
     }else if([name isEqualToString:@"Fruity"]){
         [listArr addObject:@"Fruity"];
         
-    }else if([name isEqualToString:@"citrus/citric acid"]){
-        [listArr addObject:@"citrus/citric acid"];
+    }else if([name isEqualToString:@"citrus"]){
+        [listArr addObject:@"citrus"];
         [listArr addObject:@"lemon"];
         [listArr addObject:@"lime"];
         [listArr addObject:@"orange"];
         [listArr addObject:@"grape fruit"];
         [listArr addObject:@"tangerine"];
         
-    }else if([name isEqualToString:@"apple/malic acid"]){
-        [listArr addObject:@"apple/malic acid"];
+    }else if([name isEqualToString:@"apple"]){
+        [listArr addObject:@"apple"];
         [listArr addObject:@"green apple"];
         [listArr addObject:@"red apple"];
         
@@ -191,8 +190,8 @@
         [listArr addObject:@"blueberry"];
         [listArr addObject:@"black currant"];
         
-    }else if([name isEqualToString:@"grape/tartaric acid"]){
-        [listArr addObject:@"grape/tartaric acid"];
+    }else if([name isEqualToString:@"grape/wine"]){
+        [listArr addObject:@"grape/wine"];
         [listArr addObject:@"green grape"];
         [listArr addObject:@"red grape"];
         
@@ -201,11 +200,6 @@
         [listArr addObject:@"raisin"];
         [listArr addObject:@"dried dates"];
         [listArr addObject:@"prune"];
-        
-    }else if([name isEqualToString:@"Alcoholic"]){
-        [listArr addObject:@"Alcoholic"];
-        [listArr addObject:@"winey"];
-        [listArr addObject:@"whiskey"];
         
     }else if([name isEqualToString:@"Herb/Vegetative"]){
         [listArr addObject:@"Herb/Vegetative"];
@@ -227,17 +221,16 @@
         [listArr addObject:@"nutmeg"];
         [listArr addObject:@"licorice"];
         [listArr addObject:@"anise star"];
-        [listArr addObject:@"clove"];
-        [listArr addObject:@"curry"];
         
     }else if([name isEqualToString:@"Sweet"]){
         [listArr addObject:@"Sweet"];
         [listArr addObject:@"vanilla"];
         [listArr addObject:@"honey"];
         [listArr addObject:@"marshmallow"];
+        [listArr addObject:@"sugar cane"];
         [listArr addObject:@"caramel"];
         [listArr addObject:@"maple syrup"];
-        [listArr addObject:@"molasses_grain syrup"];
+        [listArr addObject:@"molasses(grain syrup)"];
         
     }else if([name isEqualToString:@"Nut"]){
         [listArr addObject:@"Nut"];
@@ -258,7 +251,7 @@
         [listArr addObject:@"Mixed grain powder"];
         [listArr addObject:@"rye"];
         [listArr addObject:@"buck wheat"];
-        [listArr addObject:@"malt/barley"];
+        [listArr addObject:@"barley/malt"];
         
     }else if([name isEqualToString:@"Roast"]){
         [listArr addObject:@"Roast"];
@@ -271,21 +264,10 @@
         [listArr addObject:@"seasoning"];
         [listArr addObject:@"meat-like"];
         [listArr addObject:@"soy sauce"];
-        
-    }else if([name isEqualToString:@"Acidity_Po"]){
-        [listArr addObject:@"bright"];
-        [listArr addObject:@"sparking"];
-        [listArr addObject:@"juicy-like"];
-        [listArr addObject:@"delicate(mild)"];
-        [listArr addObject:@"clean"];
-        
-    }else if([name isEqualToString:@"Acidity_Ne"]){
-        [listArr addObject:@"Sharp"];
-        [listArr addObject:@"muted"];
     
     }else if([name isEqualToString:@"fermented"]){
         [listArr addObject:@"fermented"];
-        [listArr addObject:@"coffee pulp_overripe"];
+        [listArr addObject:@"coffee pulp(overripe)"];
     
     }else if([name isEqualToString:@"chemical"]){
         [listArr addObject:@"chemical"];
@@ -294,26 +276,26 @@
         [listArr addObject:@"phenolic"];
         [listArr addObject:@"rioy"];
         [listArr addObject:@"medicine"];
-        [listArr addObject:@"carbon"];
         
+    }else if([name isEqualToString:@"ashy"]){
+        [listArr addObject:@"ashy"];
+    
     }else if([name isEqualToString:@"rubbery"]){
         [listArr addObject:@"rubbery"];
-    
-    }else if([name isEqualToString:@"bitter"]){
-        [listArr addObject:@"bitter"];
         
-    }else if([name isEqualToString:@"metalic"]){
-        [listArr addObject:@"metalic"];
+    }else if([name isEqualToString:@"rest metal(녹슨쇠)"]){
+        [listArr addObject:@"rest metal(녹슨쇠)"];
     
     }else if([name isEqualToString:@"Green/grassy"]){
         [listArr addObject:@"Green/grassy"];
-        [listArr addObject:@"green(cucumber)"];
+        [listArr addObject:@"green"];
         [listArr addObject:@"hay/strawy"];
         [listArr addObject:@"woody"];
         [listArr addObject:@"paper"];
         [listArr addObject:@"ginseng"];
-        [listArr addObject:@"potato"];
         [listArr addObject:@"quaker"];
+        [listArr addObject:@"potato"];
+        
     }else if([name isEqualToString:@"musty"]){
         [listArr addObject:@"musty"];
         [listArr addObject:@"moldy"];
@@ -325,37 +307,38 @@
         [listArr addObject:@"Roast Defect"];
         [listArr addObject:@"bake"];
         [listArr addObject:@"scorched"];
-        [listArr addObject:@"tipped"];
     
+    }else if([name isEqualToString:@"Acidity_Po"]){
+        [listArr addObject:@"bright"];
+        [listArr addObject:@"juicy"];
+        [listArr addObject:@"delicate(mild)"];
+        [listArr addObject:@"clean"];
+        
+    }else if([name isEqualToString:@"Acidity_Ne"]){
+        [listArr addObject:@"Sharp"];
+        [listArr addObject:@"sour"];
+        [listArr addObject:@"muted"];
+        
     }else if([name isEqualToString:@"Aftertaste_Po"]){
         [listArr addObject:@"clean"];
-        [listArr addObject:@"after sweet"];
         [listArr addObject:@"lingering(long lasting)"];
+        [listArr addObject:@"after sweet"];
     
     }else if([name isEqualToString:@"Aftertaste_Ne"]){
         [listArr addObject:@"muted"];
         [listArr addObject:@"dirty"];
         [listArr addObject:@"dry"];
         [listArr addObject:@"rough(astrigent)"];
+        [listArr addObject:@"unpleasent bitter"];
         
     }else if([name isEqualToString:@"Body_Light"]){
         [listArr addObject:@"light"];
-        [listArr addObject:@"watery"];
-        [listArr addObject:@"thin(silky)"];
         
     }else if([name isEqualToString:@"Body_Medium"]){
         [listArr addObject:@"medium"];
-        [listArr addObject:@"smooth"];
-        [listArr addObject:@"syrupy"];
-        [listArr addObject:@"round"];
-        [listArr addObject:@"creamy"];
         
     }else if([name isEqualToString:@"Body_Heavy"]){
         [listArr addObject:@"heavy"];
-        [listArr addObject:@"full"];
-        [listArr addObject:@"velvety"];
-        [listArr addObject:@"coating"];
-        [listArr addObject:@"oily"];
     
     }else if([name isEqualToString:@"Balance_Po"]){
         [listArr addObject:@"complex"];
@@ -364,8 +347,19 @@
         
     }else if([name isEqualToString:@"Balance_Ne"]){
         [listArr addObject:@"unbalanced"];
-        [listArr addObject:@"sharp"];
         [listArr addObject:@"flat"];
+    
+    }else if([name isEqualToString:@"Mouthfeel_Po"]){
+        [listArr addObject:@"smoth"];
+        [listArr addObject:@"round"];
+        [listArr addObject:@"creamy"];
+        [listArr addObject:@"velvety"];
+        
+    }else if([name isEqualToString:@"Mouthfeel_Ne"]){
+        [listArr addObject:@"watery"];
+        [listArr addObject:@"slick"];
+        [listArr addObject:@"oily"];
+        [listArr addObject:@"powdery"];
     }
 }
 @end
