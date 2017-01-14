@@ -11,7 +11,7 @@
 #import "CommonTableView.h"
 #import "PopupView.h"
 
-@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate, UIActionSheetDelegate>{
+@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate>{
     CommonTableView *commonTableView;
     PopupView *popupView;
 

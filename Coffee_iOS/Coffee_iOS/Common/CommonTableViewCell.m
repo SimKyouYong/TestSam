@@ -18,7 +18,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        titleText = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, WIDTH_FRAME - 50, 40)];
+        titleText = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, WIDTH_FRAME - 120, 40)];
         [titleText setBackgroundColor:[UIColor clearColor]];
         titleText.textColor = [UIColor blackColor];
         titleText.textAlignment = NSTextAlignmentLeft;

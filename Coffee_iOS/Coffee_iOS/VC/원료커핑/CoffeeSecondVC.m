@@ -26,6 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, HEIGHT_FRAME)];
+    [self.view addSubview:popupView];
+    popupView.hidden = YES;
+    
     actionArr = [[NSMutableArray alloc] init];
     
     mPosition = 0;
@@ -189,10 +193,18 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
             TotalAftertaste_Po = (UILabel*)[cell viewWithTag:1];
+            UIButton *TotalAftertaste_PoButton = (UIButton*)[cell viewWithTag:2];
+            
             TotalAftertaste_Ne = (UILabel*)[cell viewWithTag:3];
+            UIButton *TotalAftertaste_NeButton = (UIButton*)[cell viewWithTag:4];
             
             TotalAftertaste_Po.text = [tableDic objectForKey:@"aftertaste_po"];
             TotalAftertaste_Ne.text = [tableDic objectForKey:@"aftertaste_ne"];
+            
+            TotalAftertaste_PoButton.tag = 0;
+            [TotalAftertaste_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            TotalAftertaste_NeButton.tag = 1;
+            [TotalAftertaste_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }else if(indexPath.row == 2){
@@ -201,12 +213,24 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
             TotalBody_Li = (UILabel*)[cell viewWithTag:1];
+            UIButton *TotalBody_LiButton = (UIButton*)[cell viewWithTag:2];
+            
             TotalBody_Me = (UILabel*)[cell viewWithTag:3];
+            UIButton *TotalBody_MeButton = (UIButton*)[cell viewWithTag:4];
+            
             TotalBody_He = (UILabel*)[cell viewWithTag:5];
+            UIButton *TotalBody_HeButton = (UIButton*)[cell viewWithTag:6];
             
             TotalBody_Li.text = [tableDic objectForKey:@"body_light"];
             TotalBody_Me.text = [tableDic objectForKey:@"body_medium"];
             TotalBody_He.text = [tableDic objectForKey:@"body_heavy"];
+            
+            TotalBody_LiButton.tag = 2;
+            [TotalBody_LiButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            TotalBody_MeButton.tag = 3;
+            [TotalBody_MeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            TotalBody_HeButton.tag = 4;
+            [TotalBody_HeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }else if(indexPath.row == 3){
@@ -215,10 +239,18 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
             TotalBalance_Po = (UILabel*)[cell viewWithTag:1];
+            UIButton *TotalBalance_PoButton = (UIButton*)[cell viewWithTag:2];
+            
             TotalBalance_Ne = (UILabel*)[cell viewWithTag:3];
+            UIButton *TotalBalance_NeButton = (UIButton*)[cell viewWithTag:4];
             
             TotalBalance_Po.text = [tableDic objectForKey:@"balance_po"];
             TotalBalance_Ne.text = [tableDic objectForKey:@"balance_ne"];
+            
+            TotalBalance_PoButton.tag = 5;
+            [TotalBalance_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            TotalBalance_NeButton.tag = 6;
+            [TotalBalance_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }
@@ -439,6 +471,94 @@
     }
     
     actionArr = [[NSMutableArray alloc] init];
+}
+
+#pragma mark -
+#pragma mark Cell Button Method
+
+- (void)ToTalCommonAction:(UIButton*)sender{
+    NSString *dataStr;
+    NSString *valueStr;
+    NSInteger nIndex = sender.tag;
+    
+    switch (nIndex){
+        case 0:
+            dataStr = @"Aftertaste_Po";
+            valueStr = mTotalAftertaste_Po;
+            break;
+        case 1:
+            dataStr = @"Aftertaste_Ne";
+            valueStr = mTotalAftertaste_Ne;
+        case 2:
+            dataStr = @"Body_Light";
+            valueStr = mTotalBody_Li;
+            break;
+        case 3:
+            dataStr = @"Body_Medium";
+            valueStr = mTotalBody_Me;
+            break;
+        case 4:
+            dataStr = @"Body_Heavy";
+            valueStr = mTotalBody_He;
+            break;
+        case 5:
+            dataStr = @"Balance_Po";
+            valueStr = mTotalBalance_Po;
+            break;
+        case 6:
+            dataStr = @"Balance_Ne";
+            valueStr = mTotalBalance_Ne;
+            break;
+    }
+    
+    popupView.hidden = NO;
+    
+    commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200) dataName:dataStr valueName:valueStr];
+    commonTableView.delegate = self;
+    commonTableView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:commonTableView];
+}
+
+#pragma mark -
+#pragma mark CommonTableView Delegate
+
+- (void)cancelButton{
+    popupView.hidden = YES;
+    commonTableView.hidden = YES;
+}
+
+- (void)submitButton:(NSString *)value name:(NSString *)name{
+    popupView.hidden = YES;
+    commonTableView.hidden = YES;
+    
+    if([name isEqualToString:@"Aftertaste_Po"]){
+        TotalAftertaste_Po.text = value;
+        mTotalAftertaste_Po = value;
+        
+    }else if([name isEqualToString:@"Aftertaste_Ne"]){
+        TotalAftertaste_Ne.text = value;
+        mTotalAftertaste_Ne = value;
+        
+    }else if([name isEqualToString:@"Body_Light"]){
+        TotalBody_Li.text = value;
+        mTotalBody_Li = value;
+        
+    }else if([name isEqualToString:@"Body_Medium"]){
+        TotalBody_Me.text = value;
+        mTotalBody_Me = value;
+        
+    }else if([name isEqualToString:@"Body_Heavy"]){
+        TotalBody_He.text = value;
+        mTotalBody_He = value;
+        
+    }else if([name isEqualToString:@"Balance_Po"]){
+        TotalBalance_Po.text = value;
+        mTotalBalance_Po = value;
+        
+    }else if([name isEqualToString:@"Balance_Ne"]){
+        TotalBalance_Ne.text = value;
+        mTotalBalance_Ne = value;
+    }
 }
 
 @end
