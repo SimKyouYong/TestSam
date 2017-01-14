@@ -28,6 +28,7 @@
 
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *acidityButton;

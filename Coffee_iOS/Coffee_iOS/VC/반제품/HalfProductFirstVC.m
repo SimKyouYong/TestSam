@@ -26,6 +26,7 @@
 @synthesize poButton;
 @synthesize neButton;
 @synthesize noteTextView;
+@synthesize toptitle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +37,13 @@
     NSLog(@"USER_ID     :: %@" , USER_ID);
     mPosition = 0;
     
+    
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+
     [self Step1];       //통신 1 구간
 }
 
@@ -60,6 +68,13 @@
             NSLog(@"1. DATAS :: %@" , datas);
             [self init:mPosition];
             [self Step2];       //통신 2 구간
+            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
+                          [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
+                          [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                          [dic objectForKey:@"totalnum"]
+                          ];
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -455,6 +470,12 @@
         [poButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
     }else if(actionSheetNum == 8){
         [neButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+    }else{
+        if([datas count] == buttonIndex){
+            return;
+        }
+        mPosition = buttonIndex;
+        [self firstInit ];
     }
     
     actionArr = [[NSMutableArray alloc] init];
@@ -657,5 +678,19 @@
 {
     NSLog(@"Will Collapse: %@",indexPath);
 }
-
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+- (void) firstInit{
+    NSLog(@"mPosition  : %d" ,  mPosition);
+    [self Step1];       //통신 1 구간
+}
 @end
