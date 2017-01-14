@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
+#import "CommonTableView.h"
+#import "PopupView.h"
 
-@interface CoffeeSecondVC : UIViewController<UIActionSheetDelegate>
-{
+@interface CoffeeSecondVC : UIViewController<UIActionSheetDelegate, CommonTableViewDelegate>{
+    CommonTableView *commonTableView;
+    PopupView *popupView;
+    
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;

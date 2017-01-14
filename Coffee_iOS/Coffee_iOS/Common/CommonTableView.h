@@ -11,18 +11,24 @@
 @protocol CommonTableViewDelegate <NSObject>
 @required
 - (void)cancelButton;
-- (void)submitButton:(NSString*)value;
+- (void)submitButton:(NSString*)value name:(NSString*)name;
 @end
 
 @interface CommonTableView : UIView<UITableViewDelegate, UITableViewDataSource>{
     UITableView *commonTableView;
     
+    NSMutableArray *listArr;
     NSMutableArray *checkRow;
     NSMutableArray *gidArray;
+    
+    NSString *dataNameStr;
+    NSString *valueNameStr;
 }
 
 @property (assign, nonatomic) id<CommonTableViewDelegate> delegate;
 
-- (id)initWithFrame:(CGRect)frame;
+// dataName - 하드코딩된 값 불러오기 위한 값
+// valueName - 서버에서 가져온 값(팝업창에서 선택하기 위해서)
+- (id)initWithFrame:(CGRect)frame dataName:(NSString*)dataName valueName:(NSString*)valueName;
 
 @end
