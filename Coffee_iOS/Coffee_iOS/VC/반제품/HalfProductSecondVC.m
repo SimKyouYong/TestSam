@@ -19,6 +19,16 @@
 @synthesize halfSecondScrollView;
 @synthesize halfSecondTextView;
 @synthesize toptitle;
+@synthesize acidityButton;
+@synthesize sweetnessButton;
+@synthesize bitternessButton;
+@synthesize bodyButton;
+@synthesize balanceButton;
+@synthesize aftertasteButton;
+@synthesize poButton;
+@synthesize neButton;
+@synthesize noteTextView;
+@synthesize myTotalScore;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +38,7 @@
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
     mPosition = 0;
-    
+    mOkNotokflag = NO;
     toptitle.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -85,14 +95,6 @@
 }
 - (void)init:(NSInteger)position{
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
-    
-    
-    //안드로이드
-//    mListTv2.setText("(" + mHalfListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-//    //                                mListTv1.setText(mHalfListItems.get(mPosition).getmSample_title() + ":");
-//    mListTv1.setText("반제품:");
-//    mListTv3.setText(" " + mHalfListItems.get(mPosition).getmSample_code());
-//    mSample_idx = mHalfListItems.get(mPosition).getmSample_idx();
 }
 - (void)Step2{
     defaults = [NSUserDefaults standardUserDefaults];
@@ -131,52 +133,77 @@
     
     tableDic = dic;
 
-    
+    float totalscore = [[dic objectForKey:@"acidity_point"] floatValue] +
+    [[dic objectForKey:@"sweetness_point"] floatValue] +
+    [[dic objectForKey:@"bitterness_point"] floatValue] +
+    [[dic objectForKey:@"body_point"] floatValue] +
+    [[dic objectForKey:@"balance_point"] floatValue] +
+    [[dic objectForKey:@"aftertaste_point"] floatValue] +
+    [[dic objectForKey:@"po_point"] floatValue] +
+    [[dic objectForKey:@"ne_point"] floatValue];
+
+    if([dic objectForKey:@"result"] != nil){
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            
+            [acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"sweetness_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"bitterness_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"po_point"] forState:UIControlStateNormal];
+            [acidityButton setTitle:[dic objectForKey:@"ne_point"] forState:UIControlStateNormal];
+            
+            noteTextView.text = [dic objectForKey:@"note1"];
+            mTotalScore = [NSString stringWithFormat:@"%.1f" , totalscore];
+
+            myTotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE : %@" , mTotalScore];
+            
+
+            if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
+//                mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
+//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
+//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+                mOkNotokflag = YES;
+//                mOkflag = false;
+
+            }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
+//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
+//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//                mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
+//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+                mOkNotokflag = YES;
+//                mOkflag = true;
+            }else{
+//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
+//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//                mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
+//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+                mOkNotokflag = YES;
+//                mOkflag = true;
+            }
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        
+    }else{
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"다시 시도해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
     //안드로이드
     /*
-    float totalscore = Float.parseFloat(acidity_point) + Float.parseFloat(sweetness_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(body_point) + Float.parseFloat(balance_point) +
-    Float.parseFloat(aftertaste_point) + Float.parseFloat(po_point) + Float.parseFloat(ne_point);
     
-    if (result != null) {
-        if (result.trim().equals(commonData.SUCCESS)) {
-            mDetailBtn1.setText(acidity_point);
-            mDetailBtn2.setText(sweetness_point);
-            mDetailBtn3.setText(bitterness_point);
-            mDetailBtn4.setText(body_point);
-            mDetailBtn5.setText(balance_point);
-            mDetailBtn6.setText(aftertaste_point);
-            mDetailBtn7.setText(po_point);
-            mDetailBtn8.setText(ne_point);
-            mDetailEdt.setText(note1);
-            mDetail4TotalScore.setText(String.valueOf(totalscore));
-            mTotalScore = String.valueOf(totalscore);
-            
-            
-            if (isok.equals("Y")){
-                mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
-                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-                mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
-                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
-                mOkNotokflag = true;
-                mOkflag = false;
-            }else if (isok.equals("")){
-                
-            }else {
-                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
-                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-                mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
-                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
-                mOkNotokflag = true;
-                mOkflag = true;
-            }
-            
-            
-        } else {
-            Toast.makeText(HalfDetail2Activity.this, result_message, Toast.LENGTH_SHORT).show();
-        }
-    } else {
-        Toast.makeText(HalfDetail2Activity.this, "다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-    }
+    
     */
 }
 
@@ -207,6 +234,106 @@
 #pragma mark Button Action
 
 - (IBAction)saveButton:(id)sender {
+    /*
+    
+    if (!mOkNotokflag){
+        Toast.makeText(HalfDetail2Activity.this, "PASS/RETEST 선택해 주세요.", Toast.LENGTH_SHORT).show();
+    }else if (mDetailEdt.getText().toString().equals("")) {
+        Toast.makeText(HalfDetail2Activity.this, "총평을 작성해 주세요.", Toast.LENGTH_SHORT).show();
+    }else {
+        //
+    }
+     */
+    NSString *ok;
+    if (!mOkNotokflag){
+        ok = @"Y";
+    }else {
+        ok = @"N";
+    }
+
+    if (!mOkNotokflag){
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"PASS/RETEST 선택해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+    }else if ([@"" isEqualToString:noteTextView.text]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"총평을 작성해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+    }else{
+        //저장
+        [self save:ok];
+    }
+}
+-(void) save:(NSString *)isok{
+//    map.put("url", CommonData.SERVER + "coffee_result_final.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx + "&note_total=" + mDetailEdt.getText().toString() + "&isok=" + ok);
+//    map.put("url", CommonData.SERVER + "coffee_result_final.php");
+//    map.put("id", commonData.getUserID());
+//    map.put("sample_idx", mSample_idx);
+//    map.put("note_total", mDetailEdt.getText().toString());
+//    map.put("isok", ok);
+    NSString *urlString = [NSString stringWithFormat:@"%@", HALF_SAVE];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&note_total=%@&isok=%@", USER_ID, SAMPLE_IDX, noteTextView.text , isok];
+    NSLog(@"반제품2 : %@", params);
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //NSLog(@"Response:%@ %@\n", response, error);
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode == 200) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+            NSLog(@"resultValue : %@"  , resultValue);
+            if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"다시 시도해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+- (IBAction)passButton:(id)sender{
+//    mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
+//    mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//    mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
+//    mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+    mOkNotokflag = YES;
+//    mOkflag = false;
+}
+
+- (IBAction)retestButton:(id)sender{
+//    mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
+//    mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//    mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
+//    mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+    mOkNotokflag = YES;
+//    mOkflag = true;
 }
 
 - (IBAction)prevButton:(id)sender {

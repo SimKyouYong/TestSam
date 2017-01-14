@@ -21,14 +21,22 @@
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    NSString *mTotalScore;
+    
+    BOOL mOkNotokflag;
 
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *halfSecondScrollView;
 @property (weak, nonatomic) IBOutlet UITextView *halfSecondTextView;
 
+- (IBAction)passButton:(id)sender;
+- (IBAction)retestButton:(id)sender;
+
+
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
+@property (weak, nonatomic) IBOutlet UILabel *myTotalScore;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *acidityButton;

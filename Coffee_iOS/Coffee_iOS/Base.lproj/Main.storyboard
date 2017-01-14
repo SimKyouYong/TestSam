@@ -686,6 +686,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="acidityButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="xuo-4V-tuU"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-Ya-fvS">
                                                 <rect key="frame" x="10" y="60" width="275" height="40"/>
@@ -699,6 +702,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sweetnessButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="G1N-ZV-VNu"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitterness_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="iYC-dF-ulr">
                                                 <rect key="frame" x="10" y="110" width="275" height="40"/>
@@ -712,6 +718,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="bitternessButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="mK2-04-vg2"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-bj-xDK">
                                                 <rect key="frame" x="10" y="160" width="275" height="40"/>
@@ -725,6 +734,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="bodyButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="VNb-6V-qFW"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="dad-O0-6JD">
                                                 <rect key="frame" x="10" y="210" width="275" height="40"/>
@@ -738,6 +750,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="balanceButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="I1R-Hk-taP"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aftertaste_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="cmP-EV-k2j">
                                                 <rect key="frame" x="10" y="260" width="275" height="40"/>
@@ -751,6 +766,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="aftertasteButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="xHY-aK-oDU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -823,6 +841,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="poButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="9iU-0I-SI6"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ne_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="YGx-0m-G9s">
                                                 <rect key="frame" x="10" y="60" width="275" height="40"/>
@@ -836,6 +857,9 @@
                                                 <state key="normal" title="0.00" backgroundImage="text_bg_160x60.png">
                                                     <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="neButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="Tx1-ge-72n"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,6 +890,9 @@
                                         <state key="normal" title="PASS" backgroundImage="text_bg_160x60.png">
                                             <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="passButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="174-W8-xcj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mak-vn-bVm">
                                         <rect key="frame" x="305" y="550" width="285" height="40"/>
@@ -876,6 +903,9 @@
                                         <state key="normal" title="RETEST" backgroundImage="text_bg_160x60.png">
                                             <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="retestButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="AB5-2B-FmT"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oSd-R6-sFq">
                                         <rect key="frame" x="10" y="600" width="580" height="150"/>
@@ -954,6 +984,7 @@
                         <outlet property="bodyButton" destination="7Mx-Pz-eXy" id="8eN-Ib-yL2"/>
                         <outlet property="halfSecondScrollView" destination="nWA-p4-f1L" id="UOy-D0-V7f"/>
                         <outlet property="halfSecondTextView" destination="oSd-R6-sFq" id="y2j-jy-kK5"/>
+                        <outlet property="myTotalScore" destination="x4Q-hN-qH5" id="unM-3y-Zj6"/>
                         <outlet property="neButton" destination="FHp-Dl-VJK" id="6ce-XP-VSI"/>
                         <outlet property="noteTextView" destination="oSd-R6-sFq" id="jaY-Gz-dyo"/>
                         <outlet property="poButton" destination="7bY-Lk-CaS" id="Hc1-0j-LcM"/>
