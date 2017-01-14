@@ -126,6 +126,10 @@
 		FF3514EA1DF9A18D001008E0 /* CoffeeFourVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DD1DF9A18D001008E0 /* CoffeeFourVC.m */; };
 		FF3514EB1DF9A18D001008E0 /* CoffeeSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */; };
 		FF3514EC1DF9A18D001008E0 /* CoffeeThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */; };
+		FF72ACB31E2A869F001A3B9C /* CommonTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF72ACB01E2A869F001A3B9C /* CommonTableView.m */; };
+		FF72ACB41E2A869F001A3B9C /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF72ACB21E2A869F001A3B9C /* CommonTableViewCell.m */; };
+		FF72ACBB1E2A87E9001A3B9C /* CommonTableView3.m in Sources */ = {isa = PBXBuildFile; fileRef = FF72ACB81E2A87E9001A3B9C /* CommonTableView3.m */; };
+		FF72ACC11E2A87F3001A3B9C /* CommonTableView2.m in Sources */ = {isa = PBXBuildFile; fileRef = FF72ACBE1E2A87F3001A3B9C /* CommonTableView2.m */; };
 		FF8519C41E213D5000B99F8B /* ReviewWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8519C31E213D5000B99F8B /* ReviewWebviewVC.m */; };
 		FF95E11B1E0EC6C500ADD829 /* top_down1.png in Resources */ = {isa = PBXBuildFile; fileRef = FF95E1191E0EC6C500ADD829 /* top_down1.png */; };
 		FF95E11C1E0EC6C500ADD829 /* top_down2.png in Resources */ = {isa = PBXBuildFile; fileRef = FF95E11A1E0EC6C500ADD829 /* top_down2.png */; };
@@ -144,8 +148,6 @@
 		FFBE03AA1E1948180005BA80 /* ReviewSamplesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE03A91E1948180005BA80 /* ReviewSamplesCell.m */; };
 		FFF627BD1E0C0B93008AE969 /* CoffeeFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */; };
 		FFFD87481E14373000029769 /* JNExpandableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87471E14373000029769 /* JNExpandableTableView.m */; };
-		FFFD874B1E144D7300029769 /* CommonTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD874A1E144D7300029769 /* CommonTableView.m */; };
-		FFFD874E1E144E3F00029769 /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +291,14 @@
 		FF3514DF1DF9A18D001008E0 /* CoffeeSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeSecondVC.m; sourceTree = "<group>"; };
 		FF3514E01DF9A18D001008E0 /* CoffeeThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeThirdVC.h; sourceTree = "<group>"; };
 		FF3514E11DF9A18D001008E0 /* CoffeeThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeThirdVC.m; sourceTree = "<group>"; };
+		FF72ACAF1E2A869F001A3B9C /* CommonTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView.h; sourceTree = "<group>"; };
+		FF72ACB01E2A869F001A3B9C /* CommonTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView.m; sourceTree = "<group>"; };
+		FF72ACB11E2A869F001A3B9C /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		FF72ACB21E2A869F001A3B9C /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
+		FF72ACB71E2A87E9001A3B9C /* CommonTableView3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView3.h; sourceTree = "<group>"; };
+		FF72ACB81E2A87E9001A3B9C /* CommonTableView3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView3.m; sourceTree = "<group>"; };
+		FF72ACBD1E2A87F3001A3B9C /* CommonTableView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView2.h; sourceTree = "<group>"; };
+		FF72ACBE1E2A87F3001A3B9C /* CommonTableView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView2.m; sourceTree = "<group>"; };
 		FF8519C21E213D5000B99F8B /* ReviewWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewWebviewVC.h; sourceTree = "<group>"; };
 		FF8519C31E213D5000B99F8B /* ReviewWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewWebviewVC.m; sourceTree = "<group>"; };
 		FF95E1191E0EC6C500ADD829 /* top_down1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_down1.png; sourceTree = "<group>"; };
@@ -318,10 +328,6 @@
 		FFF627BC1E0C0B93008AE969 /* CoffeeFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeFirstVC.m; sourceTree = "<group>"; };
 		FFFD87461E14373000029769 /* JNExpandableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNExpandableTableView.h; sourceTree = "<group>"; };
 		FFFD87471E14373000029769 /* JNExpandableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNExpandableTableView.m; sourceTree = "<group>"; };
-		FFFD87491E144D7300029769 /* CommonTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView.h; sourceTree = "<group>"; };
-		FFFD874A1E144D7300029769 /* CommonTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView.m; sourceTree = "<group>"; };
-		FFFD874C1E144E3F00029769 /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
-		FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +344,9 @@
 		6D56BE511DF95583005E55BD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FF72ACAE1E2A869F001A3B9C /* 원료커핑팝업 */,
+				FF72ACB61E2A87A7001A3B9C /* 반제품팝업 */,
+				FF72ACB51E2A87A7001A3B9C /* 메뉴얼팝업 */,
 				6D56BE521DF95583005E55BD /* GlobalHeader.h */,
 				6D56BE531DF95583005E55BD /* GlobalObject.h */,
 				6D56BE541DF95583005E55BD /* GlobalObject.m */,
@@ -345,10 +354,6 @@
 				FF0846831E15181000C478B3 /* PopupView.m */,
 				FF95E1291E0EF48200ADD829 /* DetailCell.h */,
 				FF95E12A1E0EF48200ADD829 /* DetailCell.m */,
-				FFFD87491E144D7300029769 /* CommonTableView.h */,
-				FFFD874A1E144D7300029769 /* CommonTableView.m */,
-				FFFD874C1E144E3F00029769 /* CommonTableViewCell.h */,
-				FFFD874D1E144E3F00029769 /* CommonTableViewCell.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -585,6 +590,35 @@
 			path = "원료커핑";
 			sourceTree = "<group>";
 		};
+		FF72ACAE1E2A869F001A3B9C /* 원료커핑팝업 */ = {
+			isa = PBXGroup;
+			children = (
+				FF72ACAF1E2A869F001A3B9C /* CommonTableView.h */,
+				FF72ACB01E2A869F001A3B9C /* CommonTableView.m */,
+				FF72ACB11E2A869F001A3B9C /* CommonTableViewCell.h */,
+				FF72ACB21E2A869F001A3B9C /* CommonTableViewCell.m */,
+			);
+			path = "원료커핑팝업";
+			sourceTree = "<group>";
+		};
+		FF72ACB51E2A87A7001A3B9C /* 메뉴얼팝업 */ = {
+			isa = PBXGroup;
+			children = (
+				FF72ACB71E2A87E9001A3B9C /* CommonTableView3.h */,
+				FF72ACB81E2A87E9001A3B9C /* CommonTableView3.m */,
+			);
+			path = "메뉴얼팝업";
+			sourceTree = "<group>";
+		};
+		FF72ACB61E2A87A7001A3B9C /* 반제품팝업 */ = {
+			isa = PBXGroup;
+			children = (
+				FF72ACBD1E2A87F3001A3B9C /* CommonTableView2.h */,
+				FF72ACBE1E2A87F3001A3B9C /* CommonTableView2.m */,
+			);
+			path = "반제품팝업";
+			sourceTree = "<group>";
+		};
 		FFB38AD01E0AB97200F48A79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,11 +813,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D56BEC01DF95583005E55BD /* GlobalObject.m in Sources */,
-				FFFD874B1E144D7300029769 /* CommonTableView.m in Sources */,
 				6DE23CEE1DF5455400075F8F /* AppDelegate.m in Sources */,
 				FF3514E31DF9A18D001008E0 /* MenualSecondVC.m in Sources */,
 				6D56BF251DF95583005E55BD /* LoginVC.m in Sources */,
 				331F87441E058CC4000A051C /* MenualReViewVC.m in Sources */,
+				FF72ACB31E2A869F001A3B9C /* CommonTableView.m in Sources */,
 				FF95E12B1E0EF48200ADD829 /* DetailCell.m in Sources */,
 				331F873A1E05736D000A051C /* CoffeReViewVC.m in Sources */,
 				FF95E1221E0ECFD500ADD829 /* HalfProductReviewDetailVC.m in Sources */,
@@ -805,8 +839,10 @@
 				FF3514E41DF9A18D001008E0 /* MenualThirdVC.m in Sources */,
 				FF3514E61DF9A18D001008E0 /* HalfProductSecondVC.m in Sources */,
 				FFFD87481E14373000029769 /* JNExpandableTableView.m in Sources */,
+				FF72ACBB1E2A87E9001A3B9C /* CommonTableView3.m in Sources */,
 				6D56BF231DF95583005E55BD /* BridgeVC.m in Sources */,
-				FFFD874E1E144E3F00029769 /* CommonTableViewCell.m in Sources */,
+				FF72ACB41E2A869F001A3B9C /* CommonTableViewCell.m in Sources */,
+				FF72ACC11E2A87F3001A3B9C /* CommonTableView2.m in Sources */,
 				FFB588D81E100F9400F00CD1 /* HomeCell.m in Sources */,
 				FF95E11F1E0ECFBD00ADD829 /* CoffeeReviewDetailVC.m in Sources */,
 				FF95E1341E0F017400ADD829 /* MenualReviewLatteVC.m in Sources */,

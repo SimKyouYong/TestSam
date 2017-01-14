@@ -654,11 +654,17 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(actionSheetNum == 4){
-        [self TotalFruity2:buttonIndex];
+        if(buttonIndex == 9){
+        }else{
+            [self TotalFruity2:buttonIndex];
+        }
         return;
     }
     if(actionSheetNum == 5){
-        [self TotalChemical2:buttonIndex];
+        if(buttonIndex == 5){
+        }else{
+            [self TotalChemical2:buttonIndex];
+        }
         return;
     }
     
