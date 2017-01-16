@@ -33,6 +33,7 @@
         _userID = @"";
         _userNick = @"";
         _sample_idx = @"";
+        _mPosition = 0;
     }
     
     return self;

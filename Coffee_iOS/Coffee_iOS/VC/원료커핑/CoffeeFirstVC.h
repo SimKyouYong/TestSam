@@ -19,7 +19,7 @@
     NSArray *datas;
     NSArray *datas2;
 
-    int mPosition;
+    //int mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;

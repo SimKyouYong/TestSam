@@ -144,6 +144,7 @@
 - (void)cuppingAction:(UIButton*)sender{
     NSInteger nIndex = sender.tag;
     SESSIONID = [[tableList objectAtIndex:nIndex] valueForKey:@"session_idx"];
+    MPOSITION = 0;
     //MPOSITION = (int)nIndex;
     
     //커핑은 무조건 화면 진입 여부를 위해 request 요청함. 

@@ -30,7 +30,7 @@
     
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
-    mPosition = 0;
+    NSLog(@"MPOSITION     :: %d" , MPOSITION);
     
     
     toptitle.userInteractionEnabled = YES;
@@ -67,13 +67,13 @@
             [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
             NSLog(@"1. DATAS :: %@" , datas);
-            [self init:mPosition];
+            [self init:MPOSITION];
             [self Step2];       //통신 2 구간
             
             //Title 값 셋팅
             toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
-                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
-                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
                              [dic objectForKey:@"totalnum"]
                              ];
             
@@ -674,7 +674,7 @@
         if([datas count] == buttonIndex){
             return;
         }
-        mPosition = buttonIndex;
+        MPOSITION = buttonIndex;
         [self firstInit ];
     }else{
         if(actionSheetNum == 4){
@@ -912,7 +912,7 @@
     [menu showInView:self.view];
 }
 - (void) firstInit{
-    NSLog(@"mPosition  : %d" ,  mPosition);
+    NSLog(@"mPosition  : %d" ,  MPOSITION);
     [self Step1];       //통신 1 구간
 }
 
