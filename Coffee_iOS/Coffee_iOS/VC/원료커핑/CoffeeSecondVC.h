@@ -8,24 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
-#import "CommonTableView.h"
 #import "PopupView.h"
 
-@interface CoffeeSecondVC : UIViewController<UIActionSheetDelegate, CommonTableViewDelegate>{
-    CommonTableView *commonTableView;
+@interface CoffeeSecondVC : UIViewController<UIActionSheetDelegate>{
     PopupView *popupView;
     
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;
     
-    int mPosition;
+    NSInteger mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    
+    NSMutableArray *listArr;
     
     // 실제 사용할 데이터
     NSString *mTotalAftertaste_Po;
@@ -51,6 +51,7 @@
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
+- (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 - (IBAction)nextButton:(id)sender;

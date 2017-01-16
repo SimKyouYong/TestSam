@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -581,6 +581,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZE-fb-8be">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-3C-iay">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Djq-zv-CGx"/>
+                                            <constraint firstAttribute="width" constant="40" id="EGE-lD-N0l"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="fBF-q2-eWv" eventType="touchUpInside" id="Efg-BR-MmJ"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="1eK-rO-QCZ">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -603,9 +614,11 @@
                                     <constraint firstItem="1eK-rO-QCZ" firstAttribute="top" secondItem="hZE-fb-8be" secondAttribute="top" constant="16" id="SqJ-jp-J6A"/>
                                     <constraint firstItem="FeZ-xA-82x" firstAttribute="leading" secondItem="hZE-fb-8be" secondAttribute="leading" id="U3m-D3-Wib"/>
                                     <constraint firstAttribute="trailing" secondItem="FeZ-xA-82x" secondAttribute="trailing" id="VAg-T5-csC"/>
+                                    <constraint firstItem="E0m-3C-iay" firstAttribute="leading" secondItem="hZE-fb-8be" secondAttribute="leading" constant="10" id="aEG-7P-1Ql"/>
                                     <constraint firstItem="1eK-rO-QCZ" firstAttribute="centerX" secondItem="hZE-fb-8be" secondAttribute="centerX" id="gAX-tX-BfR"/>
                                     <constraint firstItem="FeZ-xA-82x" firstAttribute="top" secondItem="hZE-fb-8be" secondAttribute="top" constant="60" id="gsP-q4-mQC"/>
                                     <constraint firstAttribute="height" constant="100" id="n6t-t8-GGA"/>
+                                    <constraint firstItem="E0m-3C-iay" firstAttribute="top" secondItem="hZE-fb-8be" secondAttribute="top" constant="10" id="xe0-gz-8Ta"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-sV-UOj">
@@ -5481,6 +5494,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDN-tq-6Zd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9B-VL-Jdv">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="ige-SQ-T5c"/>
+                                            <constraint firstAttribute="height" constant="40" id="oV4-HD-vIG"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="0Sw-zY-rMC" eventType="touchUpInside" id="gsf-Ck-lBE"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="DP0-u4-IxF">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -5500,10 +5524,12 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
+                                    <constraint firstItem="H9B-VL-Jdv" firstAttribute="top" secondItem="UDN-tq-6Zd" secondAttribute="top" constant="10" id="0pL-5G-PPG"/>
                                     <constraint firstItem="qCy-sn-GTF" firstAttribute="top" secondItem="UDN-tq-6Zd" secondAttribute="top" constant="60" id="50D-gB-3D3"/>
                                     <constraint firstItem="qCy-sn-GTF" firstAttribute="leading" secondItem="UDN-tq-6Zd" secondAttribute="leading" id="CbP-3x-1I1"/>
                                     <constraint firstItem="DP0-u4-IxF" firstAttribute="top" secondItem="UDN-tq-6Zd" secondAttribute="top" constant="16" id="W5t-xt-bts"/>
                                     <constraint firstItem="DP0-u4-IxF" firstAttribute="centerX" secondItem="UDN-tq-6Zd" secondAttribute="centerX" id="aIi-sT-bZ4"/>
+                                    <constraint firstItem="H9B-VL-Jdv" firstAttribute="leading" secondItem="UDN-tq-6Zd" secondAttribute="leading" constant="10" id="vvV-OH-UYO"/>
                                     <constraint firstAttribute="height" constant="100" id="wei-cy-Nlf"/>
                                     <constraint firstAttribute="trailing" secondItem="qCy-sn-GTF" secondAttribute="trailing" id="wfD-fB-iCl"/>
                                 </constraints>
@@ -6058,6 +6084,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9px-h0-y2f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irc-2Z-R5V">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Quf-n8-bFE"/>
+                                            <constraint firstAttribute="width" constant="40" id="lvc-SM-pXf"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="M85-ic-CVw" eventType="touchUpInside" id="gOk-04-W0l"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-gK-2R0">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -6080,8 +6117,10 @@
                                     <constraint firstItem="cJ8-gK-2R0" firstAttribute="centerX" secondItem="9px-h0-y2f" secondAttribute="centerX" id="AM4-42-fJd"/>
                                     <constraint firstAttribute="height" constant="100" id="agf-OY-GqA"/>
                                     <constraint firstItem="d8G-17-vxT" firstAttribute="leading" secondItem="9px-h0-y2f" secondAttribute="leading" id="bZW-mC-gBd"/>
+                                    <constraint firstItem="Irc-2Z-R5V" firstAttribute="leading" secondItem="9px-h0-y2f" secondAttribute="leading" constant="10" id="drh-jm-bnh"/>
                                     <constraint firstItem="d8G-17-vxT" firstAttribute="top" secondItem="9px-h0-y2f" secondAttribute="top" constant="60" id="du6-o9-XMV"/>
                                     <constraint firstAttribute="trailing" secondItem="d8G-17-vxT" secondAttribute="trailing" id="isM-o8-ywf"/>
+                                    <constraint firstItem="Irc-2Z-R5V" firstAttribute="top" secondItem="9px-h0-y2f" secondAttribute="top" constant="10" id="jRs-z4-zUK"/>
                                     <constraint firstItem="cJ8-gK-2R0" firstAttribute="top" secondItem="9px-h0-y2f" secondAttribute="top" constant="16" id="n6l-st-PNF"/>
                                 </constraints>
                             </view>
@@ -7882,6 +7921,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnG-Ng-vy3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXd-yh-gCw">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="DCi-bN-XOt"/>
+                                            <constraint firstAttribute="height" constant="40" id="pQ1-KO-8Zw"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="Jr4-u3-93a"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="5ho-Ub-3ba">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -7901,8 +7951,10 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
+                                    <constraint firstItem="hXd-yh-gCw" firstAttribute="top" secondItem="rnG-Ng-vy3" secondAttribute="top" constant="10" id="0Pr-Z9-bDH"/>
                                     <constraint firstItem="lTq-uS-rPV" firstAttribute="top" secondItem="rnG-Ng-vy3" secondAttribute="top" constant="60" id="4aZ-ng-XeR"/>
                                     <constraint firstAttribute="height" constant="100" id="4sz-y6-qdA"/>
+                                    <constraint firstItem="hXd-yh-gCw" firstAttribute="leading" secondItem="rnG-Ng-vy3" secondAttribute="leading" constant="10" id="JFk-oh-t7R"/>
                                     <constraint firstItem="5ho-Ub-3ba" firstAttribute="top" secondItem="rnG-Ng-vy3" secondAttribute="top" constant="16" id="YSj-z8-Sw3"/>
                                     <constraint firstItem="5ho-Ub-3ba" firstAttribute="centerX" secondItem="rnG-Ng-vy3" secondAttribute="centerX" id="gkZ-Wu-fhX"/>
                                     <constraint firstItem="lTq-uS-rPV" firstAttribute="leading" secondItem="rnG-Ng-vy3" secondAttribute="leading" id="sfP-St-6Y4"/>
@@ -8148,6 +8200,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36V-d9-sAZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snW-A6-NIp">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="VtS-Kr-9YF"/>
+                                            <constraint firstAttribute="height" constant="40" id="afI-jl-ab5"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="s8S-de-Dg1" eventType="touchUpInside" id="z79-bg-7bX"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Sy-OeM">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -8172,6 +8235,8 @@
                                     <constraint firstItem="gDR-hp-Nmw" firstAttribute="leading" secondItem="36V-d9-sAZ" secondAttribute="leading" id="O3I-Qo-l7L"/>
                                     <constraint firstItem="gDR-hp-Nmw" firstAttribute="top" secondItem="36V-d9-sAZ" secondAttribute="top" constant="60" id="P5r-yO-mCD"/>
                                     <constraint firstItem="ba5-Sy-OeM" firstAttribute="centerX" secondItem="36V-d9-sAZ" secondAttribute="centerX" id="VDj-CI-vMo"/>
+                                    <constraint firstItem="snW-A6-NIp" firstAttribute="leading" secondItem="36V-d9-sAZ" secondAttribute="leading" constant="10" id="ful-ze-3ek"/>
+                                    <constraint firstItem="snW-A6-NIp" firstAttribute="top" secondItem="36V-d9-sAZ" secondAttribute="top" constant="10" id="nwJ-vJ-Rpo"/>
                                     <constraint firstItem="ba5-Sy-OeM" firstAttribute="top" secondItem="36V-d9-sAZ" secondAttribute="top" constant="16" id="pLg-LL-3Jv"/>
                                 </constraints>
                             </view>
@@ -8480,6 +8545,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIP-yX-K7f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPE-1b-YDM">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Pyd-oX-C8H"/>
+                                            <constraint firstAttribute="height" constant="40" id="c5x-bb-NUW"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_home.png"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="gPP-ME-WEX" eventType="touchUpInside" id="3LX-ol-QRL"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Shs-El-Bjm">
                                         <rect key="frame" x="233" y="16" width="134" height="28"/>
                                         <constraints>
@@ -8503,8 +8579,10 @@
                                     <constraint firstAttribute="trailing" secondItem="sXr-Wy-1yC" secondAttribute="trailing" id="G29-eL-Z10"/>
                                     <constraint firstItem="Shs-El-Bjm" firstAttribute="top" secondItem="KIP-yX-K7f" secondAttribute="top" constant="16" id="Gwr-mf-hLr"/>
                                     <constraint firstItem="Shs-El-Bjm" firstAttribute="centerX" secondItem="KIP-yX-K7f" secondAttribute="centerX" id="Kgp-z9-QzR"/>
+                                    <constraint firstItem="KPE-1b-YDM" firstAttribute="leading" secondItem="KIP-yX-K7f" secondAttribute="leading" constant="10" id="cq2-to-Zib"/>
                                     <constraint firstItem="sXr-Wy-1yC" firstAttribute="top" secondItem="KIP-yX-K7f" secondAttribute="top" constant="60" id="hsV-Dq-Wa6"/>
                                     <constraint firstItem="sXr-Wy-1yC" firstAttribute="leading" secondItem="KIP-yX-K7f" secondAttribute="leading" id="qDc-RN-AI1"/>
+                                    <constraint firstItem="KPE-1b-YDM" firstAttribute="top" secondItem="KIP-yX-K7f" secondAttribute="top" constant="10" id="t4U-9t-LOl"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Us7-wI-gRR" customClass="JNExpandableTableView">
@@ -9078,7 +9156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGT-kq-IK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="623"/>
+            <point key="canvasLocation" x="2491" y="623"/>
         </scene>
         <!--Coffee FirstVC-->
         <scene sceneID="6Fk-Mw-uIB">
@@ -10382,11 +10460,11 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Djf-dA-wbo"/>
-        <segue reference="TJR-ST-dQU"/>
-        <segue reference="HVL-7g-acH"/>
+        <segue reference="NQw-kp-gI4"/>
         <segue reference="hBd-4Z-YF5"/>
         <segue reference="iCp-1x-5vL"/>
         <segue reference="vl0-I9-pZc"/>
+        <segue reference="Djf-dA-wbo"/>
+        <segue reference="TJR-ST-dQU"/>
     </inferredMetricsTieBreakers>
 </document>

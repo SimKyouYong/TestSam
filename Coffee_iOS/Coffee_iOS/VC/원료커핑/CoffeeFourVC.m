@@ -34,6 +34,7 @@
 @synthesize cup15;
 @synthesize toptitle;
 @synthesize coffeeFourTextView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -242,6 +243,11 @@
 
 #pragma mark -
 #pragma mark Button Action
+
+- (IBAction)homeButton:(id)sender {
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
+}
 
 - (IBAction)saveButton:(id)sender {
     

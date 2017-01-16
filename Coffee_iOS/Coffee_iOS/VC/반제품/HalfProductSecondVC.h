@@ -26,12 +26,14 @@
     BOOL mOkNotokflag;
 
 }
+
+- (IBAction)homeButton:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *halfSecondScrollView;
 @property (weak, nonatomic) IBOutlet UITextView *halfSecondTextView;
 
 - (IBAction)passButton:(id)sender;
 - (IBAction)retestButton:(id)sender;
-
 
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;

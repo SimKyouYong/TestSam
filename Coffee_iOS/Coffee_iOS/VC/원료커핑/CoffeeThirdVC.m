@@ -258,6 +258,11 @@
 #pragma mark -
 #pragma mark Button Action
 
+- (IBAction)homeButton:(id)sender {
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
+}
+
 - (IBAction)saveButton:(id)sender {
     NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

@@ -1,148 +1,18 @@
 //
-//  CommonTableView.m
+//  PopupListCoffee.m
 //  Coffee_iOS
 //
-//  Created by Joseph_iMac on 2016. 12. 29..
-//  Copyright © 2016년 JC1_Joseph. All rights reserved.
+//  Created by Joseph_iMac on 2017. 1. 16..
+//  Copyright © 2017년 JC1_Joseph. All rights reserved.
 //
 
-#import "CommonTableView.h"
-#import "GlobalHeader.h"
-#import "CommonTableViewCell.h"
+#import "PopupListCoffee.h"
 
-@implementation CommonTableView
+@implementation PopupListCoffee
 
-@synthesize delegate;
-
-- (id)initWithFrame:(CGRect)frame dataName:(NSString*)dataName valueName:(NSString*)valueName{
-    self = [super initWithFrame:frame];
-    if (self) {
-        checkRow = [[NSMutableArray alloc] init];
-        
-        dataNameStr = dataName;
-        valueNameStr = valueName;
-        
-        [self arrData:dataName];
-        
-        UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, 50)];
-        [titleName setBackgroundColor:[UIColor clearColor]];
-        titleName.textColor = [UIColor blackColor];
-        titleName.textAlignment = NSTextAlignmentCenter;
-        titleName.font = [UIFont fontWithName:@"Helvetica" size:30.0];
-        titleName.text = @"선택하세요.";
-        [self addSubview:titleName];
-        
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, WIDTH_FRAME, 0.5)];
-        lineView.backgroundColor = [UIColor grayColor];
-        [self addSubview:lineView];
-        
-        commonTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, WIDTH_FRAME - 20, self.frame.size.height - 100) style:UITableViewStylePlain];
-        commonTableView.delegate = self;
-        commonTableView.dataSource = self;
-        commonTableView.backgroundColor = [UIColor clearColor];
-        commonTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [self addSubview:commonTableView];
-        [commonTableView setEditing:YES];
-        
-        UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 50, WIDTH_FRAME, 0.5)];
-        lineView2.backgroundColor = [UIColor grayColor];
-        [self addSubview:lineView2];
-        
-        UIView *lineView3 = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width/2, self.frame.size.height - 50, 0.5, 50)];
-        lineView3.backgroundColor = [UIColor grayColor];
-        [self addSubview:lineView3];
-        
-        UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 50, self.frame.size.width/2, 50)];
-        [cancelButton setTitle:@"취소" forState:UIControlStateNormal];
-        [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:cancelButton];
-        
-        UIButton *submitButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width/2, self.frame.size.height - 50, self.frame.size.width/2, 50)];
-        [submitButton setTitle:@"확인" forState:UIControlStateNormal];
-        [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [submitButton addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:submitButton];
-    }
-    return self;
-}
-
-#pragma mark -
-#pragma mark Button Action
-
-- (void)cancelAction:(UIButton*)sender{
-    [delegate cancelButton];
-}
-
-- (void)submitAction:(UIButton*)sender{
-    NSMutableString *gidNumStr = [NSMutableString string];
++ (NSMutableArray*)list:(NSString*)name{
+    NSMutableArray *listArr = [[NSMutableArray alloc] init];
     
-    for(int i = 0; i < [checkRow count]; i++){
-        NSInteger selectNum = [[checkRow objectAtIndex:i] integerValue];
-        NSString *gidNum = [listArr objectAtIndex:selectNum];
-        //NSLog(@"gidNum : %@", gidNum);
-        
-        [gidNumStr length] != 0 ?
-        [gidNumStr appendFormat:@",%@", gidNum] : [gidNumStr appendFormat:@"%@", gidNum];
-    }
-    
-    NSLog(@"gidNum : %@", gidNumStr);
-    
-    [delegate submitButton:gidNumStr name:dataNameStr];
-}
-
-#pragma mark -
-#pragma mark Table Method
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [listArr count];;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CommonTableViewCell *cell = (CommonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CommonTableViewCell"];
-    
-    if (cell == nil){
-        cell = [[CommonTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommonTableViewCell"];
-    }
-
-    [cell.titleText setText:[listArr objectAtIndex:indexPath.row]];
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == 3){
-        NSLog(@"row : %ld", indexPath.row);
-    }
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 3;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"selectRow : %ld", indexPath.row);
-    
-    [checkRow addObject:[NSNumber numberWithInteger:indexPath.row]];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"deselectRow : %ld", indexPath.row);
-    
-    [checkRow removeObject:[NSNumber numberWithInteger:indexPath.row]];
-}
-
-// 팝업선택하는 데이터 코딩
-- (void)arrData:(NSString*)name{
-    listArr = [[NSMutableArray alloc] init];
     if([name isEqualToString:@"Floral"]){
         [listArr addObject:@"Floral"];
         [listArr addObject:@"rose"];
@@ -282,11 +152,11 @@
     }else if([name isEqualToString:@"Acidity_Ne"]){
         [listArr addObject:@"Sharp"];
         [listArr addObject:@"muted"];
-    
+        
     }else if([name isEqualToString:@"fermented"]){
         [listArr addObject:@"fermented"];
         [listArr addObject:@"coffee pulp_overripe"];
-    
+        
     }else if([name isEqualToString:@"chemical"]){
         [listArr addObject:@"chemical"];
         
@@ -298,13 +168,13 @@
         
     }else if([name isEqualToString:@"rubbery"]){
         [listArr addObject:@"rubbery"];
-    
+        
     }else if([name isEqualToString:@"bitter"]){
         [listArr addObject:@"bitter"];
         
     }else if([name isEqualToString:@"metalic"]){
         [listArr addObject:@"metalic"];
-    
+        
     }else if([name isEqualToString:@"Green/grassy"]){
         [listArr addObject:@"Green/grassy"];
         [listArr addObject:@"green(cucumber)"];
@@ -320,18 +190,18 @@
         [listArr addObject:@"dirty(dusty)"];
         [listArr addObject:@"stone"];
         [listArr addObject:@"wet soil"];
-    
+        
     }else if([name isEqualToString:@"Roast Defect"]){
         [listArr addObject:@"Roast Defect"];
         [listArr addObject:@"bake"];
         [listArr addObject:@"scorched"];
         [listArr addObject:@"tipped"];
-    
+        
     }else if([name isEqualToString:@"Aftertaste_Po"]){
         [listArr addObject:@"clean"];
         [listArr addObject:@"after sweet"];
         [listArr addObject:@"lingering(long lasting)"];
-    
+        
     }else if([name isEqualToString:@"Aftertaste_Ne"]){
         [listArr addObject:@"muted"];
         [listArr addObject:@"dirty"];
@@ -356,7 +226,7 @@
         [listArr addObject:@"velvety"];
         [listArr addObject:@"coating"];
         [listArr addObject:@"oily"];
-    
+        
     }else if([name isEqualToString:@"Balance_Po"]){
         [listArr addObject:@"complex"];
         [listArr addObject:@"structured"];
@@ -367,5 +237,8 @@
         [listArr addObject:@"sharp"];
         [listArr addObject:@"flat"];
     }
+    
+    return listArr;
 }
+
 @end

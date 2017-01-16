@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
-#import "CommonTableView2.h"
 #import "PopupView.h"
 
-@interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate, CommonTableViewDelegate2>{
-    CommonTableView2 *commonTableView;
+@interface HalfProductFirstVC : UIViewController<UIActionSheetDelegate>{
     PopupView *popupView;
     
     NSUserDefaults *defaults;
@@ -26,6 +24,8 @@
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    
+    NSMutableArray *listArr;
     
     // 실제 사용할 데이터
     NSString *mTotalFloral;

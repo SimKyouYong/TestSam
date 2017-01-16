@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
+#import "PopupView.h"
 
 @interface MenualFirstVC : UIViewController<UIActionSheetDelegate>{
+    PopupView *popupView;
+    
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;
@@ -18,6 +21,8 @@
     NSMutableArray *actionArr;
     
     NSDictionary *tableDic;
+    
+    NSMutableArray *listArr;
     
     // 실제 사용할 데이터
     NSString *mTotalFloral;

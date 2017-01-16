@@ -18,11 +18,14 @@
     NSString *mSample_idx;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeThirdScrollView;
+
+- (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
 - (IBAction)pimaryButton:(id)sender;
 - (IBAction)secondaryButton:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
 
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;

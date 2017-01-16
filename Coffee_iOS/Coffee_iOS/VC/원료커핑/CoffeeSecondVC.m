@@ -9,9 +9,11 @@
 #import "CoffeeSecondVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "PopupListViewCoffee.h"
+#import "PopupListCoffee.h"
 
-@interface CoffeeSecondVC ()
-
+@interface CoffeeSecondVC () <PopupListViewDelegate>
+@property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @end
 
 @implementation CoffeeSecondVC
@@ -307,6 +309,11 @@
 #pragma mark -
 #pragma mark Button Action
 
+- (IBAction)homeButton:(id)sender {
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
+}
+
 - (IBAction)saveButton:(id)sender {
     NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -490,9 +497,7 @@
         }
         
         actionArr = [[NSMutableArray alloc] init];
-    
     }
-    
 }
 
 #pragma mark -
@@ -533,26 +538,79 @@
             break;
     }
     
-    popupView.hidden = NO;
-    
-    commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200) dataName:dataStr valueName:valueStr];
-    commonTableView.delegate = self;
-    commonTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commonTableView];
+    [self popupLoad:dataStr];
+}
+
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    menu.tag = 1;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (void) firstInit{
+    NSLog(@"mPosition  : %ld" ,  mPosition);
+    [self Step1];       //통신 1 구간
 }
 
 #pragma mark -
-#pragma mark CommonTableView Delegate
+#pragma mark PopupListViewDelegate
 
-- (void)cancelButton{
+- (void)popupLoad:(NSString*)nameValue{
+    popupView.hidden = NO;
+    self.selectedIndexes = [[NSMutableIndexSet alloc] init];
+    listArr = [[NSMutableArray alloc] init];
+    listArr = [PopupListCoffee list:nameValue];
+    
+    float paddingTopBottom = 20.0f;
+    float paddingLeftRight = 20.0f;
+    
+    CGPoint point = CGPointMake(paddingLeftRight, (self.navigationController.navigationBar.frame.size.height + paddingTopBottom) + paddingTopBottom);
+    CGSize size = CGSizeMake((self.view.frame.size.width - (paddingLeftRight * 2)), self.view.frame.size.height - ((self.navigationController.navigationBar.frame.size.height + paddingTopBottom) + (paddingTopBottom * 2)));
+    
+    PopupListViewCoffee *listView = [[PopupListViewCoffee alloc] initWithTitle:@"평가해주세요." list:listArr selectedIndexes:self.selectedIndexes point:point size:size multipleSelection:YES disableBackgroundInteraction:YES dataName:nameValue];
+    listView.delegate = self;
+    
+    [listView showInView:self.navigationController.view animated:YES];
+}
+
+- (void)popupListView:(PopupListViewCoffee *)popUpListView didSelectIndex:(NSInteger)index
+{
+    NSLog(@"popUpListView - didSelectIndex: %ld", index);
+}
+
+- (void)popupListViewDidHide:(PopupListViewCoffee *)popUpListView selectedIndexes:(NSIndexSet *)selectedIndexes dataNameStr:(NSString *)dataNameStr
+{
+    NSMutableArray *totalArr = [[NSMutableArray alloc] init];
+    NSLog(@"popupListViewDidHide - selectedIndexes: %@", selectedIndexes.description);
+    
     popupView.hidden = YES;
-    commonTableView.hidden = YES;
+    self.selectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:selectedIndexes];
+    
+    [selectedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        [totalArr addObject:[NSString stringWithFormat:@"%ld", idx]];
+    }];
+    
+    NSMutableString *gidNumStr = [NSMutableString string];
+    for(int i = 0; i < [totalArr count]; i++){
+        NSString *gidNum = [listArr objectAtIndex:[[totalArr objectAtIndex:i] integerValue]];
+        
+        [gidNumStr length] != 0 ?
+        [gidNumStr appendFormat:@",%@", gidNum] : [gidNumStr appendFormat:@"%@", gidNum];
+    }
+    
+    //NSLog(@"gidNum : %@", gidNumStr);
+    
+    [self submitButton:gidNumStr name:dataNameStr];
 }
 
 - (void)submitButton:(NSString *)value name:(NSString *)name{
-    popupView.hidden = YES;
-    commonTableView.hidden = YES;
-    
     if([name isEqualToString:@"Aftertaste_Po"]){
         TotalAftertaste_Po.text = value;
         mTotalAftertaste_Po = value;
@@ -581,22 +639,6 @@
         TotalBalance_Ne.text = value;
         mTotalBalance_Ne = value;
     }
-}
-- (void)selectButton{
-    UIActionSheet *menu = [[UIActionSheet alloc] init];
-    menu.title = @"샘플을 선택해주세요.";
-    menu.delegate = self;
-    menu.tag = 1;
-    for(int i = 0; i < [datas count]; i++){
-        NSDictionary *codeDic = [datas objectAtIndex:i];
-        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
-    }
-    [menu addButtonWithTitle:@"취소"];
-    [menu showInView:self.view];
-}
-- (void) firstInit{
-    NSLog(@"mPosition  : %d" ,  mPosition);
-    [self Step1];       //통신 1 구간
 }
 
 @end

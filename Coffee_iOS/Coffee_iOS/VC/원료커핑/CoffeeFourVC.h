@@ -50,6 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cup14;
 @property (weak, nonatomic) IBOutlet UIButton *cup15;
 
+- (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)prevButton:(id)sender;
 - (IBAction)okButton:(id)sender;

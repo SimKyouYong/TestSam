@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JNExpandableTableView.h"
-#import "CommonTableView.h"
 #import "PopupView.h"
 
-@interface CoffeeFirstVC : UIViewController<CommonTableViewDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate>{
-    CommonTableView *commonTableView;
+@interface CoffeeFirstVC : UIViewController<UIActionSheetDelegate, UIGestureRecognizerDelegate>{
     PopupView *popupView;
 
     NSUserDefaults *defaults;
@@ -26,6 +24,8 @@
     
     NSInteger actionSheetNum;
     NSMutableArray *actionArr;
+    
+    NSMutableArray *listArr;
     
     // 실제 사용할 데이터
     NSString *mTotalFloral;

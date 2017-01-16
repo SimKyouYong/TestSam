@@ -9,9 +9,11 @@
 #import "CoffeeFirstVC.h"
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
+#import "PopupListViewCoffee.h"
+#import "PopupListCoffee.h"
 
-@interface CoffeeFirstVC ()
-
+@interface CoffeeFirstVC () <PopupListViewDelegate>
+@property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @end
 
 @implementation CoffeeFirstVC
@@ -39,8 +41,6 @@
                                             action:@selector(selectButton)];
     [toptitle addGestureRecognizer:tapGesture];
 
-    
-    
     popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME, HEIGHT_FRAME)];
     [self.view addSubview:popupView];
     popupView.hidden = YES;
@@ -188,7 +188,8 @@
 #pragma mark Button Action
 
 - (IBAction)homeButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
 }
 
 - (IBAction)secondaryButton:(id)sender {
@@ -532,140 +533,6 @@
 }
 
 #pragma mark -
-#pragma mark CommonTableView Delegate
-
-- (void)cancelButton{
-    popupView.hidden = YES;
-    commonTableView.hidden = YES;
-}
-
-- (void)submitButton:(NSString *)value name:(NSString *)name{
-    popupView.hidden = YES;
-    commonTableView.hidden = YES;
-    
-    if([name isEqualToString:@"Floral"]){
-        TotalFloral.text = value;
-        mTotalFloral = value;
-        
-    }else if([name isEqualToString:@"Fruity"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"citrus/citric acid"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"apple/malic acid"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"melon"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"tropical fruit"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"stone fruit"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"berry"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"grape/tartaric acid"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"dried fruit"]){
-        TotalFruity.text = value;
-        mTotalFruity = value;
-        
-    }else if([name isEqualToString:@"Alcoholic"]){
-        TotalAlcoholic.text = value;
-        mTotalAlcoholic = value;
-        
-    }else if([name isEqualToString:@"Herb/Vegetative"]){
-        TotalHerb.text = value;
-        mTotalHerb = value;
-        
-    }else if([name isEqualToString:@"Spice"]){
-        TotalSpice.text = value;
-        mTotalSpice = value;
-        
-    }else if([name isEqualToString:@"Sweet"]){
-        TotalSweet.text = value;
-        mTotalSweet = value;
-        
-    }else if([name isEqualToString:@"Nut"]){
-        TotalNut.text = value;
-        mTotalNut = value;
-        
-    }else if([name isEqualToString:@"Chocolate"]){
-        TotalChocolate.text = value;
-        mTotalChocolate = value;
-        
-    }else if([name isEqualToString:@"Grain/Cereal"]){
-        TotalGrain.text = value;
-        mTotalGrain = value;
-        
-    }else if([name isEqualToString:@"Roast"]){
-        TotalRoast.text = value;
-        mTotalRoast = value;
-        
-    }else if([name isEqualToString:@"Savory"]){
-        TotalSavory.text = value;
-        mTotalSavory = value;
-    
-    }else if([name isEqualToString:@"Acidity_Po"]){
-        TotalAcidity_Po.text = value;
-        mTotalAcidity_Po = value;
-        
-    }else if([name isEqualToString:@"Acidity_Ne"]){
-        TotalAcidity_Ne.text = value;
-        mTotalAcidity_Ne = value;
-        
-    }else if([name isEqualToString:@"fermented"]){
-        TotalFermented.text = value;
-        mTotalFermented = value;
-        
-    }else if([name isEqualToString:@"chemical"]){
-        TotalChemical.text = value;
-        mTotalChemical = value;
-        
-    }else if([name isEqualToString:@"phenolic"]){
-        TotalChemical.text = value;
-        mTotalChemical = value;
-        
-    }else if([name isEqualToString:@"rubbery"]){
-        TotalChemical.text = value;
-        mTotalChemical = value;
-        
-    }else if([name isEqualToString:@"bitter"]){
-        TotalChemical.text = value;
-        mTotalChemical = value;
-        
-    }else if([name isEqualToString:@"metalic"]){
-        TotalChemical.text = value;
-        mTotalChemical = value;
-        
-    }else if([name isEqualToString:@"Green/grassy"]){
-        TotalGreen.text = value;
-        mTotalGreen = value;
-        
-    }else if([name isEqualToString:@"musty"]){
-        TotalMusty.text = value;
-        mTotalMusty = value;
-        
-    }else if([name isEqualToString:@"Roast Defect"]){
-        TotalRoastdefect.text = value;
-        mTotalRoastdefect = value;
-    }
-}
-
-#pragma mark -
 #pragma mark ActionSheet Delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -784,12 +651,7 @@
             break;
     }
     
-    popupView.hidden = NO;
-    
-    commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200) dataName:dataStr valueName:valueStr];
-    commonTableView.delegate = self;
-    commonTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commonTableView];
+    [self popupLoad:dataStr];
 }
 
 - (void)TotalFruityAction:(UIButton*)sender{
@@ -846,12 +708,7 @@
             break;
     }
     
-    popupView.hidden = NO;
-    
-    commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200) dataName:dataStr valueName:mTotalFruity];
-    commonTableView.delegate = self;
-    commonTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commonTableView];
+    [self popupLoad:dataStr];
 }
 
 - (void)TotalChemicalAction:(UIButton*)sender{
@@ -892,13 +749,9 @@
             break;
     }
     
-    popupView.hidden = NO;
-    
-    commonTableView = [[CommonTableView alloc] initWithFrame:CGRectMake(10, 100, WIDTH_FRAME - 20, HEIGHT_FRAME - 200) dataName:dataStr valueName:mTotalChemical];
-    commonTableView.delegate = self;
-    commonTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commonTableView];
+    [self popupLoad:dataStr];
 }
+
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
@@ -911,9 +764,184 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 - (void) firstInit{
     NSLog(@"mPosition  : %d" ,  MPOSITION);
     [self Step1];       //통신 1 구간
+}
+
+#pragma mark -
+#pragma mark PopupListViewDelegate
+
+- (void)popupLoad:(NSString*)nameValue{
+    popupView.hidden = NO;
+    self.selectedIndexes = [[NSMutableIndexSet alloc] init];
+    listArr = [[NSMutableArray alloc] init];
+    listArr = [PopupListCoffee list:nameValue];
+    
+    float paddingTopBottom = 20.0f;
+    float paddingLeftRight = 20.0f;
+    
+    CGPoint point = CGPointMake(paddingLeftRight, (self.navigationController.navigationBar.frame.size.height + paddingTopBottom) + paddingTopBottom);
+    CGSize size = CGSizeMake((self.view.frame.size.width - (paddingLeftRight * 2)), self.view.frame.size.height - ((self.navigationController.navigationBar.frame.size.height + paddingTopBottom) + (paddingTopBottom * 2)));
+    
+    PopupListViewCoffee *listView = [[PopupListViewCoffee alloc] initWithTitle:@"평가해주세요." list:listArr selectedIndexes:self.selectedIndexes point:point size:size multipleSelection:YES disableBackgroundInteraction:YES dataName:nameValue];
+    listView.delegate = self;
+    
+    [listView showInView:self.navigationController.view animated:YES];
+}
+
+- (void)popupListView:(PopupListViewCoffee *)popUpListView didSelectIndex:(NSInteger)index
+{
+    NSLog(@"popUpListView - didSelectIndex: %ld", index);
+}
+
+- (void)popupListViewDidHide:(PopupListViewCoffee *)popUpListView selectedIndexes:(NSIndexSet *)selectedIndexes dataNameStr:(NSString *)dataNameStr
+{
+    NSMutableArray *totalArr = [[NSMutableArray alloc] init];
+    NSLog(@"popupListViewDidHide - selectedIndexes: %@", selectedIndexes.description);
+    
+    popupView.hidden = YES;
+    self.selectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:selectedIndexes];
+    
+    [selectedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        [totalArr addObject:[NSString stringWithFormat:@"%ld", idx]];
+    }];
+    
+    NSMutableString *gidNumStr = [NSMutableString string];
+    for(int i = 0; i < [totalArr count]; i++){
+        NSString *gidNum = [listArr objectAtIndex:[[totalArr objectAtIndex:i] integerValue]];
+        
+        [gidNumStr length] != 0 ?
+        [gidNumStr appendFormat:@",%@", gidNum] : [gidNumStr appendFormat:@"%@", gidNum];
+    }
+    
+    //NSLog(@"gidNum : %@", gidNumStr);
+    
+    [self submitButton:gidNumStr name:dataNameStr];
+}
+
+- (void)submitButton:(NSString *)value name:(NSString *)name{
+    if([name isEqualToString:@"Floral"]){
+        TotalFloral.text = value;
+        mTotalFloral = value;
+        
+    }else if([name isEqualToString:@"Fruity"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"citrus/citric acid"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"apple/malic acid"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"melon"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"tropical fruit"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"stone fruit"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"berry"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"grape/tartaric acid"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"dried fruit"]){
+        TotalFruity.text = value;
+        mTotalFruity = value;
+        
+    }else if([name isEqualToString:@"Alcoholic"]){
+        TotalAlcoholic.text = value;
+        mTotalAlcoholic = value;
+        
+    }else if([name isEqualToString:@"Herb/Vegetative"]){
+        TotalHerb.text = value;
+        mTotalHerb = value;
+        
+    }else if([name isEqualToString:@"Spice"]){
+        TotalSpice.text = value;
+        mTotalSpice = value;
+        
+    }else if([name isEqualToString:@"Sweet"]){
+        TotalSweet.text = value;
+        mTotalSweet = value;
+        
+    }else if([name isEqualToString:@"Nut"]){
+        TotalNut.text = value;
+        mTotalNut = value;
+        
+    }else if([name isEqualToString:@"Chocolate"]){
+        TotalChocolate.text = value;
+        mTotalChocolate = value;
+        
+    }else if([name isEqualToString:@"Grain/Cereal"]){
+        TotalGrain.text = value;
+        mTotalGrain = value;
+        
+    }else if([name isEqualToString:@"Roast"]){
+        TotalRoast.text = value;
+        mTotalRoast = value;
+        
+    }else if([name isEqualToString:@"Savory"]){
+        TotalSavory.text = value;
+        mTotalSavory = value;
+        
+    }else if([name isEqualToString:@"Acidity_Po"]){
+        TotalAcidity_Po.text = value;
+        mTotalAcidity_Po = value;
+        
+    }else if([name isEqualToString:@"Acidity_Ne"]){
+        TotalAcidity_Ne.text = value;
+        mTotalAcidity_Ne = value;
+        
+    }else if([name isEqualToString:@"fermented"]){
+        TotalFermented.text = value;
+        mTotalFermented = value;
+        
+    }else if([name isEqualToString:@"chemical"]){
+        TotalChemical.text = value;
+        mTotalChemical = value;
+        
+    }else if([name isEqualToString:@"phenolic"]){
+        TotalChemical.text = value;
+        mTotalChemical = value;
+        
+    }else if([name isEqualToString:@"rubbery"]){
+        TotalChemical.text = value;
+        mTotalChemical = value;
+        
+    }else if([name isEqualToString:@"bitter"]){
+        TotalChemical.text = value;
+        mTotalChemical = value;
+        
+    }else if([name isEqualToString:@"metalic"]){
+        TotalChemical.text = value;
+        mTotalChemical = value;
+        
+    }else if([name isEqualToString:@"Green/grassy"]){
+        TotalGreen.text = value;
+        mTotalGreen = value;
+        
+    }else if([name isEqualToString:@"musty"]){
+        TotalMusty.text = value;
+        mTotalMusty = value;
+        
+    }else if([name isEqualToString:@"Roast Defect"]){
+        TotalRoastdefect.text = value;
+        mTotalRoastdefect = value;
+    }
 }
 
 @end

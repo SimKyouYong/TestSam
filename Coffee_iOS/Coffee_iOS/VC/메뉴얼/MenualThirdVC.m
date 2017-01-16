@@ -43,6 +43,11 @@
 #pragma mark -
 #pragma mark Button Action
 
+- (IBAction)homeButton:(id)sender {
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
+}
+
 - (IBAction)americanoButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
