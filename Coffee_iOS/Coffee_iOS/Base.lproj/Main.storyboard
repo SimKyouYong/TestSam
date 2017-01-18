@@ -306,7 +306,7 @@
                                     <action selector="tabButton3:" destination="JIw-PV-11P" eventType="touchUpInside" id="c6v-A9-e7e"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-Pn-Spa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-Pn-Spa">
                                 <rect key="frame" x="0.0" y="120" width="600" height="480"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -10461,10 +10461,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NQw-kp-gI4"/>
-        <segue reference="hBd-4Z-YF5"/>
-        <segue reference="iCp-1x-5vL"/>
-        <segue reference="vl0-I9-pZc"/>
+        <segue reference="z46-k6-Gzv"/>
+        <segue reference="UR8-wh-sGD"/>
         <segue reference="Djf-dA-wbo"/>
         <segue reference="TJR-ST-dQU"/>
+        <segue reference="vl0-I9-pZc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,26 +56,19 @@ static BOOL isShown = false;
 #pragma mark -
 #pragma mark Lifecycle
 
-- (id)initWithTitle:(NSString *)title list:(NSArray *)list selectedIndexes:(NSIndexSet *)selectedList point:(CGPoint)point size:(CGSize)size multipleSelection:(BOOL)multipleSelection disableBackgroundInteraction:(BOOL)diableInteraction dataName:(NSString *)dataName
-{
+- (id)initWithTitle:(NSString *)title list:(NSArray *)list selectedIndexes:(NSIndexSet *)selectedList point:(CGPoint)point size:(CGSize)size multipleSelection:(BOOL)multipleSelection disableBackgroundInteraction:(BOOL)diableInteraction dataName:(NSString *)dataName{
     self.dataNameValue = dataName;
     
     CGRect contentFrame = CGRectMake(point.x, point.y,size.width,size.height);
     
-    //Disable background Interaction
-    if (diableInteraction)
-    {
+    if (diableInteraction){
         self = [super initWithFrame:[UIScreen mainScreen].bounds];
-    }
-    else
-    {
+    }else{
         self = [super initWithFrame:contentFrame];
         contentFrame = CGRectMake(0, 0, size.width, size.height);
     }
     
-    
-    if (self)
-    {
+    if (self){
         //Content View
         contentView = [[UIView alloc] initWithFrame:contentFrame];
         
@@ -191,7 +184,9 @@ static BOOL isShown = false;
         if ([self.selectedIndexes containsIndex:indexPath.row]) {
             [self.selectedIndexes removeIndex:indexPath.row];
         } else {
+            NSLog(@"%ld", indexPath.row);
             [self.selectedIndexes addIndex:indexPath.row];
+            NSLog(@"%@", self.selectedIndexes);
         }
 
         [self.tableView reloadData];

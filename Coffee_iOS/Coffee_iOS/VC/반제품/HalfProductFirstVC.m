@@ -935,7 +935,7 @@
             break;
     }
     
-    [self popupLoad:dataStr];
+    [self popupLoad:dataStr value:valueStr];
 }
 
 - (void)TotalFruityAction:(UIButton*)sender{
@@ -992,7 +992,7 @@
             break;
     }
     
-    [self popupLoad:dataStr];
+    [self popupLoad:dataStr value:@""];
 }
 
 - (void)TotalChemicalAction:(UIButton*)sender{
@@ -1033,17 +1033,31 @@
             break;
     }
     
-    [self popupLoad:dataStr];
+    [self popupLoad:dataStr value:@""];
 }
 
 #pragma mark -
 #pragma mark PopupListViewDelegate
 
-- (void)popupLoad:(NSString*)nameValue{
+- (void)popupLoad:(NSString*)nameValue value:(NSString*)value{
     popupView.hidden = NO;
     self.selectedIndexes = [[NSMutableIndexSet alloc] init];
     listArr = [[NSMutableArray alloc] init];
     listArr = [PopupListCoffee list:nameValue];
+    NSMutableArray *choseListArr = [[NSMutableArray alloc] init];
+    
+    // 팝업띄울때 선택되어지는 값들
+    NSArray *valueArray = [value componentsSeparatedByString:@","];
+    for(int i = 0; i < [valueArray count]; i++){
+        for(int j = 0; j < [listArr count]; j++){
+            if([[valueArray objectAtIndex:i] isEqualToString:[listArr objectAtIndex:j]]){
+                [choseListArr addObject:[NSString stringWithFormat:@"%ld", (long)j]];
+            }
+        }
+    }
+    for(int k = 0; k < [choseListArr count]; k++){
+        [self.selectedIndexes addIndex:[[choseListArr objectAtIndex:k] integerValue]];
+    }
     
     float paddingTopBottom = 20.0f;
     float paddingLeftRight = 20.0f;
