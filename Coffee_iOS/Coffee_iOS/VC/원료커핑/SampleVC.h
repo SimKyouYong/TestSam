@@ -12,7 +12,7 @@
 {
     NSUserDefaults *defaults;
     
-    int box_position;
+    NSInteger box_position;
     NSString *total;
     NSArray *datas;
 }

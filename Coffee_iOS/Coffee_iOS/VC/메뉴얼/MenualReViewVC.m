@@ -52,9 +52,9 @@
     [_Title addGestureRecognizer:tapGesture];
     
     [self firstInit];
-    
 }
--(void) firstInit{
+
+- (void) firstInit{
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=manual&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -94,6 +94,7 @@
     }];
     [dataTask resume];
 }
+
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
@@ -101,9 +102,6 @@
 }
 
 - (void)Init:(NSInteger)position{
-    
-    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -136,17 +134,15 @@
         }
     }];
     [dataTask resume];
-    
 }
+
 - (void)Set2{
   
     //IOS
     if ([dic_result objectForKey:@"result"] != nil) {
         if ([[dic_result objectForKey:@"result"] isEqualToString:@"success"]) {
-            
             [self resultText];
-            
-            
+        
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -163,12 +159,9 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    
 }
+
 - (void)Init2{
-    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -206,6 +199,7 @@
     }];
     [dataTask resume];
 }
+
 //상대방 셋팅
 - (void)Set3{
     // 기존 화면들어왔을때 평균값 뿌려주기
@@ -215,7 +209,6 @@
     bodyRightText.text = ([dic_result3 objectForKey:@"body_point"]);
     aftertasteRightText.text = ([dic_result3 objectForKey:@"aftertaste_point"]);
     
-    
     BOOL mARVflag;
 
     if ([[dic_result3 objectForKey:@"total_cnt"] isEqualToString:[dic_result3 objectForKey:@"result_cnt"]]){
@@ -224,35 +217,16 @@
         mARVflag = NO;
     }
     
-    
-    
     if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
         //mOkBtn.setText("PASS");
-        
     } else {
         //mOkBtn.setText("RETEST");
-        
     }
-    
-    
-    //    float totalavrscore = Float.parseFloat(ne_point) + Float.parseFloat(pe_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(aftertaste_point) + Float.parseFloat(acidity_point) +
-    //    Float.parseFloat(body_point) + Float.parseFloat(balance_point) + Float.parseFloat(sweetness_point);
-    
-    
-    
-    
-    
+
     if (mARVflag){
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
-        //mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
         topAvrLabel.text = [NSString stringWithFormat:@"AVR(%@명)" ,[dic_result3 objectForKey:@"result_cnt"] ];
     }else {
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
-        //mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-        //mDetail4Btn0.setText("진행중");
         topAvrLabel.text = @"진행중";
-        
-        
     }
     
     float totalavrscore = [[dic_result3 objectForKey:@"po_point"]  floatValue] +
@@ -264,7 +238,6 @@
     [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
 
-    
     NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
@@ -312,9 +285,7 @@
         
     }else {
         [myImg setImage:[UIImage imageNamed:@"menual_normal"]];
-
     }
-    
     
     float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
     + [[dic_result objectForKey:@"body_point"] floatValue] + [[dic_result objectForKey:@"aftertaste_point"] floatValue];
@@ -394,6 +365,7 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 - (void)selectButton_top{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플점수 비교하실분을 선택해주세요.";

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HalfProductReViewVC : UIViewController
+@interface HalfProductReViewVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     

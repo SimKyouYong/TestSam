@@ -30,8 +30,6 @@
     title_Arr = [[NSMutableArray alloc] init];
     content_Arr = [[NSMutableArray alloc] init];
     
-    
-//    http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=170
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, ID, (unsigned long)sampleIndex];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

@@ -100,9 +100,11 @@
     }];
     [dataTask resume];
 }
+
 - (void)init:(NSInteger)position{
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
 }
+
 - (void)Step2{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
@@ -136,8 +138,6 @@
 }
 
 - (void)init2:(NSDictionary *)dic{
-    
-    
     tableDic = dic;
 
     float totalscore = [[dic objectForKey:@"acidity_point"] floatValue] +
@@ -166,24 +166,12 @@
 
             myTotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE : %@" , mTotalScore];
             
-
             if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
-//                mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
-//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
-//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
                 mOkNotokflag = YES;
-//                mOkflag = false;
-
             }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
-//
+
             }else{
-//                mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
-//                mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//                mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
-//                mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
                 mOkNotokflag = YES;
-//                mOkflag = true;
             }
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -202,14 +190,7 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    //안드로이드
-    /*
-    
-    
-    */
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -241,16 +222,6 @@
 }
 
 - (IBAction)saveButton:(id)sender {
-    /*
-    
-    if (!mOkNotokflag){
-        Toast.makeText(HalfDetail2Activity.this, "PASS/RETEST 선택해 주세요.", Toast.LENGTH_SHORT).show();
-    }else if (mDetailEdt.getText().toString().equals("")) {
-        Toast.makeText(HalfDetail2Activity.this, "총평을 작성해 주세요.", Toast.LENGTH_SHORT).show();
-    }else {
-        //
-    }
-     */
     NSLog(@"text : %@", noteTextView.text);
     NSString *ok;
     if (!mOkNotokflag){
@@ -277,13 +248,8 @@
         [self save:ok];
     }
 }
--(void) save:(NSString *)isok{
-//    map.put("url", CommonData.SERVER + "coffee_result_final.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx + "&note_total=" + mDetailEdt.getText().toString() + "&isok=" + ok);
-//    map.put("url", CommonData.SERVER + "coffee_result_final.php");
-//    map.put("id", commonData.getUserID());
-//    map.put("sample_idx", mSample_idx);
-//    map.put("note_total", mDetailEdt.getText().toString());
-//    map.put("isok", ok);
+
+- (void)save:(NSString *)isok{
     NSString *urlString = [NSString stringWithFormat:@"%@", HALF_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -328,27 +294,19 @@
     }];
     [dataTask resume];
 }
+
 - (IBAction)passButton:(id)sender{
-//    mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
-//    mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//    mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
-//    mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
     mOkNotokflag = YES;
-//    mOkflag = false;
 }
 
 - (IBAction)retestButton:(id)sender{
-//    mRetestBtn.setBackgroundResource(R.drawable.detail1_back1);
-//    mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
-//    mPassBtn.setBackgroundResource(R.drawable.detail1_back2);
-//    mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
     mOkNotokflag = YES;
-//    mOkflag = true;
 }
 
 - (IBAction)prevButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
@@ -361,10 +319,212 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 - (void) firstInit{
-    NSLog(@"mPosition  : %d" ,  mPosition);
+    NSLog(@"mPosition  : %ld" ,  mPosition);
     [self Step1];       //통신 1 구간
 }
+
+- (IBAction)acidityButton:(id)sender {
+    actionSheetNum = 1;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex4_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex4_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex4_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)sweetnessButton:(id)sender {
+    actionSheetNum = 2;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex9_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex9_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex9_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)bitternessButton:(id)sender {
+    actionSheetNum = 3;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex11_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex11_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex11_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)bodyButton:(id)sender {
+    actionSheetNum = 4;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex5_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex5_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex5_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)balanceButton:(id)sender {
+    actionSheetNum = 5;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex6_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex6_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex6_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)aftertasteButton:(id)sender {
+    actionSheetNum = 6;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex3_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex3_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex3_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)poButton:(id)sender {
+    actionSheetNum = 7;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex16_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex16_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex16_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (IBAction)neButton:(id)sender {
+    actionSheetNum = 8;
+    
+    NSDictionary *dic = [datas objectAtIndex:0];
+    
+    float startNum = [[dic objectForKey:@"ex17_start"] floatValue];
+    float endNum = [[dic objectForKey:@"ex17_end"] floatValue];
+    float stepNum = [[dic objectForKey:@"ex17_step"] floatValue];
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"점수를 선택해주세요.";
+    menu.delegate = self;
+    
+    [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+    [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    while (startNum != endNum) {
+        startNum = startNum + stepNum;
+        [menu addButtonWithTitle:[NSString stringWithFormat:@"%.2f", startNum]];
+        [actionArr addObject:[NSString stringWithFormat:@"%.2f", startNum]];
+    }
+    
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
 #pragma mark -
 #pragma mark ActionSheet Delegate
 

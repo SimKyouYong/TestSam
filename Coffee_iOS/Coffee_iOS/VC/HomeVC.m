@@ -61,10 +61,8 @@
         
         if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
             tableList = [dic objectForKey:@"datas"];
-            NSLog(@"%@", tableList);
             [homeTableView reloadData];
 
-            
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             

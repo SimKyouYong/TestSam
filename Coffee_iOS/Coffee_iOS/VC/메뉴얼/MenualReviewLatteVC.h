@@ -24,7 +24,6 @@
     //추가
     NSUInteger mPosition;
     NSUInteger mSample_idx;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;

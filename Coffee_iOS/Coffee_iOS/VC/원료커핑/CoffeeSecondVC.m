@@ -50,7 +50,6 @@
                                             action:@selector(selectButton)];
     [toptitle addGestureRecognizer:tapGesture];
 
-    
     mPosition = 0;
     [self Step1];       //통신 1 구간
 }

@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     mPosition = 0;
 
     defaults = [NSUserDefaults standardUserDefaults];
@@ -71,11 +71,6 @@
             NSLog(@"[dic objectForKey:num] :: %@" , [NSString stringWithFormat:@"%@", [[datas objectAtIndex:mPosition] valueForKey:@"num"]]);
             NSLog(@"/*---------------------------------------*/");
             
-            //            mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-            //            mListTv1.setText("원료커핑:");
-            //            mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-            //            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
-            
             //Title 값 셋팅
             Title.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
                           [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
@@ -100,9 +95,6 @@
 }
 
 - (void)Init:(NSInteger)position{
-    
-    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -125,7 +117,6 @@
             [self Set2];
             [self Init2];
 
-            
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -136,30 +127,12 @@
         }
     }];
     [dataTask resume];
-    
 }
+
 - (void)Set2{
-    
     //IOS
     if ([dic_result objectForKey:@"result"] != nil) {
         if ([[dic_result objectForKey:@"result"] isEqualToString:@"success"]) {
-            
-            
-            /*
-            if (Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(acidity_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(sweetness_point) &&
-                Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(bitterness_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(body_point) &&
-                Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_a()) >= Float.parseFloat(aftertaste_point)){
-                mMyImg.setBackgroundResource(R.drawable.menual_good);
-            }else if ((Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(acidity_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(sweetness_point) ||
-                       Float.parseFloat(mManualListItems.get(mPosition).getmBase_am_b()) < Float.parseFloat(bitterness_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(body_point) ||
-                       Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(aftertaste_point))){
-                mMyImg.setBackgroundResource(R.drawable.menual_bad);
-            }else {
-                mMyImg.setBackgroundResource(R.drawable.menual_normal);
-            }
-             */
-           
-            
             float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] +
             [[dic_result objectForKey:@"sweetness_point"] floatValue] +
             [[dic_result objectForKey:@"bitterness_point"] floatValue] +
@@ -169,9 +142,6 @@
             [[dic_result objectForKey:@"po_point"] floatValue]+
             [[dic_result objectForKey:@"ne_point"] floatValue] ;
 
-            
-            
-            
             _mDetail4Btn1.text = ([dic_result objectForKey:@"acidity_point"]);
             _mDetail4Btn3.text = ([dic_result objectForKey:@"sweetness_point"]);
             _mDetail4Btn5.text = ([dic_result objectForKey:@"bitterness_point"]);
@@ -180,7 +150,6 @@
             _mDetail4Btn11.text = ([dic_result objectForKey:@"balance_point"]);
             _mDetail4Btn13.text = ([dic_result objectForKey:@"po_point"]);
             _mDetail4Btn15.text = ([dic_result objectForKey:@"ne_point"]);
-            
             
             NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", etcscore];
             NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
@@ -204,12 +173,9 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    
 }
+
 - (void)Init2{
-    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -247,6 +213,7 @@
     }];
     [dataTask resume];
 }
+
 //상대방 셋팅
 - (void)Set3{
     // 기존 화면들어왔을때 평균값 뿌려주기
@@ -264,37 +231,19 @@
     }else {
         mARVflag = NO;
     }
-    
-    
-    
+  
     if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
         //mOkBtn.setText("PASS");
-        
     } else {
         //mOkBtn.setText("RETEST");
-        
     }
-    
-    
-//    float totalavrscore = Float.parseFloat(ne_point) + Float.parseFloat(pe_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(aftertaste_point) + Float.parseFloat(acidity_point) +
-//    Float.parseFloat(body_point) + Float.parseFloat(balance_point) + Float.parseFloat(sweetness_point);
-    
-    
-    
-    
     
     if (mARVflag){
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
-        //mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
         topAvrLabel.text = [NSString stringWithFormat:@"AVR(%@명)" ,[dic_result3 objectForKey:@"result_cnt"] ];
     }else {
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
-        //mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-        //mDetail4Btn0.setText("진행중");
         topAvrLabel.text = @"진행중";
-        
-        
     }
+    
     float totalavrscore = [[dic_result3 objectForKey:@"po_point"]  floatValue] +
     [[dic_result3 objectForKey:@"ne_point"]  floatValue] +
     [[dic_result3 objectForKey:@"bitterness_point"]  floatValue] +
@@ -303,7 +252,6 @@
     [[dic_result3 objectForKey:@"body_point"]  floatValue] +
     [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
-    
     
     NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
@@ -317,9 +265,6 @@
     
     [_mDetail4ArvScore setAttributedText:avrSearch];
     [_mDetail4StdScore setAttributedText:stdSearch];
-
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

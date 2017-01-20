@@ -102,9 +102,7 @@
 - (IBAction)saveButton:(id)sender;
 - (IBAction)nextButton:(id)sender;
 
-
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
-
 
 @property (weak, nonatomic) IBOutlet UIButton *acidityButton;
 - (IBAction)acidityButton:(id)sender;

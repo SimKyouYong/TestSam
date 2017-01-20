@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HalfProductSecondVC : UIViewController
+@interface HalfProductSecondVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     NSArray *datas;

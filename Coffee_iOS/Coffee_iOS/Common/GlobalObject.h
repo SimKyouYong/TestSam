@@ -17,6 +17,6 @@
 @property (nonatomic, assign) NSString *userNick;
 @property (nonatomic, assign) NSString *sessionId;
 @property (nonatomic, assign) NSString *sample_idx;
-@property (nonatomic, assign) int mPosition;
+@property (nonatomic, assign) NSInteger mPosition;
 
 @end

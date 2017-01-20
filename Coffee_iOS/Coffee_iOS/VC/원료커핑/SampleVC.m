@@ -32,9 +32,8 @@
     contentText.editable = NO;
 
     total = 0;
-    //통신 시작
-    //http://work.nexall.net/web/app/sample_list.php?id=test001&opt=source&page=1&session_idx=1
     
+    //통신 시작
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -73,6 +72,7 @@
     centerText.text = codeStr;
     rightText.text = [NSString stringWithFormat:@"(%ld/%@)", position+1 ,total];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

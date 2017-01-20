@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CoffeeThirdVC : UIViewController
+@interface CoffeeThirdVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     NSArray *datas;
     NSArray *datas2;
     
-    int mPosition;
+    NSInteger mPosition;
     NSString *mSample_idx;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeThirdScrollView;

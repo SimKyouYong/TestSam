@@ -56,8 +56,8 @@
     [toptitle addGestureRecognizer:tapGesture];
 
     [self Step1];       //통신 1 구간
-
 }
+
 - (void)Step1{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
@@ -96,29 +96,15 @@
     }];
     [dataTask resume];
 }
+
 - (void)init:(NSInteger)position{
-    //    contentText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-    //
-    //    leftText.text = [[datas objectAtIndex:position] valueForKey:@"sample_title"];
-    //    NSString *codeStr =[NSString stringWithFormat:@"%@" ,[[datas objectAtIndex:position] valueForKey:@"sample_code"]];
-    //    centerText.text = codeStr;
-    //    rightText.text = [NSString stringWithFormat:@"(%ld/%@)", position+1 ,total];
-    
-    //안드로이드
-    /*
-     
-     */
-    
     SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
-    
 }
 
 - (void)Step2{
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
-    
-    //    E/Thread: url  ---->>  http://work.nexall.net/web/app//get_result.php?id=test001&sample_idx=167
-    
+
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -146,6 +132,7 @@
     }];
     [dataTask resume];
 }
+
 - (void)init2:(NSDictionary *)dic{
     [_aromaButton setTitle:[dic objectForKey:@"aroma_point"] forState:UIControlStateNormal];
     [_flavorButton setTitle:[dic objectForKey:@"flavor_point"] forState:UIControlStateNormal];
@@ -232,6 +219,7 @@
         [cup15 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"] forState:UIControlStateNormal];
     }    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -286,13 +274,8 @@
         [self save:ok];
     }
 }
--(void) save:(NSString *)isok{
-  
-//    map.put("url", CommonData.SERVER + "coffee_result_final.php");
-//    map.put("id", commonData.getUserID());
-//    map.put("sample_idx", mSample_idx);
-//    map.put("note_total", mDetail4Edt.getText().toString());
-//    map.put("isok", ok);
+
+- (void) save:(NSString *)isok{
     NSString *urlString = [NSString stringWithFormat:@"%@", HALF_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -347,6 +330,7 @@
 
 - (IBAction)notOkButton:(id)sender {
 }
+
 - (void)selectButton{
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플을 선택해주세요.";
@@ -359,6 +343,7 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
+
 #pragma mark -
 #pragma ActionSheet Delegate
 
@@ -371,7 +356,7 @@
         //기존 포지션과 다르면, 1페이지로 강제 이동 mPosition 들고 이동해야함.
         if (MPOSITION != buttonIndex) {
             NSLog(@"mPosition 값 변경후 1페이지로 이동");
-            int count = [self.navigationController.viewControllers count];
+            NSInteger count = [self.navigationController.viewControllers count];
             
             [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-4] animated:YES];
             return;
@@ -386,7 +371,7 @@
 }
 
 - (void) firstInit{
-    NSLog(@"mPosition  : %d" ,  MPOSITION);
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
     [self Step1];       //통신 1 구간
 }
 

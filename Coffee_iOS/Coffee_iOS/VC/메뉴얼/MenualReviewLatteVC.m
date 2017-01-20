@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     mPosition = 0;
     
     defaults = [NSUserDefaults standardUserDefaults];
@@ -37,11 +37,9 @@
                                             action:@selector(selectButton)];
     [Title addGestureRecognizer:tapGesture];
     
-    
-    
     [self firstInit ];
-
 }
+
 -(void) firstInit{
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
@@ -66,12 +64,7 @@
             NSLog(@"SAMPLE_DATA :: %@" , dic);
             NSLog(@"[dic objectForKey:num] :: %@" , [NSString stringWithFormat:@"%@", [[datas objectAtIndex:mPosition] valueForKey:@"num"]]);
             NSLog(@"/*---------------------------------------*/");
-            
-            //            mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-            //            mListTv1.setText("원료커핑:");
-            //            mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-            //            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
-            
+         
             //Title 값 셋팅
             Title.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
                           [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
@@ -79,7 +72,6 @@
                           [dic objectForKey:@"totalnum"]
                           ];
             mSample_idx = [[[datas objectAtIndex:mPosition] valueForKey:@"sample_idx"] intValue];
-            
             
             [self Init:mSample_idx];
             
@@ -96,9 +88,6 @@
 }
 
 - (void)Init:(NSInteger)position{
-    
-    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -132,41 +121,23 @@
         }
     }];
     [dataTask resume];
-    
 }
+
 - (void)Set2{
     
     //IOS
     if ([dic_result objectForKey:@"result"] != nil) {
         if ([[dic_result objectForKey:@"result"] isEqualToString:@"success"]) {
-            
-            
-//            if (Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_a()) >= Float.parseFloat(coffeeness_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_a()) >= Float.parseFloat(balance_point) &&
-//                Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_a()) >= Float.parseFloat(sweetness_point) && Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_a()) >= Float.parseFloat(body_point)){
-//                mMyImg.setBackgroundResource(R.drawable.menual_good);
-//                mType = "good";
-//            }else if ((Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(coffeeness_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(balance_point) ||
-//                       Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(sweetness_point) || Float.parseFloat(mManualListItems.get(mPosition).getmBase_latte_b()) < Float.parseFloat(body_point))){
-//                mMyImg.setBackgroundResource(R.drawable.menual_bad);
-//                mType = "bad";
-//            }else {
-//                mMyImg.setBackgroundResource(R.drawable.menual_normal);
-//                mType = "normal";
-//            }
-                      
-            
             _reviewText1.text = ([dic_result objectForKey:@"coffeeness_point"]);
             _reviewText3.text = ([dic_result objectForKey:@"balance_point"]);
             _reviewText5.text = ([dic_result objectForKey:@"sweetness_point"]);
             _reviewText7.text = ([dic_result objectForKey:@"body_point"]);
-            
             
             float etcscore = [[dic_result objectForKey:@"coffeeness_point"] floatValue] +
             [[dic_result objectForKey:@"balance_point"] floatValue] +
             [[dic_result objectForKey:@"sweetness_point"] floatValue] +
             [[dic_result objectForKey:@"body_point"] floatValue]
             ;
-
             
             _mDetail4TotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE: %.2f" ,etcscore ];
         }else{
@@ -185,12 +156,9 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    
 }
+
 - (void)Init2{
-    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -228,6 +196,7 @@
     }];
     [dataTask resume];
 }
+
 //상대방 셋팅
 - (void)Set3{
     // 기존 화면들어왔을때 평균값 뿌려주기
@@ -237,7 +206,6 @@
     _reviewText6.text = ([dic_result3 objectForKey:@"sweetness_point"]);
     _reviewText8.text = ([dic_result3 objectForKey:@"body_point"]);
     
-    
     BOOL mARVflag;
     if ([[dic_result3 objectForKey:@"total_cnt"] isEqualToString:[dic_result3 objectForKey:@"result_cnt"]]){
         mARVflag = YES;
@@ -245,36 +213,19 @@
         mARVflag = NO;
     }
     
-    
-    
     if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
         //mOkBtn.setText("PASS");
-        
     } else {
         //mOkBtn.setText("RETEST");
         
     }
-    
-    
-    //    float totalavrscore = Float.parseFloat(ne_point) + Float.parseFloat(pe_point) + Float.parseFloat(bitterness_point) + Float.parseFloat(aftertaste_point) + Float.parseFloat(acidity_point) +
-    //    Float.parseFloat(body_point) + Float.parseFloat(balance_point) + Float.parseFloat(sweetness_point);
-    
-    
-    
-    
-    
+
     if (mARVflag){
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back2);
-        //mDetail4Btn0.setText("AVR(" + mResult_cnt + "명)");
         topAvrLabel.text = [NSString stringWithFormat:@"AVR(%@명)" ,[dic_result3 objectForKey:@"result_cnt"] ];
     }else {
-        //mDetail4Btn0.setBackgroundResource(R.drawable.detail5_back3);
-        //mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-        //mDetail4Btn0.setText("진행중");
         topAvrLabel.text = @"진행중";
-        
-        
     }
+    
 //    float totalavrscore = [[dic_result3 objectForKey:@"po_point"]  floatValue] +
 //    [[dic_result3 objectForKey:@"ne_point"]  floatValue] +
 //    [[dic_result3 objectForKey:@"bitterness_point"]  floatValue] +

@@ -44,7 +44,6 @@
 }
 
 - (void) firstInit{
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -67,11 +66,6 @@
             NSLog(@"SAMPLE_DATA :: %@" , datas);
             NSLog(@"[dic objectForKey:num] :: %@" , [NSString stringWithFormat:@"%@", [[datas objectAtIndex:mPosition] valueForKey:@"num"]]);
             NSLog(@"/*---------------------------------------*/");
-            
-            //            mListTv2.setText("(" + mSourceListItems.get(mPosition).getmNum() + "/" + mTotalPosition + ")");
-            //            mListTv1.setText("원료커핑:");
-            //            mListTv3.setText(" " + mSourceListItems.get(mPosition).getmSample_code());
-            //            mSample_idx = mSourceListItems.get(mPosition).getmSample_idx();
             
             //Title 값 셋팅
             Title.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
@@ -103,9 +97,6 @@
 }
 
 - (void)Init:(NSInteger)position{
-    
-    //    map.put("url", CommonData.SERVER + "/get_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -138,8 +129,8 @@
         }
     }];
     [dataTask resume];
-    
 }
+
 - (void)Set2{
     NSString *result =              [dic_result objectForKey:@"result"];
     NSString *result_message =      [dic_result objectForKey:@"result_message"];
@@ -374,12 +365,9 @@
         [alert addAction:ok];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    
 }
+
 - (void)Init2{
-    //    map.put("url", CommonData.SERVER + "/get_avr_result.php" + "?id=" + commonData.getUserID() + "&sample_idx=" + mSample_idx);
-    
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL3, USER_ID, (unsigned long)mSample_idx];
     NSLog(@"SKY3 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -417,6 +405,7 @@
     }];
     [dataTask resume];
 }
+
 //상대방 셋팅
 - (void)Set3{
     
@@ -430,8 +419,8 @@
     NSString *uniformity_point =                [dic_result3 objectForKey:@"uniformity_point"];
     NSString *cleancup_point =                [dic_result3 objectForKey:@"cleancup_point"];
     NSString *sweetness_point =                [dic_result3 objectForKey:@"sweetness_point"];
-    NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
-    NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
+    //NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
+    //NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
     NSString *total_cnt =               [dic_result3 objectForKey:@"result_cnt"];
     
     mResult_cnt = [dic_result3 objectForKey:@"result_cnt"];
@@ -485,17 +474,11 @@
     
     NSString *avrValue = nil;
     if (mARVflag){
-        //android
         //상대방 맨위 빨강색
         _topAvrLabel.text =[NSString stringWithFormat:@"AVR(%@)명" , [dic_result3 objectForKey:@"result_cnt"]] ;
         avrValue = [NSString stringWithFormat:@"%.2f" , totalavrscore];
     }else {
-        //android
-        //        _topAvrLabel.setBackgroundResource(R.drawable.detail5_back3);
-        
-        //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
         _topAvrLabel.text = @"진행중" ;
-        
     }
     
     NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", avrValue];
@@ -635,5 +618,9 @@
     
 }
 
+
+- (void)selectButton_top{
+    
+}
 
 @end

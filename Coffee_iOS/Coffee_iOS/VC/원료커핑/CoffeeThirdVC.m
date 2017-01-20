@@ -535,8 +535,9 @@
         
     }
 }
+
 - (void) firstInit{
-    NSLog(@"mPosition  : %d" ,  mPosition);
+    NSLog(@"mPosition  : %ld" ,  mPosition);
     [self Step1];       //통신 1 구간
 }
 

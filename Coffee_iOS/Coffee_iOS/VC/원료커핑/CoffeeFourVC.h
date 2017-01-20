@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CoffeeFourVC : UIViewController
+@interface CoffeeFourVC : UIViewController<UIActionSheetDelegate>
 {
     NSUserDefaults *defaults;
     NSArray *datas;
