@@ -684,8 +684,7 @@
 				TargetAttributes = {
 					6DE23CE51DF5455400075F8F = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = CV7VVB3342;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -978,12 +977,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CV7VVB3342;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CK Corporations (AXEM97G277)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CK Corporations (AXEM97G277)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jcone.dongbuDev.Coffee-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = co.kr.sky.coffedev2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "63ffdd8d-9855-4f91-a750-d148126be674";
 			};
 			name = Debug;
 		};
@@ -992,12 +994,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CV7VVB3342;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CK Corporations (AXEM97G277)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CK Corporations (AXEM97G277)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jcone.dongbuDev.Coffee-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = co.kr.sky.coffedev2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "63ffdd8d-9855-4f91-a750-d148126be674";
 			};
 			name = Release;
 		};
