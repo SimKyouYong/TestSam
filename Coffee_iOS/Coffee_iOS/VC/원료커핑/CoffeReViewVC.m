@@ -34,8 +34,6 @@
                                             action:@selector(selectButton)];
     [Title addGestureRecognizer:tapGesture];
     
-    
-    
     _topAvrLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture_top =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -354,7 +352,7 @@
             
             float totalscore = cup1score * 2 + cup2score * 2 + cup3score * 2 + etcscore;
             
-            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.1f", totalscore];
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", totalscore];
             NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
             NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
             [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
@@ -490,13 +488,13 @@
         //android
         //상대방 맨위 빨강색
         _topAvrLabel.text =[NSString stringWithFormat:@"AVR(%@)명" , [dic_result3 objectForKey:@"result_cnt"]] ;
-        avrValue = [NSString stringWithFormat:@"%f" , totalavrscore];
+        avrValue = [NSString stringWithFormat:@"%.2f" , totalavrscore];
     }else {
         //android
         //        _topAvrLabel.setBackgroundResource(R.drawable.detail5_back3);
         
         //        mDetail4Btn0.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_000000));
-        _topAvrLabel.text =@"진행중" ;
+        _topAvrLabel.text = @"진행중" ;
         
     }
     
@@ -512,8 +510,6 @@
     
     [_mDetail4ArvScore setAttributedText:avrSearch];
     [_mDetail4StdScore setAttributedText:stdSearch];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

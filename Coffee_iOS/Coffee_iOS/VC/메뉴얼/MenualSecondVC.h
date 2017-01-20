@@ -17,4 +17,6 @@
 - (IBAction)prevButton:(id)sender;
 - (IBAction)latteButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
+
 @end
