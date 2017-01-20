@@ -265,7 +265,7 @@
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
 
     
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %f", totalavrscore];
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
@@ -277,8 +277,6 @@
     
     [totalAVRText setAttributedText:avrSearch];
     [totalSTDText setAttributedText:stdSearch];
-    
-    
 }
 
 // 서버에서 받은 값 뿌려주기
@@ -321,8 +319,12 @@
     float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
     + [[dic_result objectForKey:@"body_point"] floatValue] + [[dic_result objectForKey:@"aftertaste_point"] floatValue];
     
-    totalSCOREText.text = [NSString stringWithFormat:@"MY TOTAL SCORE:%f" ,etcscore ];
+    NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", etcscore];
+    NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
+    NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
+    [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
     
+    [totalSCOREText setAttributedText:scoreSearch];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -373,7 +375,8 @@
 }
 
 - (IBAction)backButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
 }
 
 - (IBAction)latteButton:(id)sender {

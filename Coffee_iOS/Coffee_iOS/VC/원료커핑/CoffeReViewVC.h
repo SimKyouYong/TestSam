@@ -22,7 +22,6 @@
     NSUInteger mPosition;
     NSUInteger mSample_idx;
     
-    
     NSString *mResult_cnt;
     NSString *mFloral;
     NSString *mFruity;

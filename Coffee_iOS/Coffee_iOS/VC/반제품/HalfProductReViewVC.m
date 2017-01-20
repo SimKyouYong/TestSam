@@ -31,17 +31,13 @@
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
-    
     Title.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(selectButton)];
     [Title addGestureRecognizer:tapGesture];
 
-    
-    
     [self firstInit ];
-    
 }
 
 - (void)viewDidLayoutSubviews{
@@ -49,7 +45,8 @@
     
     [halfScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 740)];
 }
--(void) firstInit{
+
+- (void) firstInit{
 
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", REVIEW_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
@@ -185,8 +182,12 @@
             _mDetail4Btn15.text = ([dic_result objectForKey:@"ne_point"]);
             
             
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", etcscore];
+            NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
+            NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
+            [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
             
-            _mDetail4TotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE:%f" ,etcscore ];
+            [_mDetail4TotalScore setAttributedText:scoreSearch];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -304,7 +305,7 @@
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
     
     
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %f", totalavrscore];
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];

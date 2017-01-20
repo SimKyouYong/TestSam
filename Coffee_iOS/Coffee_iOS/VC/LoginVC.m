@@ -106,4 +106,35 @@
     [dataTask resume];
 }
 
+#pragma mark -
+#pragma mark TextField
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    NSInteger textY = 0;
+    if(textField == empText){
+        textY = -50;
+    }else if(textField == passText){
+        textY = -50;
+    }
+    if(WIDTH_FRAME == 414){
+        textY = 0;
+    }
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                 textY,
+                                 self.view.frame.size.width,
+                                 self.view.frame.size.height);
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                 0,
+                                 self.view.frame.size.width,
+                                 self.view.frame.size.height);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

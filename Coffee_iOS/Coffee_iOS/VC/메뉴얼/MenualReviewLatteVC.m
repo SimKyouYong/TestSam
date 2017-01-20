@@ -168,7 +168,7 @@
             ;
 
             
-            _mDetail4TotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE:%f" ,etcscore ];
+            _mDetail4TotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE: %.2f" ,etcscore ];
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -341,7 +341,8 @@
 }
 
 - (IBAction)backButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *backArray = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[backArray objectAtIndex:2] animated:YES];
 }
 
 @end

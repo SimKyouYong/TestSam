@@ -37,7 +37,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"완료" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar setItems:[NSArray arrayWithObjects:leftSpace, done, nil]];
+    [toolbar sizeToFit];
+    
+    [coffeeFourTextView setInputAccessoryView:toolbar];
     
     mOkNotokflag = NO;
     toptitle.userInteractionEnabled = YES;
@@ -375,9 +384,35 @@
         
     }
 }
+
 - (void) firstInit{
     NSLog(@"mPosition  : %d" ,  MPOSITION);
     [self Step1];       //통신 1 구간
+}
+
+#pragma mark -
+#pragma mark TextField
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    NSInteger textY = 0;
+    if(textView == coffeeFourTextView){
+        textY = -210;
+    }
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                 textY,
+                                 self.view.frame.size.width,
+                                 self.view.frame.size.height);
+    
+    return YES;
+}
+
+- (void)done{
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                 0,
+                                 self.view.frame.size.width,
+                                 self.view.frame.size.height);
+    
+    [coffeeFourTextView resignFirstResponder];
 }
 
 @end
