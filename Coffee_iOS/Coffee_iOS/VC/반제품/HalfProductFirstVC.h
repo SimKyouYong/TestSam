@@ -17,7 +17,6 @@
     NSArray *datas;
     NSArray *datas2;
     
-    NSInteger mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;
@@ -94,6 +93,9 @@
     
     UILabel *TotalMouthfeel_Po;
     UILabel *TotalMouthfeel_Ne;
+    
+    int fix_position;
+
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *halfFirstTableView;

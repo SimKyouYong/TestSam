@@ -30,9 +30,12 @@
 @synthesize noteTextView;
 @synthesize myTotalScore;
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    fix_position = 0;
+
     UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"완료" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     
@@ -47,7 +50,7 @@
     
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
-    mPosition = 0;
+
     mOkNotokflag = NO;
     toptitle.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture =
@@ -77,13 +80,13 @@
             [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
             NSLog(@"1. DATAS :: %@" , datas);
-            [self init:mPosition];
+            [self init:MPOSITION];
             [self Step2];       //통신 2 구간
             
             //Title 값 셋팅
             toptitle.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
-                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
-                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
                              [dic objectForKey:@"totalnum"]
                              ];
 
@@ -321,7 +324,7 @@
 }
 
 - (void) firstInit{
-    NSLog(@"mPosition  : %ld" ,  mPosition);
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
     [self Step1];       //통신 1 구간
 }
 
@@ -535,7 +538,17 @@
         if([datas count] == buttonIndex){
             return;
         }
-        mPosition = buttonIndex;
+        //기존 포지션과 다르면, 1페이지로 강제 이동 mPosition 들고 이동해야함.
+        if (MPOSITION != buttonIndex) {
+            NSLog(@"mPosition 값 변경후 1페이지로 이동");
+            NSInteger count = [self.navigationController.viewControllers count];
+            MPOSITION = buttonIndex;
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-2] animated:YES];
+            return;
+        }else{
+            MPOSITION = buttonIndex;
+        }
+        
         [self firstInit ];
     }else{
         if([actionArr count] == buttonIndex){

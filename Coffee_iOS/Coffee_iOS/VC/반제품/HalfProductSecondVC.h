@@ -14,7 +14,6 @@
     NSArray *datas;
     NSArray *datas2;
     
-    NSInteger mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;
@@ -24,6 +23,8 @@
     NSString *mTotalScore;
     
     BOOL mOkNotokflag;
+    int fix_position;
+
 
 }
 

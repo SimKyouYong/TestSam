@@ -29,7 +29,17 @@
 @synthesize neButton;
 @synthesize noteTextView;
 @synthesize toptitle;
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"fix_position : %d " , fix_position);
+    NSLog(@"fix_position : %ld " , (long)MPOSITION);
+    if (fix_position != MPOSITION) {
+        //다르면 실행
+        [self Step1];       //통신 1 구간
+        
+    }
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,7 +61,6 @@
     
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
-    mPosition = 0;
     
     
     toptitle.userInteractionEnabled = YES;
@@ -82,13 +91,13 @@
             [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
             NSLog(@"1. DATAS :: %@" , datas);
-            [self init:mPosition];
+            [self init:MPOSITION];
             [self Step2];       //통신 2 구간
             
             //Title 값 셋팅
             toptitle.text = [NSString stringWithFormat:@"반제품:%@(%@/%@)",
-                          [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
-                          [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                          [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                          [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
                           [dic objectForKey:@"totalnum"]
                           ];
             
@@ -471,7 +480,7 @@
         if([datas count] == buttonIndex){
             return;
         }
-        mPosition = buttonIndex;
+        MPOSITION = buttonIndex;
         [self firstInit ];
     }else{
         if(actionSheetNum == 9){
@@ -834,7 +843,7 @@
 }
 
 - (void) firstInit{
-    NSLog(@"mPosition  : %ld" ,  mPosition);
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
     [self Step1];       //통신 1 구간
 }
 
