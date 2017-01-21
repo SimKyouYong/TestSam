@@ -66,6 +66,17 @@
             
             [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
+            if ([datas count] == 0) {
+                [self.navigationController popViewControllerAnimated:YES];
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"값이 존재하지 않습니다." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                return;
+                
+            }
             //
             NSLog(@"/*------------뿌려야할 값들-----------------*/");
             NSLog(@"SAMPLE_DATA :: %@" , dic);

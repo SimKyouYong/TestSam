@@ -81,7 +81,17 @@
             NSLog(@"SAMPLE_DATA :: %@" , datas);
             NSLog(@"/*---------------------------------------*/");
             datas = [dic objectForKey:@"datas"];
-            
+            if ([datas count] == 0) {
+                [self.navigationController popViewControllerAnimated:YES];
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"값이 존재하지 않습니다." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                return;
+                
+            }
             //Title 값 셋팅
             _Title.text = [NSString stringWithFormat:@"메뉴얼:%@(%@/%@)",
                            [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
