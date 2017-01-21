@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mPosition = 0;
-
+    youImg.hidden = YES;
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
@@ -50,6 +50,13 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(selectButton)];
     [_Title addGestureRecognizer:tapGesture];
+    
+    
+    topAvrLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture_top =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton_top)];
+    [topAvrLabel addGestureRecognizer:tapGesture_top];
     
     [self firstInit];
 }
@@ -270,11 +277,11 @@
     aftertasteRightText.text = [dic_result objectForKey:@"aftertaste_po"];
     
     
-    if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"Y"]){
+    if ([[dic_result objectForKey:@"isok"] isEqualToString:@"Y"]){
         [myImg setImage:[UIImage imageNamed:@"menual_good"]];
-    }else if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"N"]){
+    }else if ([[dic_result objectForKey:@"isok"] isEqualToString:@"N"]){
         [myImg setImage:[UIImage imageNamed:@"menual_normal"]];
-    }else if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"X"]){
+    }else if ([[dic_result objectForKey:@"isok"] isEqualToString:@"X"]){
         [myImg setImage:[UIImage imageNamed:@"menual_bad"]];
     }else {
         myImg.hidden = YES;
@@ -319,6 +326,8 @@
 }
 
 - (IBAction)reviewDetailButton2:(id)sender {
+    buttonCheck = 2;
+
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
 }
 
@@ -329,6 +338,8 @@
 }
 
 - (IBAction)reviewDetailButton4:(id)sender {
+    buttonCheck = 4;
+
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
 }
 
@@ -358,21 +369,22 @@
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
 }
-
 - (void)selectButton_top{
+    if([datas3 count] == 0){
+        return;
+    }
     UIActionSheet *menu = [[UIActionSheet alloc] init];
     menu.title = @"샘플점수 비교하실분을 선택해주세요.";
     menu.delegate = self;
-    
-    //안드로이드 리뷰 - > AvrList 함수 보고 따라할것!
-    
-//    for(int i = 0; i < [datas count]; i++){
-//        NSDictionary *codeDic = [datas objectAtIndex:i];
-//        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_title"]];
-//    }
-//    [menu addButtonWithTitle:@"취소"];
-//    [menu showInView:self.view];
+    menu.tag = 2;
+    for(int i = 0; i < [datas3 count]; i++){
+        NSDictionary *codeDic = [datas3 objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"result_membername"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
 }
+
 
 #pragma mark -
 #pragma ActionSheet Delegate
@@ -380,12 +392,54 @@
 // 문서종류 리스트
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([datas count] == buttonIndex){
-        return;
+    if(actionSheet.tag == 2){
+        if([datas3 count] == buttonIndex){
+            return;
+        }
+        
+        NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
+        NSLog(@"SKY4 URL : %@" , urlString);
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+        
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        [urlRequest setHTTPMethod:@"GET"];
+        
+        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            //NSLog(@"Response:%@ %@\n", response, error);
+            
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            if(statusCode == 200){
+                acidityRightText.text = ([dic_result3 objectForKey:@"acidity_point"]);
+                sweetnessRightText.text = ([dic_result3 objectForKey:@"sweetness_point"]);
+                bitternessRightText.text = ([dic_result3 objectForKey:@"bitterness_point"]);
+                bodyRightText.text = ([dic_result3 objectForKey:@"body_point"]);
+                aftertasteRightText.text = ([dic_result3 objectForKey:@"aftertaste_point"]);
+                
+            }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+        [dataTask resume];
+        
+    }else{
+        if([datas count] == buttonIndex){
+            return;
+        }
+        mPosition = buttonIndex;
+        [self firstInit ];
+
     }
-    mPosition = buttonIndex;
-    [self firstInit ];
-    
+
 }
 
 @end
