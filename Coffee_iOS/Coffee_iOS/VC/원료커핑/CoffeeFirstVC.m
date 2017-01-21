@@ -25,9 +25,20 @@
 @synthesize noteTextView;
 @synthesize toptitle;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"fix_position : %d " , fix_position);
+    NSLog(@"fix_position : %ld " , (long)MPOSITION);
+    if (fix_position != MPOSITION) {
+        //다르면 실행
+        [self Step1];       //통신 1 구간
+
+    }
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    fix_position = 0;
     UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"완료" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     
@@ -42,7 +53,7 @@
     
     NSLog(@"SESSIONID   :: %@" , SESSIONID);
     NSLog(@"USER_ID     :: %@" , USER_ID);
-    NSLog(@"MPOSITION     :: %d" , MPOSITION);
+    NSLog(@"MPOSITION     :: %ld" , (long)MPOSITION);
     
     toptitle.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture =
@@ -551,6 +562,7 @@
             return;
         }
         MPOSITION = buttonIndex;
+        fix_position = (int)MPOSITION; //저장
         [self firstInit ];
     }else{
         if(actionSheetNum == 4){

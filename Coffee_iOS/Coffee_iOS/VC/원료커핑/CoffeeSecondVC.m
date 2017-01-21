@@ -50,7 +50,6 @@
                                             action:@selector(selectButton)];
     [toptitle addGestureRecognizer:tapGesture];
 
-    mPosition = 0;
     [self Step1];       //통신 1 구간
 }
 
@@ -73,12 +72,12 @@
             [defaults synchronize];
             datas = [dic objectForKey:@"datas"];
             NSLog(@"1. DATAS :: %@" , datas);
-            [self init:mPosition];
+            [self init:MPOSITION];
             [self Step2];       //통신 2 구간
             //Title 값 셋팅
             toptitle.text = [NSString stringWithFormat:@"원료커핑:%@(%@/%@)",
-                             [[datas objectAtIndex:mPosition] valueForKey:@"sample_code"],
-                             [[datas objectAtIndex:mPosition] valueForKey:@"num"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
                              [dic objectForKey:@"totalnum"]
                              ];
         }else{
@@ -488,7 +487,17 @@
         if([datas count] == buttonIndex){
             return;
         }
-        mPosition = buttonIndex;
+        //기존 포지션과 다르면, 1페이지로 강제 이동 mPosition 들고 이동해야함.
+        if (MPOSITION != buttonIndex) {
+            NSLog(@"mPosition 값 변경후 1페이지로 이동");
+            NSInteger count = [self.navigationController.viewControllers count];
+            MPOSITION = buttonIndex;
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-2] animated:YES];
+            return;
+        }else{
+            MPOSITION = buttonIndex;
+        }
+        
         [self firstInit ];
     }else{
         if([actionArr count] == buttonIndex){
@@ -564,7 +573,7 @@
 }
 
 - (void) firstInit{
-    NSLog(@"mPosition  : %ld" ,  mPosition);
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
     [self Step1];       //통신 1 구간
 }
 

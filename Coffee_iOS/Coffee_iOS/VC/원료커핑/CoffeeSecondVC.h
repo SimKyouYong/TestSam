@@ -17,7 +17,6 @@
     NSArray *datas;
     NSArray *datas2;
     
-    NSInteger mPosition;
     NSString *mSample_idx;
     
     NSDictionary *tableDic;

@@ -14,7 +14,6 @@
     NSArray *datas;
     NSArray *datas2;
     
-    NSInteger mPosition;
     NSString *mSample_idx;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeThirdScrollView;

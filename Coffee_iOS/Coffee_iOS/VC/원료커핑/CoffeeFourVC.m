@@ -357,7 +357,7 @@
         if (MPOSITION != buttonIndex) {
             NSLog(@"mPosition 값 변경후 1페이지로 이동");
             NSInteger count = [self.navigationController.viewControllers count];
-            
+            MPOSITION = buttonIndex;
             [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-4] animated:YES];
             return;
         }else{

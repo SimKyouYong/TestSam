@@ -68,6 +68,8 @@
     
     UILabel *TotalAcidity_Po;
     UILabel *TotalAcidity_Ne;
+    
+    int fix_position;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeFirstTableView;
