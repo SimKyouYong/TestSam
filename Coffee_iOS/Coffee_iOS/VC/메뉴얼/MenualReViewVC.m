@@ -269,22 +269,15 @@
     aftertasteLeftText.text = [dic_result objectForKey:@"aftertaste_point"];
     aftertasteRightText.text = [dic_result objectForKey:@"aftertaste_po"];
     
-    if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"acidity_point"] floatValue] &&
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"sweetness_point"] floatValue] &&
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"bitterness_point"] floatValue] &&
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"body_point"] floatValue] &&
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_a"] floatValue] >= [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
+    
+    if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"Y"]){
         [myImg setImage:[UIImage imageNamed:@"menual_good"]];
-
-    }else if ([[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"acidity_point"] floatValue] ||
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"sweetness_point"] floatValue] ||
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"bitterness_point"] floatValue] ||
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"body_point"] floatValue] ||
-        [[[datas objectAtIndex:mPosition] valueForKey:@"base_am_b"] floatValue] < [[dic_result objectForKey:@"aftertaste_point"] floatValue]){
-        [myImg setImage:[UIImage imageNamed:@"menual_bad"]];
-        
-    }else {
+    }else if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"N"]){
         [myImg setImage:[UIImage imageNamed:@"menual_normal"]];
+    }else if ([[dic_result objectForKey:@"aftertaste_po"] isEqualToString:@"X"]){
+        [myImg setImage:[UIImage imageNamed:@"menual_bad"]];
+    }else {
+        myImg.hidden = YES;
     }
     
     float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
