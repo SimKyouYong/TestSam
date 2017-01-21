@@ -21,6 +21,7 @@
 #define REVIEW_URL              @"http://work.nexall.net/web/app/sample_list.php"
 #define REVIEW_URL2             @"http://work.nexall.net/web/app/get_result.php"
 #define REVIEW_URL3             @"http://work.nexall.net/web/app/get_avr_result.php"
+#define REVIEW_URL4             @"http://work.nexall.net/web/app/get_member_result.php"
 #define CUPPING_COMMON          @"http://work.nexall.net/web/app/sess_start.php"
 #define REVIEW_SAMPLE_URL       @"http://work.nexall.net/web/app/review_list.php"
 #define SAMPLE_WEB_URL          @"http://work.nexall.net/creport.php"

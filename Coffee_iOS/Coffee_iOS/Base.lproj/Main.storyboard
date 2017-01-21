@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -2636,7 +2636,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="KJS-SA-LyU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="fQ8-Gp-FH3">
@@ -2666,7 +2666,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="fsE-5w-x74"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-YQ-eAC">
@@ -2696,7 +2696,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="Ecs-gX-BTQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flavor2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="i2n-aP-n2w">
@@ -2822,7 +2822,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="6ee-5r-uOJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-iS-Uh1">
@@ -2852,7 +2852,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="uDg-b7-5DU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eH-d8-tI1">
@@ -2882,7 +2882,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="m3k-Y9-PcF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="X4R-Z3-uIU">
@@ -2913,7 +2913,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="YOf-6K-oxY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pdt-cf-3Es">
@@ -3059,7 +3059,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="VWD-ug-Gu7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="off_cup_icon_66x70.png" translatesAutoresizingMaskIntoConstraints="NO" id="acn-rW-bQ3">
@@ -3126,7 +3126,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="f5l-lg-9Co"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="off_cup_icon_66x70.png" translatesAutoresizingMaskIntoConstraints="NO" id="lnX-AT-inI">
@@ -3193,7 +3193,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="jgd-gQ-pGd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="off_cup_icon_66x70.png" translatesAutoresizingMaskIntoConstraints="NO" id="XqD-Ve-SEm">
@@ -3768,7 +3768,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="59c-ja-gMK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Bd-Jy-UWU">
@@ -3798,7 +3798,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="JKx-lQ-dfg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-yV-h3k">
@@ -3828,7 +3828,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="HXA-3c-OWE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="WuU-po-g0D">
@@ -3859,7 +3859,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="Rgg-cf-A88"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="J27-ja-wr0">
@@ -3889,7 +3889,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="YLz-kc-cvC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="kfd-5C-xJj">
@@ -3919,7 +3919,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="YCy-XL-BC4"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-v8-8RL">
@@ -3949,7 +3949,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="yu7-d7-1gH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_bg_160x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="CJl-0w-0tS">
@@ -3979,7 +3979,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="YBf-J1-lC4"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="x4I-ad-bDT">
@@ -4541,7 +4541,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="ViJ-16-sga"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5Q-uF-a2m">
@@ -4578,7 +4578,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="MNs-7v-AkF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitterness2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="xS9-LL-yK9">
@@ -4615,7 +4615,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="s8G-QS-1K6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="KTd-HI-4fK">
@@ -4654,7 +4654,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="V75-fE-HEo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aftertaste2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="VwL-an-3tH">
@@ -4691,7 +4691,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="P51-f4-awZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-4m-hxg">
@@ -5207,7 +5207,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="Ha7-PC-bsA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-O2-HN5">
@@ -5244,7 +5244,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="8hJ-OF-qec"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweetness2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="nSz-yd-44C">
@@ -5281,7 +5281,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="QfD-2V-WRw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body2_button_330x80.png" translatesAutoresizingMaskIntoConstraints="NO" id="1c7-6x-8PS">
@@ -5320,7 +5320,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="aC3-Wo-5oT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="1" green="0.11345331259999999" blue="0.033092562339999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -10469,11 +10469,11 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hBd-4Z-YF5"/>
-        <segue reference="5fA-xh-9C8"/>
-        <segue reference="iCp-1x-5vL"/>
-        <segue reference="vl0-I9-pZc"/>
-        <segue reference="gbq-uD-ZbC"/>
         <segue reference="NQw-kp-gI4"/>
+        <segue reference="gbq-uD-ZbC"/>
+        <segue reference="hBd-4Z-YF5"/>
+        <segue reference="iCp-1x-5vL"/>
+        <segue reference="5fA-xh-9C8"/>
+        <segue reference="ckf-0M-DH3"/>
     </inferredMetricsTieBreakers>
 </document>

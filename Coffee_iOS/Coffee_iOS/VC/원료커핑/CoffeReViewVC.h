@@ -56,9 +56,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mNOTOKBtn;
 @property (weak, nonatomic) IBOutlet UILabel *Title;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *mDetail4Btn0;        //맨위에 점수판
-
 
 //맨위에 3개 상단 점수
 @property (weak, nonatomic) IBOutlet UILabel *mDetail4ArvScore;

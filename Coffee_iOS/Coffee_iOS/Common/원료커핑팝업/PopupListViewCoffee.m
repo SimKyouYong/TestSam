@@ -73,6 +73,7 @@ static BOOL isShown = false;
         contentView = [[UIView alloc] initWithFrame:contentFrame];
         
         contentView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(108.0/255.0) blue:(192.0/255.0) alpha:0.7];
+        //contentView.backgroundColor = [UIColor whiteColor];
         
         self.cellHighlightColor = [UIColor colorWithRed:(0.0/255.0) green:(60.0/255.0) blue:(127.0/255.0) alpha:0.5f];
         
