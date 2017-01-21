@@ -19,7 +19,6 @@
 
 @synthesize coffeeReviewScrollView;
 @synthesize Title;
-@synthesize mUserID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
