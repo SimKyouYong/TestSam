@@ -19,6 +19,7 @@
 
 @synthesize coffeeReviewScrollView;
 @synthesize Title;
+@synthesize mUserID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -638,6 +639,7 @@
         
         NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
     
+        mUserID = [dic objectForKey:@"result_memberid"];
         NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
         NSLog(@"SKY4 URL : %@" , urlString);
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

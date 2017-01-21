@@ -47,6 +47,8 @@
     NSInteger sampleIndexValue;
     NSInteger detailCount;
     NSInteger buttonCheck;
+    
+    NSString *mUserID;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *coffeeReviewScrollView;
