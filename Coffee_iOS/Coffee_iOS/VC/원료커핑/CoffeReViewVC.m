@@ -640,7 +640,7 @@
             
             NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            
+            NSLog(@"%@", dic);
             if(statusCode == 200){
                 _mDetail4Btn2.text = [dic objectForKey:@"aroma_point"];
                 _mDetail4Btn4.text = [dic objectForKey:@"flavor_point"];
@@ -663,7 +663,6 @@
             }
         }];
         [dataTask resume];
-        
     }
 }
 
