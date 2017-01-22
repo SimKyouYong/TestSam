@@ -52,7 +52,7 @@
             NSLog(@"dic66 :: %@" , dic);
             NSLog(@"/*---------------------------------------*/");
             
-            //원료커피 리뷰 -> 1번째 평가보기
+            //메뉴얼 리뷰 -> 1번째 평가보기
             if (buttonNum == 1) {
                 [title_Arr addObject:@"POSITIVE"];
                 [title_Arr addObject:@"NEGATIVE"];
@@ -62,17 +62,147 @@
                 [title_Arr addObject:@"BALANCE"];
                 [title_Arr addObject:@"MEMO"];
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Floral : %@\n Fruity : %@\n Alcoholic : %@\n Herb/Vegetative : %@\n Spice : %@\n sweet : %@\n Nut : %@\n Chocolate : %@\n Green/Cereal : %@\n Roast : %@\n Savory : %@", [dic objectForKey:@"floral"], [dic objectForKey:@"fruity"], [dic objectForKey:@"alcoholic"], [dic objectForKey:@"herb"], [dic objectForKey:@"spice"], [dic objectForKey:@"sweet"], [dic objectForKey:@"nut"], [dic objectForKey:@"chocolate"], [dic objectForKey:@"grain"], [dic objectForKey:@"roast"], [dic objectForKey:@"savory"]]];
+                // Cell1
+                NSString *Floral = [dic objectForKey:@"floral"];
+                NSString *totalValue = @"";
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Fermentd : %@\n Chemical : %@\n Green/Grassy : %@\n Musty : %@\n Roast Defect : %@", [dic objectForKey:@"fermented"], [dic objectForKey:@"chemical"], [dic objectForKey:@"green"], [dic objectForKey:@"musty"], [dic objectForKey:@"roastdefect"]]];
+                if(Floral.length != 0){
+                    totalValue = [NSString stringWithFormat:@" Floral : %@\n", Floral];
+                }
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                NSString *Fruity = [dic objectForKey:@"fruity"];
+                if(Fruity.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Fruity : %@\n", totalValue, Fruity];
+                }
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"acidity_po"], [dic objectForKey:@"acidity_ne"]]];
+                NSString *Alcoholic = [dic objectForKey:@"alcoholic"];
+                if(Alcoholic.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Alcoholic : %@\n", totalValue, Alcoholic];
+                }
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Light : %@\n Medium : %@\n Heavy : %@", [dic objectForKey:@"body_light"], [dic objectForKey:@"body_medium"], [dic objectForKey:@"body_heavy"]]];
+                NSString *Herb = [dic objectForKey:@"herb"];
+                if(Herb.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Herb/Vegetative : %@\n", totalValue, Herb];
+                }
                 
-                [content_Arr addObject:[NSString stringWithFormat:@" Po : %@\n Ne : %@", [dic objectForKey:@"balance_po"], [dic objectForKey:@"balance_ne"]]];
+                NSString *Spice = [dic objectForKey:@"spice"];
+                if(Spice.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Spice : %@\n", totalValue, Spice];
+                }
+                
+                NSString *Sweet = [dic objectForKey:@"sweet"];
+                if(Sweet.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Sweet : %@\n", totalValue, Sweet];
+                }
+                
+                NSString *Nut = [dic objectForKey:@"nut"];
+                if(Nut.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Nut : %@\n", totalValue, Nut];
+                }
+                
+                NSString *Chocolate = [dic objectForKey:@"chocolate"];
+                if(Chocolate.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Chocolate : %@\n", totalValue, Chocolate];
+                }
+                
+                NSString *Green = [dic objectForKey:@"grain"];
+                if(Green.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Green : %@\n", totalValue, Green];
+                }
+                
+                NSString *Roast = [dic objectForKey:@"roast"];
+                if(Roast.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Roast : %@\n", totalValue, Roast];
+                }
+                
+                NSString *Savory = [dic objectForKey:@"savory"];
+                if(Savory.length != 0){
+                    totalValue = [NSString stringWithFormat:@"%@ Savory : %@\n", totalValue, Savory];
+                }
+                
+                // Cell2
+                NSString *Fermentd = [dic objectForKey:@"fermented"];
+                NSString *totalValue2 = @"";
+                
+                if(Fermentd.length != 0){
+                    totalValue2 = [NSString stringWithFormat:@" Fermentd : %@\n", Fermentd];
+                }
+                
+                NSString *Chemical = [dic objectForKey:@"chemical"];
+                if(Chemical.length != 0){
+                    totalValue2 = [NSString stringWithFormat:@"%@ Chemical : %@\n", totalValue2, Chemical];
+                }
+                
+                NSString *Green2 = [dic objectForKey:@"green"];
+                if(Green2.length != 0){
+                    totalValue2 = [NSString stringWithFormat:@"%@ Green : %@\n", totalValue2, Green2];
+                }
+                
+                NSString *Musty = [dic objectForKey:@"musty"];
+                if(Musty.length != 0){
+                    totalValue2 = [NSString stringWithFormat:@"%@ Musty : %@\n", totalValue2, Musty];
+                }
+                
+                NSString *RoastDefect = [dic objectForKey:@"roastdefect"];
+                if(RoastDefect.length != 0){
+                    totalValue2 = [NSString stringWithFormat:@"%@ RoastDefect : %@\n", totalValue2, RoastDefect];
+                }
+                
+                // Cell3
+                NSString *aftertaste_po = [dic objectForKey:@"aftertaste_po"];
+                NSString *aftertaste_ne = [dic objectForKey:@"aftertaste_ne"];
+                NSString *aftertaste_total = @"";
+                if(aftertaste_po.length != 0){
+                    aftertaste_total = [NSString stringWithFormat:@" Po : %@\n", aftertaste_po];
+                }
+                if(aftertaste_ne.length != 0){
+                    aftertaste_total = [NSString stringWithFormat:@"%@ Ne : %@", aftertaste_total, aftertaste_ne];
+                }
+                
+                // Cell4
+                NSString *acidity_po = [dic objectForKey:@"acidity_po"];
+                NSString *acidity_ne = [dic objectForKey:@"acidity_ne"];
+                NSString *acidity_total = @"";
+                if(acidity_po.length != 0){
+                    acidity_total = [NSString stringWithFormat:@" Po : %@\n", acidity_po];
+                }
+                if(acidity_ne.length != 0){
+                    acidity_total = [NSString stringWithFormat:@"%@ Ne : %@", acidity_total, acidity_ne];
+                }
+                
+                // Cell5
+                NSString *body_light = [dic objectForKey:@"body_light"];
+                NSString *body_medium = [dic objectForKey:@"body_medium"];
+                NSString *body_heavy = [dic objectForKey:@"body_heavy"];
+                NSString *body_total = @"";
+                
+                if(body_light.length != 0){
+                    body_total = [NSString stringWithFormat:@" Light : %@\n", body_light];
+                }
+                if(body_medium.length != 0){
+                    body_total = [NSString stringWithFormat:@"%@ Medium : %@\n", body_total, body_medium];
+                }
+                if(body_heavy.length != 0){
+                    body_total = [NSString stringWithFormat:@"%@ Heavy : %@", body_total, body_heavy];
+                }
+                
+                // Cell6
+                NSString *balance_po = [dic objectForKey:@"balance_po"];
+                NSString *balance_ne = [dic objectForKey:@"balance_ne"];
+                NSString *balance_total = @"";
+                if(balance_po.length != 0){
+                    balance_total = [NSString stringWithFormat:@" Po : %@\n", balance_po];
+                }
+                if(balance_ne.length != 0){
+                    balance_total = [NSString stringWithFormat:@"%@ Ne : %@", balance_total, balance_ne];
+                }
+                
+                [content_Arr addObject:totalValue];
+                [content_Arr addObject:totalValue2];
+                [content_Arr addObject:aftertaste_total];
+                [content_Arr addObject:acidity_total];
+                [content_Arr addObject:body_total];
+                [content_Arr addObject:balance_total];
                 [content_Arr addObject:[dic objectForKey:@"note5"]];
             }else if(buttonNum == 3){
                 [title_Arr addObject:@"MEMO"];
