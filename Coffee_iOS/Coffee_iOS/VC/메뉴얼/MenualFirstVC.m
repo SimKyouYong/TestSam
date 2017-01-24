@@ -721,38 +721,48 @@
 
 - (void)TotalFruity2:(NSInteger)indexNum{
     NSString *dataStr;
+    NSString *valueStr;
     
     switch (indexNum){
         case 0:
             dataStr = @"Fruity";
+            valueStr = mTotalFruity;
             break;
         case 1:
             dataStr = @"citrus";
+            valueStr = mTotalFruity;
             break;
         case 2:
             dataStr = @"apple";
+            valueStr = mTotalFruity;
             break;
         case 3:
             dataStr = @"melon";
+            valueStr = mTotalFruity;
             break;
         case 4:
             dataStr = @"tropical fruit";
+            valueStr = mTotalFruity;
             break;
         case 5:
             dataStr = @"stone fruit";
+            valueStr = mTotalFruity;
             break;
         case 6:
             dataStr = @"berry";
+            valueStr = mTotalFruity;
             break;
         case 7:
             dataStr = @"grape/wine";
+            valueStr = mTotalFruity;
             break;
         case 8:
             dataStr = @"dried fruit";
+            valueStr = mTotalFruity;
             break;
     }
     
-    [self popupLoad:dataStr value:@""];
+    [self popupLoad:dataStr value:valueStr];
 }
 
 - (void)TotalChemicalAction:(UIButton*)sender{
@@ -774,26 +784,32 @@
 
 - (void)TotalChemical2:(NSInteger)indexNum{
     NSString *dataStr;
+    NSString *valueStr;
     
     switch (indexNum){
         case 0:
             dataStr = @"chemical";
+            valueStr = mTotalChemical;
             break;
         case 1:
             dataStr = @"phenolic";
+            valueStr = mTotalChemical;
             break;
         case 2:
             dataStr = @"ashy";
+            valueStr = mTotalChemical;
             break;
         case 3:
             dataStr = @"rubbery";
+            valueStr = mTotalChemical;
             break;
         case 4:
             dataStr = @"rest metal(녹슨쇠)";
+            valueStr = mTotalChemical;
             break;
     }
     
-    [self popupLoad:dataStr value:@""];
+    [self popupLoad:dataStr value:valueStr];
 }
 
 #pragma mark -

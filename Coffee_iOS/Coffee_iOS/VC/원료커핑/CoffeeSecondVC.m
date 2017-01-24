@@ -479,7 +479,7 @@
 }
 
 #pragma mark -
-#pragma ActionSheet Delegate
+#pragma mark ActionSheet Delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -534,6 +534,7 @@
         case 1:
             dataStr = @"Aftertaste_Ne";
             valueStr = mTotalAftertaste_Ne;
+            break;
         case 2:
             dataStr = @"Body_Light";
             valueStr = mTotalBody_Li;
@@ -583,6 +584,7 @@
 - (void)popupLoad:(NSString*)nameValue value:(NSString*)value{
     popupView.hidden = NO;
     self.selectedIndexes = [[NSMutableIndexSet alloc] init];
+    
     listArr = [[NSMutableArray alloc] init];
     listArr = [PopupListCoffee list:nameValue];
     NSMutableArray *choseListArr = [[NSMutableArray alloc] init];
