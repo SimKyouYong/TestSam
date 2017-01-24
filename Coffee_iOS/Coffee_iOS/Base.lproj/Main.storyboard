@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -2561,7 +2561,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-Xc-aDA">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-Xc-aDA">
                                                 <rect key="frame" x="390" y="0.0" width="180" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="x1R-O0-ef7"/>
@@ -2573,7 +2573,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="Rz6-eB-c0Y"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -3685,7 +3685,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="d3K-vT-p5t"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down2.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLT-p0-Lea">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLT-p0-Lea">
                                                 <rect key="frame" x="390" y="0.0" width="180" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Fks-7f-rOb"/>
@@ -3706,6 +3706,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="94F-0t-vyQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -4458,7 +4459,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="pKd-JT-NCY"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rze-Ru-eCS">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rze-Ru-eCS">
                                                 <rect key="frame" x="390" y="0.0" width="180" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="t6Q-JR-0jO"/>
@@ -4479,6 +4480,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="Yxw-CE-ZGa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -5124,7 +5126,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="wr8-8B-eE5"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uuy-6Z-1he">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_down1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uuy-6Z-1he">
                                                 <rect key="frame" x="390" y="0.0" width="180" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="JCN-Ex-SGX"/>
@@ -5145,6 +5147,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="WVp-Xc-yN5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -10463,17 +10466,16 @@
         <image name="tab8_on_bg_250x94.png" width="125" height="47"/>
         <image name="text_bg_160x60.png" width="80" height="30"/>
         <image name="top_down1.png" width="477" height="108"/>
-        <image name="top_down2.png" width="477" height="108"/>
         <image name="uniformity2_button_330x80.png" width="165" height="40"/>
         <image name="uniformity_button_330x80.png" width="165" height="40"/>
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NQw-kp-gI4"/>
-        <segue reference="5fA-xh-9C8"/>
-        <segue reference="iCp-1x-5vL"/>
         <segue reference="UR8-wh-sGD"/>
         <segue reference="gbq-uD-ZbC"/>
+        <segue reference="NQw-kp-gI4"/>
         <segue reference="ckf-0M-DH3"/>
+        <segue reference="5fA-xh-9C8"/>
+        <segue reference="iCp-1x-5vL"/>
     </inferredMetricsTieBreakers>
 </document>
