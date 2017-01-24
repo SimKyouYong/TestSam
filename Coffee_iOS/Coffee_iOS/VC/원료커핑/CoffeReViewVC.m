@@ -493,12 +493,12 @@
     }
     
     _mDetail4ArvScore.textColor = [UIColor redColor];
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", avrValue];
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", [dic_result3 objectForKey:@"totalavr"]];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
     
-    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", @""];
+    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", [dic_result3 objectForKey:@"totalstd"]];
     NSMutableAttributedString *stdSearch = [[NSMutableAttributedString alloc] initWithString:stdString];
     NSRange s1Range = [stdString rangeOfString:@"TOTAL STD : "];
     [stdSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:s1Range];

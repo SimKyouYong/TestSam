@@ -79,15 +79,20 @@
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
             NSLog(@"resultValue : %@"  , resultValue);
-            if([[dic objectForKey:@"result"] isEqualToString:@"fail"]){
-                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
                 
                 UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                      {}];
                 [alert addAction:ok];
                 [self presentViewController:alert animated:YES completion:nil];
             }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
                 
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
             }
             
         }else{
