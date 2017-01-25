@@ -29,17 +29,17 @@
 @synthesize neButton;
 @synthesize noteTextView;
 @synthesize toptitle;
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"fix_position : %d " , fix_position);
+    NSLog(@"fix_position : %ld " , fix_position);
     NSLog(@"fix_position : %ld " , (long)MPOSITION);
     if (fix_position != MPOSITION) {
         //다르면 실행
         [self Step1];       //통신 1 구간
-        
     }
-    
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

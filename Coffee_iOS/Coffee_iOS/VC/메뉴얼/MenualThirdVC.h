@@ -17,11 +17,15 @@
     NSMutableArray *actionArr;
     
     NSDictionary *tableDic;
+    
+    NSInteger fix_position;
 }
 
 - (IBAction)homeButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualThirdScrollView;
+
+@property (weak, nonatomic) IBOutlet UILabel *topTitle;
 
 - (IBAction)americanoButton:(id)sender;
 - (IBAction)saveButton:(id)sender;

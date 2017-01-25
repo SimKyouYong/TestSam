@@ -7906,6 +7906,7 @@
                         <outlet property="menualFirstTableView" destination="bk4-30-jxH" id="cF1-kf-QJr"/>
                         <outlet property="noteTextView" destination="VsI-AA-voE" id="0c3-lZ-Re8"/>
                         <outlet property="sweetnessButton" destination="ray-XH-u3U" id="U6d-M0-WFe"/>
+                        <outlet property="topTitle" destination="Bqx-T5-8iD" id="7JC-zm-r81"/>
                         <segue destination="s8S-de-Dg1" kind="push" identifier="menual2" id="DNT-3W-8Wv"/>
                         <segue destination="whb-5g-Yuo" kind="push" identifier="menualTabPush" id="HVL-7g-acH"/>
                     </connections>
@@ -8187,6 +8188,7 @@
                         <outlet property="menualThirdScrollView" destination="Gke-sC-6fb" id="wrQ-jd-VuX"/>
                         <outlet property="noteTextView" destination="B6U-Dx-6au" id="UMu-XK-UM1"/>
                         <outlet property="sweetnessButton" destination="F7t-Sr-crt" id="2W3-bC-9X8"/>
+                        <outlet property="topTitle" destination="lTq-uS-rPV" id="luI-ko-Dre"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVJ-1E-7d6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8530,8 +8532,15 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="acidityButton" destination="BCF-oD-Iod" id="xQk-Yj-erN"/>
+                        <outlet property="aftertasteButton" destination="RQC-U1-OjL" id="wDF-kt-GLt"/>
+                        <outlet property="bitternessButton" destination="Abh-69-blZ" id="qbZ-KF-iQc"/>
+                        <outlet property="bodyButton" destination="APR-oa-pv5" id="wf8-a2-bNC"/>
                         <outlet property="menualSecondScrollView" destination="oxg-I9-Knv" id="XxH-n9-tBQ"/>
+                        <outlet property="myTotalScore" destination="Tna-ih-auS" id="uPk-nS-C67"/>
                         <outlet property="noteTextView" destination="CDD-0U-wad" id="gUD-mm-d3l"/>
+                        <outlet property="sweetnessButton" destination="PwL-Fc-SNi" id="kxa-qQ-Qw5"/>
+                        <outlet property="toptitle" destination="gDR-hp-Nmw" id="XhD-xW-FaP"/>
                         <segue destination="whb-5g-Yuo" kind="push" identifier="menual3" id="NQw-kp-gI4"/>
                     </connections>
                 </viewController>
@@ -10471,11 +10480,11 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UR8-wh-sGD"/>
-        <segue reference="gbq-uD-ZbC"/>
-        <segue reference="NQw-kp-gI4"/>
-        <segue reference="ckf-0M-DH3"/>
         <segue reference="5fA-xh-9C8"/>
         <segue reference="iCp-1x-5vL"/>
+        <segue reference="UR8-wh-sGD"/>
+        <segue reference="ckf-0M-DH3"/>
+        <segue reference="gbq-uD-ZbC"/>
+        <segue reference="NQw-kp-gI4"/>
     </inferredMetricsTieBreakers>
 </document>

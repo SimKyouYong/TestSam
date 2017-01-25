@@ -17,7 +17,14 @@
 @implementation MenualSecondVC
 
 @synthesize menualSecondScrollView;
+@synthesize toptitle;
 @synthesize noteTextView;
+@synthesize acidityButton;
+@synthesize sweetnessButton;
+@synthesize bitternessButton;
+@synthesize bodyButton;
+@synthesize aftertasteButton;
+@synthesize myTotalScore;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +38,141 @@
     [toolbar sizeToFit];
     
     [noteTextView setInputAccessoryView:toolbar];
+    
+    mOkNotokflag = NO;
+    toptitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [toptitle addGestureRecognizer:tapGesture];
+    
+    [self Step1];       //통신 1 구간
+}
+
+- (void)Step1{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            datas = [dic objectForKey:@"datas"];
+            NSLog(@"1. DATAS :: %@" , datas);
+            [self init:MPOSITION];
+            [self Step2];       //통신 2 구간
+            
+            //Title 값 셋팅
+            toptitle.text = [NSString stringWithFormat:@"메뉴얼:%@(%@/%@)",
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)init:(NSInteger)position{
+    SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
+}
+
+- (void)Step2{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            NSLog(@"2. DATA :: %@" , dic);
+            
+            [self init2:dic];
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)init2:(NSDictionary *)dic{
+    tableDic = dic;
+    
+    float totalscore = [[dic objectForKey:@"acidity_point"] floatValue] +
+    [[dic objectForKey:@"sweetness_point"] floatValue] +
+    [[dic objectForKey:@"bitterness_point"] floatValue] +
+    [[dic objectForKey:@"body_point"] floatValue] +
+    [[dic objectForKey:@"aftertaste_point"] floatValue];
+    
+    if([dic objectForKey:@"result"] != nil){
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            
+            [acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
+            [sweetnessButton setTitle:[dic objectForKey:@"sweetness_point"] forState:UIControlStateNormal];
+            [bitternessButton setTitle:[dic objectForKey:@"bitterness_point"] forState:UIControlStateNormal];
+            [bodyButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+            [aftertasteButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+            
+            noteTextView.text = [dic objectForKey:@"note_total"];
+            mTotalScore = [NSString stringWithFormat:@"%.1f" , totalscore];
+            
+            myTotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE : %@" , mTotalScore];
+            
+            if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
+                mOkNotokflag = YES;
+            }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
+                
+            }else{
+                mOkNotokflag = YES;
+            }
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        
+    }else{
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"다시 시도해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +213,45 @@
 
 - (IBAction)latteButton:(id)sender {
     [self performSegueWithIdentifier:@"menual3" sender:sender];
+}
+
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (void) firstInit{
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
+    [self Step1];       //통신 1 구간
+}
+
+#pragma mark -
+#pragma mark ActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([datas count] == buttonIndex){
+        return;
+    }
+    //기존 포지션과 다르면, 1페이지로 강제 이동 mPosition 들고 이동해야함.
+    if (MPOSITION != buttonIndex) {
+        NSLog(@"mPosition 값 변경후 1페이지로 이동");
+        NSInteger count = [self.navigationController.viewControllers count];
+        MPOSITION = buttonIndex;
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-2] animated:YES];
+        return;
+    }else{
+        MPOSITION = buttonIndex;
+    }
+    
+    [self firstInit ];
 }
 
 #pragma mark -

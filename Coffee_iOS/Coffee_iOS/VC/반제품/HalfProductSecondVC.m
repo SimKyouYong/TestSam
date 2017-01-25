@@ -154,13 +154,13 @@
         if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
             
             [acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"sweetness_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"bitterness_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"po_point"] forState:UIControlStateNormal];
-            [acidityButton setTitle:[dic objectForKey:@"ne_point"] forState:UIControlStateNormal];
+            [sweetnessButton setTitle:[dic objectForKey:@"sweetness_point"] forState:UIControlStateNormal];
+            [bitternessButton setTitle:[dic objectForKey:@"bitterness_point"] forState:UIControlStateNormal];
+            [bodyButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+            [balanceButton setTitle:[dic objectForKey:@"balance_point"] forState:UIControlStateNormal];
+            [aftertasteButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+            [poButton setTitle:[dic objectForKey:@"po_point"] forState:UIControlStateNormal];
+            [neButton setTitle:[dic objectForKey:@"ne_point"] forState:UIControlStateNormal];
             
             noteTextView.text = [dic objectForKey:@"note_total"];
             mTotalScore = [NSString stringWithFormat:@"%.1f" , totalscore];
@@ -327,6 +327,7 @@
 }
 
 - (IBAction)acidityButton:(id)sender {
+    /*
     actionSheetNum = 1;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -349,9 +350,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)sweetnessButton:(id)sender {
+    /*
     actionSheetNum = 2;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -374,9 +377,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)bitternessButton:(id)sender {
+    /*
     actionSheetNum = 3;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -399,9 +404,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)bodyButton:(id)sender {
+    /*
     actionSheetNum = 4;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -424,9 +431,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)balanceButton:(id)sender {
+    /*
     actionSheetNum = 5;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -449,9 +458,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)aftertasteButton:(id)sender {
+    /*
     actionSheetNum = 6;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -474,9 +485,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)poButton:(id)sender {
+    /*
     actionSheetNum = 7;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -499,9 +512,11 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 - (IBAction)neButton:(id)sender {
+    /*
     actionSheetNum = 8;
     
     NSDictionary *dic = [datas objectAtIndex:0];
@@ -524,6 +539,7 @@
     
     [menu addButtonWithTitle:@"취소"];
     [menu showInView:self.view];
+     */
 }
 
 #pragma mark -

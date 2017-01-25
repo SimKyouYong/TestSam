@@ -24,8 +24,6 @@
     
     BOOL mOkNotokflag;
     int fix_position;
-
-
 }
 
 - (IBAction)homeButton:(id)sender;

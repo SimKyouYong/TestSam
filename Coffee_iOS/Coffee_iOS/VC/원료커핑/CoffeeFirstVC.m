@@ -27,7 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"fix_position : %d " , fix_position);
+    NSLog(@"fix_position : %ld " , fix_position);
     NSLog(@"fix_position : %ld " , (long)MPOSITION);
     if (fix_position != MPOSITION) {
         //다르면 실행

@@ -19,6 +19,7 @@
 @implementation MenualFirstVC
 
 @synthesize menualFirstTableView;
+@synthesize topTitle;
 @synthesize acidityButton;
 @synthesize sweetnessButton;
 @synthesize bitternessButton;
@@ -44,6 +45,151 @@
     popupView.hidden = YES;
     
     actionArr = [[NSMutableArray alloc] init];
+    
+    topTitle.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectButton)];
+    [topTitle addGestureRecognizer:tapGesture];
+    
+    [self Step1];       //통신 1 구간
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"fix_position : %ld " , fix_position);
+    NSLog(@"fix_position : %ld " , (long)MPOSITION);
+    if (fix_position != MPOSITION) {
+        //다르면 실행
+        [self Step1];       //통신 1 구간
+    }
+}
+
+- (void)Step1{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            datas = [dic objectForKey:@"datas"];
+            NSLog(@"1. DATAS :: %@" , datas);
+            [self init:MPOSITION];
+            [self Step2];       //통신 2 구간
+            
+            //Title 값 셋팅
+            topTitle.text = [NSString stringWithFormat:@"메뉴얼:%@(%@/%@)",
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"sample_code"],
+                             [[datas objectAtIndex:MPOSITION] valueForKey:@"num"],
+                             [dic objectForKey:@"totalnum"]
+                             ];
+            
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)init:(NSInteger)position{
+    SAMPLE_IDX = [[datas objectAtIndex:position] valueForKey:@"sample_idx"];
+}
+
+- (void)Step2{
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
+    NSLog(@"SKY URL : %@" , urlString);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+            [defaults synchronize];
+            NSLog(@"2. DATA :: %@" , dic);
+            
+            [self init2:dic];
+        }else{
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {}];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)init2:(NSDictionary *)dic{
+    [acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
+    [sweetnessButton setTitle:[dic objectForKey:@"sweetness_point"] forState:UIControlStateNormal];
+    [bitternessButton setTitle:[dic objectForKey:@"bitterness_point"] forState:UIControlStateNormal];
+    [bodyButton setTitle:[dic objectForKey:@"body_point"] forState:UIControlStateNormal];
+    [aftertasteButton setTitle:[dic objectForKey:@"aftertaste_point"] forState:UIControlStateNormal];
+    
+    noteTextView.text = [dic objectForKey:@"note5"];
+    
+    tableDic = dic;
+    [self init3:dic];
+    [menualFirstTableView reloadData];
+}
+
+// 테이블 셀 클릭하지않고 바로 저장눌렀을때를 대비함
+- (void)init3:(NSDictionary*)dic{
+    mTotalFloral = [dic objectForKey:@"floral"];
+    mTotalFruity = [dic objectForKey:@"fruity"];
+    mTotalHerb = [dic objectForKey:@"herb"];
+    mTotalSpice = [dic objectForKey:@"spice"];
+    mTotalSweet = [dic objectForKey:@"sweet"];
+    mTotalNut = [dic objectForKey:@"nut"];
+    mTotalChocolate = [dic objectForKey:@"chocolate"];
+    mTotalGrain = [dic objectForKey:@"grain"];
+    mTotalRoast = [dic objectForKey:@"roast"];
+    mTotalSavory = [dic objectForKey:@"savory"];
+    
+    mTotalFermented = [dic objectForKey:@"fermented"];
+    mTotalChemical = [dic objectForKey:@"chemical"];
+    mTotalGreen = [dic objectForKey:@"green"];
+    mTotalMusty = [dic objectForKey:@"musty"];
+    mTotalRoastdefect = [dic objectForKey:@"roastdefect"];
+    
+    mTotalAcidity_Po = [dic objectForKey:@"acidity_po"];
+    mTotalAcidity_Ne = [dic objectForKey:@"acidity_ne"];
+    
+    mTotalAftertaste_Po = [dic objectForKey:@"aftertaste_po"];
+    mTotalAftertaste_Ne = [dic objectForKey:@"aftertaste_ne"];
+    
+    mTotalBody_Li = [dic objectForKey:@"body_light"];
+    mTotalBody_Me = [dic objectForKey:@"body_medium"];
+    mTotalBody_He = [dic objectForKey:@"body_heavy"];
+    
+    mTotalBalance_Po = [dic objectForKey:@"balance_po"];
+    mTotalBalance_Ne = [dic objectForKey:@"balance_ne"];
+    
+    mTotalMouthfeel_Po = [dic objectForKey:@"mouthfeel_po"];
+    mTotalMouthfeel_Ne = [dic objectForKey:@"mouthfeel_ne"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -251,43 +397,69 @@
     [menu showInView:self.view];
 }
 
+- (void)selectButton{
+    UIActionSheet *menu = [[UIActionSheet alloc] init];
+    menu.title = @"샘플을 선택해주세요.";
+    menu.tag = 1;
+    menu.delegate = self;
+    for(int i = 0; i < [datas count]; i++){
+        NSDictionary *codeDic = [datas objectAtIndex:i];
+        [menu addButtonWithTitle:[codeDic objectForKey:@"sample_code"]];
+    }
+    [menu addButtonWithTitle:@"취소"];
+    [menu showInView:self.view];
+}
+
+- (void) firstInit{
+    NSLog(@"mPosition  : %ld" ,  MPOSITION);
+    [self Step1];       //통신 1 구간
+}
+
 #pragma mark -
 #pragma mark ActionSheet Delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(actionSheetNum == 9){
-        if(buttonIndex == 9){
-        }else{
-            [self TotalFruity2:buttonIndex];
+    if (actionSheet.tag == 1) {
+        if([datas count] == buttonIndex){
+            return;
         }
-        return;
-    }
-    if(actionSheetNum == 10){
-        if(buttonIndex == 5){
-        }else{
-            [self TotalChemical2:buttonIndex];
+        MPOSITION = buttonIndex;
+        [self firstInit ];
+    }else{
+        if(actionSheetNum == 9){
+            if(buttonIndex == 9){
+            }else{
+                [self TotalFruity2:buttonIndex];
+            }
+            return;
         }
-        return;
+        if(actionSheetNum == 10){
+            if(buttonIndex == 5){
+            }else{
+                [self TotalChemical2:buttonIndex];
+            }
+            return;
+        }
+        
+        if([actionArr count] == buttonIndex){
+            return;
+        }
+        
+        if(actionSheetNum == 1){
+            [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 2){
+            [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 3){
+            [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 4){
+            [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }else if(actionSheetNum == 5){
+            [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+        }
+        
+        actionArr = [[NSMutableArray alloc] init];
     }
-    
-    if([actionArr count] == buttonIndex){
-        return;
-    }
-    
-    if(actionSheetNum == 1){
-        [acidityButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 2){
-        [sweetnessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 3){
-        [bitternessButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 4){
-        [bodyButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }else if(actionSheetNum == 5){
-        [aftertasteButton setTitle:[actionArr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }
-    
-    actionArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark -

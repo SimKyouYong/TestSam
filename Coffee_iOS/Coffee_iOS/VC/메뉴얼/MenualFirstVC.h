@@ -91,9 +91,13 @@
     
     UILabel *TotalMouthfeel_Po;
     UILabel *TotalMouthfeel_Ne;
+    
+    NSInteger fix_position;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *menualFirstTableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *topTitle;
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
