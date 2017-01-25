@@ -220,8 +220,8 @@
             TotalAftertaste_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalAftertaste_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalAftertaste_Po.text = [tableDic objectForKey:@"aftertaste_po"];
-            TotalAftertaste_Ne.text = [tableDic objectForKey:@"aftertaste_ne"];
+            TotalAftertaste_Po.text = mTotalAftertaste_Po;//[tableDic objectForKey:@"aftertaste_po"];
+            TotalAftertaste_Ne.text = mTotalAftertaste_Ne;//[tableDic objectForKey:@"aftertaste_ne"];
             
             TotalAftertaste_PoButton.tag = 0;
             [TotalAftertaste_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -243,9 +243,9 @@
             TotalBody_He = (UILabel*)[cell viewWithTag:5];
             UIButton *TotalBody_HeButton = (UIButton*)[cell viewWithTag:6];
             
-            TotalBody_Li.text = [tableDic objectForKey:@"body_light"];
-            TotalBody_Me.text = [tableDic objectForKey:@"body_medium"];
-            TotalBody_He.text = [tableDic objectForKey:@"body_heavy"];
+            TotalBody_Li.text = mTotalBody_Li;//[tableDic objectForKey:@"body_light"];
+            TotalBody_Me.text = mTotalBody_Me;//[tableDic objectForKey:@"body_medium"];
+            TotalBody_He.text = mTotalBody_He;//[tableDic objectForKey:@"body_heavy"];
             
             TotalBody_LiButton.tag = 2;
             [TotalBody_LiButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -266,8 +266,8 @@
             TotalBalance_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalBalance_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalBalance_Po.text = [tableDic objectForKey:@"balance_po"];
-            TotalBalance_Ne.text = [tableDic objectForKey:@"balance_ne"];
+            TotalBalance_Po.text = mTotalBalance_Po;//[tableDic objectForKey:@"balance_po"];
+            TotalBalance_Ne.text = mTotalBalance_Ne;//[tableDic objectForKey:@"balance_ne"];
             
             TotalBalance_PoButton.tag = 5;
             [TotalBalance_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];

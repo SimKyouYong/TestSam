@@ -420,17 +420,17 @@
             TotalSavory = (UILabel*)[cell viewWithTag:21];
             UIButton *TotalSavoryButton = (UIButton*)[cell viewWithTag:22];
             
-            TotalFloral.text = [tableDic objectForKey:@"floral"];
-            TotalFruity.text = [tableDic objectForKey:@"fruity"];
-            TotalAlcoholic.text = [tableDic objectForKey:@"alcoholic"];
-            TotalHerb.text = [tableDic objectForKey:@"herb"];
-            TotalSpice.text = [tableDic objectForKey:@"spice"];
-            TotalSweet.text = [tableDic objectForKey:@"sweet"];
-            TotalNut.text = [tableDic objectForKey:@"nut"];
-            TotalChocolate.text = [tableDic objectForKey:@"chocolate"];
-            TotalGrain.text = [tableDic objectForKey:@"grain"];
-            TotalRoast.text = [tableDic objectForKey:@"roast"];
-            TotalSavory.text = [tableDic objectForKey:@"savory"];
+            TotalFloral.text = mTotalFloral;//[tableDic objectForKey:@"floral"];
+            TotalFruity.text = mTotalFruity;//[tableDic objectForKey:@"fruity"];
+            TotalAlcoholic.text = mTotalAlcoholic;//[tableDic objectForKey:@"alcoholic"];
+            TotalHerb.text = mTotalHerb;//[tableDic objectForKey:@"herb"];
+            TotalSpice.text = mTotalSpice;//[tableDic objectForKey:@"spice"];
+            TotalSweet.text = mTotalSweet;//[tableDic objectForKey:@"sweet"];
+            TotalNut.text = mTotalNut;//[tableDic objectForKey:@"nut"];
+            TotalChocolate.text = mTotalChocolate;//[tableDic objectForKey:@"chocolate"];
+            TotalGrain.text = mTotalGrain;//[tableDic objectForKey:@"grain"];
+            TotalRoast.text = mTotalRoast;//[tableDic objectForKey:@"roast"];
+            TotalSavory.text = mTotalSavory;//[tableDic objectForKey:@"savory"];
             
             [TotalFruityButton addTarget:self action:@selector(TotalFruityAction:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -476,11 +476,11 @@
             TotalRoastdefect = (UILabel*)[cell viewWithTag:9];
             UIButton *TotalRoastdefectButton = (UIButton*)[cell viewWithTag:10];
             
-            TotalFermented.text = [tableDic objectForKey:@"fermented"];
-            TotalChemical.text = [tableDic objectForKey:@"chemical"];
-            TotalGreen.text = [tableDic objectForKey:@"green"];
-            TotalMusty.text = [tableDic objectForKey:@"musty"];
-            TotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            TotalFermented.text = mTotalFermented;//[tableDic objectForKey:@"fermented"];
+            TotalChemical.text = mTotalChemical;//[tableDic objectForKey:@"chemical"];
+            TotalGreen.text = mTotalGreen;//[tableDic objectForKey:@"green"];
+            TotalMusty.text = mTotalMusty;//[tableDic objectForKey:@"musty"];
+            TotalRoastdefect.text = mTotalRoastdefect;//[tableDic objectForKey:@"roastdefect"];
             
             [TotalChemicalButton addTarget:self action:@selector(TotalChemicalAction:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -505,8 +505,8 @@
             TotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalAcidity_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-            TotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            TotalAcidity_Po.text = mTotalAcidity_Po;//[tableDic objectForKey:@"acidity_po"];
+            TotalAcidity_Ne.text = mTotalAcidity_Ne;//[tableDic objectForKey:@"acidity_ne"];
             
             TotalAcidity_PoButton.tag = 15;
             [TotalAcidity_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];

@@ -369,16 +369,16 @@
             TotalSavory = (UILabel*)[cell viewWithTag:19];
             UIButton *TotalSavoryButton = (UIButton*)[cell viewWithTag:20];
             
-            TotalFloral.text = [tableDic objectForKey:@"floral"];
-            TotalFruity.text = [tableDic objectForKey:@"fruity"];
-            TotalHerb.text = [tableDic objectForKey:@"herb"];
-            TotalSpice.text = [tableDic objectForKey:@"spice"];
-            TotalSweet.text = [tableDic objectForKey:@"sweet"];
-            TotalNut.text = [tableDic objectForKey:@"nut"];
-            TotalChocolate.text = [tableDic objectForKey:@"chocolate"];
-            TotalGrain.text = [tableDic objectForKey:@"grain"];
-            TotalRoast.text = [tableDic objectForKey:@"roast"];
-            TotalSavory.text = [tableDic objectForKey:@"savory"];
+            TotalFloral.text = mTotalFloral;//[tableDic objectForKey:@"floral"];
+            TotalFruity.text = mTotalFruity;//[tableDic objectForKey:@"fruity"];
+            TotalHerb.text = mTotalHerb;//[tableDic objectForKey:@"herb"];
+            TotalSpice.text = mTotalSpice;//[tableDic objectForKey:@"spice"];
+            TotalSweet.text = mTotalSweet;//[tableDic objectForKey:@"sweet"];
+            TotalNut.text = mTotalNut;//[tableDic objectForKey:@"nut"];
+            TotalChocolate.text = mTotalChocolate;//[tableDic objectForKey:@"chocolate"];
+            TotalGrain.text = mTotalGrain;//[tableDic objectForKey:@"grain"];
+            TotalRoast.text = mTotalRoast;//[tableDic objectForKey:@"roast"];
+            TotalSavory.text = mTotalSavory;//[tableDic objectForKey:@"savory"];
             
             [TotalFruityButton addTarget:self action:@selector(TotalFruityAction:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -422,11 +422,11 @@
             TotalRoastdefect = (UILabel*)[cell viewWithTag:9];
             UIButton *TotalRoastdefectButton = (UIButton*)[cell viewWithTag:10];
             
-            TotalFermented.text = [tableDic objectForKey:@"fermented"];
-            TotalChemical.text = [tableDic objectForKey:@"chemical"];
-            TotalGreen.text = [tableDic objectForKey:@"green"];
-            TotalMusty.text = [tableDic objectForKey:@"musty"];
-            TotalRoastdefect.text = [tableDic objectForKey:@"roastdefect"];
+            TotalFermented.text = mTotalFermented;//[tableDic objectForKey:@"fermented"];
+            TotalChemical.text = mTotalChemical;//[tableDic objectForKey:@"chemical"];
+            TotalGreen.text = mTotalGreen;//[tableDic objectForKey:@"green"];
+            TotalMusty.text = mTotalMusty;//[tableDic objectForKey:@"musty"];
+            TotalRoastdefect.text = mTotalRoastdefect;//[tableDic objectForKey:@"roastdefect"];
             
             [TotalChemicalButton addTarget:self action:@selector(TotalChemicalAction:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -451,8 +451,8 @@
             TotalAcidity_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalAcidity_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalAcidity_Po.text = [tableDic objectForKey:@"acidity_po"];
-            TotalAcidity_Ne.text = [tableDic objectForKey:@"acidity_ne"];
+            TotalAcidity_Po.text = mTotalAcidity_Po;//[tableDic objectForKey:@"acidity_po"];
+            TotalAcidity_Ne.text = mTotalAcidity_Ne;//[tableDic objectForKey:@"acidity_ne"];
             
             TotalAcidity_PoButton.tag = 14;
             [TotalAcidity_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -471,8 +471,8 @@
             TotalAftertaste_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalAftertaste_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalAftertaste_Po.text = [tableDic objectForKey:@"aftertaste_po"];
-            TotalAftertaste_Ne.text = [tableDic objectForKey:@"aftertaste_ne"];
+            TotalAftertaste_Po.text = mTotalAftertaste_Po;//[tableDic objectForKey:@"aftertaste_po"];
+            TotalAftertaste_Ne.text = mTotalAftertaste_Ne;//[tableDic objectForKey:@"aftertaste_ne"];
             
             TotalAftertaste_PoButton.tag = 16;
             [TotalAftertaste_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -494,9 +494,9 @@
             TotalBody_He = (UILabel*)[cell viewWithTag:5];
             UIButton *TotalBody_HeButton = (UIButton*)[cell viewWithTag:6];
             
-            TotalBody_Li.text = [tableDic objectForKey:@"body_light"];
-            TotalBody_Me.text = [tableDic objectForKey:@"body_medium"];
-            TotalBody_He.text = [tableDic objectForKey:@"body_heavy"];
+            TotalBody_Li.text = mTotalBody_Li;//[tableDic objectForKey:@"body_light"];
+            TotalBody_Me.text = mTotalBody_Me;//[tableDic objectForKey:@"body_medium"];
+            TotalBody_He.text = mTotalBody_He;//[tableDic objectForKey:@"body_heavy"];
             
             TotalBody_LiButton.tag = 18;
             [TotalBody_LiButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -517,8 +517,8 @@
             TotalBalance_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalBalance_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalBalance_Po.text = [tableDic objectForKey:@"balance_po"];
-            TotalBalance_Ne.text = [tableDic objectForKey:@"balance_ne"];
+            TotalBalance_Po.text = mTotalBalance_Po;//[tableDic objectForKey:@"balance_po"];
+            TotalBalance_Ne.text = mTotalBalance_Ne;//[tableDic objectForKey:@"balance_ne"];
             
             TotalBalance_PoButton.tag = 21;
             [TotalBalance_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -537,8 +537,8 @@
             TotalMouthfeel_Ne = (UILabel*)[cell viewWithTag:3];
             UIButton *TotalMouthfeel_NeButton = (UIButton*)[cell viewWithTag:4];
             
-            TotalMouthfeel_Po.text = [tableDic objectForKey:@"mouthfeel_po"];
-            TotalMouthfeel_Ne.text = [tableDic objectForKey:@"mouthfeel_ne"];
+            TotalMouthfeel_Po.text = mTotalMouthfeel_Po;//[tableDic objectForKey:@"mouthfeel_po"];
+            TotalMouthfeel_Ne.text = mTotalMouthfeel_Ne;//[tableDic objectForKey:@"mouthfeel_ne"];
             
             TotalMouthfeel_PoButton.tag = 23;
             [TotalMouthfeel_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];

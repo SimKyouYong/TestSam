@@ -30,8 +30,6 @@
 @synthesize noteTextView;
 @synthesize myTotalScore;
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     fix_position = 0;
