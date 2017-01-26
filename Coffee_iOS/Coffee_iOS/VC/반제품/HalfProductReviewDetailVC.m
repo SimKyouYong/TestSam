@@ -63,94 +63,94 @@
                 [title_Arr addObject:@"MEMO"];
                 
                 // Cell1
-                NSString *Floral = [dic objectForKey:@"floral"];
+                NSString *Floral = [[dic objectForKey:@"floral"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *totalValue = @"";
                 
                 if(Floral.length != 0){
                     totalValue = [NSString stringWithFormat:@" Floral : %@\n", Floral];
                 }
                 
-                NSString *Fruity = [dic objectForKey:@"fruity"];
+                NSString *Fruity = [[dic objectForKey:@"fruity"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Fruity.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Fruity : %@\n", totalValue, Fruity];
                 }
                 
-                NSString *Alcoholic = [dic objectForKey:@"alcoholic"];
+                NSString *Alcoholic = [[dic objectForKey:@"alcoholic"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Alcoholic.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Alcoholic : %@\n", totalValue, Alcoholic];
                 }
                 
-                NSString *Herb = [dic objectForKey:@"herb"];
+                NSString *Herb = [[dic objectForKey:@"herb"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Herb.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Herb/Vegetative : %@\n", totalValue, Herb];
                 }
                 
-                NSString *Spice = [dic objectForKey:@"spice"];
+                NSString *Spice = [[dic objectForKey:@"spice"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Spice.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Spice : %@\n", totalValue, Spice];
                 }
                 
-                NSString *Sweet = [dic objectForKey:@"sweet"];
+                NSString *Sweet = [[dic objectForKey:@"sweet"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Sweet.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Sweet : %@\n", totalValue, Sweet];
                 }
                 
-                NSString *Nut = [dic objectForKey:@"nut"];
+                NSString *Nut = [[dic objectForKey:@"nut"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Nut.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Nut : %@\n", totalValue, Nut];
                 }
                 
-                NSString *Chocolate = [dic objectForKey:@"chocolate"];
+                NSString *Chocolate = [[dic objectForKey:@"chocolate"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Chocolate.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Chocolate : %@\n", totalValue, Chocolate];
                 }
                 
-                NSString *Green = [dic objectForKey:@"grain"];
+                NSString *Green = [[dic objectForKey:@"grain"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Green.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Green : %@\n", totalValue, Green];
                 }
                 
-                NSString *Roast = [dic objectForKey:@"roast"];
+                NSString *Roast = [[dic objectForKey:@"roast"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Roast.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Roast : %@\n", totalValue, Roast];
                 }
                 
-                NSString *Savory = [dic objectForKey:@"savory"];
+                NSString *Savory = [[dic objectForKey:@"savory"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Savory.length != 0){
                     totalValue = [NSString stringWithFormat:@"%@ Savory : %@\n", totalValue, Savory];
                 }
               
                 // Cell2
-                NSString *Fermentd = [dic objectForKey:@"fermented"];
+                NSString *Fermentd = [[dic objectForKey:@"fermented"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *totalValue2 = @"";
                 
                 if(Fermentd.length != 0){
                     totalValue2 = [NSString stringWithFormat:@" Fermentd : %@\n", Fermentd];
                 }
                 
-                NSString *Chemical = [dic objectForKey:@"chemical"];
+                NSString *Chemical = [[dic objectForKey:@"chemical"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Chemical.length != 0){
                     totalValue2 = [NSString stringWithFormat:@"%@ Chemical : %@\n", totalValue2, Chemical];
                 }
                 
-                NSString *Green2 = [dic objectForKey:@"green"];
+                NSString *Green2 = [[dic objectForKey:@"green"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Green2.length != 0){
                     totalValue2 = [NSString stringWithFormat:@"%@ Green : %@\n", totalValue2, Green2];
                 }
                 
-                NSString *Musty = [dic objectForKey:@"musty"];
+                NSString *Musty = [[dic objectForKey:@"musty"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(Musty.length != 0){
                     totalValue2 = [NSString stringWithFormat:@"%@ Musty : %@\n", totalValue2, Musty];
                 }
                 
-                NSString *RoastDefect = [dic objectForKey:@"roastdefect"];
+                NSString *RoastDefect = [[dic objectForKey:@"roastdefect"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 if(RoastDefect.length != 0){
                     totalValue2 = [NSString stringWithFormat:@"%@ RoastDefect : %@\n", totalValue2, RoastDefect];
                 }
                 
                 // Cell3
-                NSString *aftertaste_po = [dic objectForKey:@"aftertaste_po"];
-                NSString *aftertaste_ne = [dic objectForKey:@"aftertaste_ne"];
+                NSString *aftertaste_po = [[dic objectForKey:@"aftertaste_po"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
+                NSString *aftertaste_ne = [[dic objectForKey:@"aftertaste_ne"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *aftertaste_total = @"";
                 if(aftertaste_po.length != 0){
                     aftertaste_total = [NSString stringWithFormat:@" Po : %@\n", aftertaste_po];
@@ -160,8 +160,8 @@
                 }
                 
                 // Cell4
-                NSString *acidity_po = [dic objectForKey:@"acidity_po"];
-                NSString *acidity_ne = [dic objectForKey:@"acidity_ne"];
+                NSString *acidity_po = [[dic objectForKey:@"acidity_po"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
+                NSString *acidity_ne = [[dic objectForKey:@"acidity_ne"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *acidity_total = @"";
                 if(acidity_po.length != 0){
                     acidity_total = [NSString stringWithFormat:@" Po : %@\n", acidity_po];
@@ -171,9 +171,9 @@
                 }
                 
                 // Cell5
-                NSString *body_light = [dic objectForKey:@"body_light"];
-                NSString *body_medium = [dic objectForKey:@"body_medium"];
-                NSString *body_heavy = [dic objectForKey:@"body_heavy"];
+                NSString *body_light = [[dic objectForKey:@"body_light"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
+                NSString *body_medium = [[dic objectForKey:@"body_medium"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
+                NSString *body_heavy = [[dic objectForKey:@"body_heavy"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *body_total = @"";
                 
                 if(body_light.length != 0){
@@ -187,8 +187,8 @@
                 }
                 
                 // Cell6
-                NSString *balance_po = [dic objectForKey:@"balance_po"];
-                NSString *balance_ne = [dic objectForKey:@"balance_ne"];
+                NSString *balance_po = [[dic objectForKey:@"balance_po"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
+                NSString *balance_ne = [[dic objectForKey:@"balance_ne"]stringByReplacingOccurrencesOfString:@"|" withString:@","];
                 NSString *balance_total = @"";
                 if(balance_po.length != 0){
                     balance_total = [NSString stringWithFormat:@" Po : %@\n", balance_po];
@@ -244,7 +244,7 @@
 {
     NSString *myString = [content_Arr objectAtIndex:indexPath.row];
     CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
-    return labelSize.height + 40;
+    return labelSize.height + 50;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -267,6 +267,8 @@
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
+        cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
+
     }else if(buttonNum == 2){
         
     }else if(buttonNum == 3){
@@ -275,7 +277,8 @@
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
-        
+        cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
+
     }else if(buttonNum == 4){
         
     }

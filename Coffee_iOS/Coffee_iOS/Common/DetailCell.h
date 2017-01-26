@@ -11,9 +11,12 @@
 @interface DetailCell : UITableViewCell{
     UILabel *contentTitle;
     UILabel *contentText;
+    UIView  *vi;
 }
 
 @property (nonatomic) UILabel *contentTitle;
 @property (nonatomic) UILabel *contentText;
+@property (nonatomic) UIView  *vi;
+
 
 @end

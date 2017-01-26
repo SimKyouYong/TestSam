@@ -13,11 +13,12 @@
 
 @synthesize contentText;
 @synthesize contentTitle;
+@synthesize vi;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, WIDTH_FRAME - 20, 30)];
         [contentTitle setBackgroundColor:[UIColor clearColor]];
@@ -34,6 +35,13 @@
         contentText.numberOfLines = 0;
         contentText.font = [UIFont fontWithName:@"Helvetica" size:12.0];
         [self addSubview:contentText];
+        
+        
+        vi = [[UIView alloc] initWithFrame:CGRectMake(10, 30, WIDTH_FRAME - 20, 20)];
+        vi.backgroundColor = [UIColor blackColor];
+
+        [self addSubview:vi];
+        
     }
     return self;
 }

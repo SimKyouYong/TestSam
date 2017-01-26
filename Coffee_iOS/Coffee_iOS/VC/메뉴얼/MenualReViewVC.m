@@ -255,12 +255,12 @@
     [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
 
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", [dic_result3 objectForKey:@"totalavr"]];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
     
-    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", @""];
+    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", [dic_result3 objectForKey:@"totalstd"]];
     NSMutableAttributedString *stdSearch = [[NSMutableAttributedString alloc] initWithString:stdString];
     NSRange s1Range = [stdString rangeOfString:@"TOTAL STD : "];
     [stdSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:s1Range];
@@ -300,7 +300,7 @@
     float etcscore = [[dic_result objectForKey:@"acidity_point"] floatValue] + [[dic_result objectForKey:@"sweetness_point"] floatValue] + [[dic_result objectForKey:@"bitterness_point"] floatValue]
     + [[dic_result objectForKey:@"body_point"] floatValue] + [[dic_result objectForKey:@"aftertaste_point"] floatValue];
     
-    NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", etcscore];
+    NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %@", [dic_result objectForKey:@"mytotalscore"]];
     NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
     NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
     [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];

@@ -168,7 +168,7 @@
             _mDetail4Btn13.text = ([dic_result objectForKey:@"po_point"]);
             _mDetail4Btn15.text = ([dic_result objectForKey:@"ne_point"]);
             
-            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", etcscore];
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %@", [dic_result objectForKey:@"mytotalscore"]];
             NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
             NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
             [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
@@ -271,12 +271,12 @@
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
     
     _mDetail4ArvScore.textColor = [UIColor redColor];
-    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %.2f", totalavrscore];
+    NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", [dic_result3 objectForKey:@"totalavr"]];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];
     [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
     
-    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", @""];
+    NSString *stdString = [NSString stringWithFormat:@"TOTAL STD : %@", [dic_result3 objectForKey:@"totalstd"]];
     NSMutableAttributedString *stdSearch = [[NSMutableAttributedString alloc] initWithString:stdString];
     NSRange s1Range = [stdString rangeOfString:@"TOTAL STD : "];
     [stdSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:s1Range];

@@ -354,7 +354,7 @@
             
             float totalscore = cup1score * 2 + cup2score * 2 + cup3score * 2 + etcscore;
             
-            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %.2f", totalscore];
+            NSString *scoreString = [NSString stringWithFormat:@"MY TOTAL SCORE : %@", [dic_result objectForKey:@"mytotalscore"]];
             NSMutableAttributedString *scoreSearch = [[NSMutableAttributedString alloc] initWithString:scoreString];
             NSRange sRange = [scoreString rangeOfString:@"MY TOTAL SCORE : "];
             [scoreSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
