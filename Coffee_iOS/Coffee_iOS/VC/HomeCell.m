@@ -27,6 +27,8 @@
         
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, WIDTH_FRAME - 20, 116)];
         bgView.backgroundColor = [UIColor whiteColor];
+        bgView.layer.masksToBounds = YES;
+        bgView.layer.cornerRadius = 5.0;
         [self addSubview:bgView];
         
         titleText = [[UILabel alloc] initWithFrame:CGRectMake(20, 16, 200, 18)];

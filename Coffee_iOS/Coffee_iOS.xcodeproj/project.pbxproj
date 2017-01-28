@@ -129,9 +129,7 @@
 		FF67A8B81E2CE97D0039E876 /* PopupListViewCoffee.m in Sources */ = {isa = PBXBuildFile; fileRef = FF67A8B51E2CE97D0039E876 /* PopupListViewCoffee.m */; };
 		FF67A8B91E2CE97D0039E876 /* PopupListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF67A8B71E2CE97D0039E876 /* PopupListViewCell.m */; };
 		FF67A8BE1E2CEA660039E876 /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = FF67A8BA1E2CEA660039E876 /* checkMark.png */; };
-		FF67A8BF1E2CEA660039E876 /* checkMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF67A8BB1E2CEA660039E876 /* checkMark@2x.png */; };
 		FF67A8C01E2CEA660039E876 /* closeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FF67A8BC1E2CEA660039E876 /* closeButton.png */; };
-		FF67A8C11E2CEA660039E876 /* closeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF67A8BD1E2CEA660039E876 /* closeButton@2x.png */; };
 		FF67A8C41E2CEB280039E876 /* PopupListCoffee.m in Sources */ = {isa = PBXBuildFile; fileRef = FF67A8C31E2CEB280039E876 /* PopupListCoffee.m */; };
 		FF67A8C71E2CF4D80039E876 /* PopupListHalf.m in Sources */ = {isa = PBXBuildFile; fileRef = FF67A8C61E2CF4D80039E876 /* PopupListHalf.m */; };
 		FF67A8CA1E2CF5210039E876 /* PopupListMenual.m in Sources */ = {isa = PBXBuildFile; fileRef = FF67A8C91E2CF5210039E876 /* PopupListMenual.m */; };
@@ -301,9 +299,7 @@
 		FF67A8B61E2CE97D0039E876 /* PopupListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupListViewCell.h; sourceTree = "<group>"; };
 		FF67A8B71E2CE97D0039E876 /* PopupListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupListViewCell.m; sourceTree = "<group>"; };
 		FF67A8BA1E2CEA660039E876 /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMark.png; sourceTree = "<group>"; };
-		FF67A8BB1E2CEA660039E876 /* checkMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkMark@2x.png"; sourceTree = "<group>"; };
 		FF67A8BC1E2CEA660039E876 /* closeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButton.png; sourceTree = "<group>"; };
-		FF67A8BD1E2CEA660039E876 /* closeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeButton@2x.png"; sourceTree = "<group>"; };
 		FF67A8C21E2CEB280039E876 /* PopupListCoffee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupListCoffee.h; sourceTree = "<group>"; };
 		FF67A8C31E2CEB280039E876 /* PopupListCoffee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupListCoffee.m; sourceTree = "<group>"; };
 		FF67A8C51E2CF4D80039E876 /* PopupListHalf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupListHalf.h; sourceTree = "<group>"; };
@@ -373,9 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				FF67A8BA1E2CEA660039E876 /* checkMark.png */,
-				FF67A8BB1E2CEA660039E876 /* checkMark@2x.png */,
 				FF67A8BC1E2CEA660039E876 /* closeButton.png */,
-				FF67A8BD1E2CEA660039E876 /* closeButton@2x.png */,
 				FF95E12C1E0EFF3200ADD829 /* menual_bad.png */,
 				FF95E12D1E0EFF3200ADD829 /* menual_good.png */,
 				FF95E12E1E0EFF3200ADD829 /* menual_normal.png */,
@@ -725,7 +719,6 @@
 				6D56BF1F1DF95583005E55BD /* top_logo_200x40@2x.png in Resources */,
 				6D56BF171DF95583005E55BD /* tab6_on_bg_250x94@2x.png in Resources */,
 				6D56BEEC1DF95583005E55BD /* ok2_off_button_330x80@2x.png in Resources */,
-				FF67A8C11E2CEA660039E876 /* closeButton@2x.png in Resources */,
 				6D56BF011DF95583005E55BD /* reviewsamples_button_480x80@2x.png in Resources */,
 				6D56BEF71DF95583005E55BD /* pass_off_button_330x80@2x.png in Resources */,
 				6D56BEF81DF95583005E55BD /* pass_on_button_330x80@2x.png in Resources */,
@@ -798,7 +791,6 @@
 				6D56BF021DF95583005E55BD /* s_logo_132x60@2x.png in Resources */,
 				6D56BEF51DF95583005E55BD /* overall2_button_330x80@2x.png in Resources */,
 				6D56BF0B1DF95583005E55BD /* sweetness_button_330x80@2x.png in Resources */,
-				FF67A8BF1E2CEA660039E876 /* checkMark@2x.png in Resources */,
 				6D56BF1B1DF95583005E55BD /* tab8_on_bg_250x94@2x.png in Resources */,
 				6D56BF0D1DF95583005E55BD /* tab1_on_bg_250x94@2x.png in Resources */,
 				6D56BEE31DF95583005E55BD /* normal_bg_330x80@2x.png in Resources */,

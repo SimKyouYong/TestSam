@@ -38,6 +38,7 @@
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UIView *navigationBarView;
 @property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, assign) BOOL closeAnimated;
@@ -55,6 +56,7 @@
 @protocol PopupListViewDelegate <NSObject>
 
 @optional
+- (void)popupListViewCancel;
 - (void)popupListView:(PopupListViewCoffee *)popupListView didSelectIndex:(NSInteger)index;
 - (void)popupListViewDidHide:(PopupListViewCoffee *)popupListView selectedIndexes:(NSIndexSet *)selectedIndexes dataNameStr:(NSString*)dataNameStr;
 @end

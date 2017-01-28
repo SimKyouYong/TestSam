@@ -28,6 +28,7 @@
 // THE SOFTWARE.
 
 #import "PopupListViewCoffee.h"
+#import "GlobalHeader.h"
 
 #define navigationBarHeight 44.0f
 #define separatorLineHeight 1.0f
@@ -59,7 +60,13 @@ static BOOL isShown = false;
 - (id)initWithTitle:(NSString *)title list:(NSArray *)list selectedIndexes:(NSIndexSet *)selectedList point:(CGPoint)point size:(CGSize)size multipleSelection:(BOOL)multipleSelection disableBackgroundInteraction:(BOOL)diableInteraction dataName:(NSString *)dataName{
     self.dataNameValue = dataName;
     
-    CGRect contentFrame = CGRectMake(point.x, point.y,size.width,size.height);
+    NSInteger contentHeight = 0;
+    if(point.y + 45 + (44 * [list count]) + 40 >= HEIGHT_FRAME){
+        contentHeight = 45 + (44 * 4) + 40;
+    }else{
+        contentHeight = 45 + (44 * [list count]) + 40;
+    }
+    CGRect contentFrame = CGRectMake(point.x, point.y,size.width, contentHeight);
     
     if (diableInteraction){
         self = [super initWithFrame:[UIScreen mainScreen].bounds];
@@ -72,8 +79,8 @@ static BOOL isShown = false;
         //Content View
         contentView = [[UIView alloc] initWithFrame:contentFrame];
         
-        contentView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(108.0/255.0) blue:(192.0/255.0) alpha:0.7];
-        //contentView.backgroundColor = [UIColor whiteColor];
+        //contentView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(108.0/255.0) blue:(192.0/255.0) alpha:0.7];
+        contentView.backgroundColor = [UIColor whiteColor];
         
         self.cellHighlightColor = [UIColor colorWithRed:(0.0/255.0) green:(60.0/255.0) blue:(127.0/255.0) alpha:0.5f];
         
@@ -83,31 +90,38 @@ static BOOL isShown = false;
         self.isMultipleSelection = multipleSelection;
 
         self.navigationBarView = [[UIView alloc] init];
-        self.navigationBarView.backgroundColor = [UIColor colorWithRed:(0.0/255.0) green:(108.0/255.0) blue:(192.0/255.0) alpha:0.7];
+        self.navigationBarView.backgroundColor = [UIColor whiteColor];//[UIColor colorWithRed:(0.0/255.0) green:(108.0/255.0) blue:(192.0/255.0) alpha:0.7];
         [contentView addSubview:self.navigationBarView];
 
         self.separatorLineView = [[UIView alloc] init];
-        self.separatorLineView.backgroundColor = [UIColor whiteColor];
+        self.separatorLineView.backgroundColor = [UIColor blueColor];
         [contentView addSubview:self.separatorLineView];
         
         self.titleLabel = [[UILabel alloc] init];
-        self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.backgroundColor = [UIColor whiteColor];
         self.titleLabel.text = self.navigationBarTitle;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
-        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel.textColor = [UIColor blueColor];
         [self.navigationBarView addSubview:self.titleLabel];
-        
-        self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.closeButton setImage:[UIImage imageNamed:@"closeButton"] forState:UIControlStateNormal];
-        [self.closeButton addTarget:self action:@selector(closeButtonClicked:) forControlEvents: UIControlEventTouchUpInside];
-        [self.navigationBarView addSubview:self.closeButton];
         
         self.tableView = [[UITableView alloc] init];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.separatorColor = [UIColor colorWithWhite:1.0f alpha:0.2f];
-        self.tableView.backgroundColor = [UIColor clearColor];
+        self.tableView.backgroundColor = [UIColor yellowColor];
         [contentView addSubview:self.tableView];
+        
+        self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.cancelButton setTitle:@"취소" forState:UIControlStateNormal];
+        [self.cancelButton addTarget:self action:@selector(cancelButtonClicked:) forControlEvents: UIControlEventTouchUpInside];
+        [contentView addSubview:self.cancelButton];
+        
+        self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.closeButton setTitle:@"확인" forState:UIControlStateNormal];
+        [self.closeButton addTarget:self action:@selector(closeButtonClicked:) forControlEvents: UIControlEventTouchUpInside];
+        [contentView addSubview:self.closeButton];
         
         [self addSubview:contentView];
     }
@@ -129,11 +143,28 @@ static BOOL isShown = false;
     
     self.separatorLineView.frame = CGRectMake(0.0f, self.navigationBarView.frame.size.height, contentView.frame.size.width, separatorLineHeight);
     
-    self.closeButton.frame = CGRectMake((self.navigationBarView.frame.size.width-closeButtonWidth), 0.0f, closeButtonWidth, self.navigationBarView.frame.size.height);
-    
     self.titleLabel.frame = CGRectMake(navigationBarTitlePadding, 0.0f, (self.navigationBarView.frame.size.width-closeButtonWidth-(navigationBarTitlePadding * 2)), navigationBarHeight);
     
-    self.tableView.frame = CGRectMake(0.0f, (navigationBarHeight + separatorLineHeight), contentView.frame.size.width, (contentView.frame.size.height-(navigationBarHeight + separatorLineHeight)));
+    self.tableView.frame = CGRectMake(0.0f, (navigationBarHeight + separatorLineHeight), contentView.frame.size.width, (contentView.frame.size.height-(navigationBarHeight + separatorLineHeight)) - 40);
+    
+    self.cancelButton.frame = CGRectMake(0, contentView.frame.size.height - 40, self.tableView.frame.size.width/2, 40);
+    
+    self.closeButton.frame = CGRectMake(self.tableView.frame.size.width/2, contentView.frame.size.height - 40, self.tableView.frame.size.width/2, 40);
+}
+
+- (void)cancelButtonClicked:(id)sender
+{
+    [UIView animateWithDuration:animationsDuration animations:^{
+        contentView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        isShown = false;
+        
+        if (self.isMultipleSelection) {
+            [self.delegate popupListViewCancel];
+        }
+        
+        [self removeFromSuperview];
+    }];
 }
 
 - (void)closeButtonClicked:(id)sender
@@ -185,9 +216,7 @@ static BOOL isShown = false;
         if ([self.selectedIndexes containsIndex:indexPath.row]) {
             [self.selectedIndexes removeIndex:indexPath.row];
         } else {
-            NSLog(@"%ld", indexPath.row);
             [self.selectedIndexes addIndex:indexPath.row];
-            NSLog(@"%@", self.selectedIndexes);
         }
 
         [self.tableView reloadData];

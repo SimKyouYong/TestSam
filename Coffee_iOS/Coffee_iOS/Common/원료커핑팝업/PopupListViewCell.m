@@ -40,7 +40,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.textColor = [UIColor blackColor];
         self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
         
         self.rightImageView = [UIImageView new];

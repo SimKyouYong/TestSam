@@ -872,6 +872,10 @@
     [self submitButton:gidNumStr name:dataNameStr];
 }
 
+- (void)popupListViewCancel{
+    popupView.hidden = YES;
+}
+
 - (void)submitButton:(NSString *)value name:(NSString *)name{
     if([name isEqualToString:@"Floral"]){
         TotalFloral.text = value;

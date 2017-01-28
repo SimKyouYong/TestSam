@@ -10,7 +10,7 @@
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
 #import "PopupListViewCoffee.h"
-#import "PopupListCoffee.h"
+#import "PopupListHalf.h"
 
 @interface HalfProductFirstVC () <PopupListViewDelegate>
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
@@ -1083,7 +1083,7 @@
     popupView.hidden = NO;
     self.selectedIndexes = [[NSMutableIndexSet alloc] init];
     listArr = [[NSMutableArray alloc] init];
-    listArr = [PopupListCoffee list:nameValue];
+    listArr = [PopupListHalf list:nameValue];
     NSMutableArray *choseListArr = [[NSMutableArray alloc] init];
     
     // 팝업띄울때 선택되어지는 값들
@@ -1139,6 +1139,10 @@
     //NSLog(@"gidNum : %@", gidNumStr);
     
     [self submitButton:gidNumStr name:dataNameStr];
+}
+
+- (void)popupListViewCancel{
+    popupView.hidden = YES;
 }
 
 - (void)submitButton:(NSString *)value name:(NSString *)name{
