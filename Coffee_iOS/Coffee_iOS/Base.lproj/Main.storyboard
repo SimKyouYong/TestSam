@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -580,11 +580,11 @@
                         <viewControllerLayoutGuide type="bottom" id="30M-2i-85i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qS2-RM-A2g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="3aD-2w-wTb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZE-fb-8be">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -630,7 +630,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-sV-UOj">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="950" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2C-J9-qng">
                                         <rect key="frame" x="10" y="5" width="40" height="40"/>
@@ -667,10 +667,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-p4-f1L">
-                                <rect key="frame" x="0.0" y="100" width="600" height="450"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="850"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-2R-sOl">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="850"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-sY-lvB">
@@ -904,11 +904,12 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKe-MD-6w8">
                                         <rect key="frame" x="10" y="550" width="285" height="40"/>
+                                        <color key="backgroundColor" red="0.83168026139999995" green="0.83050891589999998" blue="0.85096940450000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dkN-pu-VP4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="PASS" backgroundImage="text_bg_160x60.png">
+                                        <state key="normal" title="PASS">
                                             <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -917,11 +918,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mak-vn-bVm">
                                         <rect key="frame" x="305" y="550" width="285" height="40"/>
+                                        <color key="backgroundColor" red="0.83168026139999995" green="0.83050891589999998" blue="0.85096940450000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="JjA-6Z-rBa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="RETEST" backgroundImage="text_bg_160x60.png">
+                                        <state key="normal" title="RETEST">
                                             <color key="titleColor" red="0.5637395382" green="0.56372267009999999" blue="0.56373220680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -996,7 +998,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="NVf-fK-8ww"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="acidityButton" destination="Nky-Ak-Uel" id="ZnM-Yq-vzf"/>
                         <outlet property="aftertasteButton" destination="xLe-cW-Fji" id="Zni-Ic-Lmo"/>
@@ -1005,6 +1007,8 @@
                         <outlet property="bodyButton" destination="7Mx-Pz-eXy" id="8eN-Ib-yL2"/>
                         <outlet property="halfSecondScrollView" destination="nWA-p4-f1L" id="UOy-D0-V7f"/>
                         <outlet property="halfSecondTextView" destination="oSd-R6-sFq" id="y2j-jy-kK5"/>
+                        <outlet property="mPassBtn" destination="KKe-MD-6w8" id="hZu-Ac-LJf"/>
+                        <outlet property="mRetestBtn" destination="mak-vn-bVm" id="dYc-TQ-QoR"/>
                         <outlet property="myTotalScore" destination="x4Q-hN-qH5" id="unM-3y-Zj6"/>
                         <outlet property="neButton" destination="FHp-Dl-VJK" id="6ce-XP-VSI"/>
                         <outlet property="noteTextView" destination="oSd-R6-sFq" id="jaY-Gz-dyo"/>

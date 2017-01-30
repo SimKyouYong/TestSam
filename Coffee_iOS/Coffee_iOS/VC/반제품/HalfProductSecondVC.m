@@ -29,6 +29,8 @@
 @synthesize neButton;
 @synthesize noteTextView;
 @synthesize myTotalScore;
+@synthesize mRetestBtn;
+@synthesize mPassBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -169,10 +171,33 @@
             
             if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
                 mOkNotokflag = YES;
+                mOkflag = NO;
+                mPassBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                                                           green:13/255.0
+                                                            blue:32/255.0
+                                                           alpha:1.0];
+                [mPassBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                mRetestBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                                                             green:228/255.0
+                                                              blue:228/255.0
+                                                             alpha:1.0];
+                [mRetestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
 
             }else{
                 mOkNotokflag = YES;
+                mOkflag = YES;
+                mRetestBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                                                             green:13/255.0
+                                                              blue:32/255.0
+                                                             alpha:1.0];
+                [mRetestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                mPassBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                                                           green:228/255.0
+                                                            blue:228/255.0
+                                                           alpha:1.0];
+                [mPassBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+
             }
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -298,10 +323,45 @@
 
 - (IBAction)passButton:(id)sender{
     mOkNotokflag = YES;
+//    mPassBtn.setBackgroundResource(R.drawable.detail1_back1);
+//    mPassBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_ffffff));
+//    mRetestBtn.setBackgroundResource(R.drawable.detail1_back2);
+//    mRetestBtn.setTextColor(ContextCompat.getColor(getApplication(), R.color.color_888888));
+//    mOkNotokflag = true;
+//    mOkflag = false;
+
+    mPassBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                                                         green:13/255.0
+                                                          blue:32/255.0
+                                                         alpha:1.0];
+    [mPassBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    mRetestBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                                               green:228/255.0
+                                                blue:228/255.0
+                                               alpha:1.0];
+    
+    [mRetestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+
+
 }
 
 - (IBAction)retestButton:(id)sender{
     mOkNotokflag = YES;
+    
+    mRetestBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                                               green:13/255.0
+                                                blue:32/255.0
+                                               alpha:1.0];
+    [mRetestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    mPassBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                                                 green:228/255.0
+                                                  blue:228/255.0
+                                                 alpha:1.0];
+    
+    [mPassBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+
 }
 
 - (IBAction)prevButton:(id)sender {

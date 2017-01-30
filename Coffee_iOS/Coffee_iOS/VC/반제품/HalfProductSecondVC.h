@@ -23,6 +23,8 @@
     NSString *mTotalScore;
     
     BOOL mOkNotokflag;
+    BOOL mOkflag;
+    
     int fix_position;
 }
 
@@ -66,5 +68,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 
+@property (weak, nonatomic) IBOutlet UIButton *mPassBtn;
+@property (weak, nonatomic) IBOutlet UIButton *mRetestBtn;
 
 @end
