@@ -34,6 +34,8 @@
 @synthesize cup15;
 @synthesize toptitle;
 @synthesize coffeeFourTextView;
+@synthesize mNOTOKBtn;
+@synthesize mOkBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

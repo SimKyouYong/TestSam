@@ -18,6 +18,7 @@
     NSString *mSample_idx;
     
     BOOL mOkNotokflag;
+    BOOL mOkflag;
 
 }
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
@@ -49,6 +50,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *cup13;
 @property (weak, nonatomic) IBOutlet UIButton *cup14;
 @property (weak, nonatomic) IBOutlet UIButton *cup15;
+
+@property (weak, nonatomic) IBOutlet UIButton *mOkBtn;
+@property (weak, nonatomic) IBOutlet UIButton *mNOTOKBtn;
+
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;

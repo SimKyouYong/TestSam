@@ -580,11 +580,11 @@
                         <viewControllerLayoutGuide type="bottom" id="30M-2i-85i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qS2-RM-A2g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="3aD-2w-wTb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZE-fb-8be">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -630,7 +630,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-sV-UOj">
-                                <rect key="frame" x="0.0" y="950" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2C-J9-qng">
                                         <rect key="frame" x="10" y="5" width="40" height="40"/>
@@ -667,10 +667,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-p4-f1L">
-                                <rect key="frame" x="0.0" y="100" width="600" height="850"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="450"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-2R-sOl">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-sY-lvB">
@@ -998,7 +998,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="NVf-fK-8ww"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="acidityButton" destination="Nky-Ak-Uel" id="ZnM-Yq-vzf"/>
                         <outlet property="aftertasteButton" destination="xLe-cW-Fji" id="Zni-Ic-Lmo"/>
@@ -6120,6 +6120,8 @@
                         <outlet property="cup8" destination="A8a-QQ-YK0" id="zXf-u0-uvk"/>
                         <outlet property="cup9" destination="vYu-EK-Pw7" id="nRn-bW-HdY"/>
                         <outlet property="flavorButton" destination="nTh-sn-8gM" id="tBc-ik-ed0"/>
+                        <outlet property="mNOTOKBtn" destination="YNY-sG-4Mo" id="z2I-WT-v8N"/>
+                        <outlet property="mOkBtn" destination="zmV-IU-nxt" id="42x-Ys-YNF"/>
                         <outlet property="overallButton" destination="XJV-Cd-y6b" id="loY-2c-OvM"/>
                         <outlet property="toptitle" destination="qCy-sn-GTF" id="rbw-uJ-yT7"/>
                     </connections>
