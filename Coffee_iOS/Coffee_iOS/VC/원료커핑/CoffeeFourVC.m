@@ -328,9 +328,15 @@
 }
 
 - (IBAction)okButton:(id)sender {
+    mOkNotokflag = YES;
+    [mOkBtn setImage:[UIImage imageNamed:@"ok_on_button_330x80"] forState:UIControlStateNormal];
+    [mNOTOKBtn setImage:[UIImage imageNamed:@"notok_off_button_330x80"] forState:UIControlStateNormal];
 }
 
 - (IBAction)notOkButton:(id)sender {
+    mOkNotokflag = NO;
+    [mOkBtn setImage:[UIImage imageNamed:@"ok_off_button_330x80.png"] forState:UIControlStateNormal];
+    [mNOTOKBtn setImage:[UIImage imageNamed:@"notok_on_button_330x80"] forState:UIControlStateNormal];
 }
 
 - (void)selectButton{
