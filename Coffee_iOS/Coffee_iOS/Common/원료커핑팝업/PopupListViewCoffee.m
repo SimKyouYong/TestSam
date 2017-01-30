@@ -108,7 +108,7 @@ static BOOL isShown = false;
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.separatorColor = [UIColor colorWithWhite:1.0f alpha:0.2f];
-        self.tableView.backgroundColor = [UIColor yellowColor];
+        self.tableView.backgroundColor = [UIColor whiteColor];
         [contentView addSubview:self.tableView];
         
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
