@@ -49,7 +49,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    [halfScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 740)];
+    [halfScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 1150)];
 }
 
 - (void) firstInit{

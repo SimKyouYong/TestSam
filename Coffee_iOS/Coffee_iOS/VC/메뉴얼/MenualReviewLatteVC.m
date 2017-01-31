@@ -287,7 +287,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    [menualReviewLatteScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 580)];
+    [menualReviewLatteScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 700)];
 }
 
 #pragma mark -

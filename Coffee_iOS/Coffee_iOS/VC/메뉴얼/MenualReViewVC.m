@@ -115,7 +115,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 640)];
+    [menualScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 900)];
 }
 
 - (void)Init:(NSInteger)position{

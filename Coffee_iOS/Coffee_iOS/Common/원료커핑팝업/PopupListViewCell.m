@@ -55,7 +55,7 @@
 
     self.textLabel.frame = CGRectOffset(self.textLabel.frame, 6, 0);
     
-    self.rightImageView.frame = CGRectMake((self.frame.size.width - rightImageViewWidth), 0.0f, rightImageViewWidth, self.frame.size.height);
+    self.rightImageView.frame = CGRectMake((self.frame.size.width - rightImageViewWidth - 10), 2.0f, rightImageViewWidth, self.frame.size.height - 4);
     
     if (self.rightImageView.image) {
         CGRect textLabelFrame = self.textLabel.frame;

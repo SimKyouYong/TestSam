@@ -104,7 +104,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
-    [coffeeReviewScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 1075)];
+    [coffeeReviewScrollView setContentSize:CGSizeMake(WIDTH_FRAME, 1585)];
 }
 
 - (void)Init:(NSInteger)position{

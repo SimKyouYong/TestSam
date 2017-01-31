@@ -198,7 +198,8 @@ static BOOL isShown = false;
         if ([self.selectedIndexes containsIndex:indexPath.row]) {
             cell.rightImageView.image = [UIImage imageNamed:@"checkMark"];
         } else {
-            cell.rightImageView.image = nil;
+            //cell.rightImageView.image = nil;
+            cell.rightImageView.image = [UIImage imageNamed:@"checkMark_off"];
         }
     }
     
