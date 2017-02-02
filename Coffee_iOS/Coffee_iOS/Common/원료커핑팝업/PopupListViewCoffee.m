@@ -112,8 +112,12 @@ static BOOL isShown = false;
         [contentView addSubview:self.tableView];
         
         self.buttonLineView = [[UIView alloc] init];
-        self.separatorLineView.backgroundColor = [UIColor blueColor];
-        [contentView addSubview:self.separatorLineView];
+        self.buttonLineView.backgroundColor = [UIColor grayColor];
+        [contentView addSubview:self.buttonLineView];
+        
+        self.buttonLineCenterView = [[UIView alloc] init];
+        self.buttonLineCenterView.backgroundColor = [UIColor grayColor];
+        [contentView addSubview:self.buttonLineCenterView];
         
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -150,6 +154,10 @@ static BOOL isShown = false;
     self.titleLabel.frame = CGRectMake(navigationBarTitlePadding, 0.0f, (self.navigationBarView.frame.size.width-closeButtonWidth-(navigationBarTitlePadding * 2)), navigationBarHeight);
     
     self.tableView.frame = CGRectMake(0.0f, (navigationBarHeight + separatorLineHeight), contentView.frame.size.width, (contentView.frame.size.height-(navigationBarHeight + separatorLineHeight)) - 40);
+    
+    self.buttonLineView.frame = CGRectMake(0.0f, contentView.frame.size.height - 40, self.tableView.frame.size.width, 1);
+    
+    self.buttonLineCenterView.frame = CGRectMake(self.tableView.frame.size.width/2, contentView.frame.size.height - 40, 0.5, 40);
     
     self.cancelButton.frame = CGRectMake(0, contentView.frame.size.height - 40, self.tableView.frame.size.width/2, 40);
     
@@ -205,6 +213,14 @@ static BOOL isShown = false;
             //cell.rightImageView.image = nil;
             cell.rightImageView.image = [UIImage imageNamed:@"checkMark_off"];
         }
+    }
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height - 0.5, self.tableView.frame.size.width, 0.5)];
+    lineView.backgroundColor = [UIColor grayColor];
+    [cell addSubview:lineView];
+    
+    if(indexPath.row == [self.arrayList count] - 1){
+        lineView.hidden = YES;
     }
     
     return cell;

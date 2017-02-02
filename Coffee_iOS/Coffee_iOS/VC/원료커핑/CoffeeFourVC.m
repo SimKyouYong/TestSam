@@ -36,6 +36,7 @@
 @synthesize coffeeFourTextView;
 @synthesize mNOTOKBtn;
 @synthesize mOkBtn;
+@synthesize myTotalScoreText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,6 +137,13 @@
 }
 
 - (void)init2:(NSDictionary *)dic{
+    myTotalScoreText.textColor = [UIColor redColor];
+    NSString *avrString = [NSString stringWithFormat:@"MY TOTAL SCORE : %@", [dic objectForKey:@"mytotalscore"]];
+    NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
+    NSRange sRange = [avrString rangeOfString:@"MY TOTAL SCORE : "];
+    [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
+    [myTotalScoreText setAttributedText:avrSearch];
+    
     [_aromaButton setTitle:[dic objectForKey:@"aroma_point"] forState:UIControlStateNormal];
     [_flavorButton setTitle:[dic objectForKey:@"flavor_point"] forState:UIControlStateNormal];
     [_acidityButton setTitle:[dic objectForKey:@"acidity_point"] forState:UIControlStateNormal];
@@ -259,8 +267,7 @@
     }
     
     if (!mOkNotokflag){
-        
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"PASS/RETEST 선택해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"OK/NOT OK 선택해 주세요." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {}];
         [alert addAction:ok];
@@ -334,7 +341,7 @@
 }
 
 - (IBAction)notOkButton:(id)sender {
-    mOkNotokflag = NO;
+    mOkNotokflag = YES;
     [mOkBtn setImage:[UIImage imageNamed:@"ok_off_button_330x80.png"] forState:UIControlStateNormal];
     [mNOTOKBtn setImage:[UIImage imageNamed:@"notok_on_button_330x80"] forState:UIControlStateNormal];
 }

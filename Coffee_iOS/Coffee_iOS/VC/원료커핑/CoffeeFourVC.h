@@ -54,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mOkBtn;
 @property (weak, nonatomic) IBOutlet UIButton *mNOTOKBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *myTotalScoreText;
 
 - (IBAction)homeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;

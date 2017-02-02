@@ -255,6 +255,7 @@
     [[dic_result3 objectForKey:@"balance_point"]  floatValue] +
     [[dic_result3 objectForKey:@"sweetness_point"]  floatValue] ;
 
+    totalAVRText.textColor = [UIColor redColor];
     NSString *avrString = [NSString stringWithFormat:@"TOTAL AVR : %@", [dic_result3 objectForKey:@"totalavr"]];
     NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
     NSRange sRange = [avrString rangeOfString:@"TOTAL AVR : "];

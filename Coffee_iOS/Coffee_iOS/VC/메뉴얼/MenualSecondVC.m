@@ -147,7 +147,12 @@
             noteTextView.text = [dic objectForKey:@"note_total"];
             mTotalScore = [NSString stringWithFormat:@"%.1f" , totalscore];
             
-            myTotalScore.text = [NSString stringWithFormat:@"MY TOTAL SCORE : %@" , mTotalScore];
+            myTotalScore.textColor = [UIColor redColor];
+            NSString *avrString = [NSString stringWithFormat:@"MY TOTAL SCORE : %@", mTotalScore];
+            NSMutableAttributedString *avrSearch = [[NSMutableAttributedString alloc] initWithString:avrString];
+            NSRange sRange = [avrString rangeOfString:@"MY TOTAL SCORE : "];
+            [avrSearch addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:sRange];
+            [myTotalScore setAttributedText:avrSearch];
             
             if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
                 mOkNotokflag = YES;
