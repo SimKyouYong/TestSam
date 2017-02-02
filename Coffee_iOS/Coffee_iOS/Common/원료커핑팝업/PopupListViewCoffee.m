@@ -111,6 +111,10 @@ static BOOL isShown = false;
         self.tableView.backgroundColor = [UIColor whiteColor];
         [contentView addSubview:self.tableView];
         
+        self.buttonLineView = [[UIView alloc] init];
+        self.separatorLineView.backgroundColor = [UIColor blueColor];
+        [contentView addSubview:self.separatorLineView];
+        
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.cancelButton setTitle:@"취소" forState:UIControlStateNormal];

@@ -39,6 +39,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) UIView *buttonLineView;
 @property (nonatomic, strong) UIView *navigationBarView;
 @property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, assign) BOOL closeAnimated;

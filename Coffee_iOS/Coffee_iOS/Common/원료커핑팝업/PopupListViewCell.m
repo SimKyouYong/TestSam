@@ -29,7 +29,7 @@
 
 #import "PopupListViewCell.h"
 
-#define rightImageViewWidth 44.0f
+#define rightImageViewWidth 40.0f
 
 @implementation PopupListViewCell
 
@@ -55,7 +55,7 @@
 
     self.textLabel.frame = CGRectOffset(self.textLabel.frame, 6, 0);
     
-    self.rightImageView.frame = CGRectMake((self.frame.size.width - rightImageViewWidth - 10), 2.0f, rightImageViewWidth, self.frame.size.height - 4);
+    self.rightImageView.frame = CGRectMake((self.frame.size.width - rightImageViewWidth - 10), 2.0f, rightImageViewWidth, 40);
     
     if (self.rightImageView.image) {
         CGRect textLabelFrame = self.textLabel.frame;
