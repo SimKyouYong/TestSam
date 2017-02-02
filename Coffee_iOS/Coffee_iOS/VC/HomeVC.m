@@ -248,19 +248,20 @@
         [cell.reviewButton setImage:[UIImage imageNamed:@"on_review_button_226x68"] forState:UIControlStateNormal];
         
     } else if([[dic objectForKey:@"state"] isEqualToString:@"W"]){
+        
+        [cell.cuppingButton setImage:[UIImage imageNamed:@"on_cupping_button_226x68"] forState:UIControlStateNormal];
+        [cell.reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
+
         if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
             [cell.sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
         }else {
             [cell.sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
         }
-        
-        [cell.cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
-        
     } else {
         [cell.cuppingButton setImage:[UIImage imageNamed:@"on2_cupping_button_226x68"] forState:UIControlStateNormal];
         [cell.reviewButton setImage:[UIImage imageNamed:@"off_review_button_226x68"] forState:UIControlStateNormal];
 
-        if ([[dic objectForKey:@"isblind"] isEqualToString:@"N"]) {
+        if ([[dic objectForKey:@"isblind"] isEqualToString:@"Y"]) {
             [cell.sampleButton setImage:[UIImage imageNamed:@"on_sample_button_226x68"] forState:UIControlStateNormal];
         }else {
             [cell.sampleButton setImage:[UIImage imageNamed:@"off_sample_button_226x68"] forState:UIControlStateNormal];
