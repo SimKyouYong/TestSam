@@ -409,7 +409,8 @@
         }
         
         NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
-        
+        NSString *name = [dic objectForKey:@"result_membername"];
+
         NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
         NSLog(@"SKY4 URL : %@" , urlString);
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -430,6 +431,11 @@
                 bitternessRightText.text = ([dic_result3 objectForKey:@"bitterness_point"]);
                 bodyRightText.text = ([dic_result3 objectForKey:@"body_point"]);
                 aftertasteRightText.text = ([dic_result3 objectForKey:@"aftertaste_point"]);
+                if (buttonIndex == 0) {
+                    topAvrLabel.text =[NSString stringWithFormat:@"AVR(%lu)명" , ([datas3 count]-1)] ;
+                }else{
+                    topAvrLabel.text =[NSString stringWithFormat:@"%@" , name] ;
+                }
                 
             }else{
                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];

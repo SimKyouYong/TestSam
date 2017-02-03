@@ -18,8 +18,9 @@
     NSDictionary *tableDic;
     
     BOOL mOkNotokflag;
-    
+
     NSString *mTotalScore;
+    NSString *mType;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualSecondScrollView;
@@ -36,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *bitternessButton;
 @property (weak, nonatomic) IBOutlet UIButton *bodyButton;
 @property (weak, nonatomic) IBOutlet UIButton *aftertasteButton;
+@property (weak, nonatomic) IBOutlet UIButton *OX;
 
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 

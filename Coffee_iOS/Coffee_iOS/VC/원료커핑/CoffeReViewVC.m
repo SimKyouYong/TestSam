@@ -637,7 +637,7 @@
         }
         
         NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
-    
+        NSString *name = [dic objectForKey:@"result_membername"];
         mUserID = [dic objectForKey:@"result_memberid"];
         NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
         NSLog(@"SKY4 URL : %@" , urlString);
@@ -664,7 +664,12 @@
                 _mDetail4Btn16.text = [dic objectForKey:@"uniformity_point"];
                 _mDetail4Btn18.text = [dic objectForKey:@"cleancup_point"];
                 _mDetail4Btn20.text = [dic objectForKey:@"sweetness_point"];
-   
+                if (buttonIndex == 0) {
+                    _topAvrLabel.text =[NSString stringWithFormat:@"AVR(%lu)명" , ([datas3 count]-1)] ;
+                }else{
+                    _topAvrLabel.text =[NSString stringWithFormat:@"%@" , name] ;
+                }
+                
             }else{
                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
                 

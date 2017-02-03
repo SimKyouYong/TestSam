@@ -87,4 +87,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *topMyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topAvrLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *LB;
+@property (weak, nonatomic) IBOutlet UIButton *RB;
+
 @end

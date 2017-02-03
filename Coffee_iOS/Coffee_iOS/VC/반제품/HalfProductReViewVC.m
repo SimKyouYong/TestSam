@@ -22,6 +22,8 @@
 @synthesize topMyLabel;
 @synthesize topAvrLabel;
 @synthesize Title;
+@synthesize RB;
+@synthesize LB;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,7 +112,6 @@
     }];
     [dataTask resume];
 }
-
 - (void)Init:(NSInteger)position{
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld", REVIEW_URL2, USER_ID, (long)position];
     NSLog(@"SKY2 URL : %@" , urlString);
@@ -250,9 +251,11 @@
     }
   
     if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
-        //mOkBtn.setText("PASS");
+        [LB setTitle:@"PASS" forState:UIControlStateNormal];
+    } else if([@"N" isEqualToString:[dic_result3 objectForKey:@"isok"]]){
+        [LB setTitle:@"RETEST" forState:UIControlStateNormal];
     } else {
-        //mOkBtn.setText("RETEST");
+        [LB setTitle:@"" forState:UIControlStateNormal];
     }
     
     if (mARVflag){
@@ -369,7 +372,8 @@
         }
         
         NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
-        
+        NSString *name = [dic objectForKey:@"result_membername"];
+
         NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
         NSLog(@"SKY4 URL : %@" , urlString);
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -393,7 +397,20 @@
                 _mDetail4Btn12.text = [dic objectForKey:@"aftertaste_point"];
                 _mDetail4Btn14.text = [dic objectForKey:@"po_point"];
                 _mDetail4Btn16.text = [dic objectForKey:@"ne_point"];
+                if (buttonIndex == 0) {
+                    topAvrLabel.text =[NSString stringWithFormat:@"AVR(%lu)명" , ([datas3 count]-1)] ;
+                }else{
+                    topAvrLabel.text =[NSString stringWithFormat:@"%@" , name] ;
+                }
                 
+             
+                
+                if ([@"Y" isEqualToString:[dic_result3 objectForKey:@"isok"]]) {
+                    [RB setTitle:@"PASS" forState:UIControlStateNormal];
+                } else{
+                    [RB setTitle:@"RETEST" forState:UIControlStateNormal];
+                }
+
             }else{
                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic_result3 objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
                 

@@ -156,10 +156,16 @@
             
             if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
                 mOkNotokflag = YES;
+                mType = @"good";
+                [_OX setTitle:@"O" forState:UIControlStateNormal];
             }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
-                
+                mType = @"normal";
+                [_OX setTitle:@"△" forState:UIControlStateNormal];
             }else{
                 mOkNotokflag = YES;
+                mType = @"bad";
+                [_OX setTitle:@"X" forState:UIControlStateNormal];
+
             }
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -210,6 +216,81 @@
 }
 
 - (IBAction)saveButton:(id)sender {
+    NSLog(@"text : %@", noteTextView.text);
+    NSString *result;
+    if ([mType isEqualToString:@"good"]) {
+        result = @"Y";
+    }else if([mType isEqualToString:@"bad"]){
+        result = @"X";
+    }else{
+        result = @"N";
+    }
+    
+    
+    if ([@"" isEqualToString:[NSString stringWithFormat:@"%@", noteTextView.text]]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"총평을 작성해 주세요." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {}];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        //저장
+        NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+        
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        
+//        map.put("url", CommonData.SERVER + "coffee_result_final.php");
+//        map.put("id", commonData.getUserID());
+//        map.put("sample_idx", mSample_idx);
+//        map.put("isok", result);
+//        map.put("note_total", mDetailEdt.getText().toString());
+        
+        
+        NSString *params = [NSString stringWithFormat:@"id=%@&sample_idx=%@&isok=%@&note_total=%@", USER_ID, SAMPLE_IDX, result, [NSString stringWithFormat:@"%@", noteTextView.text]];
+        NSLog(@"메뉴얼 라떼 : %@", params);
+        [urlRequest setHTTPMethod:@"POST"];
+        [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            //NSLog(@"Response:%@ %@\n", response, error);
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            if (statusCode == 200) {
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                NSString *resultValue = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+                NSLog(@"resultValue : %@"  , resultValue);
+                if([[dic objectForKey:@"result"] isEqualToString:@"success"]){
+                    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                         {}];
+                    [alert addAction:ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }else{
+                    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:[dic objectForKey:@"result_message"] preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                         {}];
+                    [alert addAction:ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            }else{
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"알림" message:@"저장에 실패 하였습니다." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {}];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+        [dataTask resume];
+
+    }
+    
+    
+    
 }
 
 - (IBAction)prevButton:(id)sender {
