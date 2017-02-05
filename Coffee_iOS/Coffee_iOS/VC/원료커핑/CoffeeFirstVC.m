@@ -32,7 +32,6 @@
     if (fix_position != MPOSITION) {
         //다르면 실행
         [self Step1];       //통신 1 구간
-
     }
 
 }
@@ -434,25 +433,25 @@
             
             [TotalFruityButton addTarget:self action:@selector(TotalFruityAction:) forControlEvents:UIControlEventTouchUpInside];
             
-            TotalFloralButton.tag = 0;
+            TotalFloralButton.tag = TotalFloral.tag;
             [TotalFloralButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalAlcoholicButton.tag = 2;
+            TotalAlcoholicButton.tag = TotalAlcoholic.tag;
             [TotalAlcoholicButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalHerbButton.tag = 3;
+            TotalHerbButton.tag = TotalHerb.tag;
             [TotalHerbButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSpiceButton.tag = 4;
+            TotalSpiceButton.tag = TotalSpice.tag;
             [TotalSpiceButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSweetButton.tag = 5;
+            TotalSweetButton.tag = TotalSweet.tag;
             [TotalSweetButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalNutButton.tag = 6;
+            TotalNutButton.tag = TotalNut.tag;
             [TotalNutButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalChocolateButton.tag = 7;
+            TotalChocolateButton.tag = TotalChocolate.tag;
             [TotalChocolateButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalGrainButton.tag = 8;
+            TotalGrainButton.tag = TotalGrain.tag;
             [TotalGrainButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalRoastButton.tag = 9;
+            TotalRoastButton.tag = TotalRoast.tag;
             [TotalRoastButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSavoryButton.tag = 10;
+            TotalSavoryButton.tag = TotalSavory.tag;
             [TotalSavoryButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
@@ -562,8 +561,8 @@
             return;
         }
         MPOSITION = buttonIndex;
-        fix_position = (int)MPOSITION; //저장
-        [self firstInit ];
+        fix_position = MPOSITION; //저장
+        [self firstInit];
     }else{
         if(actionSheetNum == 4){
             if(buttonIndex == 9){
@@ -604,44 +603,47 @@
     NSString *dataStr;
     NSString *valueStr;
     NSInteger nIndex = sender.tag;
+    NSLog(@"%ld", nIndex);
+    NSLog(@"%@", sender);
     
     switch (nIndex){
-        case 0:
+        case 1:
             dataStr = @"Floral";
             valueStr = mTotalFloral;
             break;
-        case 2:
+        case 5:
             dataStr = @"Alcoholic";
             valueStr = mTotalAlcoholic;
             break;
-        case 3:
+        case 7:
             dataStr = @"Herb/Vegetative";
             valueStr = mTotalHerb;
             break;
-        case 4:
+        case 9:
             dataStr = @"Spice";
             valueStr = mTotalSpice;
             break;
-        case 5:
+        case 11:
             dataStr = @"Sweet";
             valueStr = mTotalSweet;
             break;
-        case 6:
+        case 13:
             dataStr = @"Nut";
             valueStr = mTotalNut;
             break;
-        case 7:
+        case 15:
             dataStr = @"Chocolate";
             valueStr = mTotalChocolate;
             break;
-        case 8:
+        case 17:
             dataStr = @"Grain/Cereal";
             valueStr = mTotalGrain;
             break;
-        case 9:
+        case 19:
             dataStr = @"Roast";
             valueStr = mTotalRoast;
             break;
+            /*
         case 10:
             dataStr = @"Savory";
             valueStr = mTotalSavory;
@@ -670,6 +672,7 @@
             dataStr = @"Acidity_Ne";
             valueStr = mTotalAcidity_Ne;
             break;
+             */
     }
     
     [self popupLoad:dataStr value:valueStr];

@@ -861,7 +861,7 @@
     NSInteger nIndex = sender.tag;
     
     switch (nIndex){
-        case 0:
+        case 1:
             dataStr = @"Floral";
             valueStr = mTotalFloral;
             break;

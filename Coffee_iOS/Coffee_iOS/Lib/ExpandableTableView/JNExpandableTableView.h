@@ -47,7 +47,6 @@ extern NSInteger JNExpandableTableViewNumberOfRowsInSection(JNExpandableTableVie
 - (NSIndexPath *)adjustedIndexPathFromTable:(NSIndexPath *)indexPath; // returns an adjusted indexPath that the table gave to the delegate/datasource
 - (NSIndexPath *)adjustedIndexPathFromDelegate:(NSIndexPath *)indexPath; // returns an adjusted indexPath that the delegate/datasource gave to the table
 
-
 @end
 
 NS_ASSUME_NONNULL_END
