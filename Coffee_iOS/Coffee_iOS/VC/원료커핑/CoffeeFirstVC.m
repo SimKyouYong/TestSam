@@ -37,7 +37,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     fix_position = 0;
+    cellCheckNum = 0;
+    
     UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"완료" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     
@@ -454,6 +457,8 @@
             TotalSavoryButton.tag = TotalSavory.tag;
             [TotalSavoryButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
             
+            cellCheckNum = 1;
+            
             return cell;
         }else if(indexPath.row == 2){
             static NSString *CellIdentifier = @"secondCell";
@@ -483,14 +488,16 @@
             
             [TotalChemicalButton addTarget:self action:@selector(TotalChemicalAction:) forControlEvents:UIControlEventTouchUpInside];
             
-            TotalFermentedButton.tag = 11;
+            TotalFermentedButton.tag = TotalFermented.tag;
             [TotalFermentedButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalGreenButton.tag = 12;
+            TotalGreenButton.tag = TotalGreen.tag;
             [TotalGreenButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalMustyButton.tag = 13;
+            TotalMustyButton.tag = TotalMusty.tag;
             [TotalMustyButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalRoastdefectButton.tag = 14;
+            TotalRoastdefectButton.tag = TotalRoastdefect.tag;
             [TotalRoastdefectButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 2;
             
             return cell;
         }else if(indexPath.row == 3){
@@ -507,10 +514,12 @@
             TotalAcidity_Po.text = mTotalAcidity_Po;//[tableDic objectForKey:@"acidity_po"];
             TotalAcidity_Ne.text = mTotalAcidity_Ne;//[tableDic objectForKey:@"acidity_ne"];
             
-            TotalAcidity_PoButton.tag = 15;
+            TotalAcidity_PoButton.tag = TotalAcidity_Po.tag;
             [TotalAcidity_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalAcidity_NeButton.tag = 16;
+            TotalAcidity_NeButton.tag = TotalAcidity_Ne.tag;
             [TotalAcidity_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 3;
             
             return cell;
         }
@@ -603,76 +612,81 @@
     NSString *dataStr;
     NSString *valueStr;
     NSInteger nIndex = sender.tag;
-    NSLog(@"%ld", nIndex);
-    NSLog(@"%@", sender);
     
-    switch (nIndex){
-        case 1:
-            dataStr = @"Floral";
-            valueStr = mTotalFloral;
-            break;
-        case 5:
-            dataStr = @"Alcoholic";
-            valueStr = mTotalAlcoholic;
-            break;
-        case 7:
-            dataStr = @"Herb/Vegetative";
-            valueStr = mTotalHerb;
-            break;
-        case 9:
-            dataStr = @"Spice";
-            valueStr = mTotalSpice;
-            break;
-        case 11:
-            dataStr = @"Sweet";
-            valueStr = mTotalSweet;
-            break;
-        case 13:
-            dataStr = @"Nut";
-            valueStr = mTotalNut;
-            break;
-        case 15:
-            dataStr = @"Chocolate";
-            valueStr = mTotalChocolate;
-            break;
-        case 17:
-            dataStr = @"Grain/Cereal";
-            valueStr = mTotalGrain;
-            break;
-        case 19:
-            dataStr = @"Roast";
-            valueStr = mTotalRoast;
-            break;
-            /*
-        case 10:
-            dataStr = @"Savory";
-            valueStr = mTotalSavory;
-            break;
-        case 11:
-            dataStr = @"fermented";
-            valueStr = mTotalFermented;
-            break;
-        case 12:
-            dataStr = @"Green/grassy";
-            valueStr = mTotalGreen;
-            break;
-        case 13:
-            dataStr = @"musty";
-            valueStr = mTotalMusty;
-            break;
-        case 14:
-            dataStr = @"Roast Defect";
-            valueStr = mTotalRoast;
-            break;
-        case 15:
-            dataStr = @"Acidity_Po";
-            valueStr = mTotalAcidity_Po;
-            break;
-        case 16:
-            dataStr = @"Acidity_Ne";
-            valueStr = mTotalAcidity_Ne;
-            break;
-             */
+    if(cellCheckNum == 1){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Floral";
+                valueStr = mTotalFloral;
+                break;
+            case 5:
+                dataStr = @"Alcoholic";
+                valueStr = mTotalAlcoholic;
+                break;
+            case 7:
+                dataStr = @"Herb/Vegetative";
+                valueStr = mTotalHerb;
+                break;
+            case 9:
+                dataStr = @"Spice";
+                valueStr = mTotalSpice;
+                break;
+            case 11:
+                dataStr = @"Sweet";
+                valueStr = mTotalSweet;
+                break;
+            case 13:
+                dataStr = @"Nut";
+                valueStr = mTotalNut;
+                break;
+            case 15:
+                dataStr = @"Chocolate";
+                valueStr = mTotalChocolate;
+                break;
+            case 17:
+                dataStr = @"Grain/Cereal";
+                valueStr = mTotalGrain;
+                break;
+            case 19:
+                dataStr = @"Roast";
+                valueStr = mTotalRoast;
+                break;
+            case 21:
+                dataStr = @"Savory";
+                valueStr = mTotalSavory;
+                break;
+        }
+    }else if(cellCheckNum == 2){
+        switch (nIndex){
+            case 1:
+                dataStr = @"fermented";
+                valueStr = mTotalFermented;
+                break;
+            case 5:
+                dataStr = @"Green/grassy";
+                valueStr = mTotalGreen;
+                break;
+            case 7:
+                dataStr = @"musty";
+                valueStr = mTotalMusty;
+                break;
+            case 9:
+                dataStr = @"Roast Defect";
+                valueStr = mTotalRoast;
+                break;
+        }
+        
+    }else if(cellCheckNum == 3){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Acidity_Po";
+                valueStr = mTotalAcidity_Po;
+                break;
+            case 3:
+                dataStr = @"Acidity_Ne";
+                valueStr = mTotalAcidity_Ne;
+                break;
+        }
     }
     
     [self popupLoad:dataStr value:valueStr];

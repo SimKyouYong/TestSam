@@ -93,6 +93,8 @@
     UILabel *TotalMouthfeel_Ne;
     
     NSInteger fix_position;
+    
+    NSInteger cellCheckNum;
 }
 
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *menualFirstTableView;

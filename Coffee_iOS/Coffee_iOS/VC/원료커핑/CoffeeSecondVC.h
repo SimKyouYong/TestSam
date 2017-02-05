@@ -46,6 +46,8 @@
     
     UILabel *TotalBalance_Po;
     UILabel *TotalBalance_Ne;
+    
+    NSInteger cellCheckNum;
 }
 @property (weak, nonatomic) IBOutlet JNExpandableTableView *coffeeSecondTableView;
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;

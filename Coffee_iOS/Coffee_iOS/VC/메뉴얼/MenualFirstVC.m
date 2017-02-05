@@ -30,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    cellCheckNum = 0;
+    
     UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"완료" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     
@@ -554,24 +556,26 @@
             
             [TotalFruityButton addTarget:self action:@selector(TotalFruityAction:) forControlEvents:UIControlEventTouchUpInside];
             
-            TotalFloralButton.tag = 0;
+            TotalFloralButton.tag = TotalFloral.tag;
             [TotalFloralButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalHerbButton.tag = 2;
+            TotalHerbButton.tag = TotalHerb.tag;
             [TotalHerbButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSpiceButton.tag = 3;
+            TotalSpiceButton.tag = TotalSpice.tag;
             [TotalSpiceButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSweetButton.tag = 4;
+            TotalSweetButton.tag = TotalSweet.tag;
             [TotalSweetButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalNutButton.tag = 5;
+            TotalNutButton.tag = TotalNut.tag;
             [TotalNutButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalChocolateButton.tag = 6;
+            TotalChocolateButton.tag = TotalChocolate.tag;
             [TotalChocolateButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalGrainButton.tag = 7;
+            TotalGrainButton.tag = TotalGrain.tag;
             [TotalGrainButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalRoastButton.tag = 8;
+            TotalRoastButton.tag = TotalRoast.tag;
             [TotalRoastButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalSavoryButton.tag = 9;
+            TotalSavoryButton.tag = TotalSavory.tag;
             [TotalSavoryButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 1;
             
             return cell;
         }else if(indexPath.row == 2){
@@ -602,14 +606,16 @@
             
             [TotalChemicalButton addTarget:self action:@selector(TotalChemicalAction:) forControlEvents:UIControlEventTouchUpInside];
             
-            TotalFermentedButton.tag = 10;
+            TotalFermentedButton.tag = TotalFermented.tag;
             [TotalFermentedButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalGreenButton.tag = 11;
+            TotalGreenButton.tag = TotalGreen.tag;
             [TotalGreenButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalMustyButton.tag = 12;
+            TotalMustyButton.tag = TotalMusty.tag;
             [TotalMustyButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalRoastdefectButton.tag = 13;
+            TotalRoastdefectButton.tag = TotalRoastdefect.tag;
             [TotalRoastdefectButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 2;
             
             return cell;
         }else if(indexPath.row == 3){
@@ -626,10 +632,12 @@
             TotalAcidity_Po.text = mTotalAcidity_Po;//[tableDic objectForKey:@"acidity_po"];
             TotalAcidity_Ne.text = mTotalAcidity_Ne;//[tableDic objectForKey:@"acidity_ne"];
             
-            TotalAcidity_PoButton.tag = 14;
+            TotalAcidity_PoButton.tag = TotalAcidity_Po.tag;
             [TotalAcidity_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalAcidity_NeButton.tag = 15;
+            TotalAcidity_NeButton.tag = TotalAcidity_Ne.tag;
             [TotalAcidity_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 3;
             
             return cell;
         }else if(indexPath.row == 4){
@@ -646,10 +654,12 @@
             TotalAftertaste_Po.text = mTotalAftertaste_Po;//[tableDic objectForKey:@"aftertaste_po"];
             TotalAftertaste_Ne.text = mTotalAftertaste_Ne;//[tableDic objectForKey:@"aftertaste_ne"];
             
-            TotalAftertaste_PoButton.tag = 16;
+            TotalAftertaste_PoButton.tag = TotalAftertaste_Po.tag;
             [TotalAftertaste_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalAftertaste_NeButton.tag = 17;
+            TotalAftertaste_NeButton.tag = TotalAftertaste_Ne.tag;
             [TotalAftertaste_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 4;
             
             return cell;
         }else if(indexPath.row == 5){
@@ -670,12 +680,14 @@
             TotalBody_Me.text = mTotalBody_Me;//[tableDic objectForKey:@"body_medium"];
             TotalBody_He.text = mTotalBody_He;//[tableDic objectForKey:@"body_heavy"];
             
-            TotalBody_LiButton.tag = 18;
+            TotalBody_LiButton.tag = TotalBody_Li.tag;
             [TotalBody_LiButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalBody_MeButton.tag = 19;
+            TotalBody_MeButton.tag = TotalBody_Me.tag;
             [TotalBody_MeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalBody_HeButton.tag = 20;
+            TotalBody_HeButton.tag = TotalBody_He.tag;
             [TotalBody_HeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 5;
             
             return cell;
         }else if(indexPath.row == 6){
@@ -692,10 +704,12 @@
             TotalBalance_Po.text = mTotalBalance_Po;//[tableDic objectForKey:@"balance_po"];
             TotalBalance_Ne.text = mTotalBalance_Ne;//[tableDic objectForKey:@"balance_ne"];
             
-            TotalBalance_PoButton.tag = 21;
+            TotalBalance_PoButton.tag = TotalBalance_Po.tag;
             [TotalBalance_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalBalance_NeButton.tag = 22;
+            TotalBalance_NeButton.tag = TotalBalance_Ne.tag;
             [TotalBalance_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 6;
             
             return cell;
         }else if(indexPath.row == 7){
@@ -712,10 +726,12 @@
             TotalMouthfeel_Po.text = mTotalMouthfeel_Po;//[tableDic objectForKey:@"mouthfeel_po"];
             TotalMouthfeel_Ne.text = mTotalMouthfeel_Ne;//[tableDic objectForKey:@"mouthfeel_ne"];
             
-            TotalMouthfeel_PoButton.tag = 23;
+            TotalMouthfeel_PoButton.tag = TotalMouthfeel_Po.tag;
             [TotalMouthfeel_PoButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
-            TotalMouthfeel_NeButton.tag = 24;
+            TotalMouthfeel_NeButton.tag = TotalMouthfeel_Ne.tag;
             [TotalMouthfeel_NeButton addTarget:self action:@selector(ToTalCommonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cellCheckNum = 7;
             
             return cell;
         }
@@ -772,103 +788,123 @@
     NSString *valueStr;
     NSInteger nIndex = sender.tag;
     
-    switch (nIndex){
-        case 0:
-            dataStr = @"Floral";
-            valueStr = mTotalFloral;
-            break;
-        case 2:
-            dataStr = @"Herb/Vegetative";
-            valueStr = mTotalHerb;
-            break;
-        case 3:
-            dataStr = @"Spice";
-            valueStr = mTotalSpice;
-            break;
-        case 4:
-            dataStr = @"Sweet";
-            valueStr = mTotalSweet;
-            break;
-        case 5:
-            dataStr = @"Nut";
-            valueStr = mTotalNut;
-            break;
-        case 6:
-            dataStr = @"Chocolate";
-            valueStr = mTotalChocolate;
-            break;
-        case 7:
-            dataStr = @"Grain/Cereal";
-            valueStr = mTotalGrain;
-            break;
-        case 8:
-            dataStr = @"Roast";
-            valueStr = mTotalRoast;
-            break;
-        case 9:
-            dataStr = @"Savory";
-            valueStr = mTotalSavory;
-            break;
-        case 10:
-            dataStr = @"fermented";
-            valueStr = mTotalFermented;
-            break;
-        case 11:
-            dataStr = @"Green/grassy";
-            valueStr = mTotalGreen;
-            break;
-        case 12:
-            dataStr = @"musty";
-            valueStr = mTotalMusty;
-            break;
-        case 13:
-            dataStr = @"Roast Defect";
-            valueStr = mTotalRoast;
-            break;
-        case 14:
-            dataStr = @"Acidity_Po";
-            valueStr = mTotalAcidity_Po;
-            break;
-        case 15:
-            dataStr = @"Acidity_Ne";
-            valueStr = mTotalAcidity_Ne;
-            break;
-        case 16:
-            dataStr = @"Aftertaste_Po";
-            valueStr = mTotalAftertaste_Po;
-            break;
-        case 17:
-            dataStr = @"Aftertaste_Ne";
-            valueStr = mTotalAftertaste_Ne;
-            break;
-        case 18:
-            dataStr = @"Body_Light";
-            valueStr = mTotalBody_Li;
-            break;
-        case 19:
-            dataStr = @"Body_Medium";
-            valueStr = mTotalBody_Me;
-            break;
-        case 20:
-            dataStr = @"Body_Heavy";
-            valueStr = mTotalBody_He;
-            break;
-        case 21:
-            dataStr = @"Balance_Po";
-            valueStr = mTotalBalance_Po;
-            break;
-        case 22:
-            dataStr = @"Balance_Ne";
-            valueStr = mTotalBalance_Ne;
-            break;
-        case 23:
-            dataStr = @"Mouthfeel_Po";
-            valueStr = mTotalMouthfeel_Po;
-            break;
-        case 24:
-            dataStr = @"Mouthfeel_Ne";
-            valueStr = mTotalMouthfeel_Ne;
-            break;
+    if(cellCheckNum == 1){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Floral";
+                valueStr = mTotalFloral;
+                break;
+            case 5:
+                dataStr = @"Herb/Vegetative";
+                valueStr = mTotalHerb;
+                break;
+            case 7:
+                dataStr = @"Spice";
+                valueStr = mTotalSpice;
+                break;
+            case 9:
+                dataStr = @"Sweet";
+                valueStr = mTotalSweet;
+                break;
+            case 11:
+                dataStr = @"Nut";
+                valueStr = mTotalNut;
+                break;
+            case 13:
+                dataStr = @"Chocolate";
+                valueStr = mTotalChocolate;
+                break;
+            case 15:
+                dataStr = @"Grain/Cereal";
+                valueStr = mTotalGrain;
+                break;
+            case 17:
+                dataStr = @"Roast";
+                valueStr = mTotalRoast;
+                break;
+            case 19:
+                dataStr = @"Savory";
+                valueStr = mTotalSavory;
+                break;
+        }
+    }else if(cellCheckNum == 2){
+        switch (nIndex){
+            case 1:
+                dataStr = @"fermented";
+                valueStr = mTotalFermented;
+                break;
+            case 5:
+                dataStr = @"Green/grassy";
+                valueStr = mTotalGreen;
+                break;
+            case 7:
+                dataStr = @"musty";
+                valueStr = mTotalMusty;
+                break;
+            case 9:
+                dataStr = @"Roast Defect";
+                valueStr = mTotalRoast;
+                break;
+        }
+    }else if(cellCheckNum == 3){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Acidity_Po";
+                valueStr = mTotalAcidity_Po;
+                break;
+            case 3:
+                dataStr = @"Acidity_Ne";
+                valueStr = mTotalAcidity_Ne;
+                break;
+        }
+    }else if(cellCheckNum == 4){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Aftertaste_Po";
+                valueStr = mTotalAftertaste_Po;
+                break;
+            case 3:
+                dataStr = @"Aftertaste_Ne";
+                valueStr = mTotalAftertaste_Ne;
+                break;
+        }
+    }else if(cellCheckNum == 5){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Body_Light";
+                valueStr = mTotalBody_Li;
+                break;
+            case 3:
+                dataStr = @"Body_Medium";
+                valueStr = mTotalBody_Me;
+                break;
+            case 5:
+                dataStr = @"Body_Heavy";
+                valueStr = mTotalBody_He;
+                break;
+        }
+    }else if(cellCheckNum == 6){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Balance_Po";
+                valueStr = mTotalBalance_Po;
+                break;
+            case 3:
+                dataStr = @"Balance_Ne";
+                valueStr = mTotalBalance_Ne;
+                break;
+        }
+    }else if(cellCheckNum == 7){
+        switch (nIndex){
+            case 1:
+                dataStr = @"Mouthfeel_Po";
+                valueStr = mTotalMouthfeel_Po;
+                break;
+            case 3:
+                dataStr = @"Mouthfeel_Ne";
+                valueStr = mTotalMouthfeel_Ne;
+                break;
+        }
     }
     
     [self popupLoad:dataStr value:valueStr];
