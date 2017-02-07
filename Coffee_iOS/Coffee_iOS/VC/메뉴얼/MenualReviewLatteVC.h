@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenualReviewLatteVC : UIViewController{
+@interface MenualReviewLatteVC : UIViewController<UIActionSheetDelegate>{
     // 상세뷰로 넘길 값
     NSInteger sampleIndexValue;
     NSInteger detailCount;
@@ -24,6 +24,8 @@
     //추가
     NSUInteger mPosition;
     NSUInteger mSample_idx;
+    
+    NSString *mUserID;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *menualReviewLatteScrollView;

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UZo-wZ-qJt">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -8192,8 +8192,7 @@
                         <outlet property="noteTextView" destination="VsI-AA-voE" id="0c3-lZ-Re8"/>
                         <outlet property="sweetnessButton" destination="ray-XH-u3U" id="U6d-M0-WFe"/>
                         <outlet property="topTitle" destination="Bqx-T5-8iD" id="7JC-zm-r81"/>
-                        <segue destination="s8S-de-Dg1" kind="push" identifier="menual2" id="DNT-3W-8Wv"/>
-                        <segue destination="whb-5g-Yuo" kind="push" identifier="menualTabPush" id="HVL-7g-acH"/>
+                        <segue destination="whb-5g-Yuo" kind="push" identifier="menual2" id="HVL-7g-acH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4e-eb-VJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8424,6 +8423,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-kl-wix">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUa-aj-OIJ">
+                                        <rect key="frame" x="10" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="9Gm-3o-mlW"/>
+                                            <constraint firstAttribute="height" constant="40" id="Znk-LE-B8S"/>
+                                        </constraints>
+                                        <state key="normal" image="prev_button_80x80.png"/>
+                                        <connections>
+                                            <action selector="prevButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="rtj-tL-PaM"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-py-Ily">
                                         <rect key="frame" x="218" y="5" width="164" height="40"/>
                                         <constraints>
@@ -8435,11 +8445,27 @@
                                             <action selector="saveButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="CX5-vq-uE6"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efs-NY-qZl">
+                                        <rect key="frame" x="550" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LDX-LU-JcB"/>
+                                            <constraint firstAttribute="width" constant="40" id="RXn-Ao-dOe"/>
+                                        </constraints>
+                                        <state key="normal" image="next_button_80x80.png"/>
+                                        <connections>
+                                            <action selector="nextButton:" destination="sFx-ar-gYd" eventType="touchUpInside" id="dpT-RW-d9a"/>
+                                            <action selector="nextButton:" destination="whb-5g-Yuo" eventType="touchUpInside" id="teV-Ye-GPo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Fb-px-VSu"/>
                                     <constraint firstItem="RQK-py-Ily" firstAttribute="centerX" secondItem="Egh-kl-wix" secondAttribute="centerX" id="EVB-XK-Nc3"/>
+                                    <constraint firstAttribute="bottom" secondItem="wUa-aj-OIJ" secondAttribute="bottom" constant="5" id="RfT-Cy-zHe"/>
+                                    <constraint firstItem="wUa-aj-OIJ" firstAttribute="leading" secondItem="Egh-kl-wix" secondAttribute="leading" constant="10" id="ao9-w1-Phy"/>
+                                    <constraint firstAttribute="bottom" secondItem="efs-NY-qZl" secondAttribute="bottom" constant="5" id="bzL-kG-GZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="efs-NY-qZl" secondAttribute="trailing" constant="10" id="cD9-2H-pVp"/>
                                     <constraint firstItem="RQK-py-Ily" firstAttribute="top" secondItem="Egh-kl-wix" secondAttribute="top" constant="5" id="ecK-4d-W2H"/>
                                 </constraints>
                             </view>
@@ -8473,11 +8499,12 @@
                         <outlet property="noteTextView" destination="B6U-Dx-6au" id="UMu-XK-UM1"/>
                         <outlet property="sweetnessButton" destination="F7t-Sr-crt" id="2W3-bC-9X8"/>
                         <outlet property="topTitle" destination="lTq-uS-rPV" id="luI-ko-Dre"/>
+                        <segue destination="s8S-de-Dg1" kind="push" identifier="menual3" id="ViW-OJ-oMo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVJ-1E-7d6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="2706"/>
+            <point key="canvasLocation" x="2574" y="2706"/>
         </scene>
         <!--Menual SecondVC-->
         <scene sceneID="gEn-F5-fw8">
@@ -8826,12 +8853,11 @@
                         <outlet property="noteTextView" destination="CDD-0U-wad" id="gUD-mm-d3l"/>
                         <outlet property="sweetnessButton" destination="PwL-Fc-SNi" id="kxa-qQ-Qw5"/>
                         <outlet property="toptitle" destination="gDR-hp-Nmw" id="XhD-xW-FaP"/>
-                        <segue destination="whb-5g-Yuo" kind="push" identifier="menual3" id="NQw-kp-gI4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wV9-eH-ifc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="2706"/>
+            <point key="canvasLocation" x="3580" y="2706"/>
         </scene>
         <!--Coffee SecondVC-->
         <scene sceneID="rha-KM-kGH">
@@ -10564,8 +10590,8 @@
                                     <action selector="closeButton:" destination="F8H-Ib-XQH" eventType="touchUpInside" id="hOT-BG-dXq"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ESC-0B-Lz2">
-                                <rect key="frame" x="15" y="60" width="570" height="499"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ESC-0B-Lz2">
+                                <rect key="frame" x="15" y="60" width="570" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -10620,9 +10646,11 @@
                                     <action selector="closeButton:" destination="juU-P8-hDV" eventType="touchUpInside" id="foK-nO-tzQ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="En2-X8-vso">
-                                <rect key="frame" x="15" y="60" width="570" height="499"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="En2-X8-vso">
+                                <rect key="frame" x="15" y="60" width="570" height="500"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="juU-P8-hDV" id="YIG-D2-Kfe"/>
                                     <outlet property="delegate" destination="juU-P8-hDV" id="eVW-zr-INd"/>
@@ -10673,9 +10701,11 @@
                                     <action selector="closeButton:" destination="reP-OM-htg" eventType="touchUpInside" id="cUQ-97-UFQ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-9R-gAm">
-                                <rect key="frame" x="15" y="60" width="570" height="499"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-9R-gAm">
+                                <rect key="frame" x="15" y="60" width="570" height="500"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="reP-OM-htg" id="szH-3J-FfL"/>
                                     <outlet property="delegate" destination="reP-OM-htg" id="XyL-QW-7FQ"/>
@@ -10773,10 +10803,9 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UR8-wh-sGD"/>
-        <segue reference="z46-k6-Gzv"/>
         <segue reference="Djf-dA-wbo"/>
-        <segue reference="NQw-kp-gI4"/>
+        <segue reference="z46-k6-Gzv"/>
+        <segue reference="UR8-wh-sGD"/>
         <segue reference="TJR-ST-dQU"/>
         <segue reference="vl0-I9-pZc"/>
     </inferredMetricsTieBreakers>

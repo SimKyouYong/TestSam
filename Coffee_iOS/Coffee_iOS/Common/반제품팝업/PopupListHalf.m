@@ -220,7 +220,7 @@
         [listArr addObject:@"flat"];
         
     }else if([name isEqualToString:@"Mouthfeel_Po"]){
-        [listArr addObject:@"smoth"];
+        [listArr addObject:@"smooth"];
         [listArr addObject:@"round"];
         [listArr addObject:@"creamy"];
         [listArr addObject:@"velvety"];

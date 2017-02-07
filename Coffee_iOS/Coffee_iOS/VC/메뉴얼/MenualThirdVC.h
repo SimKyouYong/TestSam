@@ -29,6 +29,8 @@
 
 - (IBAction)americanoButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
+- (IBAction)prevButton:(id)sender;
+- (IBAction)nextButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *coffeenessButton;
 - (IBAction)coffeenessButton:(id)sender;

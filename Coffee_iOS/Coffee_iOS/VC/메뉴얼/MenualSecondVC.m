@@ -235,7 +235,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     }else{
         //저장
-        NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
+        NSString *urlString = [NSString stringWithFormat:@"%@", HALF_SAVE];
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
         
@@ -298,7 +298,7 @@
 }
 
 - (IBAction)latteButton:(id)sender {
-    [self performSegueWithIdentifier:@"menual3" sender:sender];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)selectButton{

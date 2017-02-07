@@ -29,6 +29,7 @@
 @property (nonatomic) NSInteger countNum;
 // 버튼 번호 체크(하드코딩)
 @property (nonatomic) NSInteger buttonNum;
+@property (nonatomic) NSString  *ID;
 
 - (IBAction)closeButton:(id)sender;
 

@@ -45,6 +45,8 @@
     NSInteger sampleIndexValue;
     NSInteger detailCount;
     NSInteger buttonCheck;
+    
+    NSString *mUserID;
 }
 
 //점수판..(홀수 : my , 짝수 : 상대방 )

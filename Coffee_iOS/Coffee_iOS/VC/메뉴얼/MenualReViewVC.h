@@ -27,6 +27,8 @@
     NSInteger sampleIndexValue;
     NSInteger detailCount;
     NSInteger buttonCheck;
+    
+    NSString *mUserID;
 }
 
 //추가

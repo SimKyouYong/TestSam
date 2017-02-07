@@ -324,6 +324,14 @@
         vc.sampleIndex = sampleIndexValue;
         vc.countNum = detailCount;
         vc.buttonNum = buttonCheck;
+        
+        if (buttonCheck == 1 || buttonCheck == 3) {
+            //my
+            vc.ID = USER_ID;
+        }else{
+            //U
+            vc.ID = mUserID;//선택된 아이디값 넘겨줘야함!
+        }
     }
 }
 
@@ -337,6 +345,7 @@
 }
 
 - (IBAction)reviewDetailButton2:(id)sender {
+    sampleIndexValue = mSample_idx;
     buttonCheck = 2;
 
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
@@ -349,6 +358,7 @@
 }
 
 - (IBAction)reviewDetailButton4:(id)sender {
+    sampleIndexValue = mSample_idx;
     buttonCheck = 4;
 
     [self performSegueWithIdentifier:@"menualReviewDetail" sender:sender];
@@ -410,7 +420,8 @@
         
         NSDictionary *dic = [datas3 objectAtIndex:buttonIndex];
         NSString *name = [dic objectForKey:@"result_membername"];
-
+        mUserID = [dic objectForKey:@"result_memberid"];
+        
         NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&target_id=%@", REVIEW_URL4, USER_ID, (unsigned long)mSample_idx, [dic objectForKey:@"result_memberid"]];
         NSLog(@"SKY4 URL : %@" , urlString);
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -454,9 +465,7 @@
         }
         mPosition = buttonIndex;
         [self firstInit ];
-
     }
-
 }
 
 @end

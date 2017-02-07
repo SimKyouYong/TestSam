@@ -53,7 +53,7 @@
             NSLog(@"/*---------------------------------------*/");
             
             //원료커피 리뷰 -> 1번째 평가보기
-            if (buttonNum == 1) {
+            if (buttonNum == 1 || buttonNum == 2) {
                 [title_Arr addObject:@"POSITIVE"];
                 [title_Arr addObject:@"NEGATIVE"];
                 [title_Arr addObject:@"ACIDITY"];
@@ -162,7 +162,7 @@
                 [content_Arr addObject:acidity_total];
                 [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note1"]]];
                 
-            }else if(buttonNum == 3){
+            }else if(buttonNum == 3 || buttonNum == 4){
                 [title_Arr addObject:@"AFTERTASTE"];
                 [title_Arr addObject:@"BODY"];
                 [title_Arr addObject:@"BALANCE"];
@@ -208,10 +208,10 @@
                 [content_Arr addObject:balance_total];
                 [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note2"]]];
                 
-            }else if(buttonNum == 5){
+            }else if(buttonNum == 5 || buttonNum == 6){
                 [title_Arr addObject:@"MEMO"];
                 [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note3"]]];
-            }else if(buttonNum == 7){
+            }else if(buttonNum == 7 || buttonNum == 8){
                 [title_Arr addObject:@"MEMO"];
                 [content_Arr addObject:[NSString stringWithFormat:@"%@" , [dic objectForKey:@"note_total"]]];
             }
@@ -267,49 +267,43 @@
         cell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DetailCell"];
     }
     
-    if(buttonNum == 1){
+    if(buttonNum == 1 || buttonNum == 2){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         
-        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
-        cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
-    }else if(buttonNum == 2){
-        
-    }else if(buttonNum == 3){
-        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
-        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
-        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
-        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
 
-    }else if(buttonNum == 4){
-        
-    }else if(buttonNum == 5){
+    }else if(buttonNum == 3 || buttonNum == 4){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
-
-    }else if(buttonNum == 6){
         
-    }else if(buttonNum == 7){
+    }else if(buttonNum == 5 || buttonNum == 6){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
-
+        
+    }else if(buttonNum == 7 || buttonNum == 8){
+        cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
+        cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
+        NSString *myString = [content_Arr objectAtIndex:indexPath.row];
+        CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
+        cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
+        cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
     }
-
-//    if(indexPath.row % 2 == 0){
-//        cell.backgroundColor = [UIColor grayColor];
-//    }
+    
+    if(indexPath.row % 2 == 0){
+        cell.backgroundColor = [UIColor grayColor];
+    }
     
     return cell;
 }

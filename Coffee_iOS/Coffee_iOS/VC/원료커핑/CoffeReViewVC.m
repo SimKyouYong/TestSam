@@ -528,9 +528,8 @@
             vc.ID = USER_ID;
         }else{
             //U
-            vc.ID = USER_ID;//선택된 아이디값 넘겨줘야함!
+            vc.ID = mUserID;//선택된 아이디값 넘겨줘야함!
         }
-        
     }
 }
 
@@ -593,6 +592,7 @@
 
 - (IBAction)reviewDetailButton8:(id)sender {
     sampleIndexValue = mSample_idx;
+    buttonCheck = 8;
     [self performSegueWithIdentifier:@"coffeeReviewDetail" sender:sender];
 }
 

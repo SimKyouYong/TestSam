@@ -166,6 +166,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)prevButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)nextButton:(id)sender {
+    [self performSegueWithIdentifier:@"menual3" sender:sender];
+}
+
 - (IBAction)saveButton:(id)sender {
     NSString *urlString = [NSString stringWithFormat:@"%@", CUPPING_SAVE];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

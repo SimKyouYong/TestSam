@@ -21,6 +21,7 @@
 @synthesize sampleIndex;
 @synthesize countNum;
 @synthesize buttonNum;
+@synthesize ID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +32,7 @@
     content_Arr = [[NSMutableArray alloc] init];
     
     NSLog(@"%ld", sampleIndex);
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, USER_ID, (unsigned long)sampleIndex];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, ID, (unsigned long)sampleIndex];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -205,7 +206,7 @@
                 [content_Arr addObject:balance_total];
                 [content_Arr addObject:[dic objectForKey:@"note4"]];
                 
-            }else if(buttonNum == 3){
+            }else if(buttonNum == 3 || buttonNum == 4){
                 [title_Arr addObject:@"MEMO"];
                 [content_Arr addObject:[dic objectForKey:@"note4"]];
             }
@@ -261,26 +262,21 @@
         cell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DetailCell"];
     }
     
-    if(buttonNum == 1){
+    if(buttonNum == 1 || buttonNum == 2){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
-
-    }else if(buttonNum == 2){
         
-    }else if(buttonNum == 3){
+    }else if(buttonNum == 3 || buttonNum == 4){
         cell.contentTitle.text = [title_Arr objectAtIndex:indexPath.row];
         cell.contentText.text = [content_Arr objectAtIndex:indexPath.row];
         NSString *myString = [content_Arr objectAtIndex:indexPath.row];
         CGSize labelSize = [myString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}];
         cell.contentText.frame = CGRectMake(10, 30, WIDTH_FRAME - 20, labelSize.height);
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
-
-    }else if(buttonNum == 4){
-        
     }
     
     if(indexPath.row % 2 == 0){

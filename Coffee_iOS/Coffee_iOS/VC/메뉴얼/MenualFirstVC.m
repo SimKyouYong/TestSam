@@ -207,10 +207,6 @@
     {
         
     }
-    if ([[segue identifier] isEqualToString:@"menualTabPush"])
-    {
-        
-    }
 }
 
 #pragma mark -
@@ -271,7 +267,7 @@
 }
 
 - (IBAction)latteButton:(id)sender {
-    [self performSegueWithIdentifier:@"menualTabPush" sender:sender];
+    [self performSegueWithIdentifier:@"menual2" sender:sender];
 }
 
 - (IBAction)acidityButton:(id)sender {
