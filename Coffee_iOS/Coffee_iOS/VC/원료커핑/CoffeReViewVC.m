@@ -661,13 +661,95 @@
                 _mDetail4Btn10.text = [dic objectForKey:@"body_point"];
                 _mDetail4Btn12.text = [dic objectForKey:@"balance_point"];
                 _mDetail4Btn14.text = [dic objectForKey:@"overall_point"];
-                _mDetail4Btn16.text = [dic objectForKey:@"uniformity_point"];
-                _mDetail4Btn18.text = [dic objectForKey:@"cleancup_point"];
-                _mDetail4Btn20.text = [dic objectForKey:@"sweetness_point"];
+                
+                float _mDetail4Btn16_Point = [[dic objectForKey:@"cup1"] floatValue] + [[dic objectForKey:@"cup2"] floatValue] + [[dic objectForKey:@"cup3"] floatValue] + [[dic objectForKey:@"cup4"] floatValue] + [[dic objectForKey:@"cup5"] floatValue];
+                float _mDetail4Btn18_Point = [[dic objectForKey:@"cup6"] floatValue] + [[dic objectForKey:@"cup7"] floatValue] + [[dic objectForKey:@"cup8"] floatValue] + [[dic objectForKey:@"cup9"] floatValue] + [[dic objectForKey:@"cup10"] floatValue];
+                float _mDetail4Btn20_Point = [[dic objectForKey:@"cup11"] floatValue] + [[dic objectForKey:@"cup12"] floatValue] + [[dic objectForKey:@"cup13"] floatValue] + [[dic objectForKey:@"cup14"] floatValue] + [[dic objectForKey:@"cup15"] floatValue];
+                _mDetail4Btn16.text = [NSString stringWithFormat:@"%.1f", _mDetail4Btn16_Point * 2];
+                _mDetail4Btn18.text = [NSString stringWithFormat:@"%.1f", _mDetail4Btn18_Point * 2];
+                _mDetail4Btn20.text = [NSString stringWithFormat:@"%.1f", _mDetail4Btn20_Point * 2];
                 if (buttonIndex == 0) {
                     _topAvrLabel.text =[NSString stringWithFormat:@"AVR(%lu)명" , ([datas3 count]-1)] ;
                 }else{
                     _topAvrLabel.text =[NSString stringWithFormat:@"%@" , name] ;
+                }
+                
+                if ([[dic objectForKey:@"cup1"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn2_1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn2_1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup2"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn2_2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn2_2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup3"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn2_3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn2_3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup4"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn2_4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn2_4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup5"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn2_5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn2_5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                
+                if ([[dic objectForKey:@"cup6"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn4_1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn4_1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup7"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn4_2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn4_2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup8"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn4_3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn4_3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup9"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn4_4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn4_4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup10"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn4_5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn4_5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                
+                if ([[dic objectForKey:@"cup11"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn6_1 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn6_1 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup12"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn6_2 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn6_2 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup13"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn6_3 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn6_3 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup14"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn6_4 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn6_4 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
+                }
+                if ([[dic objectForKey:@"cup15"] isEqualToString:@"1"]) {
+                    [_mDetail4Btn6_5 setImage:[UIImage imageNamed:@"on_cup_icon_66x70"]];
+                } else{
+                    [_mDetail4Btn6_5 setImage:[UIImage imageNamed:@"off_cup_icon_66x70"]];
                 }
                 
             }else{
