@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *reviewSamplesTableView;
 
 - (IBAction)backButton:(id)sender;
+- (IBAction)linkButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *tab1Button;
 - (IBAction)tab1Button:(id)sender;

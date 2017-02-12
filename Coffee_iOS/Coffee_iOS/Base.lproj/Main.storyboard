@@ -402,6 +402,17 @@
                                             <constraint firstAttribute="width" constant="134" id="VKd-Qr-eDy"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jI9-G0-VLw">
+                                        <rect key="frame" x="550" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6db-qS-Fhb"/>
+                                            <constraint firstAttribute="height" constant="40" id="G3T-lm-vRw"/>
+                                        </constraints>
+                                        <state key="normal" image="main_btn_search.png"/>
+                                        <connections>
+                                            <action selector="linkButton:" destination="1WA-7t-sLq" eventType="touchUpInside" id="yII-17-LBL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
@@ -409,8 +420,10 @@
                                     <constraint firstItem="fUo-ya-ezP" firstAttribute="top" secondItem="omO-F9-6D9" secondAttribute="top" constant="10" id="KW9-tj-Zgz"/>
                                     <constraint firstItem="GFZ-It-fET" firstAttribute="top" secondItem="omO-F9-6D9" secondAttribute="top" constant="16" id="Q0l-sG-nwy"/>
                                     <constraint firstAttribute="height" constant="60" id="RpY-Hj-y37"/>
+                                    <constraint firstAttribute="trailing" secondItem="jI9-G0-VLw" secondAttribute="trailing" constant="10" id="c60-P6-gko"/>
                                     <constraint firstItem="GFZ-It-fET" firstAttribute="centerX" secondItem="omO-F9-6D9" secondAttribute="centerX" id="dJJ-jb-EbY"/>
                                     <constraint firstAttribute="bottom" secondItem="GFZ-It-fET" secondAttribute="bottom" constant="16" id="hKN-pQ-68G"/>
+                                    <constraint firstItem="jI9-G0-VLw" firstAttribute="top" secondItem="omO-F9-6D9" secondAttribute="top" constant="10" id="nYc-zq-OSy"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-zy-54S">
@@ -2440,11 +2453,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jgR-7j-PYh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="njj-1g-D7T">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="yov-33-IDL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdL-2K-Qri">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -2490,10 +2503,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFV-2o-YIp">
-                                <rect key="frame" x="0.0" y="100" width="600" height="1900"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyG-mc-6kx">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsu-z9-P5Z">
@@ -3617,7 +3630,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="IQN-5M-2A4"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="2000"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="Title" destination="e92-8N-Qhd" id="6go-mh-pu0"/>
                         <outlet property="coffeeReviewScrollView" destination="HFV-2o-YIp" id="5Hp-xt-71u"/>
@@ -10759,6 +10772,7 @@
         <image name="login_button_480x80.png" width="240" height="40"/>
         <image name="login_input_field_bg_480x80.png" width="240" height="40"/>
         <image name="main_btn_home.png" width="40" height="40"/>
+        <image name="main_btn_search.png" width="40" height="40"/>
         <image name="main_logo2.png" width="268" height="54"/>
         <image name="menual_bad.png" width="60" height="52"/>
         <image name="ne2_button_330x80.png" width="165" height="40"/>
@@ -10803,10 +10817,10 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Djf-dA-wbo"/>
-        <segue reference="z46-k6-Gzv"/>
-        <segue reference="UR8-wh-sGD"/>
         <segue reference="TJR-ST-dQU"/>
+        <segue reference="iCp-1x-5vL"/>
+        <segue reference="hBd-4Z-YF5"/>
+        <segue reference="5fA-xh-9C8"/>
         <segue reference="vl0-I9-pZc"/>
     </inferredMetricsTieBreakers>
 </document>

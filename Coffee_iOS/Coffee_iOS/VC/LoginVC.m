@@ -62,9 +62,9 @@
         [defaults setObject:@"NO" forKey:AUTO_LOGIN];
     }
 }
-
+ 
 - (IBAction)loginButton:(id)sender {
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&pw=%@", LOGIN_URL, empText.text, passText.text];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&pw=%@&regkey=%@&os=ios", LOGIN_URL, empText.text, passText.text, [defaults stringForKey:TOKEN_KEY]];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     

@@ -139,6 +139,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)linkButton:(id)sender {
+    NSURL* url = [[NSURL alloc] initWithString:@"http://work.nexall.net/csearch.php"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (IBAction)tab1Button:(id)sender {
     [self listInitLoad:0];
     

@@ -13,6 +13,7 @@
 #define EMP_NUMBER              @"emp_number"
 #define PASSWORD                @"password"
 #define AUTO_LOGIN              @"auto_login"
+#define TOKEN_KEY               @"token_key"
 
 // URL
 #define LOGIN_URL               @"http://work.nexall.net/web/app/login.php"
