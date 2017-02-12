@@ -32,7 +32,7 @@
     content_Arr = [[NSMutableArray alloc] init];
     
     NSLog(@"%ld", sampleIndex);
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu", REVIEW_URL2, ID, (unsigned long)sampleIndex];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%lu&isreview=Y", REVIEW_URL2, ID, (unsigned long)sampleIndex];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

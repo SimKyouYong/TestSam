@@ -34,7 +34,7 @@
     total = 0;
     
     //통신 시작
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@&isreview=Y", SAMPLELIST_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

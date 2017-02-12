@@ -18,7 +18,6 @@
 #define LOGIN_URL               @"http://work.nexall.net/web/app/login.php"
 #define HOMELIST_URL            @"http://work.nexall.net/web/app/sess_list.php"
 #define SAMPLELIST_URL          @"http://work.nexall.net/web/app/sample_list.php"
-#define REVIEW_URL              @"http://work.nexall.net/web/app/sample_list.php"
 #define REVIEW_URL2             @"http://work.nexall.net/web/app/get_result.php"
 #define REVIEW_URL3             @"http://work.nexall.net/web/app/get_avr_result.php"
 #define REVIEW_URL4             @"http://work.nexall.net/web/app/get_member_result.php"
