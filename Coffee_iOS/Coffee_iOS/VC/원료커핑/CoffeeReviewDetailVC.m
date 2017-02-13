@@ -301,9 +301,9 @@
         cell.vi.frame = CGRectMake(0, labelSize.height+30, WIDTH_FRAME - 20, 20);
     }
     
-    if(indexPath.row % 2 == 0){
-        cell.backgroundColor = [UIColor grayColor];
-    }
+//    if(indexPath.row % 2 == 0){
+//        cell.backgroundColor = [UIColor grayColor];
+//    }
     
     return cell;
 }
