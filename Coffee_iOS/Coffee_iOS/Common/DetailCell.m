@@ -20,7 +20,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         
-        contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, WIDTH_FRAME - 30, 30)];
+        contentTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH_FRAME - 30, 30)];
         [contentTitle setBackgroundColor:[UIColor clearColor]];
         contentTitle.textColor = [UIColor redColor];
         contentTitle.textAlignment = NSTextAlignmentCenter;
