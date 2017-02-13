@@ -23,7 +23,6 @@
     [super viewDidLoad];
     
     NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", SAMPLE_WEB_URL, USER_ID, sampleIdx];
-    NSLog(@"%@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [sampleWebview loadRequest:request];
