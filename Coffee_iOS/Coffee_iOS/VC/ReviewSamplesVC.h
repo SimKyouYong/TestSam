@@ -27,4 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *tab3Button;
 - (IBAction)tab3Button:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *linkWebView;
+- (IBAction)linkWebViewCloseButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end

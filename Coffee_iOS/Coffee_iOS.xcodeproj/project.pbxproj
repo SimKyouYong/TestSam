@@ -277,6 +277,7 @@
 		6DE23CF31DF5455400075F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DE23CF51DF5455400075F8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DE23CFA1DF5455400075F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA821FAD1E519875000D7383 /* Coffee_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coffee_iOS.entitlements; sourceTree = "<group>"; };
 		FF0846821E15181000C478B3 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		FF0846831E15181000C478B3 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		FF3514CA1DF9A18D001008E0 /* MenualFirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenualFirstVC.h; sourceTree = "<group>"; };
@@ -530,6 +531,7 @@
 		6DE23CE81DF5455400075F8F /* Coffee_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EA821FAD1E519875000D7383 /* Coffee_iOS.entitlements */,
 				FFB38AD01E0AB97200F48A79 /* Lib */,
 				6D56BE511DF95583005E55BD /* Common */,
 				6D56BEB91DF95583005E55BD /* VC */,
@@ -685,6 +687,11 @@
 					6DE23CE51DF5455400075F8F = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

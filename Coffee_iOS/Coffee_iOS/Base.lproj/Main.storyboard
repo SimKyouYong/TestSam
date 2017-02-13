@@ -468,10 +468,44 @@
                                     <outlet property="delegate" destination="1WA-7t-sLq" id="sGc-Ih-1fO"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-1Q-vN6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6de-xT-50a">
+                                        <rect key="frame" x="550" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="aup-pa-cgy"/>
+                                            <constraint firstAttribute="width" constant="40" id="nWK-xs-8PJ"/>
+                                        </constraints>
+                                        <state key="normal" image="closeButton.png"/>
+                                        <connections>
+                                            <action selector="linkWebViewCloseButton:" destination="1WA-7t-sLq" eventType="touchUpInside" id="Egi-eU-Owd"/>
+                                        </connections>
+                                    </button>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSM-ES-pSJ">
+                                        <rect key="frame" x="0.0" y="40" width="600" height="560"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1WA-7t-sLq" id="LqQ-4b-dtB"/>
+                                        </connections>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="XSM-ES-pSJ" firstAttribute="top" secondItem="5wY-1Q-vN6" secondAttribute="top" constant="40" id="C6O-Tu-Ywr"/>
+                                    <constraint firstItem="XSM-ES-pSJ" firstAttribute="leading" secondItem="5wY-1Q-vN6" secondAttribute="leading" id="LFu-Xf-Vdp"/>
+                                    <constraint firstAttribute="trailing" secondItem="XSM-ES-pSJ" secondAttribute="trailing" id="QoD-NO-hAk"/>
+                                    <constraint firstItem="6de-xT-50a" firstAttribute="top" secondItem="5wY-1Q-vN6" secondAttribute="top" id="uXd-2S-AVL"/>
+                                    <constraint firstAttribute="bottom" secondItem="XSM-ES-pSJ" secondAttribute="bottom" id="vk5-xI-M9G"/>
+                                    <constraint firstAttribute="trailing" secondItem="6de-xT-50a" secondAttribute="trailing" constant="10" id="ygO-lG-2bs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bsv-wu-v3A" firstAttribute="leading" secondItem="QeP-6J-3r7" secondAttribute="leading" id="0AW-2p-ApK"/>
+                            <constraint firstAttribute="trailing" secondItem="5wY-1Q-vN6" secondAttribute="trailing" id="22G-on-dfE"/>
+                            <constraint firstItem="5wY-1Q-vN6" firstAttribute="leading" secondItem="QeP-6J-3r7" secondAttribute="leading" id="2Uf-bN-6KW"/>
                             <constraint firstItem="CqZ-eP-pbn" firstAttribute="width" secondItem="Ukz-zy-54S" secondAttribute="width" id="30X-F3-TVY"/>
                             <constraint firstItem="Bsv-wu-v3A" firstAttribute="top" secondItem="QeP-6J-3r7" secondAttribute="top" id="71h-Op-AW4"/>
                             <constraint firstItem="omO-F9-6D9" firstAttribute="top" secondItem="QeP-6J-3r7" secondAttribute="top" id="Acp-ta-wqD"/>
@@ -482,9 +516,11 @@
                             <constraint firstItem="XZn-Zw-UHf" firstAttribute="leading" secondItem="CqZ-eP-pbn" secondAttribute="trailing" id="Y8a-Xw-Rge"/>
                             <constraint firstItem="QmD-y8-JCA" firstAttribute="top" secondItem="zRw-hG-o4P" secondAttribute="bottom" id="YQ5-d1-YVT"/>
                             <constraint firstAttribute="trailing" secondItem="zRw-hG-o4P" secondAttribute="trailing" id="ine-63-R8T"/>
+                            <constraint firstItem="5wY-1Q-vN6" firstAttribute="top" secondItem="QeP-6J-3r7" secondAttribute="top" id="kjk-Mi-mOo"/>
                             <constraint firstItem="QmD-y8-JCA" firstAttribute="top" secondItem="Bsv-wu-v3A" secondAttribute="bottom" id="nLs-zN-7Kq"/>
                             <constraint firstAttribute="trailing" secondItem="Bsv-wu-v3A" secondAttribute="trailing" id="nLt-oG-sd5"/>
                             <constraint firstItem="Ukz-zy-54S" firstAttribute="leading" secondItem="QeP-6J-3r7" secondAttribute="leading" id="op0-MO-57c"/>
+                            <constraint firstItem="QmD-y8-JCA" firstAttribute="top" secondItem="5wY-1Q-vN6" secondAttribute="bottom" id="pBY-7X-JDc"/>
                             <constraint firstItem="CqZ-eP-pbn" firstAttribute="leading" secondItem="Ukz-zy-54S" secondAttribute="trailing" id="pJg-3o-JMy"/>
                             <constraint firstAttribute="trailing" secondItem="omO-F9-6D9" secondAttribute="trailing" id="qmS-lX-fpk"/>
                             <constraint firstItem="XZn-Zw-UHf" firstAttribute="width" secondItem="Ukz-zy-54S" secondAttribute="width" id="ruz-za-OuJ"/>
@@ -497,10 +533,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="linkWebView" destination="5wY-1Q-vN6" id="O5G-mY-Nz5"/>
                         <outlet property="reviewSamplesTableView" destination="zRw-hG-o4P" id="rUd-WI-Tuu"/>
                         <outlet property="tab1Button" destination="Ukz-zy-54S" id="J9u-Dr-1r7"/>
                         <outlet property="tab2Button" destination="CqZ-eP-pbn" id="DUw-nl-tVV"/>
                         <outlet property="tab3Button" destination="XZn-Zw-UHf" id="j5Q-7s-wBk"/>
+                        <outlet property="webView" destination="XSM-ES-pSJ" id="CDD-jC-Jy0"/>
                         <segue destination="DMv-tp-OIG" kind="push" identifier="sample_webview" id="HfB-xp-ae2"/>
                         <segue destination="DcM-9x-jR5" kind="push" identifier="coffeeReview_push" id="5fA-xh-9C8"/>
                         <segue destination="zaH-2P-f3X" kind="push" identifier="halfReview_push" id="iCp-1x-5vL"/>
@@ -10765,6 +10803,7 @@
         <image name="bogi_button_330x80.png" width="165" height="40"/>
         <image name="cleancup2_button_330x80.png" width="165" height="40"/>
         <image name="cleancup_button_330x80.png" width="165" height="40"/>
+        <image name="closeButton.png" width="55" height="55"/>
         <image name="coffeeness2_button_330x80.png" width="165" height="40"/>
         <image name="coffeeness_button_330x80.png" width="165" height="40"/>
         <image name="flavor2_button_330x80.png" width="165" height="40"/>

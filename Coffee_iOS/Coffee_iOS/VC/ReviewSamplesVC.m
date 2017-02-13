@@ -22,6 +22,8 @@
 @synthesize tab1Button;
 @synthesize tab2Button;
 @synthesize tab3Button;
+@synthesize linkWebView;
+@synthesize webView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -140,8 +142,12 @@
 }
 
 - (IBAction)linkButton:(id)sender {
-    NSURL* url = [[NSURL alloc] initWithString:@"http://work.nexall.net/csearch.php"];
-    [[UIApplication sharedApplication] openURL:url];
+    linkWebView.hidden = NO;
+    
+    NSString *urlString = @"http://work.nexall.net/csearch.php";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 
 - (IBAction)tab1Button:(id)sender {
@@ -192,6 +198,10 @@
     nextIdx = [dic objectForKey:@"sample_idx"];
     
     [self performSegueWithIdentifier:@"sample_webview" sender:sender];
+}
+
+- (IBAction)linkWebViewCloseButton:(id)sender {
+    linkWebView.hidden = YES;
 }
 
 @end
