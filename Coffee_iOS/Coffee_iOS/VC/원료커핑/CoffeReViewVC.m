@@ -432,7 +432,7 @@
     NSString *sweetness_point =                [dic_result3 objectForKey:@"sweetness_point"];
     //NSString *ne_point =                [dic_result3 objectForKey:@"ne_point"];
     //NSString *pe_point =               [dic_result3 objectForKey:@"pe_point"];
-    NSString *total_cnt =               [dic_result3 objectForKey:@"result_cnt"];
+    NSString *total_cnt =               [dic_result3 objectForKey:@"total_cnt"];
     
     mResult_cnt = [dic_result3 objectForKey:@"result_cnt"];
     
