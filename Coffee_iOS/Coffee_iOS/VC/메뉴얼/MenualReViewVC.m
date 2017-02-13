@@ -219,6 +219,9 @@
 
 //상대방 셋팅
 - (void)Set3{
+    NSDictionary *dic = [datas3 objectAtIndex:0];
+    mUserID = [dic objectForKey:@"result_memberid"];
+    
     // 기존 화면들어왔을때 평균값 뿌려주기
     acidityRightText.text = ([dic_result3 objectForKey:@"acidity_point"]);
     sweetnessRightText.text = ([dic_result3 objectForKey:@"sweetness_point"]);

@@ -225,8 +225,10 @@
 
 //상대방 셋팅
 - (void)Set3{
-    // 기존 화면들어왔을때 평균값 뿌려주기
+    NSDictionary *dic = [datas3 objectAtIndex:0];
+    mUserID = [dic objectForKey:@"result_memberid"];
     
+    // 기존 화면들어왔을때 평균값 뿌려주기
     _reviewText2.text = ([dic_result3 objectForKey:@"coffeeness_point"]);
     _reviewText4.text = ([dic_result3 objectForKey:@"balance_point"]);
     _reviewText6.text = ([dic_result3 objectForKey:@"sweetness_point"]);

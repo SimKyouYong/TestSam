@@ -39,7 +39,7 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(selectButton_top)];
     [_topAvrLabel addGestureRecognizer:tapGesture_top];
-
+    
     [self firstInit ];
 }
 
@@ -419,6 +419,8 @@
 
 //상대방 셋팅
 - (void)Set3{
+    NSDictionary *dic = [datas3 objectAtIndex:0];
+    mUserID = [dic objectForKey:@"result_memberid"];
     
     NSString *aroma_point =              [dic_result3 objectForKey:@"aroma_point"];
     NSString *flavor_point =      [dic_result3 objectForKey:@"flavor_point"];
