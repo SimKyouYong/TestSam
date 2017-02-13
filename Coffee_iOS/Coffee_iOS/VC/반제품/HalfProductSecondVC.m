@@ -178,31 +178,31 @@
             if([@"Y" isEqualToString:[dic objectForKey:@"isok"]]){
                 mOkNotokflag = YES;
                 mOkflag = NO;
-                mPassBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                mRetestBtn.backgroundColor = [UIColor colorWithRed:135/255.0
                                                            green:13/255.0
                                                             blue:32/255.0
                                                            alpha:1.0];
-                [mPassBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                mRetestBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                [mRetestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                mPassBtn.backgroundColor = [UIColor colorWithRed:228/255.0
                                                              green:228/255.0
                                                               blue:228/255.0
                                                              alpha:1.0];
-                [mRetestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                [mPassBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             }else if([@"" isEqualToString:[dic objectForKey:@"isok"]]){
 
             }else{
                 mOkNotokflag = YES;
                 mOkflag = YES;
-                mRetestBtn.backgroundColor = [UIColor colorWithRed:135/255.0
+                mPassBtn.backgroundColor = [UIColor colorWithRed:135/255.0
                                                              green:13/255.0
                                                               blue:32/255.0
                                                              alpha:1.0];
-                [mRetestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                mPassBtn.backgroundColor = [UIColor colorWithRed:228/255.0
+                [mPassBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                mRetestBtn.backgroundColor = [UIColor colorWithRed:228/255.0
                                                            green:228/255.0
                                                             blue:228/255.0
                                                            alpha:1.0];
-                [mPassBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                [mRetestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
 
             }
         }else{
