@@ -687,7 +687,7 @@
 					6DE23CE51DF5455400075F8F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = AXEM97G277;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -987,7 +987,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Coffee_iOS/Coffee_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CK Corporations (AXEM97G277)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CK Corporations (AXEM97G277)";
 				DEVELOPMENT_TEAM = AXEM97G277;
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -995,8 +995,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = co.kr.sky.coffedev2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "74e99e6f-5283-41d5-af07-adadc09fad0c";
+				PROVISIONING_PROFILE_SPECIFIER = coffe_adhoc2;
 			};
 			name = Debug;
 		};
@@ -1007,7 +1007,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Coffee_iOS/Coffee_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CK Corporations (AXEM97G277)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CK Corporations (AXEM97G277)";
 				DEVELOPMENT_TEAM = AXEM97G277;
 				INFOPLIST_FILE = Coffee_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1015,8 +1015,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = co.kr.sky.coffedev2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "74e99e6f-5283-41d5-af07-adadc09fad0c";
+				PROVISIONING_PROFILE_SPECIFIER = coffe_adhoc2;
 			};
 			name = Release;
 		};
