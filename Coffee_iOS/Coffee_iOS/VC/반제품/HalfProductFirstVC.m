@@ -78,7 +78,7 @@
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@&isreview=Y", SAMPLELIST_URL, USER_ID, SESSIONID];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -123,7 +123,7 @@
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults synchronize];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@&isreview=Y", REVIEW_URL2, USER_ID, SAMPLE_IDX];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%@", REVIEW_URL2, USER_ID, SAMPLE_IDX];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

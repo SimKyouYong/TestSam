@@ -268,6 +268,17 @@
                                             <constraint firstAttribute="width" constant="134" id="whW-K9-b6J"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jq0-Y4-0cr">
+                                        <rect key="frame" x="550" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Vah-se-pP3"/>
+                                            <constraint firstAttribute="height" constant="40" id="eIl-QN-XfL"/>
+                                        </constraints>
+                                        <state key="normal" image="menu_button_40x40.png"/>
+                                        <connections>
+                                            <action selector="logoutButton:" destination="JIw-PV-11P" eventType="touchUpInside" id="X4E-iq-tYg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
@@ -276,7 +287,9 @@
                                     <constraint firstAttribute="height" constant="60" id="HP8-qo-QcB"/>
                                     <constraint firstItem="N6m-PC-C7r" firstAttribute="leading" secondItem="Jwp-kg-420" secondAttribute="leading" constant="10" id="f1f-Xa-EdW"/>
                                     <constraint firstAttribute="bottom" secondItem="pcH-0K-soo" secondAttribute="bottom" constant="16" id="r9p-1A-Bzr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jq0-Y4-0cr" secondAttribute="trailing" constant="10" id="tnS-WC-74P"/>
                                     <constraint firstItem="pcH-0K-soo" firstAttribute="centerX" secondItem="Jwp-kg-420" secondAttribute="centerX" id="uk8-ts-MSZ"/>
+                                    <constraint firstItem="Jq0-Y4-0cr" firstAttribute="top" secondItem="Jwp-kg-420" secondAttribute="top" constant="10" id="yz7-XM-BkU"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sW-zN-8Y7">
@@ -351,6 +364,7 @@
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="homeTableView" destination="bgy-Pn-Spa" id="02j-l4-4ub"/>
+                        <outlet property="logoutButton" destination="Jq0-Y4-0cr" id="Lg7-gk-7og"/>
                         <outlet property="tabButton1" destination="6sW-zN-8Y7" id="hAG-pi-Sr9"/>
                         <outlet property="tabButton2" destination="4bH-4s-Xv5" id="sef-Rm-BMF"/>
                         <outlet property="tabButton3" destination="oR5-N5-Zwy" id="f54-7L-RW1"/>
@@ -10739,6 +10753,7 @@
         <image name="main_btn_home.png" width="40" height="40"/>
         <image name="main_btn_search.png" width="40" height="40"/>
         <image name="main_logo2.png" width="268" height="54"/>
+        <image name="menu_button_40x40.png" width="20" height="20"/>
         <image name="menual_bad.png" width="60" height="52"/>
         <image name="ne2_button_330x80.png" width="165" height="40"/>
         <image name="ne_button_330x80.png" width="165" height="40"/>
@@ -10782,10 +10797,10 @@
         <image name="x_button_40x40.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckf-0M-DH3"/>
-        <segue reference="hBd-4Z-YF5"/>
+        <segue reference="UR8-wh-sGD"/>
+        <segue reference="z46-k6-Gzv"/>
+        <segue reference="Djf-dA-wbo"/>
         <segue reference="TJR-ST-dQU"/>
-        <segue reference="5fA-xh-9C8"/>
-        <segue reference="iCp-1x-5vL"/>
+        <segue reference="ckf-0M-DH3"/>
     </inferredMetricsTieBreakers>
 </document>

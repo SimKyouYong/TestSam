@@ -11,6 +11,9 @@
 #import "GlobalHeader.h"
 #import "GlobalObject.h"
 #import "ReviewWebviewVC.h"
+#import "CoffeReViewVC.h"
+#import "HalfProductReViewVC.h"
+#import "MenualReViewVC.h"
 
 @interface ReviewSamplesVC ()
 
@@ -88,6 +91,22 @@
     {
         ReviewWebviewVC *vc = [segue destinationViewController];
         vc.sampleIdx = nextIdx;
+    }
+    if ([[segue identifier] isEqualToString:@"coffeeReview_push"])
+    {
+        CoffeReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"&isreview=Y";
+        
+    }
+    if ([[segue identifier] isEqualToString:@"halfReview_push"])
+    {
+        HalfProductReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"&isreview=Y";
+    }
+    if ([[segue identifier] isEqualToString:@"menualReview_push"])
+    {
+        MenualReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"&isreview=Y";
     }
 }
 

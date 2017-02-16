@@ -88,6 +88,22 @@
     {
         
     }
+    if ([[segue identifier] isEqualToString:@"coffeeReview_push"])
+    {
+        CoffeReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"";
+        
+    }
+    if ([[segue identifier] isEqualToString:@"halfReview_push"])
+    {
+        HalfProductReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"";
+    }
+    if ([[segue identifier] isEqualToString:@"menualReview_push"])
+    {
+        MenualReViewVC *vc = [segue destinationViewController];
+        vc.isReviewValue = @"";
+    }
 }
 
 #pragma mark -
@@ -95,6 +111,10 @@
 
 - (IBAction)homeButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)logoutButton:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)tabButton1:(id)sender {

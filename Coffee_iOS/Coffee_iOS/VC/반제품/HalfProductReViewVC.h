@@ -92,4 +92,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *LB;
 @property (weak, nonatomic) IBOutlet UIButton *RB;
 
+@property (nonatomic) NSString  *isReviewValue;
+
 @end

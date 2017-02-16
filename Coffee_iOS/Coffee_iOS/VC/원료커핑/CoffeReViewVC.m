@@ -19,9 +19,11 @@
 
 @synthesize coffeeReviewScrollView;
 @synthesize Title;
+@synthesize isReviewValue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //초기 셋팅
     mResult_cnt = @"0";
     mPosition = 0;
@@ -40,11 +42,11 @@
                                             action:@selector(selectButton_top)];
     [_topAvrLabel addGestureRecognizer:tapGesture_top];
     
-    [self firstInit ];
+    [self firstInit];
 }
 
-- (void) firstInit{
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@", SAMPLELIST_URL, USER_ID, SESSIONID];
+- (void)firstInit{
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&opt=source&session_idx=%@%@", SAMPLELIST_URL, USER_ID, SESSIONID, isReviewValue];
     NSLog(@"SKY URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
@@ -108,7 +110,7 @@
 }
 
 - (void)Init:(NSInteger)position{
-    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld&isreview=Y", REVIEW_URL2, USER_ID, (long)position];
+    NSString *urlString = [NSString stringWithFormat:@"%@?id=%@&sample_idx=%ld%@", REVIEW_URL2, USER_ID, (long)position, isReviewValue];
     NSLog(@"SKY2 URL : %@" , urlString);
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

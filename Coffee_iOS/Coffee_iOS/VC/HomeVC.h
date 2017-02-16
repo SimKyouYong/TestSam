@@ -24,4 +24,7 @@
 - (IBAction)tabButton2:(id)sender;
 - (IBAction)tabButton3:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+- (IBAction)logoutButton:(id)sender;
+
 @end

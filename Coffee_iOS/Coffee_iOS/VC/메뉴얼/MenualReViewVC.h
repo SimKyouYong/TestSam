@@ -71,4 +71,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *topMyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topAvrLabel;
 
+@property (nonatomic) NSString  *isReviewValue;
+
 @end
